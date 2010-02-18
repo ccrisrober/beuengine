@@ -201,8 +201,9 @@
 		83E9135C112CFE6500C10195 /* BEUEnvironmentTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E9135B112CFE6500C10195 /* BEUEnvironmentTile.m */; };
 		83E9135E112CFF3900C10195 /* TestTile.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E9135D112CFF3900C10195 /* TestTile.png */; };
 		83E91364112D015C00C10195 /* BEUEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E91363112D015C00C10195 /* BEUEngine.m */; };
-		83E913B1112D0A2B00C10195 /* TestCharacterCoordinates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83E913AF112D0A2B00C10195 /* TestCharacterCoordinates.plist */; };
+		83E913B1112D0A2B00C10195 /* TestCharacterTexture.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83E913AF112D0A2B00C10195 /* TestCharacterTexture.plist */; };
 		83E913B2112D0A2B00C10195 /* TestCharacterTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E913B0112D0A2B00C10195 /* TestCharacterTexture.png */; };
+		83E913C2112D17D700C10195 /* BEUCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E913C1112D17D700C10195 /* BEUCharacter.m */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
 		DCCBF1B70F6022AE0040855A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */; };
@@ -421,8 +422,10 @@
 		83E9135D112CFF3900C10195 /* TestTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TestTile.png; path = ../textures/TestTile.png; sourceTree = SOURCE_ROOT; };
 		83E91362112D015C00C10195 /* BEUEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUEngine.h; sourceTree = "<group>"; };
 		83E91363112D015C00C10195 /* BEUEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUEngine.m; sourceTree = "<group>"; };
-		83E913AF112D0A2B00C10195 /* TestCharacterCoordinates.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TestCharacterCoordinates.plist; path = ../textures/TestCharacterCoordinates.plist; sourceTree = SOURCE_ROOT; };
+		83E913AF112D0A2B00C10195 /* TestCharacterTexture.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TestCharacterTexture.plist; path = ../textures/TestCharacterTexture.plist; sourceTree = SOURCE_ROOT; };
 		83E913B0112D0A2B00C10195 /* TestCharacterTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TestCharacterTexture.png; path = ../textures/TestCharacterTexture.png; sourceTree = SOURCE_ROOT; };
+		83E913C0112D17D700C10195 /* BEUCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacter.h; sourceTree = "<group>"; };
+		83E913C1112D17D700C10195 /* BEUCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacter.m; sourceTree = "<group>"; };
 		DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DC6640040F83B3EA000B3E49 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -531,6 +534,8 @@
 				83E9135B112CFE6500C10195 /* BEUEnvironmentTile.m */,
 				83E91362112D015C00C10195 /* BEUEngine.h */,
 				83E91363112D015C00C10195 /* BEUEngine.m */,
+				83E913C0112D17D700C10195 /* BEUCharacter.h */,
+				83E913C1112D17D700C10195 /* BEUCharacter.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -791,7 +796,7 @@
 				83E9135D112CFF3900C10195 /* TestTile.png */,
 				50F414ED1069373D002A0D5E /* fps_images.png */,
 				50F414EE1069373D002A0D5E /* Icon.png */,
-				83E913AF112D0A2B00C10195 /* TestCharacterCoordinates.plist */,
+				83E913AF112D0A2B00C10195 /* TestCharacterTexture.plist */,
 				83E913B0112D0A2B00C10195 /* TestCharacterTexture.png */,
 				50F414EF1069373D002A0D5E /* Info.plist */,
 			);
@@ -965,7 +970,7 @@
 				50F414F11069373D002A0D5E /* fps_images.png in Resources */,
 				50F414F21069373D002A0D5E /* Icon.png in Resources */,
 				83E9135E112CFF3900C10195 /* TestTile.png in Resources */,
-				83E913B1112D0A2B00C10195 /* TestCharacterCoordinates.plist in Resources */,
+				83E913B1112D0A2B00C10195 /* TestCharacterTexture.plist in Resources */,
 				83E913B2112D0A2B00C10195 /* TestCharacterTexture.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -984,6 +989,7 @@
 				83E91356112CFCD900C10195 /* BEUEnvironment.m in Sources */,
 				83E9135C112CFE6500C10195 /* BEUEnvironmentTile.m in Sources */,
 				83E91364112D015C00C10195 /* BEUEngine.m in Sources */,
+				83E913C2112D17D700C10195 /* BEUCharacter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

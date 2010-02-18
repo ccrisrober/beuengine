@@ -14,10 +14,17 @@
 
 -(id)init {
 	if( (self=[super init] )) {
-		for (int i = 0; i<3; i++) {
-			BEUEnvironmentTile *tile = [[BEUEnvironmentTile alloc] initWithFile:@"TestTile.png"];
-			[self addChild:tile];
-		}
+		BEUEnvironmentTile *tile = [[BEUEnvironmentTile alloc] initWithFile:@"TestTile.png"];
+		[self addChild:tile];
+			
+		BEUCharacter *character = [[BEUCharacter alloc] init];
+		NSLog([NSString stringWithFormat:@"%@",character]);
+		[self addChild:character];
+		
+		/*CCSprite *character = [CCSprite spriteWithFile:@"Icon.png" rect: CGRectMake(0,0,50,50)];
+		[self addChild:character];*/
+		
+		
 	}
 	
 	return self;

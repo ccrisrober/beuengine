@@ -1,5 +1,5 @@
 //
-//  BEUEngine.m
+//  BEUCharacter.h
 //  BEUEngine
 //
 //  Created by Chris Mele on 2/17/10.
@@ -8,3 +8,9 @@
 
 #import "BEUEngine.h"
 
+
+@interface BEUCharacter : CCSprite {
+
+}
+
+@end

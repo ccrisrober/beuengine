@@ -9,5 +9,6 @@
 #import "cocos2d.h"
 #import "BEUEnvironment.h"
 #import "BEUGame.h"
+#import "BEUCharacter.h"
 
 #import "BEUEnvironmentTile.h"
