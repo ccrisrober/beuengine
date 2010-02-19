@@ -13,29 +13,28 @@
 
 
 -(id)init {
+	[super init];
+	
 	
 	// loads the sprite frames from a Zwoptex generated file
-	/*[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"TestCharacterTexture.plist"];
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"TestCharacterTexture.plist"];
 	
 	NSMutableArray *animFrames = [NSMutableArray array];
-	for(int i = 0; i < 3; i++) {		
-		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"TestCharacter%02d.png",(i+1)]];
+	for(int i = 0; i < 3; i++) {
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"TestCharacterTexture%d.png",(i+1)]];
 		[animFrames addObject:frame];
+		
 	}
 	
-	CCAnimation *animation = [CCAnimation animationWithName:@"walk" delay:0.2f frames:animFrames];
-	
+	CCAnimation *animation = [CCAnimation animationWithName:@"dance" delay:0.2f frames:animFrames];	
 	[self addAnimation:animation];
 	
-	id action = [CCAnimate actionWithAnimation: animation];
-	id repeating = [CCRepeatForever actionWithAction:action];
+	CCAnimate *animate = [CCAnimate actionWithAnimation:animation];
+		 
+	CCAction *action = [CCRepeatForever actionWithAction:animate];
+	[self runAction:action];	
 	
-	[self runAction:repeating];*/
-	
-	CCSprite *body = [CCSprite spriteWithFile:@"Icon.png"
-										 rect:CGRectMake(0,0,60,60)];
-	self.textureRect = CGRectMake(0,0, 60, 60);
-	[self addChild:body];
+	self.anchorPoint = ccp(0.0f, 0.0f);
 	
 	return self;
 }

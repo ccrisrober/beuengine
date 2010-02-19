@@ -6,13 +6,18 @@
 //  Copyright 2010 Invulse. All rights reserved.
 //
 
-#import "BEUEngine.h"
+#import "BEUObject.h"
+#import "BEUCharacter.h"
+#import "BEUEnvironmentTile.h"
+#import "cocos2d.h"
 
 
-@interface BEUEnvironment : CCLayer {
+@interface BEUEnvironment : CCScene {
 	NSMutableArray *tiles;
 }
 
 @property(nonatomic,retain) NSMutableArray *tiles;
+
+-(void)addTile:(BEUEnvironmentTile *)tile;
 
 @end

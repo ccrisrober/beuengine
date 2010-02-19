@@ -7,7 +7,7 @@
 //
 
 
-#import "BEUEngine.h"
+#import "cocos2d.h"
 
 @interface BEUEnvironmentTile : CCSprite {
 

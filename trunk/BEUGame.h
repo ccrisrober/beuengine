@@ -6,12 +6,16 @@
 //  Copyright 2010 Invulse. All rights reserved.
 //
 
-#import "BEUEngine.h"
+#import "BEUEnvironment.h"
+#import "BEUInputLayer.h"
+
 @class BEUEnvironment;
 @interface BEUGame : CCScene {
 	BEUEnvironment *environment;
+	BEUInputLayer *inputLayer;
 }
 
 @property(nonatomic,retain) BEUEnvironment *environment;
+@property(nonatomic,retain) BEUInputLayer *inputLayer;
 
 @end

@@ -14,11 +14,11 @@
 
 -(id)init {
 	if( (self=[super init] )) {
+		
 		BEUEnvironmentTile *tile = [[BEUEnvironmentTile alloc] initWithFile:@"TestTile.png"];
-		[self addChild:tile];
-			
+		[self addTile:tile];
+		
 		BEUCharacter *character = [[BEUCharacter alloc] init];
-		NSLog([NSString stringWithFormat:@"%@",character]);
 		[self addChild:character];
 		
 		/*CCSprite *character = [CCSprite spriteWithFile:@"Icon.png" rect: CGRectMake(0,0,50,50)];
@@ -29,6 +29,28 @@
 	
 	return self;
 	
+}
+
+-(void)addTile:(BEUEnvironmentTile *)tile
+{
+	//tile.position = ccp(tile.contentSize.width*.5, tile.contentSize.height*.5);
+	
+	tile.anchorPoint = ccp(-0.0f, -0.0f);
+	[tiles addObject:tile];
+	
+	[self addChild:tile];
+	
+}
+
+-(void)dealloc
+{
+	for(BEUEnvironmentTile *tile in tiles){
+		[tile release];
+	}
+	
+	[tiles release];
+	
+	[super dealloc];
 }
 
 @end

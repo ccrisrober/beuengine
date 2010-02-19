@@ -10,5 +10,5 @@
 #import "BEUEnvironment.h"
 #import "BEUGame.h"
 #import "BEUCharacter.h"
-
+#import "BEUObject.h"
 #import "BEUEnvironmentTile.h"

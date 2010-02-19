@@ -6,11 +6,12 @@
 //  Copyright 2010 Invulse. All rights reserved.
 //
 
-#import "BEUEngine.h"
+#import "BEUObject.h"
 
-
-@interface BEUCharacter : CCSprite {
-
+@interface BEUCharacter : BEUObject {
+	NSNumber *life;
 }
+
+@property(nonatomic,retain) NSNumber *life;
 
 @end

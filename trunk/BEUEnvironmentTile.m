@@ -11,4 +11,11 @@
 
 @implementation BEUEnvironmentTile
 
+
+-(id)initWithFile:(NSString *)filename {
+	[super initWithFile:filename];
+	
+	return self;
+}
+
 @end
