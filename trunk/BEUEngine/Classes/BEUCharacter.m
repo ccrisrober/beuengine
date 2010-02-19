@@ -15,7 +15,13 @@
 -(id)init {
 	
 	// loads the sprite frames from a Zwoptex generated file
-	/*[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"TestCharacterTexture.plist"];
+	
+	[super init];
+	
+	/*CCSprite *body = [CCSprite spriteWithFile:@"TestCharacterTexture.png"
+										 rect:CGRectMake(0,0,60,60)];*/
+	
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"TestCharacterTexture.plist"];
 	
 	NSMutableArray *animFrames = [NSMutableArray array];
 	for(int i = 0; i < 3; i++) {		
@@ -30,12 +36,10 @@
 	id action = [CCAnimate actionWithAnimation: animation];
 	id repeating = [CCRepeatForever actionWithAction:action];
 	
-	[self runAction:repeating];*/
+	[self runAction:repeating];
 	
-	CCSprite *body = [CCSprite spriteWithFile:@"Icon.png"
-										 rect:CGRectMake(0,0,60,60)];
-	self.textureRect = CGRectMake(0,0, 60, 60);
-	[self addChild:body];
+	
+	//[self addChild:body];
 	
 	return self;
 }
