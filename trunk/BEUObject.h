@@ -12,6 +12,21 @@
 	CGFloat x;
 	CGFloat y;
 	CGFloat z;
+	
+	CGFloat moveX;
+	CGFloat moveY;
+	CGFloat moveZ;
+	
+	CGRect hitArea;
+	CGRect moveArea;
 }
+@property(nonatomic) CGFloat moveX;
+@property(nonatomic) CGFloat moveY;
+@property(nonatomic) CGFloat moveZ;
+@property(nonatomic) CGFloat x;
+@property(nonatomic) CGFloat y;
+@property(nonatomic) CGFloat z;
+@property(nonatomic) CGRect moveArea;
+@property(nonatomic) CGRect	hitArea;
 
 @end

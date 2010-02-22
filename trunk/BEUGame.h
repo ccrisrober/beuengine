@@ -10,6 +10,7 @@
 #import "BEUInputLayer.h"
 
 @class BEUEnvironment;
+
 @interface BEUGame : CCScene {
 	BEUEnvironment *environment;
 	BEUInputLayer *inputLayer;

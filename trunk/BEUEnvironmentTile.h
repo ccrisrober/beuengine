@@ -10,8 +10,13 @@
 #import "cocos2d.h"
 
 @interface BEUEnvironmentTile : CCSprite {
-
+	NSMutableArray *walls;
+	NSMutableArray *origWalls;
 }
 
+@property(nonatomic, retain) NSMutableArray *walls;
+@property(nonatomic, retain) NSMutableArray *origWalls;
+
+-(void)createTileWallsWithOffset:(CGPoint)offset;
 
 @end
