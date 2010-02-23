@@ -18,28 +18,34 @@
 	[super init];
 	
 	movementSpeed = 2;
+	
+	body = [[CCSprite alloc] init];
+	body.anchorPoint = ccp(0.5f,0.0f);
+	[self addChild:body];
 	// loads the sprite frames from a Zwoptex generated file
-	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"TestCharacterTexture.plist"];
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"TestCharacter.plist"];
 	
 	NSMutableArray *animFrames = [NSMutableArray array];
-	for(int i = 0; i < 3; i++) {
-		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"TestCharacterTexture%d.png",(i+1)]];
+	for(int i = 0; i < 6; i++) {
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"TestCharacter000%d.png",(i+1)]];
 		[animFrames addObject:frame];
 		
 	}
 	
-	CCAnimation *animation = [CCAnimation animationWithName:@"dance" delay:0.2f frames:animFrames];	
-	[self addAnimation:animation];
+	CCAnimation *animation = [CCAnimation animationWithName:@"walk" delay:0.1f frames:animFrames];	
+	[body addAnimation:animation];
 	
 	CCAnimate *animate = [CCAnimate actionWithAnimation:animation];
 		 
 	CCAction *action = [CCRepeatForever actionWithAction:animate];
-	[self runAction:action];	
+	[body runAction:action];
+	body.position = ccp(42.0f,0.0f);
 	
 	self.anchorPoint = ccp(0.0f, 0.0f);
 	
 	self.hitArea = CGRectMake(0, 0, 30, 60);
-	self.moveArea = CGRectMake(10, 0, 40, 20);
+	self.moveArea = CGRectMake(30, 0, 40, 20);
+	
 	return self;
 }
 
@@ -48,6 +54,34 @@
 	double moveSpeed = movementSpeed*percent;
 	moveX = cos(angle)*moveSpeed;
 	moveZ = sin(angle)*moveSpeed;
+}
+
+-(void)moveLeft
+{
+	body.scaleX = -1;
+}
+
+-(void)moveRight
+{
+	body.scaleX = 1;
+}
+
+-(void)standStill
+{
+	
+}
+
+-(void)step:(ccTime)delta
+{
+	[super step:delta];
+	
+	if(moveX < 0){
+		[self moveLeft];
+	} else if(moveX > 0){
+		[self moveRight];
+	} else {
+		[self standStill];
+	}
 }
 
 -(void)draw

@@ -40,9 +40,17 @@
 {
 	[tiles addObject:tile];
 	tile.position = ccp(self.contentSize.width, 0.0f);
-	[tile createTileWallsWithOffset:tile.position];
 	[self addChild:tile];
 	
+}
+
+-(void)updateTileWalls
+{
+	for(BEUEnvironmentTile *tile in tiles)
+	{
+		CGPoint offset = ccp(self.position.x, self.position.y);
+		[tile createTileWallsWithOffset:offset];
+	}
 }
 
 -(BOOL)doesRectCollideWithTilesWalls:(CGRect)objRect

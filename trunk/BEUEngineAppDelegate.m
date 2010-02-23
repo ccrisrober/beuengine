@@ -47,6 +47,8 @@
 	[[CCDirector sharedDirector] setAnimationInterval:1.0/60];
 	[[CCDirector sharedDirector] setDisplayFPS:YES];
 	
+	[[CCDirector sharedDirector] setProjection:CCDirectorProjection2D];
+	
 	// create an openGL view inside a window
 	[[CCDirector sharedDirector] attachInView:window];	
 	[window makeKeyAndVisible];		

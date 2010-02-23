@@ -34,17 +34,16 @@
 	
 	for(NSValue *wallVal in origWalls){
 		CGRect wall = [wallVal CGRectValue];
-		CGRect updatedWall = CGRectMake(wall.origin.x + offset.x, 
-										wall.origin.y + offset.y, 
+		CGRect updatedWall = CGRectMake(self.position.x + wall.origin.x + offset.x, 
+										self.position.y + wall.origin.y + offset.y, 
 										wall.size.width, 
 										wall.size.height);
 		[newWalls addObject:[NSValue valueWithCGRect:updatedWall]];
+	
 	}
 	
 	if(walls) [walls release];
 	walls = newWalls;
-	
-	NSLog(@"NewWalls:%@",newWalls);
 }
 
 -(void)draw

@@ -9,30 +9,42 @@
 #import "BEUObject.h"
 #import "BEUCharacter.h"
 #import "BEUEnvironmentTile.h"
+#import "BEUObjectController.h"
 #import "BEUArea.h"
 #import "BEUInputLayer.h"
 #import "cocos2d.h"
 @class BEUArea;
 @class BEUObject;
 @class BEUCharacter;
+@class BEUObjectController;
 
 @interface BEUEnvironment : CCLayer {
 	NSMutableArray *areas;
-	NSMutableArray *objects;
 	CGPoint centerPoint;
-	BEUCharacter *character;
 	BEUArea *currentArea;
+	
+	CCLayer *objectsLayer;
+	CCLayer *backgroundLayer;
+	CCLayer *foregroundLayer;
+	CCLayer *areasLayer;
 }
 
 @property(nonatomic,retain) NSMutableArray *areas;
 @property(nonatomic) CGPoint centerPoint;
-@property(nonatomic, retain) BEUCharacter *character;
 @property(nonatomic, retain) BEUArea *currentArea;
 
+@property(nonatomic,retain) CCLayer *objectsLayer;
+@property(nonatomic,retain) CCLayer *backgroundLayer;
+@property(nonatomic,retain) CCLayer *foregroundLayer;
+@property(nonatomic,retain) CCLayer *areasLayer;
+
 -(void)addArea:(BEUArea *)area;
--(void)addCharacter:(BEUCharacter *)character;
+-(void)addObject:(BEUObject *)obj;
+-(void)removeObject:(BEUObject *)obj;
 -(void)moveEnvironment;
--(void)moveObjects;
+
++(BEUEnvironment *)sharedEnvironment;
+
 -(void)step:(ccTime)delta;
 
 @end

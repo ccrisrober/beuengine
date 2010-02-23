@@ -19,6 +19,8 @@
 	
 	CGRect hitArea;
 	CGRect moveArea;
+	
+	double movementSpeed;
 }
 @property(nonatomic) CGFloat moveX;
 @property(nonatomic) CGFloat moveY;
@@ -28,5 +30,7 @@
 @property(nonatomic) CGFloat z;
 @property(nonatomic) CGRect moveArea;
 @property(nonatomic) CGRect	hitArea;
+
+-(void)step:(ccTime)delta;
 
 @end

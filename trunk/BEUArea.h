@@ -19,4 +19,5 @@
 -(id)initWithTiles:(NSMutableArray *)tiles;
 -(void)addTile:(BEUEnvironmentTile *)tile;
 -(BOOL)doesRectCollideWithTilesWalls:(CGRect)objRect;
+-(void)updateTileWalls;
 @end

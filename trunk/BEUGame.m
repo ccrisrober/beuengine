@@ -16,9 +16,8 @@
 	if( (self=[super init] )) {
 		
 		//ADD ENVIRONMENT TO THE STAGE
-		environment = [[BEUEnvironment alloc] init];
 		//environment.position = CGPointMake(environment.contentSize.width/2,environment.contentSize.height/2);
-		[self addChild:environment];
+		[self addChild:[BEUEnvironment sharedEnvironment]];
 		
 		
 		
@@ -30,11 +29,11 @@
 								 nil];
 			BEUArea *area = [[BEUArea alloc] initWithTiles:tiles];
 							
-			[environment addArea:area];
+			[[BEUEnvironment sharedEnvironment] addArea:area];
 		}
 		
 		BEUCharacter *character = [[BEUCharacter alloc] init];
-		[environment addCharacter:character];
+		[[BEUObjectController sharedController] setPlayerCharacter: character];
 		
 		
 		//ADD INPUT LAYER TO STAGE, ADD LAST
@@ -58,8 +57,8 @@
 - (void)step:(ccTime)delta
 {
 	[[self inputLayer] step:delta];
-	
-	[[self environment] step:delta];
+	[[BEUObjectController sharedController] step:delta];
+	[[BEUEnvironment sharedEnvironment] step:delta];
 }
 
 @end

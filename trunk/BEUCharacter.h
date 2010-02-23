@@ -10,10 +10,11 @@
 
 @interface BEUCharacter : BEUObject {
 	NSNumber *life;
-	double movementSpeed;
+	CCSprite *body;
 }
 
 @property(nonatomic,retain) NSNumber *life;
+@property(nonatomic,retain) CCSprite *body;
 
 -(void)moveCharacterWithAngle:(double)angle percent:(double)percent;
 

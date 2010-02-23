@@ -10,18 +10,42 @@
 
 
 @implementation BEUEnvironment
-@synthesize areas, character, centerPoint, currentArea;
+@synthesize areas, centerPoint, currentArea;
+@synthesize objectsLayer, backgroundLayer, foregroundLayer, areasLayer;
+
+static BEUEnvironment *_sharedEnvironment = nil;
+
 -(id)init {
 	if( (self=[super init] )) {
 		
-		objects = [[NSMutableArray alloc] init];
 		areas = [[NSMutableArray alloc] init];
 		
 		centerPoint = ccp([[CCDirector sharedDirector] winSize].width/2, [[CCDirector sharedDirector] winSize].height/2);
+	
+		backgroundLayer = [[CCLayer alloc] init];
+		[self addChild:backgroundLayer];
+		
+		areasLayer = [[CCLayer alloc] init];
+		[self addChild:areasLayer];
+		
+		objectsLayer = [[CCLayer alloc] init];
+		[self addChild:objectsLayer];
+		
+		foregroundLayer = [[CCLayer alloc] init];
+		[self addChild:foregroundLayer];
 	}
 	
 	return self;
 	
+}
+
++(BEUEnvironment *)sharedEnvironment
+{
+	if(!_sharedEnvironment){
+		_sharedEnvironment = [[BEUEnvironment alloc] init];
+	}
+	
+	return _sharedEnvironment;
 }
 
 -(void)addArea:(BEUArea *)area
@@ -35,94 +59,56 @@
 		
 		area.position = ccp(lastArea.position.x + lastArea.contentSize.width,0);
 	}
-	[self addChild:area];
+	[area updateTileWalls];
+	
+	[areasLayer addChild:area];
 	
 	[areas addObject:area];
 	
 }
 
--(void)addCharacter:(BEUCharacter *)character_
+-(void)addObject:(BEUObject *)obj
 {
-	self.character = character_;
-	[objects addObject:character_];
-	[self addChild:character_];
+	NSLog(@"ObjectSize: %1.2f,%1.2f,%1.2f,%1.2f",obj.position.x,obj.position.y,obj.contentSize.width,obj.contentSize.height);
+	
+	[objectsLayer addChild:obj];
 }
 
--(void)moveObjects
+-(void)removeObject:(BEUObject *)obj
 {
-	for ( BEUObject *obj in objects )
-	{
-		if(obj.moveX != 0 || obj.moveY != 0 || obj.moveZ != 0)
-		{
-			CGRect movedRect = CGRectMake(obj.x + obj.moveArea.origin.x, 
-										  obj.z + obj.moveArea.origin.y,
-										  obj.moveArea.size.width, 
-										  obj.moveArea.size.height);
-			
-			BOOL intersectsX = NO;
-			BOOL intersectsZ = NO;
-			
-			
-			//Move objects moveRect x position the moveX amount and check for collisions
-			movedRect.origin.x += obj.moveX;
-			
-			for(BEUArea *area in areas)
-			{
-				intersectsX = [area doesRectCollideWithTilesWalls:movedRect];
-			}
-			//If object collides with wall after moving movedRect do not change objects x value
-			if(!intersectsX) obj.x += obj.moveX;
-			else movedRect.origin.x -= obj.moveX;
-			
-			//Move objects movedRect the moveZ amount and check collisions
-			movedRect.origin.y += obj.moveZ;
-			
-			for(BEUArea *area in areas)
-			{
-				intersectsZ = [area doesRectCollideWithTilesWalls:movedRect];
-			}
-			//If object collides with wall after moving movedRect do not change objects z value
-			if(!intersectsZ) obj.z += obj.moveZ;
-			else movedRect.origin.y -= obj.moveZ;
-			
-			//Move objects y value the moveY amount, no collision checking on the y axis
-			obj.y += obj.moveY;
-			
-			//Set objects x and y positions with x,y and z properties
-			obj.position = ccp(obj.x, obj.z);// + obj.y);
-			
-			//Reset objects move values
-			obj.moveX = obj.moveY = obj.moveZ = 0;
-			
-			
-			if(obj == character)
-			{
-				for(BEUArea *area in self.areas)
-				{
-					CGRect areaRect = CGRectMake(area.position.x, area.position.y, area.contentSize.width, area.contentSize.height);
-					if(CGRectContainsRect(areaRect, movedRect))
-					{
-						NSLog(@"currentAreaIndex:%d",[areas indexOfObject:area]);
-						currentArea = area;
-						break;
-					}
-				}
-			}
-		}
-	}
+	[objectsLayer removeChild:obj cleanup:YES];
 }
-											
-						
 
 -(void)moveEnvironment
 {
+	
+	BEUCharacter *character = [[BEUObjectController sharedController] playerCharacter];
+	if(character){
+		CGRect charRect = CGRectMake(character.x + character.moveArea.origin.x, 
+									 character.z + character.moveArea.origin.y,
+									 character.moveArea.size.width, 
+									 character.moveArea.size.height);
+		
+		for(BEUArea *area in areas)
+		{
+			CGRect areaRect = CGRectMake(area.position.x, area.position.y, area.contentSize.width, area.contentSize.height);
+			if(CGRectContainsRect(areaRect, charRect))
+			{
+				currentArea = area;
+				break;
+			}
+		}
+	}
+	
+	
+	
 	float newX = -character.position.x + centerPoint.x + character.moveArea.size.width*.5;
 	float newY = -character.position.y + centerPoint.y + character.moveArea.size.height*.5;
 	
 	self.position = ccp(newX, newY);
 
-	if(self.position.x > currentArea.position.x) self.position = ccp(currentArea.position.x,self.position.y);
-	if(self.position.y > currentArea.position.y) self.position = ccp(self.position.x,currentArea.position.y);	
+	if(self.position.x > -currentArea.position.x) self.position = ccp(-currentArea.position.x,self.position.y);
+	if(self.position.y > -currentArea.position.y) self.position = ccp(self.position.x,-currentArea.position.y);	
 	
 	if(self.position.x < -(currentArea.position.x + currentArea.contentSize.width - [[CCDirector sharedDirector] winSize].width))
 	{
@@ -137,14 +123,22 @@
 
 -(void)step:(ccTime)delta
 {
-	[self moveObjects];
 	[self moveEnvironment];
 }
 
 -(void)dealloc
 {	
+	
+	currentArea = nil;
+	
+	[_sharedEnvironment release];	
 	[areas release];
-	if(character) [character release];
+	
+	[backgroundLayer release];
+	[areasLayer release];
+	[objectsLayer release];
+	[foregroundLayer release];
+	
 	[super dealloc];
 }
 
