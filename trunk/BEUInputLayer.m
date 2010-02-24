@@ -8,7 +8,6 @@
 
 #import "BEUInputLayer.h"
 
-
 @implementation BEUInputLayer
 
 @synthesize movementTouch, gestureTouch, character;
@@ -16,7 +15,10 @@
 -(id)init 
 {
 	if( (self=[super init] )) {
+		
 		maximumMovementDist = 15;
+		
+		maximumTapDist = 10;
 		
 		self.isTouchEnabled = YES;
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
@@ -83,6 +85,9 @@
 		  withEvent:(UIEvent *)event 
 {
 	
+	CGPoint location = [touch locationInView:[touch view]];
+	location = [[CCDirector sharedDirector] convertToGL:location];
+	
 	if(touch == movementTouch)
 	{
 		
@@ -92,6 +97,15 @@
 	
 	if(touch == gestureTouch)
 	{
+		
+		float gestureDistance = ccpDistance(gestureStart, location);
+		
+		
+		//Check the distance from start to finish in a gesture, if less than maximumTapDist, then 
+		//the gesture was a tap
+		if(gestureDistance <= maximumTapDist){
+			
+		}
 		
 		gestureTouch = nil;
 	}

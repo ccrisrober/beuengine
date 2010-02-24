@@ -7,6 +7,7 @@
 //
 
 #import "cocos2d.h"
+#import "CGPointExtension.h";
 #import "BEUCharacter.h"
 #import "BEUMath.h"
 
@@ -21,12 +22,19 @@
 	double movementPercent;
 	double movementTheta;
 	double maximumMovementDist;
+	
+	// Maximum distance that the start of a gesture can move before it is not a tap
+	float maximumTapDist;
+	
+	
 	BEUCharacter *character;
 }
 
 @property(nonatomic,retain) UITouch *movementTouch;
 @property(nonatomic,retain) UITouch *gestureTouch;
 @property(nonatomic,retain) BEUCharacter *character;
+
+
 
 -(void)assignPlayer:(BEUCharacter *)char_;
 -(void)step:(ccTime)delta;
