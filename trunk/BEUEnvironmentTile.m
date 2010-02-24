@@ -13,7 +13,11 @@
 @synthesize walls, origWalls;
 
 -(id)initWithFile:(NSString *)filename {
+	
+	
 	[super initWithFile:filename];
+	
+	[self.texture setAliasTexParameters];
 	
 	origWalls = [[NSMutableArray alloc] initWithObjects:
 								[NSValue valueWithCGRect:CGRectMake(0,130,480,190)],

@@ -11,7 +11,10 @@
 
 @implementation BEUCharacter
 
-@synthesize life;
+@synthesize life, body;
+
+
+
 
 -(id)init 
 {
@@ -26,20 +29,28 @@
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"TestCharacter.plist"];
 	
 	NSMutableArray *animFrames = [NSMutableArray array];
-	for(int i = 0; i < 6; i++) {
-		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"TestCharacter000%d.png",(i+1)]];
+	for(int i = 0; i < 15; i++) {
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"TestCharacter00%d.png",(i+1)]];
 		[animFrames addObject:frame];
 		
 	}
 	
-	CCAnimation *animation = [CCAnimation animationWithName:@"walk" delay:0.1f frames:animFrames];	
-	[body addAnimation:animation];
+	CCAnimation *walkingAnimation = [CCAnimation animationWithName:@"walk" delay:0.1f frames:animFrames];	
+	//[body addAnimation:animation];
 	
-	CCAnimate *animate = [CCAnimate actionWithAnimation:animation];
-		 
-	CCAction *action = [CCRepeatForever actionWithAction:animate];
-	[body runAction:action];
-	body.position = ccp(42.0f,0.0f);
+	
+	NSMutableArray *standingStillFrames = [NSMutableArray array];
+	[standingStillFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"TestCharacter003.png"]];
+	 
+	CCAnimation *standingStillAnimation = [CCAnimation animationWithName:@"stand" delay: 1.0f frames:standingStillFrames];
+	
+	[body addAnimation:standingStillAnimation];
+	[body addAnimation:walkingAnimation];
+
+	
+	[self standStill];
+	
+	body.position = ccp(47.0f,0.0f);
 	
 	self.anchorPoint = ccp(0.0f, 0.0f);
 	
@@ -58,17 +69,39 @@
 
 -(void)moveLeft
 {
-	body.scaleX = -1;
+	if(currentAnimation != @"moveLeft"){
+		currentAnimation = @"moveLeft";
+		NSLog(@"MOVE LEFT");
+		body.scaleX = -1;
+		
+	
+		[body stopAllActions];
+		[body runAction:[CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:[body animationByName:@"walk"] restoreOriginalFrame:NO] ]];
+
+	}
 }
 
 -(void)moveRight
 {
-	body.scaleX = 1;
+	if(currentAnimation != @"moveRight"){
+		currentAnimation = @"moveRight";
+		NSLog(@"MOVE RIGHT");
+		
+		body.scaleX = 1;
+	
+		[body stopAllActions];
+		[body runAction:[CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:[body animationByName:@"walk"] restoreOriginalFrame:NO] ]];
+	}
 }
 
 -(void)standStill
 {
-	
+	if(currentAnimation != @"stand"){
+		currentAnimation = @"stand";
+		NSLog(@"STAND");
+		[body stopAllActions];
+		[body runAction:[CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:[body animationByName:@"stand"] restoreOriginalFrame:NO] ]];
+	}
 }
 
 -(void)step:(ccTime)delta

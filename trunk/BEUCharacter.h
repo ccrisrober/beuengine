@@ -11,6 +11,9 @@
 @interface BEUCharacter : BEUObject {
 	NSNumber *life;
 	CCSprite *body;
+	
+	NSString *currentAnimation;
+	CCAction *currentAction;
 }
 
 @property(nonatomic,retain) NSNumber *life;
