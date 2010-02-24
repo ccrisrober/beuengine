@@ -9,9 +9,9 @@
 #import "cocos2d.h"
 
 @interface BEUObject : CCSprite {
-	CGFloat x;
-	CGFloat y;
-	CGFloat z;
+	CGFloat xPos;
+	CGFloat yPos;
+	CGFloat zPos;
 	
 	CGFloat moveX;
 	CGFloat moveY;
@@ -25,9 +25,9 @@
 @property(nonatomic) CGFloat moveX;
 @property(nonatomic) CGFloat moveY;
 @property(nonatomic) CGFloat moveZ;
-@property(nonatomic) CGFloat x;
-@property(nonatomic) CGFloat y;
-@property(nonatomic) CGFloat z;
+@property(nonatomic) CGFloat xPos;
+@property(nonatomic) CGFloat yPos;
+@property(nonatomic) CGFloat zPos;
 @property(nonatomic) CGRect moveArea;
 @property(nonatomic) CGRect	hitArea;
 

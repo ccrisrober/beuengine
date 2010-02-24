@@ -41,6 +41,7 @@
 -(void)addArea:(BEUArea *)area;
 -(void)addObject:(BEUObject *)obj;
 -(void)removeObject:(BEUObject *)obj;
+-(void)manageDepths;
 -(void)moveEnvironment;
 
 +(BEUEnvironment *)sharedEnvironment;

@@ -10,14 +10,14 @@
 
 
 @implementation BEUObject
-@synthesize moveX, moveY, moveZ, x, y, z, hitArea, moveArea;
+@synthesize moveX, moveY, moveZ, xPos, yPos, zPos, hitArea, moveArea;
 -(id)init
 {
 	[super init];
 	
-	x = 0;
-	y = 0;
-	z = 0;
+	xPos = 0;
+	yPos = 0;
+	zPos = 0;
 	
 	moveX = 0;
 	moveY = 0;

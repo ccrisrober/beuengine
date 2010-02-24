@@ -32,8 +32,18 @@
 			[[BEUEnvironment sharedEnvironment] addArea:area];
 		}
 		
+		
+		 
+		
 		BEUCharacter *character = [[BEUCharacter alloc] init];
 		[[BEUObjectController sharedController] setPlayerCharacter: character];
+		
+		for(int i=0; i<20; i++){
+			BEUCharacter *otherChar = [[BEUCharacter alloc] init];
+			otherChar.xPos = arc4random()%2000;
+			otherChar.zPos = arc4random()%120;
+			[[BEUObjectController sharedController] addCharacter:otherChar];
+		}
 		
 		
 		//ADD INPUT LAYER TO STAGE, ADD LAST

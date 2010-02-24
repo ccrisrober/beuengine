@@ -69,9 +69,7 @@ static BEUEnvironment *_sharedEnvironment = nil;
 
 -(void)addObject:(BEUObject *)obj
 {
-	NSLog(@"ObjectSize: %1.2f,%1.2f,%1.2f,%1.2f",obj.position.x,obj.position.y,obj.contentSize.width,obj.contentSize.height);
-	
-	[objectsLayer addChild:obj];
+	[objectsLayer addChild:obj];	
 }
 
 -(void)removeObject:(BEUObject *)obj
@@ -79,13 +77,22 @@ static BEUEnvironment *_sharedEnvironment = nil;
 	[objectsLayer removeChild:obj cleanup:YES];
 }
 
+-(void)manageDepths
+{
+	
+	for ( BEUObject *obj in [[BEUObjectController sharedController] objects] )
+	{
+		[objectsLayer reorderChild:obj z:-obj.zPos];
+	}
+}
+
 -(void)moveEnvironment
 {
 	
 	BEUCharacter *character = [[BEUObjectController sharedController] playerCharacter];
 	if(character){
-		CGRect charRect = CGRectMake(character.x + character.moveArea.origin.x, 
-									 character.z + character.moveArea.origin.y,
+		CGRect charRect = CGRectMake(character.xPos + character.moveArea.origin.x, 
+									 character.zPos + character.moveArea.origin.y,
 									 character.moveArea.size.width, 
 									 character.moveArea.size.height);
 		
@@ -123,6 +130,7 @@ static BEUEnvironment *_sharedEnvironment = nil;
 
 -(void)step:(ccTime)delta
 {
+	[self manageDepths];
 	[self moveEnvironment];
 }
 
