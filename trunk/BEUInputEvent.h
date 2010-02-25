@@ -10,6 +10,20 @@
 
 @interface BEUInputEvent : NSObject {
 	NSString *type;
+	int startTime;
+	int endTime;
+	BOOL completed;
 }
+
+extern NSString *const BEUInputTap;
+
+@property(nonatomic,retain) NSString *type;
+
+@property(nonatomic) int startTime;
+@property(nonatomic) int endTime;
+@property(nonatomic) BOOL completed;
+
+-(id)initWithType:(NSString *)type_;
+-(void)complete;
 
 @end

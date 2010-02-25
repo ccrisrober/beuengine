@@ -7,18 +7,34 @@
 //
 
 #import "BEUObject.h"
+#import "BEUInputEvent.h"
+#import "BEUInputMovementEvent.h"
+#import "BEUInputReceiverProtocol.h"
 
-@interface BEUCharacter : BEUObject {
+@class BEUInputEvent;
+@class BEUInputMovementEvent;
+
+@interface BEUCharacter : BEUObject <BEUInputReceiverProtocol> {
 	NSNumber *life;
 	CCSprite *body;
 	
 	NSString *currentAnimation;
 	CCAction *currentAction;
+	
+	BOOL canMove;
 }
 
 @property(nonatomic,retain) NSNumber *life;
 @property(nonatomic,retain) CCSprite *body;
+@property(nonatomic) BOOL canMove;
 
--(void)moveCharacterWithAngle:(double)angle percent:(double)percent;
+-(void)moveRight;
+-(void)moveLeft;
+-(void)standStill;
+
+-(void)punch;
+-(void)punchComplete;
+
+-(void)moveCharacterWithAngle:(float)angle percent:(float)percent;
 
 @end

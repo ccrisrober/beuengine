@@ -10,11 +10,13 @@
 
 @implementation BEUInputLayer
 
-@synthesize movementTouch, gestureTouch, character;
+@synthesize movementTouch, gestureTouch, receivers;
 
 -(id)init 
 {
 	if( (self=[super init] )) {
+		
+		receivers = [[NSMutableArray alloc] init];
 		
 		maximumMovementDist = 15;
 		
@@ -45,8 +47,11 @@
 	if (CGRectContainsPoint(movementArea, location) && !movementTouch)
 	{
 		movementTouch = touch;
-		movementStart = location;
-		movementDelta = CGPointZero;
+		
+		movementEvent = [[BEUInputMovementEvent alloc] initWithStartPosition:location 
+														 maximumMovementDist:maximumMovementDist];
+		[self dispatchEvent:movementEvent];
+		
 		return YES;
 	}
 	
@@ -67,11 +72,10 @@
 	location = [[CCDirector sharedDirector] convertToGL:location];
 	
 	
-	if(touch == movementTouch)
+	if(touch == movementTouch && movementEvent)
 	{
-		movementPercent = hypot(location.x-movementStart.x, location.y-movementStart.y)/maximumMovementDist;
-		if(movementPercent > 1) movementPercent = 1;			
-		movementTheta = [BEUMath angleFromPoint:movementStart toPoint:location];
+		[movementEvent addPosition:location];
+		[self dispatchEvent:movementEvent];
 	}
 	
 	if(touch == gestureTouch)
@@ -90,7 +94,8 @@
 	
 	if(touch == movementTouch)
 	{
-		
+		[movementEvent complete];
+		[self dispatchEvent:movementEvent];
 		
 		movementTouch = nil;
 	}
@@ -104,24 +109,45 @@
 		//Check the distance from start to finish in a gesture, if less than maximumTapDist, then 
 		//the gesture was a tap
 		if(gestureDistance <= maximumTapDist){
-			
+			[self dispatchEvent:[[BEUInputEvent alloc] initWithType:BEUInputTap]];
 		}
 		
 		gestureTouch = nil;
 	}
 }
 
--(void)assignPlayer:(BEUCharacter *)char_
+-(void)addReceiver:(id <BEUInputReceiverProtocol>)receiver
 {
-	self.character = char_;
+	if([receivers containsObject:receiver]){
+		NSLog(@"BEUInputLayer: Cannot add receiver, already added");
+		return;
+	}
 	
+	[receivers addObject:receiver];
+	
+	
+}
+
+-(void)removeReceiver:(id <BEUInputReceiverProtocol>)receiver
+{
+	if([receivers containsObject:receiver]){
+		[receivers removeObject:receiver];
+	} else {
+		NSLog(@"BEUInputLayer: Cannot remove receiver, not added");
+	}
+}
+
+-(void)dispatchEvent:(BEUInputEvent *)event
+{
+	for(id<BEUInputReceiverProtocol> receiver in receivers)
+	{
+		[receiver receiveInput:event];
+	}
 }
 
 - (void)step:(ccTime)delta
 {
-	if(movementTouch && character){
-		[character moveCharacterWithAngle:movementTheta percent:movementPercent];
-	}
+	
 }
 
 @end

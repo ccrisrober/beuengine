@@ -50,7 +50,8 @@
 		inputLayer = [[BEUInputLayer alloc] init];
 		[self addChild:inputLayer];
 		
-		[inputLayer assignPlayer:character];
+		//[inputLayer assignPlayer:character];
+		[inputLayer addReceiver:character];
 		
 		[self schedule:@selector(step:)];
 	}

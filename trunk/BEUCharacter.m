@@ -8,10 +8,9 @@
 
 #import "BEUCharacter.h"
 
-
 @implementation BEUCharacter
 
-@synthesize life, body;
+@synthesize life, body, canMove;
 
 
 
@@ -30,7 +29,7 @@
 	
 	NSMutableArray *animFrames = [NSMutableArray array];
 	for(int i = 0; i < 15; i++) {
-		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"TestCharacter00%d.png",(i+1)]];
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"TestCharacter%d.png",(i+1)]];
 		[animFrames addObject:frame];
 		
 	}
@@ -40,10 +39,19 @@
 	
 	
 	NSMutableArray *standingStillFrames = [NSMutableArray array];
-	[standingStillFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"TestCharacter003.png"]];
+	[standingStillFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"TestCharacter3.png"]];
 	 
 	CCAnimation *standingStillAnimation = [CCAnimation animationWithName:@"stand" delay: 1.0f frames:standingStillFrames];
 	
+	NSMutableArray *punchFrames = [NSMutableArray array];
+	for(int i=22; i<27; i++){
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"TestCharacter%d.png", (i+1)]];
+		[punchFrames addObject:frame];
+	}
+	
+	CCAnimation *punchAnimation = [CCAnimation animationWithName:@"punch" delay:0.05f frames:punchFrames];
+	
+	[body addAnimation:punchAnimation];
 	[body addAnimation:standingStillAnimation];
 	[body addAnimation:walkingAnimation];
 
@@ -57,21 +65,41 @@
 	self.hitArea = CGRectMake(0, 0, 30, 60);
 	self.moveArea = CGRectMake(30, 0, 40, 20);
 	
+	canMove = YES;
+	
 	return self;
 }
 
--(void)moveCharacterWithAngle:(double)angle percent:(double)percent 
+-(void)moveCharacterWithAngle:(float)angle percent:(float)percent 
 {
-	double moveSpeed = movementSpeed*percent;
-	moveX = cos(angle)*moveSpeed;
-	moveZ = sin(angle)*moveSpeed;
+	
+	//C
+	if(canMove)
+	{
+		double moveSpeed = movementSpeed*percent;
+		moveX = cos(angle)*moveSpeed;
+		moveZ = sin(angle)*moveSpeed;
+		
+		
+		if(moveX < 0){
+			[self moveLeft];
+		} else if(moveX > 0){
+			[self moveRight];
+		} else {
+			[self standStill];
+		}
+	} else {
+		moveX = moveZ = 0.0f;
+	}
+	
+	
 }
 
 -(void)moveLeft
 {
 	if(currentAnimation != @"moveLeft"){
 		currentAnimation = @"moveLeft";
-		NSLog(@"MOVE LEFT");
+		//NSLog(@"MOVE LEFT");
 		body.scaleX = -1;
 		
 	
@@ -85,7 +113,7 @@
 {
 	if(currentAnimation != @"moveRight"){
 		currentAnimation = @"moveRight";
-		NSLog(@"MOVE RIGHT");
+		//NSLog(@"MOVE RIGHT");
 		
 		body.scaleX = 1;
 	
@@ -98,23 +126,40 @@
 {
 	if(currentAnimation != @"stand"){
 		currentAnimation = @"stand";
-		NSLog(@"STAND");
+		//NSLog(@"STAND STILL");
 		[body stopAllActions];
 		[body runAction:[CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:[body animationByName:@"stand"] restoreOriginalFrame:NO] ]];
 	}
 }
 
+-(void)punch
+{
+	if(currentAnimation != @"punch")
+	{
+		currentAnimation = @"punch";
+		//NSLog(@"PUNCH");
+		canMove = NO;
+		
+		[body stopAllActions];
+		[body runAction: 
+		 [CCSequence actions:[CCAnimate actionWithAnimation:[body animationByName:@"punch"] restoreOriginalFrame:NO],
+							 [CCCallFunc actionWithTarget:self selector:@selector(punchComplete)],
+							 nil]
+		 ];
+		
+	}	
+}
+		 
+-(void)punchComplete
+{
+	//NSLog(@"makeMoveable");
+	canMove = YES;
+	[self standStill];
+}
+
 -(void)step:(ccTime)delta
 {
 	[super step:delta];
-	
-	if(moveX < 0){
-		[self moveLeft];
-	} else if(moveX > 0){
-		[self moveRight];
-	} else {
-		[self standStill];
-	}
 }
 
 -(void)draw
@@ -126,6 +171,29 @@
 	
 }
 
+-(void)receiveInput:(BEUInputEvent *)event
+{
+	
+	if(event.type == BEUInputMovement)
+	{
+		
+		BEUInputMovementEvent *moveEvent = (BEUInputMovementEvent *)event;
+		
+		[self moveCharacterWithAngle: moveEvent.movementTheta percent:moveEvent.movementPercent];
+		
+		//Release the event when its completed, do not release until then so 
+		//BEUInputLayer can continue to modify the theta and percent values of it
+		if(event.completed){
+			[event release];
+		}
+	}
+			
+	if(event.type == BEUInputTap)
+	{
+		[self punch];
+		[event release];
+	}
+}
 
 -(void) drawRect:(CGRect)rect
 {

@@ -124,8 +124,8 @@ static BEUObjectController *_sharedController = nil;
 		//Set objects x and y positions with x,y and z properties
 		obj.position = ccp(obj.xPos, obj.zPos + obj.yPos);// + obj.y);
 		
-		//Reset objects move values
-		obj.moveX = obj.moveY = obj.moveZ = 0;
+		//Reset objects move values (Not doing anymore)
+		//obj.moveX = obj.moveY = obj.moveZ = 0;
 	}
 }
 

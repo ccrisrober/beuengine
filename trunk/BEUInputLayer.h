@@ -10,6 +10,9 @@
 #import "CGPointExtension.h";
 #import "BEUCharacter.h"
 #import "BEUMath.h"
+#import "BEUInputEvent.h"
+#import "BEUInputReceiverProtocol.h"
+#import "BEUInputMovementEvent.h"
 
 @interface BEUInputLayer : CCLayer {
 	CGRect movementArea;
@@ -17,26 +20,29 @@
 	UITouch *movementTouch;
 	UITouch *gestureTouch;
 	CGPoint gestureStart;
-	CGPoint movementStart;
-	CGPoint movementDelta;
-	double movementPercent;
-	double movementTheta;
-	double maximumMovementDist;
+	
+	// Maximum distance a movement can be away from its start
+	float maximumMovementDist;
 	
 	// Maximum distance that the start of a gesture can move before it is not a tap
 	float maximumTapDist;
 	
+	//Array of receivers to send inputs to
+	NSMutableArray *receivers;
 	
-	BEUCharacter *character;
+	//Input Events to store while inputs are happening
+	BEUInputEvent *gestureEvent;
+	BEUInputMovementEvent *movementEvent;
 }
 
 @property(nonatomic,retain) UITouch *movementTouch;
 @property(nonatomic,retain) UITouch *gestureTouch;
-@property(nonatomic,retain) BEUCharacter *character;
+@property(nonatomic,retain) NSMutableArray *receivers;
 
+-(void)addReceiver:(id <BEUInputReceiverProtocol>)receiver;
+-(void)removeReceiver:(id <BEUInputReceiverProtocol>)receiver;
+-(void)dispatchEvent:(BEUInputEvent *)event;
 
-
--(void)assignPlayer:(BEUCharacter *)char_;
 -(void)step:(ccTime)delta;
 
 @end
