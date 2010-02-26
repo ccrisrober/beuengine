@@ -84,7 +84,7 @@
 	//C
 	if(canMove)
 	{
-		double moveSpeed = movementSpeed*percent;
+		double moveSpeed = movementSpeed*percent * [[CCScheduler sharedScheduler] timeScale];
 		moveX = cos(angle)*moveSpeed;
 		moveZ = sin(angle)*moveSpeed;
 		

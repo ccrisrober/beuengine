@@ -19,8 +19,6 @@
 		//environment.position = CGPointMake(environment.contentSize.width/2,environment.contentSize.height/2);
 		[self addChild:[BEUEnvironment sharedEnvironment]];
 		
-		
-		
 		for(int i=0; i<3; i++){
 		
 			NSMutableArray *tiles = [[NSMutableArray alloc] initWithObjects:
