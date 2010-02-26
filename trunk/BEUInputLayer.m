@@ -10,7 +10,7 @@
 
 @implementation BEUInputLayer
 
-@synthesize movementTouch, gestureTouch, receivers;
+@synthesize movementArea, gestureArea, gestureStart, movementTouch, gestureTouch, receivers, movementEvent, gestureEvent;
 
 -(id)init 
 {
@@ -44,21 +44,21 @@
 	
 	CGPoint location = [touch locationInView:[touch view]];
 	location = [[CCDirector sharedDirector] convertToGL:location];
-	if (CGRectContainsPoint(movementArea, location) && !movementTouch)
+	if (CGRectContainsPoint(self.movementArea, location) && !self.movementTouch)
 	{
-		movementTouch = touch;
+		self.movementTouch = touch;
 		
-		movementEvent = [[BEUInputMovementEvent alloc] initWithStartPosition:location 
+		self.movementEvent = [[BEUInputMovementEvent alloc] initWithStartPosition:location 
 														 maximumMovementDist:maximumMovementDist];
 		[self dispatchEvent:movementEvent];
 		
 		return YES;
 	}
 	
-	if(CGRectContainsPoint(gestureArea, location) && !gestureTouch)
+	if(CGRectContainsPoint(self.gestureArea, location) && !self.gestureTouch)
 	{
-		gestureTouch = touch;
-		gestureStart = location;
+		self.gestureTouch = touch;
+		self.gestureStart = [NSValue valueWithCGPoint: location];
 		return YES;
 	}
 	
@@ -72,13 +72,13 @@
 	location = [[CCDirector sharedDirector] convertToGL:location];
 	
 	
-	if(touch == movementTouch && movementEvent)
+	if(touch == self.movementTouch && self.movementEvent)
 	{
-		[movementEvent addPosition:location];
-		[self dispatchEvent:movementEvent];
+		[self.movementEvent addPosition:location];
+		[self dispatchEvent:self.movementEvent];
 	}
 	
-	if(touch == gestureTouch)
+	if(touch == self.gestureTouch)
 	{
 		
 	}
@@ -92,18 +92,18 @@
 	CGPoint location = [touch locationInView:[touch view]];
 	location = [[CCDirector sharedDirector] convertToGL:location];
 	
-	if(touch == movementTouch)
+	if(touch == self.movementTouch)
 	{
-		[movementEvent complete];
-		[self dispatchEvent:movementEvent];
+		[self.movementEvent complete];
+		[self dispatchEvent:self.movementEvent];
 		
-		movementTouch = nil;
+		self.movementTouch = nil;
 	}
 	
-	if(touch == gestureTouch)
+	if(touch == self.gestureTouch)
 	{
 		
-		float gestureDistance = ccpDistance(gestureStart, location);
+		float gestureDistance = ccpDistance([self.gestureStart CGPointValue], location);
 		
 		
 		//Check the distance from start to finish in a gesture, if less than maximumTapDist, then 
@@ -112,7 +112,8 @@
 			[self dispatchEvent:[[BEUInputEvent alloc] initWithType:BEUInputTap]];
 		}
 		
-		gestureTouch = nil;
+		self.gestureStart = nil;
+		self.gestureTouch = nil;
 	}
 }
 

@@ -9,6 +9,7 @@
 #import "BEUObject.h"
 #import "BEUCharacter.h"
 #import "BEUEnvironment.h"
+#import "BEUActionsController.h"
 
 @class BEUEnvironment;
 @class BEUObject;

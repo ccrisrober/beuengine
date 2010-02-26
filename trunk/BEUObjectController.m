@@ -53,12 +53,14 @@ static BEUObjectController *_sharedController = nil;
 {
 	[objects addObject:object];
 	[[BEUEnvironment sharedEnvironment] addObject:object];
+	[[BEUActionsController sharedController] addReceiver:object];
 }
 
 -(void)removeObject:(BEUObject *)object
 {	
 	[objects removeObject:object];
 	[[BEUEnvironment sharedEnvironment] removeObject:object];
+	[[BEUActionsController sharedController] removeReceiver:object];
 }
 
 -(void)addCharacter:(BEUCharacter *)character

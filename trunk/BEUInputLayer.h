@@ -19,7 +19,7 @@
 	CGRect gestureArea;
 	UITouch *movementTouch;
 	UITouch *gestureTouch;
-	CGPoint gestureStart;
+	NSValue *gestureStart;
 	
 	// Maximum distance a movement can be away from its start
 	float maximumMovementDist;
@@ -38,6 +38,12 @@
 @property(nonatomic,retain) UITouch *movementTouch;
 @property(nonatomic,retain) UITouch *gestureTouch;
 @property(nonatomic,retain) NSMutableArray *receivers;
+@property(nonatomic,retain) BEUInputEvent *gestureEvent;
+@property(nonatomic,retain) BEUInputMovementEvent *movementEvent;
+
+@property(nonatomic, retain) NSValue *gestureStart;
+@property(nonatomic) CGRect movementArea;
+@property(nonatomic) CGRect gestureArea;
 
 -(void)addReceiver:(id <BEUInputReceiverProtocol>)receiver;
 -(void)removeReceiver:(id <BEUInputReceiverProtocol>)receiver;

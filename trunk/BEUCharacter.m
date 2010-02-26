@@ -28,8 +28,8 @@
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"TestCharacter.plist"];
 	
 	NSMutableArray *animFrames = [NSMutableArray array];
-	for(int i = 0; i < 15; i++) {
-		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"TestCharacter%d.png",(i+1)]];
+	for(int i = 1; i <= 15; i++) {
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"TestCharacter%04d.png",i]];
 		[animFrames addObject:frame];
 		
 	}
@@ -39,18 +39,26 @@
 	
 	
 	NSMutableArray *standingStillFrames = [NSMutableArray array];
-	[standingStillFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"TestCharacter3.png"]];
+	[standingStillFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"TestCharacter0003.png"]];
 	 
 	CCAnimation *standingStillAnimation = [CCAnimation animationWithName:@"stand" delay: 1.0f frames:standingStillFrames];
 	
 	NSMutableArray *punchFrames = [NSMutableArray array];
-	for(int i=22; i<27; i++){
-		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"TestCharacter%d.png", (i+1)]];
+	for(int i=22; i<=27; i++){
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"TestCharacter%04d.png", i]];
 		[punchFrames addObject:frame];
 	}
 	
 	CCAnimation *punchAnimation = [CCAnimation animationWithName:@"punch" delay:0.05f frames:punchFrames];
 	
+	NSMutableArray *hitFrames = [NSMutableArray array];
+	for(int i=27; i<=35; i++){
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"TestCharacter%04d.png", i]];
+		[hitFrames addObject:frame];
+	}
+	CCAnimation *hitAnimation = [CCAnimation animationWithName:@"hit" delay:0.05f frames:hitFrames];
+	
+	[body addAnimation:hitAnimation];
 	[body addAnimation:punchAnimation];
 	[body addAnimation:standingStillAnimation];
 	[body addAnimation:walkingAnimation];
@@ -142,17 +150,50 @@
 		
 		[body stopAllActions];
 		[body runAction: 
-		 [CCSequence actions:[CCAnimate actionWithAnimation:[body animationByName:@"punch"] restoreOriginalFrame:NO],
-							 [CCCallFunc actionWithTarget:self selector:@selector(punchComplete)],
+		 [CCSequence actions:[CCAnimate actionWithAnimation:[body animationByName:@"punch"] restoreOriginalFrame:YES],
+		  [CCCallFunc actionWithTarget:self selector:@selector(punchComplete)],
 							 nil]
+		 ];
+		[body runAction:
+		 [CCSequence actions:[CCDelayTime actionWithDuration:0.05f],
+		  [CCCallFunc actionWithTarget:self	selector:@selector(sendPunch)],
+		 nil]
 		 ];
 		
 	}	
+}
+
+-(void)sendPunch
+{
+	BEUAction *punchToSend = [[BEUAction alloc] initWithSender:self selector:@selector(receiveHit:) duration:1];
+	[[BEUActionsController sharedController] addAction:punchToSend];
 }
 		 
 -(void)punchComplete
 {
 	//NSLog(@"makeMoveable");
+	canMove = YES;
+	[self standStill];
+}
+
+-(void)hit
+{
+	currentAnimation = @"hit";
+	[body stopAllActions];
+	
+	canMove = NO;
+	
+	[body runAction:
+	 [CCSequence actions:
+	  [CCAnimate actionWithAnimation:[body animationByName:@"hit"] restoreOriginalFrame: YES],
+	  [CCCallFunc actionWithTarget:self selector:@selector(hitComplete)],
+	  nil]
+	 ];
+				
+}
+
+-(void)hitComplete
+{
 	canMove = YES;
 	[self standStill];
 }
@@ -194,6 +235,18 @@
 		[event release];
 	}
 }
+
+-(BOOL)receiveHit:(BEUAction *)action
+{
+	if(action.sender != self)
+	{
+		[self hit];
+		return YES;
+	}
+	
+	return NO;
+}
+
 
 -(void) drawRect:(CGRect)rect
 {
