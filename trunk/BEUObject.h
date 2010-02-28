@@ -33,4 +33,7 @@
 
 -(void)step:(ccTime)delta;
 
+-(CGRect)globalHitArea;
+-(CGRect)globalMoveArea;
+
 @end

@@ -31,6 +31,16 @@ NSString *const BEUInputTap = @"BEUInputTap";
 	completed = YES;
 }
 
+-(BEUInputEvent *)clone
+{
+	BEUInputEvent *clonedEvent = [[BEUInputEvent alloc] initWithType:type];
+	clonedEvent.completed = completed;
+	clonedEvent.startTime = startTime;
+	clonedEvent.endTime = endTime;
+	
+	return clonedEvent;
+}
+
 -(void)dealloc
 {
 	[type release];

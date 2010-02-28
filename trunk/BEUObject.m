@@ -75,4 +75,20 @@ typedef struct {
 	[self updateContentSize];
 }
 
+-(CGRect) globalHitArea
+{
+	return CGRectMake(self.xPos + self.hitArea.origin.x,
+					  self.yPos + self.hitArea.origin.y,
+					  self.hitArea.size.width,
+					  self.hitArea.size.height);
+}
+
+-(CGRect) globalMoveArea
+{
+	return CGRectMake(self.xPos + self.moveArea.origin.x,
+					  self.zPos + self.moveArea.origin.y,
+					  self.moveArea.size.width,
+					  self.moveArea.size.height);
+}
+
 @end

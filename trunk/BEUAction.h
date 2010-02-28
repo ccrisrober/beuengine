@@ -43,4 +43,9 @@
 //Used to check if class is part of the receivable classes for the action
 -(BOOL)isReceivableClass:(Class)class_;
 
+//Used to check if the receiver can actually receive the action or if it should be ignored
+//Tests like hit tests and checks if the object is ready to receive should be performed here, not in the object itself
+
+-(BOOL)canReceiveAction:(id)receiver;
+
 @end

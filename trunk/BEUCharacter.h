@@ -12,10 +12,18 @@
 #import "BEUInputReceiverProtocol.h"
 #import "BEUAction.h"
 #import "BEUActionsController.h"
+#import "BEUHitAction.h"
+#import "BEUMovesController.h"
+#import "BEUMoveSequence.h"
+#import "BEUMove.h"
 
 @class BEUInputEvent;
 @class BEUInputMovementEvent;
 @class BEUAction;
+@class BEUHitAction;
+@class BEUMove;
+@class BEUMoveSequence;
+@class BEUMovesController;
 
 @interface BEUCharacter : BEUObject <BEUInputReceiverProtocol> {
 	NSNumber *life;
@@ -26,8 +34,12 @@
 	
 	BOOL canMove;
 	
+	BEUMovesController *movesController;
+	BEUMove *currentMove;
 }
 
+@property(nonatomic,retain) BEUMove *currentMove;
+@property(nonatomic,retain) BEUMovesController *movesController;
 @property(nonatomic,retain) NSNumber *life;
 @property(nonatomic,retain) CCSprite *body;
 @property(nonatomic) BOOL canMove;
@@ -45,5 +57,7 @@
 -(BOOL)receiveHit:(BEUAction *)action;
 
 -(void)moveCharacterWithAngle:(float)angle percent:(float)percent;
+
+
 
 @end

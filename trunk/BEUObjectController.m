@@ -86,10 +86,10 @@ static BEUObjectController *_sharedController = nil;
 	{
 		if(obj.moveX != 0 || obj.moveY != 0 || obj.moveZ != 0)
 		{
-			CGRect movedRect = CGRectMake(obj.xPos + obj.moveArea.origin.x, 
+			CGRect movedRect = [obj globalMoveArea];/*CGRectMake(obj.xPos + obj.moveArea.origin.x, 
 										  obj.zPos + obj.moveArea.origin.y,
 										  obj.moveArea.size.width, 
-										  obj.moveArea.size.height);
+										  obj.moveArea.size.height);*/
 			
 			BOOL intersectsX = NO;
 			BOOL intersectsZ = NO;

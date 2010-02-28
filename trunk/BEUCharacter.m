@@ -10,9 +10,7 @@
 
 @implementation BEUCharacter
 
-@synthesize life, body, canMove;
-
-
+@synthesize life, body, canMove, movesController, currentMove;
 
 
 -(id)init 
@@ -51,6 +49,16 @@
 	
 	CCAnimation *punchAnimation = [CCAnimation animationWithName:@"punch" delay:0.05f frames:punchFrames];
 	
+	
+	NSMutableArray *punch2Frames = [NSMutableArray array];
+	for(int i=36;i<41;i++)
+	{
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"TestCharacter%04d.png", i]];
+		[punch2Frames addObject:frame];
+	}
+	CCAnimation *punch2Animation = [CCAnimation animationWithName:@"punch2" delay:0.05f frames: punch2Frames];
+	
+	
 	NSMutableArray *hitFrames = [NSMutableArray array];
 	for(int i=27; i<=35; i++){
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"TestCharacter%04d.png", i]];
@@ -60,6 +68,7 @@
 	
 	[body addAnimation:hitAnimation];
 	[body addAnimation:punchAnimation];
+	[body addAnimation:punch2Animation];
 	[body addAnimation:standingStillAnimation];
 	[body addAnimation:walkingAnimation];
 
@@ -70,10 +79,34 @@
 	
 	self.anchorPoint = ccp(0.0f, 0.0f);
 	
-	self.hitArea = CGRectMake(0, 0, 30, 60);
-	self.moveArea = CGRectMake(30, 0, 40, 20);
+	self.hitArea = CGRectMake(25, 0, 50, 70);
+	self.moveArea = CGRectMake(25, 0, 50, 25);
 	
 	canMove = YES;
+	
+	
+	
+	//Moves
+	
+	movesController = [[BEUMovesController alloc] init];
+	NSMutableArray *moves = [NSMutableArray arrayWithObjects:
+							 [[BEUMove alloc] initWithCharacter:self 
+														  input:BEUInputTap 
+													   selector:@selector(punch:)],
+							 [[BEUMove alloc] initWithCharacter:self 
+														  input:BEUInputTap 
+													   selector:@selector(punch2:)],
+							 [[BEUMove alloc] initWithCharacter:self 
+														  input:BEUInputTap 
+													   selector:@selector(punch2:)],
+							 [[BEUMove alloc] initWithCharacter:self 
+														  input:BEUInputTap 
+													   selector:@selector(punch:)],
+							 nil];
+	BEUMoveSequence *testSequence = [[BEUMoveSequence alloc] initWithMoves: moves];
+	
+	[movesController addSequence:testSequence];
+	
 	
 	return self;
 }
@@ -140,8 +173,11 @@
 	}
 }
 
--(void)punch
+-(void)punch: (BEUMove *)move
 {
+	
+	currentMove = move;
+	
 	if(currentAnimation != @"punch")
 	{
 		currentAnimation = @"punch";
@@ -163,9 +199,47 @@
 	}	
 }
 
+-(void)punch2: (BEUMove *)move
+{
+	currentMove = move;
+	
+	if(currentAnimation != @"punch2")
+	{
+		currentAnimation = @"punch2";
+		//NSLog(@"PUNCH");
+		canMove = NO;
+		
+		[body stopAllActions];
+		[body runAction: 
+		 [CCSequence actions:[CCAnimate actionWithAnimation:[body animationByName:@"punch2"] restoreOriginalFrame:YES],
+		  [CCCallFunc actionWithTarget:self selector:@selector(punchComplete)],
+		  nil]
+		 ];
+		[body runAction:
+		 [CCSequence actions:[CCDelayTime actionWithDuration:0.05f],
+		  [CCCallFunc actionWithTarget:self	selector:@selector(sendPunch)],
+		  nil]
+		 ];
+		
+	}
+}
+
 -(void)sendPunch
 {
-	BEUAction *punchToSend = [[BEUAction alloc] initWithSender:self selector:@selector(receiveHit:) duration:1];
+	CGRect punchHit = CGRectMake(self.xPos + self.hitArea.origin.x, 
+								 self.yPos + self.hitArea.origin.y, 
+								 self.hitArea.size.width + 40, 
+								 self.hitArea.size.height);
+	CGRect punchDepth = CGRectMake(self.xPos + self.moveArea.origin.x,
+								   self.zPos + self.moveArea.origin.y - 10,
+								   self.moveArea.size.width + 20,
+								   self.moveArea.size.height + 20);
+	
+	BEUAction *punchToSend = [[BEUHitAction alloc] initWithSender:self 
+														 selector:@selector(receiveHit:)duration:1 
+														  hitArea: punchHit 
+														 hitDepth: punchDepth 
+															power: 1];
 	[[BEUActionsController sharedController] addAction:punchToSend];
 }
 		 
@@ -173,7 +247,11 @@
 {
 	//NSLog(@"makeMoveable");
 	canMove = YES;
+	[currentMove completeMove];
+	
 	[self standStill];
+	
+	
 }
 
 -(void)hit
@@ -206,10 +284,9 @@
 -(void)draw
 {
 	[super draw];
-	
 	[self drawRect:moveArea];
+	[self drawRect:hitArea];
 
-	
 }
 
 -(void)receiveInput:(BEUInputEvent *)event
@@ -227,12 +304,15 @@
 		if(event.completed){
 			[event release];
 		}
+	} else {
+		[movesController sendInput:event];
 	}
+
 			
 	if(event.type == BEUInputTap)
 	{
-		[self punch];
-		[event release];
+		//[self punch];
+		//[event release];
 	}
 }
 

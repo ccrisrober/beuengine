@@ -66,7 +66,7 @@ static BEUActionsController *sharedController_ = nil;
 		for(id receiver in receivers)
 		{
 			//Check if receiver is an acceptable class, and also check if it responds to the action selector
-			if([action isReceivableClass:[receiver class]] && [receiver respondsToSelector:action.selector])
+			if([action canReceiveAction:receiver])
 			{
 				if([receiver performSelector:action.selector withObject:action])
 				{

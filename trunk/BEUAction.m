@@ -63,6 +63,18 @@
 	}
 }
 
+-(BOOL)canReceiveAction:(id)receiver
+{
+	//if the receiver is not of a correct class type just return NO right away
+	if(![self isReceivableClass: [receiver class]]) return NO;
+	
+	//if the receiver won't respond to the selector return NO
+	if(![receiver respondsToSelector:selector]) return NO;
+	
+	//When subclassing BEUAction you can specify custom checks from here then return based on those
+	return YES;
+}
+
 
 -(void)dealloc
 {

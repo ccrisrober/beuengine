@@ -36,9 +36,9 @@
 		BEUCharacter *character = [[BEUCharacter alloc] init];
 		[[BEUObjectController sharedController] setPlayerCharacter: character];
 		
-		for(int i=0; i<5; i++){
+		for(int i=0; i<3; i++){
 			BEUCharacter *otherChar = [[BEUCharacter alloc] init];
-			otherChar.xPos = arc4random()%2000;
+			otherChar.xPos = arc4random()%300;
 			otherChar.zPos = arc4random()%120;
 			[[BEUObjectController sharedController] addCharacter:otherChar];
 		}

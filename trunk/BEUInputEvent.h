@@ -25,5 +25,5 @@ extern NSString *const BEUInputTap;
 
 -(id)initWithType:(NSString *)type_;
 -(void)complete;
-
+-(BEUInputEvent *)clone;
 @end
