@@ -89,24 +89,27 @@
 	//Moves
 	
 	movesController = [[BEUMovesController alloc] init];
-	NSMutableArray *moves = [NSMutableArray arrayWithObjects:
-							 [[BEUMove alloc] initWithCharacter:self 
-														  input:BEUInputTap 
-													   selector:@selector(punch:)],
-							 [[BEUMove alloc] initWithCharacter:self 
-														  input:BEUInputTap 
-													   selector:@selector(punch2:)],
-							 [[BEUMove alloc] initWithCharacter:self 
-														  input:BEUInputTap 
-													   selector:@selector(punch2:)],
-							 [[BEUMove alloc] initWithCharacter:self 
-														  input:BEUInputTap 
-													   selector:@selector(punch:)],
-							 nil];
-	BEUMoveSequence *testSequence = [[BEUMoveSequence alloc] initWithMoves: moves];
 	
-	[movesController addSequence:testSequence];
+	BEUMove *move1 = [[BEUMove alloc] initWithCharacter:self 
+											   sequence:[NSArray arrayWithObjects:BEUInputTap,nil]
+											   selector: @selector(punch:)];
 	
+	BEUMove *move2 = [[BEUMove alloc] initWithCharacter:self 
+											   sequence:[NSArray arrayWithObjects:BEUInputTap,BEUInputSwipeRight, nil]
+											   selector: @selector(punch2:)];
+	
+	BEUMove *move3 = [[BEUMove alloc] initWithCharacter:self 
+											   sequence:[NSArray arrayWithObjects:BEUInputTap,BEUInputSwipeRight, BEUInputTap, nil]
+											   selector: @selector(punch2:)];
+	
+	BEUMove *move4 = [[BEUMove alloc] initWithCharacter:self 
+											   sequence:[NSArray arrayWithObjects:BEUInputTap,BEUInputSwipeRight, BEUInputTap, BEUInputSwipeLeft, nil]
+											   selector: @selector(punch:)];
+	
+	[movesController addMove:move1];
+	[movesController addMove:move2];
+	[movesController addMove:move3];
+	[movesController addMove:move4];
 	
 	return self;
 }

@@ -105,11 +105,34 @@
 		
 		float gestureDistance = ccpDistance([self.gestureStart CGPointValue], location);
 		
-		
 		//Check the distance from start to finish in a gesture, if less than maximumTapDist, then 
 		//the gesture was a tap
 		if(gestureDistance <= maximumTapDist){
 			[self dispatchEvent:[[BEUInputEvent alloc] initWithType:BEUInputTap]];
+		} else {
+			CGPoint start = [gestureStart CGPointValue];
+			CGPoint end = location;
+			float vDist = end.y - start.y;
+			float hDist = end.x - start.x;
+			
+			if(fabs(vDist) > fabs(hDist))
+			{
+				if(vDist >= 0)
+				{
+					[self dispatchEvent:[[BEUInputEvent alloc] initWithType:BEUInputSwipeUp]];
+				} else {
+					[self dispatchEvent:[[BEUInputEvent alloc] initWithType:BEUInputSwipeDown]];
+				}
+			} else {
+				if(hDist >= 0)
+				{
+					[self dispatchEvent:[[BEUInputEvent alloc] initWithType:BEUInputSwipeRight]];
+				} else {
+					[self dispatchEvent:[[BEUInputEvent alloc] initWithType:BEUInputSwipeLeft]];
+				}
+			}
+			
+			
 		}
 		
 		self.gestureStart = nil;

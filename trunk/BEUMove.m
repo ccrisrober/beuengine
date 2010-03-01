@@ -11,7 +11,7 @@
 
 @implementation BEUMove
 
-@synthesize input, 
+@synthesize inputSequence, 
 character, 
 interruptible, 
 cooldownTime, 
@@ -37,13 +37,13 @@ inProgress;
 }
 
 -(id)initWithCharacter:(BEUCharacter *)character_ 
-				 input:(NSString *)input_ 
+			  sequence:(NSArray *)sequence
 			  selector:(SEL)selector_
 {
 	[self init];
 	
 	self.character = character_;
-	self.input = input_;
+	self.inputSequence = sequence;
 	self.moveSelector = selector_;
 	
 	return self;
@@ -81,6 +81,21 @@ inProgress;
 			[completeTarget performSelector:completeSelector withObject: self];
 		}
 	}
+	
+	[self resetMove];
+}
+
+-(BOOL)trySequence:(NSArray *)sequence
+{
+	if(sequence.count != inputSequence.count) return NO;
+		
+	for(int i=0; i<inputSequence.count; i++)
+	{
+		if([[sequence objectAtIndex: i] type] != [inputSequence objectAtIndex:i]) return NO;
+	}
+	[self startMove];
+	return YES;
+	
 }
 
 -(void)dealloc

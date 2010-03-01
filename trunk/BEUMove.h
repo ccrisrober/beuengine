@@ -16,14 +16,15 @@
 	
 	BEUCharacter *character;
 	
-	//String value of input that is required to do move
-	NSString *input;
+	//Array of string value inputs that must be completed to do move, must match all to do move
+	NSArray *inputSequence;
 	
 	//Whether or not the move can be interupted by enemy attacks
 	BOOL interruptible;
 	
 	//Time from when move is complete to when the next move in a sequence can be done
 	float cooldownTime;
+	CCTimer *cooldownTimer;
 	
 	//Selector to fire when move is successfully started
 	SEL moveSelector;
@@ -38,7 +39,7 @@
 }
 
 @property(nonatomic,retain) BEUCharacter *character;
-@property(nonatomic,retain) NSString *input;
+@property(nonatomic,retain) NSArray *inputSequence;
 @property(nonatomic) BOOL interruptible;
 @property(nonatomic) float cooldownTime;
 @property(nonatomic) SEL moveSelector;
@@ -48,7 +49,7 @@
 @property(nonatomic) BOOL inProgress;
 
 -(id)initWithCharacter:(BEUCharacter *)character_ 
-				 input:(NSString *) input_
+			  sequence:(NSArray *) sequence
 			  selector:(SEL)selector_;
 
 
@@ -57,6 +58,6 @@
 -(void)cancelMove;
 -(void)completeMove;
 
-
+-(BOOL)trySequence:(NSArray *)sequence;
 
 @end

@@ -13,8 +13,6 @@
 #import "BEUAction.h"
 #import "BEUActionsController.h"
 #import "BEUHitAction.h"
-#import "BEUMovesController.h"
-#import "BEUMoveSequence.h"
 #import "BEUMove.h"
 
 @class BEUInputEvent;
@@ -22,7 +20,6 @@
 @class BEUAction;
 @class BEUHitAction;
 @class BEUMove;
-@class BEUMoveSequence;
 @class BEUMovesController;
 
 @interface BEUCharacter : BEUObject <BEUInputReceiverProtocol> {

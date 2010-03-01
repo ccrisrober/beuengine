@@ -16,6 +16,10 @@
 }
 
 extern NSString *const BEUInputTap;
+extern NSString *const BEUInputSwipeRight;
+extern NSString *const BEUInputSwipeLeft;
+extern NSString *const BEUInputSwipeUp;
+extern NSString *const BEUInputSwipeDown;
 
 @property(nonatomic,retain) NSString *type;
 

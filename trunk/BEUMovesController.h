@@ -7,23 +7,43 @@
 //
 
 #import "BEUMove.h"
-#import "BEUMoveSequence.h"
 
 @class BEUMove;
-@class BEUMoveSequence;
 
 @interface BEUMovesController : NSObject {
-	BEUMoveSequence *currentSequence;
-	NSMutableArray *moveSequences;
-	NSMutableArray *inputQueue;
+	BEUMove *currentMove;
+	NSMutableArray *moves;
+	NSMutableArray *inputSequence;
+	CCTimer *cooldownTimer;
+	
+	BOOL coolingDown;
+	float cooldownTime;
+	
+	BOOL canReceiveInput;
+	
+	CCTimer *waitTimer;
+	float waitTime;
+	BOOL waiting;
 }
 
-@property(nonatomic,retain) BEUMoveSequence *currentSequence;
-@property(nonatomic,retain) NSMutableArray *moveSequences;
-@property(nonatomic,retain) NSMutableArray *inputQueue;
+@property(nonatomic) float cooldownTime;
+@property(nonatomic) BOOL canReceiveInput;
+@property(nonatomic) BOOL waiting;
+@property(nonatomic) float waitTime;
+@property(nonatomic,retain) CCTimer *waitTimer;
+@property(nonatomic) BOOL coolingDown;
+@property(nonatomic,retain) CCTimer *cooldownTimer;
+@property(nonatomic,retain) BEUMove *currentMove;
+@property(nonatomic,retain) NSMutableArray *moves;
+@property(nonatomic,retain) NSMutableArray *inputSequence;
 
--(id)initWithSequences:(NSMutableArray *)sequences;
--(void)addSequence:(BEUMoveSequence *)sequence;
+-(id)initWithMoves:(NSMutableArray *)moves_;
+-(void)addMove:(BEUMove *)move;
 -(void)sendInput:(BEUInputEvent *)inputEvent;
+-(void)startCooldown;
+-(void)endCooldown:(ccTime)delta;
+-(void)moveComplete:(BEUMove *)move;
+-(void)waitForNextInput;
+-(void)noInputReceived:(ccTime)delta;
 
 @end

@@ -11,64 +11,126 @@
 
 @implementation BEUMovesController
 
-@synthesize moveSequences, currentSequence, inputQueue;
+@synthesize moves, currentMove, inputSequence, 
+cooldownTimer, coolingDown, waitTimer,
+waitTime, waiting, canReceiveInput;
 
 -(id)init
 {
 	if( (self = [super init]) )
 	{
-		moveSequences = [[NSMutableArray alloc] init];
+		moves = [[NSMutableArray alloc] init];
+		canReceiveInput = YES;
+		waitTime = 0.5f;
+		cooldownTime = 0.2f;
 	}
 	
 	return self;
 }
 
--(id)initWithSequences:(NSMutableArray *)sequences
+-(id)initWithMoves:(NSMutableArray *)moves_
 {
 	[self init];
-	[moveSequences release];
-	moveSequences = sequences;
+	[moves release];
+	moves = moves_;
 	
 	return self;
 }
 
--(void)addSequence:(BEUMoveSequence *)sequence
+-(void)addMove:(BEUMove *)move
 {
-	[moveSequences addObject:sequence];
+	[moves addObject:move];
 }
 
 -(void)sendInput:(BEUInputEvent *)inputEvent
 {
-	if(!inputQueue)
+	if(!canReceiveInput) return;
+	
+	if(!inputSequence)
 	{
-		inputQueue = [[NSMutableArray alloc] initWithObjects: [inputEvent clone], nil];
+		inputSequence = [[NSMutableArray alloc] initWithObjects: [inputEvent clone], nil];
 	} else
 	{
-		[inputQueue addObject:[inputEvent clone]];
+		[inputSequence addObject:[inputEvent clone]];
 	}
 	
-	if(currentSequence)
+	if(waiting)
 	{
-		if([currentSequence tryInputQueue:inputQueue])
-		{
-			return;
-		} else 
-		{
-			currentSequence = nil;
-			return;
-		}
-	} else {
-		for(BEUMoveSequence *sequence in moveSequences)
-		{
-			if([sequence tryInputQueue:inputQueue])
-			{
-				currentSequence = sequence;
-				return;
-			}
-		}
-		
-		inputQueue = nil;
+		[[CCScheduler sharedScheduler] unscheduleTimer:waitTimer];
+		waiting = NO;
 	}
+	
+	
+	for(BEUMove *move in moves)
+	{
+		if([move trySequence:inputSequence])
+		{
+			canReceiveInput = NO;
+			currentMove = move;
+			currentMove.completeTarget = self;
+			currentMove.completeSelector = @selector(moveComplete:);
+			
+			return;
+		}
+	}
+	
+	canReceiveInput = NO;
+	inputSequence = nil;
+	currentMove = nil;
+	[self startCooldown];
+	
+}
+
+-(void)moveComplete:(BEUMove *)move
+{
+	[self waitForNextInput];
+}
+
+-(void)waitForNextInput
+{
+	
+	canReceiveInput = YES;
+	waitTimer = [CCTimer timerWithTarget:self 
+								selector:@selector(noInputReceived:) 
+								interval: waitTime];
+	waiting = YES;
+	[[CCScheduler sharedScheduler] scheduleTimer:waitTimer];
+}
+
+-(void)noInputReceived:(ccTime)delta
+{
+	waiting = NO;
+	canReceiveInput = YES;
+	[[CCScheduler sharedScheduler] unscheduleTimer:waitTimer];
+	
+	inputSequence = nil;
+	currentMove = nil;
+}
+
+-(void)startCooldown
+{
+	cooldownTimer = [CCTimer timerWithTarget:self selector:@selector(endCooldown:) interval:cooldownTime];
+	[[CCScheduler sharedScheduler] scheduleTimer:cooldownTimer];
+	
+	coolingDown = YES;
+	canReceiveInput = NO;
+}
+
+-(void)endCooldown:(ccTime)delta
+{
+	[[CCScheduler sharedScheduler] unscheduleTimer:cooldownTimer];
+	
+	coolingDown = NO;
+	canReceiveInput = YES;
+}
+
+-(void)dealloc
+{
+	[inputSequence release];
+	[moves release];
+	currentMove = nil;
+	
+	[super dealloc];
 }
 
 @end

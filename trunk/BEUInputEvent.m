@@ -14,6 +14,10 @@
 @synthesize type, completed, startTime, endTime;
 
 NSString *const BEUInputTap = @"BEUInputTap";
+NSString *const BEUInputSwipeLeft = @"BEUInputSwipeLeft";
+NSString *const BEUInputSwipeRight = @"BEUInputSwipeRight";
+NSString *const BEUInputSwipeUp = @"BEUInputSwipeUp";
+NSString *const BEUInputSwipeDown = @"BEUInputSwipeDown";
 
 -(id)initWithType:(NSString *)type_
 {
