@@ -19,6 +19,8 @@
 		life = 100.0f;
 		movementSpeed = 2.0f;
 		
+		canMove = YES;
+		
 		//Create moves controller for character, make sure and store all moves for the character in here.
 		//Inputs will automatically be sent into the controller
 		movesController = [[BEUMovesController alloc] init];

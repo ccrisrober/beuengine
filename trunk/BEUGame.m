@@ -9,7 +9,10 @@
 #import "BEUGame.h"
 #import "BEUActionsController.h"
 #import "BEUTestCharacter.h"
+#import "BEUSkeletalCharacter.h"
+
 @implementation BEUGame
+
 @synthesize environment, inputLayer;
 
 -(id)init {
@@ -33,7 +36,7 @@
 		
 		 
 		
-		BEUCharacter *character = [[BEUTestCharacter alloc] init];
+		BEUCharacter *character = [[BEUSkeletalCharacter alloc] init];
 		character.x = 20;
 		character.z = 50;
 		[[BEUObjectController sharedController] setPlayerCharacter: character];
