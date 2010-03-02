@@ -112,7 +112,7 @@ static BEUObjectController *_sharedController = nil;
 			}
 			
 			//If object collides with wall after moving movedRect do not change objects x value
-			if(!intersectsX) obj.xPos += obj.moveX;
+			if(!intersectsX) obj.x += obj.moveX;
 			else movedRect.origin.x -= obj.moveX;
 			
 			//Move objects movedRect the moveZ amount and check collisions
@@ -135,7 +135,7 @@ static BEUObjectController *_sharedController = nil;
 					
 			
 			//If object collides with wall after moving movedRect do not change objects z value
-			if(!intersectsZ) obj.zPos += obj.moveZ;
+			if(!intersectsZ) obj.z += obj.moveZ;
 			else movedRect.origin.y -= obj.moveZ;
 			
 			//Move objects y value the moveY amount, no collision checking on the y axis
@@ -145,7 +145,7 @@ static BEUObjectController *_sharedController = nil;
 		}
 		
 		//Set objects x and y positions with x,y and z properties
-		obj.position = ccp(obj.xPos, obj.zPos + obj.yPos);
+		obj.position = ccp(obj.x, obj.z + obj.y);
 		
 	}
 }

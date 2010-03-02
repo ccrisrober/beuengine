@@ -427,11 +427,11 @@ float gravity = 0.3f;
 	
 	
 	moveY -= gravity;
-	yPos += moveY;
+	y += moveY;
 		
-	if(yPos < 0.0f)
+	if(y < 0.0f)
 	{
-		yPos = 0.0f;
+		y = 0.0f;
 		moveY = 0;
 	}
 	
@@ -447,7 +447,7 @@ float gravity = 0.3f;
 	{
 		if(life > 0){
 			
-			if(sender.xPos < self.xPos)
+			if(sender.x < self.x)
 			{
 				[self hit:YES];
 			} else {
@@ -476,7 +476,7 @@ float gravity = 0.3f;
 	{
 		if(life > 0){
 			
-			if(sender.xPos < self.xPos)
+			if(sender.x < self.x)
 			{
 				[self hitUppercut:YES];
 			} else {

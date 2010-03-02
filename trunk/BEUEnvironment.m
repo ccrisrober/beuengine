@@ -82,7 +82,7 @@ static BEUEnvironment *_sharedEnvironment = nil;
 	
 	for ( BEUObject *obj in [[BEUObjectController sharedController] objects] )
 	{
-		[objectsLayer reorderChild:obj z:-obj.zPos];
+		[objectsLayer reorderChild:obj z:-obj.z];
 	}
 }
 
@@ -91,8 +91,8 @@ static BEUEnvironment *_sharedEnvironment = nil;
 	
 	BEUCharacter *character = [[BEUObjectController sharedController] playerCharacter];
 	if(character){
-		CGRect charRect = CGRectMake(character.xPos + character.moveArea.origin.x, 
-									 character.zPos + character.moveArea.origin.y,
+		CGRect charRect = CGRectMake(character.x + character.moveArea.origin.x, 
+									 character.z + character.moveArea.origin.y,
 									 character.moveArea.size.width, 
 									 character.moveArea.size.height);
 		

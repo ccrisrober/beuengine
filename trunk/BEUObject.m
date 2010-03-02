@@ -10,14 +10,14 @@
 
 
 @implementation BEUObject
-@synthesize moveX, moveY, moveZ, xPos, yPos, zPos, hitArea, moveArea,movementSpeed,isWall,drawBoundingBoxes;
+@synthesize moveX, moveY, moveZ, x, y, z, hitArea, moveArea,movementSpeed,isWall,drawBoundingBoxes;
 -(id)init
 {
 	[super init];
 	
-	xPos = 0;
-	yPos = 0;
-	zPos = 0;
+	x = 0;
+	y = 0;
+	z = 0;
 	
 	moveX = 0;
 	moveY = 0;
@@ -67,7 +67,7 @@
 
 -(CGRect)convertRectToGlobal:(CGRect)rect
 {
-	return CGRectMake(xPos + rect.origin.x, zPos + rect.origin.y, rect.size.width, rect.size.height);
+	return CGRectMake(x + rect.origin.x, z + rect.origin.y, rect.size.width, rect.size.height);
 }
 
 -(void) drawRect:(CGRect)rect
