@@ -12,7 +12,7 @@
 @implementation BEUMovesController
 
 @synthesize moves, currentMove, inputSequence, 
-cooldownTimer, coolingDown, waitTimer,
+cooldownTimer, coolingDown, cooldownTime, waitTimer,
 waitTime, waiting, canReceiveInput;
 
 -(id)init
@@ -46,21 +46,39 @@ waitTime, waiting, canReceiveInput;
 {
 	if(!canReceiveInput) return;
 	
-	if(!inputSequence)
-	{
-		inputSequence = [[NSMutableArray alloc] initWithObjects: [inputEvent clone], nil];
-	} else
-	{
-		[inputSequence addObject:[inputEvent clone]];
-	}
-	
 	if(waiting)
 	{
 		[[CCScheduler sharedScheduler] unscheduleTimer:waitTimer];
 		waiting = NO;
 	}
 	
+	//Try current input sequence against all moves
+	if(inputSequence)
+	{
+		[inputSequence addObject:[inputEvent clone]];
+		
+		for(BEUMove *move in moves)
+		{
+			if([move trySequence:inputSequence])
+			{
+				canReceiveInput = NO;
+				currentMove = move;
+				currentMove.completeTarget = self;
+				currentMove.completeSelector = @selector(moveComplete:);
+				
+				return;
+			}
+		}
+		//No input sequence has been found, nullify it
+		inputSequence = nil;
+		
+	}
 	
+	
+	//If there is no current inputSequence create a new one with the current event as its first input
+	inputSequence = [[NSMutableArray alloc] initWithObjects: [inputEvent clone], nil];
+	
+	//Now test the new input sequence against all the moves
 	for(BEUMove *move in moves)
 	{
 		if([move trySequence:inputSequence])
@@ -74,10 +92,11 @@ waitTime, waiting, canReceiveInput;
 		}
 	}
 	
-	canReceiveInput = NO;
+	//No moves were matched	
+	canReceiveInput = YES;
 	inputSequence = nil;
 	currentMove = nil;
-	[self startCooldown];
+	//[self startCooldown];
 	
 }
 

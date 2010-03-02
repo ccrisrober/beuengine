@@ -37,7 +37,7 @@
 	
 	if(![receiver isKindOfClass:[BEUObject class]] && ![receiver isMemberOfClass:[BEUObject class]]) return NO;
 	BEUObject *obj = (BEUObject *)receiver;
-	NSLog(@"Insterects: %@ to %@", NSStringFromCGRect(obj.globalHitArea), NSStringFromCGRect(hitArea));
+	//NSLog(@"Insterects: %@ to %@", NSStringFromCGRect(obj.globalHitArea), NSStringFromCGRect(hitArea));
 	
 	if(CGRectIntersectsRect(obj.globalHitArea, hitArea) && CGRectIntersectsRect(obj.globalMoveArea, hitDepth))
 	{

@@ -8,7 +8,7 @@
 
 #import "BEUGame.h"
 #import "BEUActionsController.h"
-
+#import "BEUTestCharacter.h"
 @implementation BEUGame
 @synthesize environment, inputLayer;
 
@@ -33,12 +33,15 @@
 		
 		 
 		
-		BEUCharacter *character = [[BEUCharacter alloc] init];
+		BEUCharacter *character = [[BEUTestCharacter alloc] init];
+		character.xPos = 20;
+		character.zPos = 50;
 		[[BEUObjectController sharedController] setPlayerCharacter: character];
 		
-		for(int i=0; i<3; i++){
-			BEUCharacter *otherChar = [[BEUCharacter alloc] init];
-			otherChar.xPos = arc4random()%300;
+		
+		for(int i=0; i<2; i++){
+			BEUCharacter *otherChar = [[BEUTestCharacter alloc] init];
+			otherChar.xPos = 200 + arc4random()%200;
 			otherChar.zPos = arc4random()%120;
 			[[BEUObjectController sharedController] addCharacter:otherChar];
 		}

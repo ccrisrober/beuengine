@@ -9,31 +9,47 @@
 #import "cocos2d.h"
 
 @interface BEUObject : CCSprite {
-	CGFloat xPos;
-	CGFloat yPos;
-	CGFloat zPos;
+	float xPos;
+	float yPos;
+	float zPos;
 	
-	CGFloat moveX;
-	CGFloat moveY;
-	CGFloat moveZ;
+	
+	
+	float moveX;
+	float moveY;
+	float moveZ;
 	
 	CGRect hitArea;
 	CGRect moveArea;
 	
-	double movementSpeed;
+	float movementSpeed;
+	
+	//Should the move area be applied as a wall to stop objects from moving through this object
+	BOOL isWall;
+	
+	BOOL drawBoundingBoxes;
 }
-@property(nonatomic) CGFloat moveX;
-@property(nonatomic) CGFloat moveY;
-@property(nonatomic) CGFloat moveZ;
-@property(nonatomic) CGFloat xPos;
-@property(nonatomic) CGFloat yPos;
-@property(nonatomic) CGFloat zPos;
+
+@property(nonatomic) float moveX;
+@property(nonatomic) float moveY;
+@property(nonatomic) float moveZ;
+
+@property(nonatomic) float xPos;
+@property(nonatomic) float yPos;
+@property(nonatomic) float zPos;
+
 @property(nonatomic) CGRect moveArea;
 @property(nonatomic) CGRect	hitArea;
+@property(nonatomic) float movementSpeed;
+@property(nonatomic) BOOL drawBoundingBoxes;
+@property(nonatomic) BOOL isWall;
 
 -(void)step:(ccTime)delta;
 
 -(CGRect)globalHitArea;
 -(CGRect)globalMoveArea;
+-(CGRect)convertRectToGlobal:(CGRect)rect;
+
+-(void)drawRect:(CGRect)rect;
 
 @end

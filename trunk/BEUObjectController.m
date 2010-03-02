@@ -86,10 +86,7 @@ static BEUObjectController *_sharedController = nil;
 	{
 		if(obj.moveX != 0 || obj.moveY != 0 || obj.moveZ != 0)
 		{
-			CGRect movedRect = [obj globalMoveArea];/*CGRectMake(obj.xPos + obj.moveArea.origin.x, 
-										  obj.zPos + obj.moveArea.origin.y,
-										  obj.moveArea.size.width, 
-										  obj.moveArea.size.height);*/
+			CGRect movedRect = [obj globalMoveArea];
 			
 			BOOL intersectsX = NO;
 			BOOL intersectsZ = NO;
@@ -98,10 +95,22 @@ static BEUObjectController *_sharedController = nil;
 			//Move objects moveRect x position the moveX amount and check for collisions
 			movedRect.origin.x += obj.moveX;
 			
+			//Check tile walls in each area
 			for(BEUArea *area in [[BEUEnvironment sharedEnvironment] areas])
 			{
 				if( (intersectsX = [area doesRectCollideWithTilesWalls:movedRect]) ) break;
 			}
+			
+			//If there is no intersection in tile walls check each object that has isWall as YES
+			if(!intersectsX)
+			{
+				for(BEUObject *object in objects)
+				{
+					if( (object != obj) && (object.isWall) ) 
+						if( (intersectsX = CGRectIntersectsRect([object globalMoveArea], movedRect)) ) break;
+				}
+			}
+			
 			//If object collides with wall after moving movedRect do not change objects x value
 			if(!intersectsX) obj.xPos += obj.moveX;
 			else movedRect.origin.x -= obj.moveX;
@@ -113,21 +122,31 @@ static BEUObjectController *_sharedController = nil;
 			{
 				if( (intersectsZ = [area doesRectCollideWithTilesWalls:movedRect]) ) break;
 			}
+			
+			
+			//If there is no intersection in tile walls ehck each object that has isWall as YES
+			if(!intersectsZ){
+				for(BEUObject *object in objects)
+				{
+					if( (object != obj) && (object.isWall) ) 
+						if( (intersectsZ = CGRectIntersectsRect([object globalMoveArea], movedRect)) ) break;
+				}
+			}
+					
+			
 			//If object collides with wall after moving movedRect do not change objects z value
 			if(!intersectsZ) obj.zPos += obj.moveZ;
 			else movedRect.origin.y -= obj.moveZ;
 			
 			//Move objects y value the moveY amount, no collision checking on the y axis
-			obj.yPos += obj.moveY;
+			//obj.yPos += obj.moveY;
 			
 			
 		}
 		
 		//Set objects x and y positions with x,y and z properties
-		obj.position = ccp(obj.xPos, obj.zPos + obj.yPos);// + obj.y);
+		obj.position = ccp(obj.xPos, obj.zPos + obj.yPos);
 		
-		//Reset objects move values (Not doing anymore)
-		//obj.moveX = obj.moveY = obj.moveZ = 0;
 	}
 }
 

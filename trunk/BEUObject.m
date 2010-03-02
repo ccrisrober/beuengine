@@ -10,7 +10,7 @@
 
 
 @implementation BEUObject
-@synthesize moveX, moveY, moveZ, xPos, yPos, zPos, hitArea, moveArea;
+@synthesize moveX, moveY, moveZ, xPos, yPos, zPos, hitArea, moveArea,movementSpeed,isWall,drawBoundingBoxes;
 -(id)init
 {
 	[super init];
@@ -26,6 +26,11 @@
 	hitArea = CGRectMake(0, 0, 1, 1);
 	moveArea = CGRectMake(0, 0, 1, 1);
 	
+	movementSpeed = 1.0f;
+	
+	isWall = YES;
+	
+	drawBoundingBoxes = NO;
 	
 	return self;
 }
@@ -34,6 +39,45 @@
 {
 	
 }
+
+-(void)draw
+{
+	[super draw];
+	if(drawBoundingBoxes)
+	{
+		
+		
+		//Draw Movement rectangle 
+		glLineWidth( 2.0f );
+		glColor4ub(0, 255, 0, 125);
+		[self drawRect:moveArea];
+		
+		//Draw Hit Rectangle
+		glColor4ub(0, 0, 255, 125);
+		[self drawRect:hitArea];
+		
+		//Draw Origin
+		glDisable(GL_LINE_SMOOTH);
+		glLineWidth( 2.0f );
+		glColor4ub(255,0,0,255);
+		ccDrawLine( ccp(-5, 0), ccp(5, 0) );
+		ccDrawLine( ccp(0, -5), ccp(0, 5) );
+	}
+}
+
+-(CGRect)convertRectToGlobal:(CGRect)rect
+{
+	return CGRectMake(xPos + rect.origin.x, zPos + rect.origin.y, rect.size.width, rect.size.height);
+}
+
+-(void) drawRect:(CGRect)rect
+{
+	ccDrawLine(ccp(rect.origin.x, rect.origin.y), ccp(rect.origin.x + rect.size.width, rect.origin.y));
+	ccDrawLine(ccp(rect.origin.x + rect.size.width, rect.origin.y), ccp(rect.origin.x + rect.size.width, rect.origin.y + rect.size.height));
+	ccDrawLine(ccp(rect.origin.x + rect.size.width, rect.origin.y + rect.size.height), ccp(rect.origin.x, rect.origin.y + rect.size.height));
+	ccDrawLine(ccp(rect.origin.x, rect.origin.y + rect.size.height), ccp(rect.origin.x, rect.origin.y));
+}
+
 
 typedef struct {
 	float x1, y1, x2, y2;
@@ -77,18 +121,12 @@ typedef struct {
 
 -(CGRect) globalHitArea
 {
-	return CGRectMake(self.xPos + self.hitArea.origin.x,
-					  self.yPos + self.hitArea.origin.y,
-					  self.hitArea.size.width,
-					  self.hitArea.size.height);
+	return [self convertRectToGlobal:hitArea];
 }
 
 -(CGRect) globalMoveArea
 {
-	return CGRectMake(self.xPos + self.moveArea.origin.x,
-					  self.zPos + self.moveArea.origin.y,
-					  self.moveArea.size.width,
-					  self.moveArea.size.height);
+	return [self convertRectToGlobal:moveArea];
 }
 
 @end
