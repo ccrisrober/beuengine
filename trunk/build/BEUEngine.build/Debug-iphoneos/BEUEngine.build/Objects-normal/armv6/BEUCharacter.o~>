@@ -1,5 +1,0 @@
-/Users/chris/Projects/BEUEngine/BEUEngine/Classes/BEUCharacter.m: In function '-[BEUCharacter draw]':
-/Users/chris/Projects/BEUEngine/BEUEngine/Classes/BEUCharacter.m:210: warning: 'BEUCharacter' may not respond to '-drawRect:'
-/Users/chris/Projects/BEUEngine/BEUEngine/Classes/BEUCharacter.m:210: warning: (Messages without a matching method signature
-/Users/chris/Projects/BEUEngine/BEUEngine/Classes/BEUCharacter.m:210: warning: will be assumed to return 'id' and accept
-/Users/chris/Projects/BEUEngine/BEUEngine/Classes/BEUCharacter.m:210: warning: '...' as arguments.)
