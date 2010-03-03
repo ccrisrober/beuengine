@@ -14,13 +14,13 @@
 @synthesize body;
 
 float friction = 0.0f;
-float gravity = 0.3f;
+float gravity = 5.0f;
 
 -(id)init 
 {
 	[super init];
 	
-	movementSpeed = 2;
+	movementSpeed = 100.0f; //30 pixels per second;
 	life = 100;
 	
 	drawBoundingBoxes = YES;
@@ -221,12 +221,12 @@ float gravity = 0.3f;
 		
 		if(body.scaleX > 0)
 		{
-			moveX = 2.3f;
-			friction = 0.2f;
+			moveX = 200.0f;
+			friction = 2.0f;
 		} else if(body.scaleX < 0)
 		{
-			moveX = -2.3f;
-			friction = 0.2f;
+			moveX = -200.0f;
+			friction = 2.0f;
 		}
 	}	
 }
@@ -255,12 +255,12 @@ float gravity = 0.3f;
 		
 		if(body.scaleX > 0)
 		{
-			moveX = 2.3f;
-			friction = 0.2f;
+			moveX = 200.0f;
+			friction = 2.0f;
 		} else if(body.scaleX < 0)
 		{
-			moveX = -2.3f;
-			friction = 0.2f;
+			moveX = -200.0f;
+			friction = 2.0f;
 		}
 	}
 }
@@ -281,7 +281,7 @@ float gravity = 0.3f;
 														 selector:@selector(receiveHit:)duration:1 
 														  hitArea: [self convertRectToGlobal: punchHit] 
 														 hitDepth: [self convertRectToGlobal: punchDepth] 
-															power: 50];
+															power: 20];
 	[[BEUActionsController sharedController] addAction:punchToSend];
 }
 
@@ -301,7 +301,7 @@ float gravity = 0.3f;
 														 selector:@selector(receiveHitUppercut:)duration:1 
 														  hitArea: [self convertRectToGlobal: punchHit] 
 														 hitDepth: [self convertRectToGlobal: punchDepth] 
-															power: 50];
+															power: 20];
 	[[BEUActionsController sharedController] addAction:punchToSend];
 }
 
@@ -336,11 +336,11 @@ float gravity = 0.3f;
 	
 	if(right)
 	{
-		moveX = 2.3f;
-		friction = 0.2f;
+		moveX = 100.0f;
+		friction = 2.0f;
 	} else {
-		moveX = -2.3f;
-		friction = 0.2f;
+		moveX = -100.0f;
+		friction = 2.0f;
 	}
 }
 
@@ -359,13 +359,13 @@ float gravity = 0.3f;
 	
 	if(right)
 	{
-		moveX = 2.3f;
+		moveX = 100.0f;
 	} else {
-		moveX = -2.3f;
+		moveX = -100.0f;
 		
 	}
-	moveY = 5.3f;	
-	friction = 0.2f;
+	moveY = 300.0f;	
+	friction = 2.0f;
 	
 }
 
@@ -406,7 +406,7 @@ float gravity = 0.3f;
 		
 		if(moveX < 0.0f)
 		{
-			moveX += friction;
+			moveX += friction*delta;
 			
 			if(moveX >= 0.0f)
 			{
@@ -414,7 +414,7 @@ float gravity = 0.3f;
 				moveX = 0.0f;
 			}
 		} else if(moveX > 0.0f) {
-			moveX -= friction;
+			moveX -= friction*delta;
 			
 			if(moveX <= 0.0f)
 			{
@@ -426,8 +426,8 @@ float gravity = 0.3f;
 	}
 	
 	
-	moveY -= gravity;
-	y += moveY;
+	moveY -= gravity*delta;
+	y += moveY*delta;
 		
 	if(y < 0.0f)
 	{

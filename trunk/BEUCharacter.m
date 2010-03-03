@@ -17,7 +17,7 @@
 	if( (self = [super init]) )
 	{
 		life = 100.0f;
-		movementSpeed = 2.0f;
+		movementSpeed = 100.0f; //100 pixels per second
 		
 		canMove = YES;
 		
@@ -31,10 +31,10 @@
 
 -(void)moveCharacterWithAngle:(float)angle percent:(float)percent 
 {
-	//If the character can move, set moveX and moveZ, multply by timeScale
+	//If the character can move, set moveX and moveZ
 	if(canMove)
 	{
-		double moveSpeed = movementSpeed*percent * [[CCScheduler sharedScheduler] timeScale];
+		double moveSpeed = movementSpeed*percent;
 		moveX = cos(angle)*moveSpeed;
 		moveZ = sin(angle)*moveSpeed;
 		

@@ -36,7 +36,7 @@
 		
 		 
 		
-		BEUCharacter *character = [[BEUSkeletalCharacter alloc] init];
+		BEUCharacter *character = [[BEUTestCharacter alloc] init];
 		character.x = 20;
 		character.z = 50;
 		[[BEUObjectController sharedController] setPlayerCharacter: character];

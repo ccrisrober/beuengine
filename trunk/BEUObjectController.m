@@ -77,7 +77,7 @@ static BEUObjectController *_sharedController = nil;
 	 
 
 //MOVE ALL OBJECTS
--(void)moveObjects
+-(void)moveObjects:(ccTime)delta
 {
 	
 	//NSLog(@"MOVE OBJECTS:%@",objects);
@@ -93,7 +93,7 @@ static BEUObjectController *_sharedController = nil;
 			
 			
 			//Move objects moveRect x position the moveX amount and check for collisions
-			movedRect.origin.x += obj.moveX;
+			movedRect.origin.x += obj.moveX*delta;
 			
 			//Check tile walls in each area
 			for(BEUArea *area in [[BEUEnvironment sharedEnvironment] areas])
@@ -112,11 +112,11 @@ static BEUObjectController *_sharedController = nil;
 			}
 			
 			//If object collides with wall after moving movedRect do not change objects x value
-			if(!intersectsX) obj.x += obj.moveX;
-			else movedRect.origin.x -= obj.moveX;
+			if(!intersectsX) obj.x += obj.moveX*delta;
+			else movedRect.origin.x -= obj.moveX*delta;
 			
 			//Move objects movedRect the moveZ amount and check collisions
-			movedRect.origin.y += obj.moveZ;
+			movedRect.origin.y += obj.moveZ*delta;
 			
 			for(BEUArea *area in [[BEUEnvironment sharedEnvironment] areas])
 			{
@@ -135,8 +135,8 @@ static BEUObjectController *_sharedController = nil;
 					
 			
 			//If object collides with wall after moving movedRect do not change objects z value
-			if(!intersectsZ) obj.z += obj.moveZ;
-			else movedRect.origin.y -= obj.moveZ;
+			if(!intersectsZ) obj.z += obj.moveZ*delta;
+			else movedRect.origin.y -= obj.moveZ*delta;
 			
 			//Move objects y value the moveY amount, no collision checking on the y axis
 			//obj.yPos += obj.moveY;
@@ -157,7 +157,7 @@ static BEUObjectController *_sharedController = nil;
 		[obj step:delta];
 	}
 	
-	[self moveObjects];
+	[self moveObjects:delta];
 }
 
 
