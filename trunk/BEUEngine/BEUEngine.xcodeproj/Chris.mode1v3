@@ -321,7 +321,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>8323129A113F026E00EE2AC0</string>
+										<string>832312B2113F036100EE2AC0</string>
 										<key>history</key>
 										<array>
 											<string>83E91398112D065100C10195</string>
@@ -414,7 +414,7 @@
 											<string>83231296113F026E00EE2AC0</string>
 											<string>83231297113F026E00EE2AC0</string>
 											<string>83231298113F026E00EE2AC0</string>
-											<string>83231299113F026E00EE2AC0</string>
+											<string>8323129A113F026E00EE2AC0</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -426,14 +426,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1063, 721}}</string>
+								<string>{{0, 0}, {1063, 718}}</string>
 								<key>RubberWindowFrame</key>
 								<string>524 147 1289 911 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>721pt</string>
+							<string>718pt</string>
 						</dict>
 						<dict>
 							<key>BecomeActive</key>
@@ -448,14 +448,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 726}, {1063, 144}}</string>
+								<string>{{0, 723}, {1063, 147}}</string>
 								<key>RubberWindowFrame</key>
 								<string>524 147 1289 911 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>144pt</string>
+							<string>147pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -474,9 +474,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>8323129B113F026E00EE2AC0</string>
+				<string>832312B3113F036100EE2AC0</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>8323129C113F026E00EE2AC0</string>
+				<string>832312B4113F036100EE2AC0</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -615,7 +615,7 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>83E9134C112CFC1700C10195</string>
-		<string>/Users/Chris/Projects/BEUEngine/BEUEngine.xcodeproj</string>
+		<string>/Users/Chris/Projects/BEUEngine/BEUEngine/BEUEngine.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>524 147 1289 911 0 0 1920 1058 </string>
@@ -695,7 +695,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>83E9134C112CFC1700C10195</string>
-				<string>8323129D113F026E00EE2AC0</string>
+				<string>832312B5113F036100EE2AC0</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
