@@ -6,6 +6,8 @@
 //  Copyright 2010 Invulse. All rights reserved.
 //
 
+//BEUArea
+
 #import "BEUEnvironment.h"
 #import "BEUEnvironmentTile.h"
 #import "cocos2d.h"
