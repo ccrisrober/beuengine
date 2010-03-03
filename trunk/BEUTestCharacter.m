@@ -364,7 +364,7 @@ float gravity = 5.0f;
 		moveX = -100.0f;
 		
 	}
-	moveY = 300.0f;	
+	moveY = 200.0f;	
 	friction = 2.0f;
 	
 }
@@ -378,6 +378,7 @@ float gravity = 5.0f;
 	[body runAction: 
 	 [CCSequence actions:
 	  [CCAnimate actionWithAnimation:[body animationByName:@"death"] restoreOriginalFrame: NO],
+	  [CCDelayTime actionWithDuration:1.2],
 	  [CCCallFunc actionWithTarget:self selector:@selector(deathComplete)],
 	  nil
 	  ]
@@ -386,7 +387,7 @@ float gravity = 5.0f;
 
 -(void)deathComplete
 {
-	
+	[self kill];
 }
 
 -(void)hitComplete
@@ -424,17 +425,6 @@ float gravity = 5.0f;
 		}
 		
 	}
-	
-	
-	moveY -= gravity*delta;
-	y += moveY*delta;
-		
-	if(y < 0.0f)
-	{
-		y = 0.0f;
-		moveY = 0;
-	}
-	
 	
 	[super step:delta];
 }

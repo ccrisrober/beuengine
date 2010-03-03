@@ -10,6 +10,8 @@
 #import "BEUCharacter.h"
 #import "BEUEnvironment.h"
 #import "BEUActionsController.h"
+#import "BEUTriggerController.h"
+#import "BEUTrigger.h"
 
 @class BEUEnvironment;
 @class BEUObject;
@@ -19,10 +21,15 @@
 	NSMutableArray *characters;
 	NSMutableArray *objects;
 	BEUCharacter *_playerCharacter;
+	
+	float gravity;
 }
 
 @property(nonatomic,retain) NSMutableArray *objects;
 @property(nonatomic,retain) NSMutableArray *characters;
+@property(nonatomic,assign) BEUCharacter *_playerCharacter;
+
+@property(nonatomic) float gravity;
 
 +(BEUObjectController *)sharedController;
 
@@ -34,7 +41,7 @@
 -(BEUCharacter *)playerCharacter;
 
 
--(void)moveObjects;
+-(void)moveObjects:(ccTime)delta;
 
 -(void)step:(ccTime)delta;
 

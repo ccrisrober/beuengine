@@ -15,6 +15,8 @@
 #import "BEUHitAction.h"
 #import "BEUMove.h"
 #import "BEUMovesController.h"
+#import "BEUTrigger.h"
+#import "BEUTriggerController.h"
 
 @class BEUInputEvent;
 @class BEUInputMovementEvent;
@@ -22,6 +24,8 @@
 @class BEUHitAction;
 @class BEUMove;
 @class BEUMovesController;
+@class BEUTrigger;
+@class BEUTriggerController;
 
 @interface BEUCharacter : BEUObject <BEUInputReceiverProtocol> {
 	
@@ -42,7 +46,7 @@
 
 
 -(void)moveCharacterWithAngle:(float)angle percent:(float)percent;
-
+-(void)kill;
 
 
 @end

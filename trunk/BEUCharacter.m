@@ -67,8 +67,20 @@
 	}
 }
 
+-(void)kill
+{
+	[[BEUTriggerController sharedController] sendTrigger:
+	 [[BEUTrigger alloc] initWithType:BEUTriggerKilled sender:self]
+	 ];
+}
 
-
+-(void)dealloc
+{
+	currentMove = nil;
+	[movesController release];
+	
+	[super dealloc];
+}
 
 
 @end

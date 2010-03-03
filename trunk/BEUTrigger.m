@@ -13,6 +13,10 @@
 
 @synthesize type, sender;
 
+NSString *const BEUTriggerKilled = @"killed";
+NSString *const BEUTriggerAllEnemiesKilled = @"allEnemiesKilled";
+NSString *const BEUTriggerEnteredArea = @"enteredArea";
+NSString *const BEUTriggerExitedArea = @"exitedArea";
 
 -(id)init
 {

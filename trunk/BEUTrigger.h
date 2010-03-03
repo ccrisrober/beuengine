@@ -12,6 +12,11 @@
 	id sender;
 }
 
+extern NSString *const BEUTriggerKilled;
+extern NSString *const BEUTriggerAllEnemiesKilled;
+extern NSString *const BEUTriggerEnteredArea;
+extern NSString *const BEUTriggerExitedArea;
+
 @property(nonatomic,retain) NSString *type;
 @property(nonatomic,retain) id sender;
 

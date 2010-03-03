@@ -11,7 +11,7 @@
 
 @implementation BEUObjectController
 
-@synthesize objects, characters;
+@synthesize objects, characters, _playerCharacter, gravity;
 
 static BEUObjectController *_sharedController = nil;
 
@@ -20,6 +20,7 @@ static BEUObjectController *_sharedController = nil;
 	if( (self=[super init] )) {
 		objects = [[NSMutableArray alloc] init];
 		characters = [[NSMutableArray alloc] init];
+		gravity = 10.0f;
 	}
 	
 	return self;
@@ -66,15 +67,29 @@ static BEUObjectController *_sharedController = nil;
 -(void)addCharacter:(BEUCharacter *)character
 {
 	[characters addObject:character];
+	[[BEUTriggerController sharedController] addListener:self 
+													type:BEUTriggerKilled 
+												selector:@selector(characterKilled:)
+	 ];
+	
 	[self addObject:character];
 }
 
 -(void)removeCharacter:(BEUCharacter *)character
 {
 	[characters removeObject:character];
+	[[BEUTriggerController sharedController] removeListener:self 
+													   type:BEUTriggerKilled
+												   selector:@selector(characterKilled:) 
+												 fromSender:character];
 	[self removeObject:character];
 }
-	 
+	
+
+-(void)characterKilled:(BEUTrigger *)trigger
+{
+	[self removeCharacter: ((BEUCharacter *)trigger.sender)];
+}
 
 //MOVE ALL OBJECTS
 -(void)moveObjects:(ccTime)delta
@@ -139,7 +154,15 @@ static BEUObjectController *_sharedController = nil;
 			else movedRect.origin.y -= obj.moveZ*delta;
 			
 			//Move objects y value the moveY amount, no collision checking on the y axis
-			//obj.yPos += obj.moveY;
+			
+			obj.y += obj.moveY*delta;
+			if(obj.y <= 0)
+			{
+				obj.y = 0;
+				obj.moveY = 0;
+			} else {
+				if(obj.affectedByGravity) obj.moveY -= gravity;
+			}
 			
 			
 		}
