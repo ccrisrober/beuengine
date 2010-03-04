@@ -32,6 +32,8 @@
 	
 	//debug value to draw hit and move boxes of object, defaults to NO
 	BOOL drawBoundingBoxes;
+	
+	BOOL affectedByGravity;
 }
 
 @property(nonatomic) float moveX;
@@ -47,6 +49,7 @@
 @property(nonatomic) float movementSpeed;
 @property(nonatomic) BOOL drawBoundingBoxes;
 @property(nonatomic) BOOL isWall;
+@property(nonatomic) BOOL affectedByGravity;
 
 -(void)step:(ccTime)delta;
 

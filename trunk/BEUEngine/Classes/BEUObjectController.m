@@ -11,7 +11,7 @@
 
 @implementation BEUObjectController
 
-@synthesize objects, characters;
+@synthesize objects, characters, _playerCharacter, gravity;
 
 static BEUObjectController *_sharedController = nil;
 
@@ -20,6 +20,7 @@ static BEUObjectController *_sharedController = nil;
 	if( (self=[super init] )) {
 		objects = [[NSMutableArray alloc] init];
 		characters = [[NSMutableArray alloc] init];
+		gravity = 10.0f;
 	}
 	
 	return self;
@@ -66,18 +67,32 @@ static BEUObjectController *_sharedController = nil;
 -(void)addCharacter:(BEUCharacter *)character
 {
 	[characters addObject:character];
+	[[BEUTriggerController sharedController] addListener:self 
+													type:BEUTriggerKilled 
+												selector:@selector(characterKilled:)
+	 ];
+	
 	[self addObject:character];
 }
 
 -(void)removeCharacter:(BEUCharacter *)character
 {
 	[characters removeObject:character];
+	[[BEUTriggerController sharedController] removeListener:self 
+													   type:BEUTriggerKilled
+												   selector:@selector(characterKilled:) 
+												 fromSender:character];
 	[self removeObject:character];
 }
-	 
+	
+
+-(void)characterKilled:(BEUTrigger *)trigger
+{
+	[self removeCharacter: ((BEUCharacter *)trigger.sender)];
+}
 
 //MOVE ALL OBJECTS
--(void)moveObjects
+-(void)moveObjects:(ccTime)delta
 {
 	
 	//NSLog(@"MOVE OBJECTS:%@",objects);
@@ -93,7 +108,7 @@ static BEUObjectController *_sharedController = nil;
 			
 			
 			//Move objects moveRect x position the moveX amount and check for collisions
-			movedRect.origin.x += obj.moveX;
+			movedRect.origin.x += obj.moveX*delta;
 			
 			//Check tile walls in each area
 			for(BEUArea *area in [[BEUEnvironment sharedEnvironment] areas])
@@ -112,11 +127,11 @@ static BEUObjectController *_sharedController = nil;
 			}
 			
 			//If object collides with wall after moving movedRect do not change objects x value
-			if(!intersectsX) obj.x += obj.moveX;
-			else movedRect.origin.x -= obj.moveX;
+			if(!intersectsX) obj.x += obj.moveX*delta;
+			else movedRect.origin.x -= obj.moveX*delta;
 			
 			//Move objects movedRect the moveZ amount and check collisions
-			movedRect.origin.y += obj.moveZ;
+			movedRect.origin.y += obj.moveZ*delta;
 			
 			for(BEUArea *area in [[BEUEnvironment sharedEnvironment] areas])
 			{
@@ -135,11 +150,19 @@ static BEUObjectController *_sharedController = nil;
 					
 			
 			//If object collides with wall after moving movedRect do not change objects z value
-			if(!intersectsZ) obj.z += obj.moveZ;
-			else movedRect.origin.y -= obj.moveZ;
+			if(!intersectsZ) obj.z += obj.moveZ*delta;
+			else movedRect.origin.y -= obj.moveZ*delta;
 			
 			//Move objects y value the moveY amount, no collision checking on the y axis
-			//obj.yPos += obj.moveY;
+			
+			obj.y += obj.moveY*delta;
+			if(obj.y <= 0)
+			{
+				obj.y = 0;
+				obj.moveY = 0;
+			} else {
+				if(obj.affectedByGravity) obj.moveY -= gravity;
+			}
 			
 			
 		}
@@ -157,7 +180,7 @@ static BEUObjectController *_sharedController = nil;
 		[obj step:delta];
 	}
 	
-	[self moveObjects];
+	[self moveObjects:delta];
 }
 
 
