@@ -10,7 +10,8 @@
 
 
 @implementation BEUObject
-@synthesize moveX, moveY, moveZ, x, y, z, hitArea, moveArea,movementSpeed,isWall,drawBoundingBoxes;
+@synthesize moveX, moveY, moveZ, x, y, z, hitArea, moveArea,movementSpeed,isWall,drawBoundingBoxes,affectedByGravity;
+
 -(id)init
 {
 	[super init];
@@ -29,7 +30,7 @@
 	movementSpeed = 1.0f;
 	
 	isWall = YES;
-	
+	affectedByGravity = YES;
 	drawBoundingBoxes = NO;
 	
 	return self;
