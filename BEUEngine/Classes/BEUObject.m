@@ -10,7 +10,10 @@
 
 
 @implementation BEUObject
-@synthesize moveX, moveY, moveZ, x, y, z, hitArea, moveArea,movementSpeed,isWall,drawBoundingBoxes,affectedByGravity;
+@synthesize moveX, moveY, moveZ, 
+x, y, z, hitArea, moveArea,
+movementSpeed,isWall,drawBoundingBoxes,
+affectedByGravity;
 
 -(id)init
 {
@@ -32,6 +35,10 @@
 	isWall = YES;
 	affectedByGravity = YES;
 	drawBoundingBoxes = NO;
+	_facingRight = YES;
+	
+	self.anchorPoint = ccp(0.5f,0.0f);
+	self.honorParentTransform = YES;
 	
 	return self;
 }
@@ -66,11 +73,23 @@
 	}
 }
 
--(CGRect)convertRectToGlobal:(CGRect)rect
+-(CGRect)convertRectToLocal:(CGRect)rect
 {
-	return CGRectMake(x + rect.origin.x, z + rect.origin.y, rect.size.width, rect.size.height);
+	if(!self.facingRight)
+	{
+		return CGRectMake(-rect.origin.x - rect.size.width,rect.origin.y, rect.size.width, rect.size.height);						  
+	}
+	
+	return rect;
 }
 
+-(CGRect)convertRectToGlobal:(CGRect)rect
+{
+	CGRect locRect = [self convertRectToLocal:rect];
+	return CGRectMake(x + locRect.origin.x, z + locRect.origin.y, locRect.size.width, locRect.size.height);
+
+}
+	
 -(void) drawRect:(CGRect)rect
 {
 	ccDrawLine(ccp(rect.origin.x, rect.origin.y), ccp(rect.origin.x + rect.size.width, rect.origin.y));
@@ -79,6 +98,22 @@
 	ccDrawLine(ccp(rect.origin.x, rect.origin.y + rect.size.height), ccp(rect.origin.x, rect.origin.y));
 }
 
+-(BOOL) facingRight
+{
+	return _facingRight;
+}
+
+-(void) setFacingRight:(BOOL)right
+{
+	_facingRight = right;
+	
+	if(_facingRight)
+	{
+		self.scaleX = 1;
+	} else {
+		self.scaleX = -1;
+	}
+}
 
 typedef struct {
 	float x1, y1, x2, y2;

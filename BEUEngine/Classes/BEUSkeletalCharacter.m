@@ -18,8 +18,8 @@
 
 	[super init];
 	
-	movementSpeed = 2;
-	life = 100;
+	movementSpeed = 80.0f;
+	life = 100.0f;
 	
 	drawBoundingBoxes = YES;
 	
@@ -59,7 +59,10 @@
 	
 	[self addChild:container];
 	
-	self.anchorPoint = ccp(0.0f,0.0f);
+	self.moveArea = CGRectMake(-20,0,40,30);
+	self.hitArea = CGRectMake(-20,0,40,60);
+	self.container.position = ccp(-5.0f,0.0f);
+	//self.anchorPoint = ccp(0.0f,0.0f);
 	
 	return self;
 }
@@ -136,8 +139,8 @@
 		  ]
 		 ];
 		
-		container.scaleX = 1;
-		container.position = ccp(0,0);
+		//container.scaleX = 1;
+		//container.position = ccp(0,0);
 	}
 }
 
@@ -190,8 +193,8 @@
 		  ]
 		 ];
 		
-		container.scaleX = -1;
-		container.position = ccp(50,0);
+		//container.scaleX = -1;
+		//container.position = ccp(50,0);
 		
 	}
 }
