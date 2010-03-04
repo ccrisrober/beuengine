@@ -34,6 +34,11 @@
 	BOOL drawBoundingBoxes;
 	
 	BOOL affectedByGravity;
+	
+	//Simple boolean value to tell if object is facing right
+	//Used in convertRectToGlobal
+	BOOL _facingRight;
+	
 }
 
 @property(nonatomic) float moveX;
@@ -55,7 +60,10 @@
 
 -(CGRect)globalHitArea;
 -(CGRect)globalMoveArea;
+-(CGRect)convertRectToLocal:(CGRect)rect;
 -(CGRect)convertRectToGlobal:(CGRect)rect;
+-(void)setFacingRight:(BOOL)right;
+-(BOOL)facingRight;
 
 -(void)drawRect:(CGRect)rect;
 

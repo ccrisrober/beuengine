@@ -38,6 +38,14 @@
 		moveX = cos(angle)*moveSpeed;
 		moveZ = sin(angle)*moveSpeed;
 		
+		if(moveX > 0)
+		{
+			[self setFacingRight:YES];
+		} else if(moveX < 0)
+		{
+			[self setFacingRight:NO];
+		}
+		
 	} else {
 		moveX = moveZ = 0.0f;
 	}
