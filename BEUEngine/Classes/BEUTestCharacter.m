@@ -95,12 +95,12 @@ float gravity = 5.0f;
 	
 	[self standStill];
 	
-	body.position = ccp(47.0f,0.0f);
+	body.position = ccp(0.0f,0.0f);
 	
-	self.anchorPoint = ccp(0.0f, 0.0f);
+	//self.anchorPoint = ccp(0.0f, 0.0f);
 	
-	self.hitArea = CGRectMake(25, 0, 50, 70);
-	self.moveArea = CGRectMake(35, 0, 30, 25);
+	self.hitArea = CGRectMake(-25, 0, 50, 70);
+	self.moveArea = CGRectMake(-15, 0, 30, 25);
 	
 	canMove = YES;
 	
@@ -163,7 +163,7 @@ float gravity = 5.0f;
 	if(currentAnimation != @"moveLeft"){
 		currentAnimation = @"moveLeft";
 		//NSLog(@"MOVE LEFT");
-		body.scaleX = -1;
+		//body.scaleX = -1;
 		
 		
 		[body stopAllActions];
@@ -178,7 +178,7 @@ float gravity = 5.0f;
 		currentAnimation = @"moveRight";
 		//NSLog(@"MOVE RIGHT");
 		
-		body.scaleX = 1;
+		//body.scaleX = 1;
 		
 		[body stopAllActions];
 		[body runAction:[CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation:[body animationByName:@"walk"] restoreOriginalFrame:NO] ]];
@@ -219,7 +219,7 @@ float gravity = 5.0f;
 		 ];
 		
 		
-		if(body.scaleX > 0)
+		if(self.scaleX > 0)
 		{
 			moveX = 200.0f;
 			friction = 2.0f;
@@ -253,7 +253,7 @@ float gravity = 5.0f;
 		  nil]
 		 ];
 		
-		if(body.scaleX > 0)
+		if(self.scaleX > 0)
 		{
 			moveX = 200.0f;
 			friction = 2.0f;
