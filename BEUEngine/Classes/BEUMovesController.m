@@ -81,6 +81,7 @@ waitTime, waiting, canReceiveInput;
 	//Now test the new input sequence against all the moves
 	for(BEUMove *move in moves)
 	{
+		
 		if([move trySequence:inputSequence])
 		{
 			canReceiveInput = NO;
@@ -141,6 +142,14 @@ waitTime, waiting, canReceiveInput;
 	
 	coolingDown = NO;
 	canReceiveInput = YES;
+}
+
+-(BEUMove *)getMoveWithName:(NSString *)name
+{
+	for ( BEUMove *move in moves )
+	{
+		if(move.name == name) return move;
+	}
 }
 
 -(void)dealloc

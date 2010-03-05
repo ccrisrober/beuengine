@@ -1,7 +1,7 @@
 TBEUEngine
 v7
 r0
-t289343382.803014
+t289442040.520769
 cCheck dependencies
 cProcessInfoPlistFile /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/Info.plist Resources/Info.plist
 cCpResource build/Debug-iphonesimulator/BEUEngine.app/Default.png Resources/Default.png
@@ -12,7 +12,7 @@ cCpResource build/Debug-iphonesimulator/BEUEngine.app/SkeletalCharacter.png Reso
 cCopyPlistFile /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/TestCharacter.plist Resources/TestCharacter.plist
 cCpResource build/Debug-iphonesimulator/BEUEngine.app/TestCharacter.png Resources/TestCharacter.png
 cCpResource build/Debug-iphonesimulator/BEUEngine.app/TestTile.png Resources/TestTile.png
-cProcessPCH /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch.gch BEUEngine_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+cProcessPCH /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch.gch BEUEngine_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
 cCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/main.o /Users/Chris/Projects/BEUEngine/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEngineAppDelegate.o /Users/Chris/Projects/BEUEngine/Classes/BEUEngineAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/HelloWorldScene.o /Users/Chris/Projects/BEUEngine/Classes/HelloWorldScene.m normal i386 objective-c com.apple.compilers.gcc.4_2
@@ -35,6 +35,9 @@ cCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-no
 cCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUMovesController.o /Users/Chris/Projects/BEUEngine/Classes/BEUMovesController.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUTestCharacter.o /Users/Chris/Projects/BEUEngine/Classes/BEUTestCharacter.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUSkeletalCharacter.o /Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUTrigger.o /Users/Chris/Projects/BEUEngine/Classes/BEUTrigger.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUTriggerController.o /Users/Chris/Projects/BEUEngine/Classes/BEUTriggerController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUCharacterAI.o /Users/Chris/Projects/BEUEngine/Classes/BEUCharacterAI.m normal i386 objective-c com.apple.compilers.gcc.4_2
 cLd /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/BEUEngine normal i386
 cGenerateDSYMFile /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app.dSYM /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/BEUEngine
 cTouch /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app
@@ -79,6 +82,16 @@ c000000004ABDC952000000000001DB20
 t1253951826
 s121632
 
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/EAGL.h
+c000000004ABDCA29000000000000094F
+t1253952041
+s2383
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/EAGLDrawable.h
+c000000004ABDCA290000000000000A61
+t1253952041
+s2657
+
 N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/ES1/gl.h
 c000000004ABDCA290000000000009369
 t1253952041
@@ -119,12 +132,132 @@ c000000004748F47C0000000000000A27
 t1195963516
 s2599
 
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/usr/include/stdlib.h
+c000000004748A1330000000000002A79
+t1195942195
+s10873
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/usr/include/string.h
+c000000004748A1330000000000001731
+t1195942195
+s5937
+
 N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/usr/include/sys/time.h
 c00000000476344C00000000000001E18
 t1197688000
 s7704
 
 N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/usr/lib/libz.dylib
+c00000000476CCCD10000000000006EE8
+t1198312657
+s28392
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk
+c000000004B8E9FE600000000000000EE
+t1267638246
+s238
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/System/Library/Frameworks/AVFoundation.framework/AVFoundation
+c000000004B2B4DF500000000000120D0
+t1261129205
+s73936
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
+c000000004B2B4D460000000000193960
+t1261129030
+s1653088
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004B2B4CC3000000000026EE30
+t1261128899
+s2551344
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h
+c000000004B2B4CC30000000000002384
+t1261128899
+s9092
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004B2B4DC8000000000027E880
+t1261129160
+s2615424
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004B2B4DAE0000000000001355
+t1261129134
+s4949
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/System/Library/Frameworks/OpenAL.framework/OpenAL
+c000000004B2B4D63000000000001EEA0
+t1261129059
+s126624
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/EAGL.h
+c000000004B2B5307000000000000094F
+t1261130503
+s2383
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/EAGLDrawable.h
+c000000004B2B53070000000000000A61
+t1261130503
+s2657
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/ES1/gl.h
+c000000004B2B53070000000000009369
+t1261130503
+s37737
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/ES1/glext.h
+c000000004B2B53070000000000002A42
+t1261130503
+s10818
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/System/Library/Frameworks/OpenGLES.framework/OpenGLES
+c000000004B2B532D000000000001F8E0
+t1261130541
+s129248
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c000000004B2B540C00000000000E5890
+t1261130764
+s940176
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004B2B61620000000000000788
+t1261134178
+s1928
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004B2B62B500000000016721E0
+t1261134517
+s23536096
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/usr/include/math.h
+c000000004748A10600000000000004B7
+t1195942150
+s1207
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/usr/include/objc/objc.h
+c000000004748F47C0000000000000A27
+t1195963516
+s2599
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/usr/include/stdlib.h
+c000000004748A1330000000000002A79
+t1195942195
+s10873
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/usr/include/string.h
+c000000004748A1330000000000001731
+t1195942195
+s5937
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/usr/include/sys/time.h
+c00000000476344C00000000000001E18
+t1197688000
+s7704
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk/usr/lib/libz.dylib
 c00000000476CCCD10000000000006EE8
 t1198312657
 s28392
@@ -155,55 +288,55 @@ t2
 s0
 
 N/Users/Chris/Projects/BEUEngine/BEUEngine_Prefix.pch
-c000000004B7CC47B00000000000000B5
-t1266467963
+c000000004B8ED29D00000000000000B5
+t1267651229
 s181
 i<Foundation/Foundation.h>
 i<UIKit/UIKit.h>
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUAction.h
-c000000004B89604F0000000000000728
-t1267294287
+c000000004B8ED29D0000000000000728
+t1267651229
 s1832
 i"BEUActionsController.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUAction.m
-c000000004B8963440000000000000606
-t1267295044
+c000000004B8ED29D0000000000000606
+t1267651229
 s1542
 i"BEUAction.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUActionsController.h
-c000000004B86DA260000000000000291
-t1267128870
+c000000004B8ED29D0000000000000291
+t1267651229
 s657
 i"cocos2d.h"
 i"BEUAction.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUActionsController.m
-c000000004B896AFD00000000000007A2
-t1267297021
+c000000004B8ED29D00000000000007A2
+t1267651229
 s1954
 i"BEUActionsController.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUArea.h
-c000000004B83789500000000000001E5
-t1266907285
-s485
+c000000004B8ED2BD00000000000001F0
+t1267651261
+s496
 i"BEUEnvironment.h"
 i"BEUEnvironmentTile.h"
 i"cocos2d.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUArea.m
-c000000004B8482E900000000000008B8
-t1266975465
-s2232
+c000000004B9011AD0000000000000888
+t1267732909
+s2184
 i"BEUArea.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUCharacter.h
-c000000004B8C35DF00000000000003AF
-t1267480031
-s943
+c000000004B90380C00000000000004CD
+t1267742732
+s1229
 i"BEUObject.h"
 i"BEUInputEvent.h"
 i"BEUInputMovementEvent.h"
@@ -213,16 +346,34 @@ i"BEUActionsController.h"
 i"BEUHitAction.h"
 i"BEUMove.h"
 i"BEUMovesController.h"
+i"BEUTrigger.h"
+i"BEUTriggerController.h"
+i"BEUCharacterAI.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUCharacter.m
-c000000004B8CA9D7000000000000062D
-t1267509719
-s1581
+c000000004B9045F90000000000000974
+t1267746297
+s2420
 i"BEUCharacter.h"
 
+N/Users/Chris/Projects/BEUEngine/Classes/BEUCharacterAI.h
+c000000004B903FFF0000000000000283
+t1267744767
+s643
+i"BEUCharacter.h"
+i"BEUObject.h"
+i"BEUObjectController.h"
+i"BEUMath.h"
+
+N/Users/Chris/Projects/BEUEngine/Classes/BEUCharacterAI.m
+c000000004B9045710000000000000519
+t1267746161
+s1305
+i"BEUCharacterAI.h"
+
 N/Users/Chris/Projects/BEUEngine/Classes/BEUEngine.h
-c000000004B7E2A3A0000000000000110
-t1266559546
+c000000004B8ED29D0000000000000110
+t1267651229
 s272
 i"cocos2d.h"
 i"BEUEnvironment.h"
@@ -232,20 +383,20 @@ i"BEUObject.h"
 i"BEUEnvironmentTile.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUEngine.m
-c000000004B7CED8A0000000000000096
-t1266478474
+c000000004B8ED29D0000000000000096
+t1267651229
 s150
 i"BEUEngine.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUEngineAppDelegate.h
-c000000004B7CC47B0000000000000134
-t1266467963
+c000000004B8ED29D0000000000000134
+t1267651229
 s308
 i<UIKit/UIKit.h>
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUEngineAppDelegate.m
-c000000004B8372DC00000000000009E9
-t1266905820
+c000000004B8ED29D00000000000009E9
+t1267651229
 s2537
 i"BEUEngineAppDelegate.h"
 i"BEUEngine.h"
@@ -253,8 +404,8 @@ i"cocos2d.h"
 i"HelloWorldScene.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironment.h
-c000000004B84BEF4000000000000049D
-t1266990836
+c000000004B8ED29D000000000000049D
+t1267651229
 s1181
 i"BEUObject.h"
 i"BEUCharacter.h"
@@ -265,67 +416,67 @@ i"BEUInputLayer.h"
 i"cocos2d.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironment.m
-c000000004B8C5B3E000000000000121A
-t1267489598
+c000000004B8ED29D000000000000121A
+t1267651229
 s4634
 i"BEUEnvironment.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.h
-c000000004B82327600000000000001A5
-t1266823798
+c000000004B8ED29D00000000000001A5
+t1267651229
 s421
 i"cocos2d.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m
-c000000004B8482E900000000000007B6
-t1266975465
+c000000004B8ED29D00000000000007B6
+t1267651229
 s1974
 i"BEUEnvironmentTile.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUGame.h
-c000000004B81E096000000000000019D
-t1266802838
+c000000004B8ED29D000000000000019D
+t1267651229
 s413
 i"BEUEnvironment.h"
 i"BEUInputLayer.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUGame.m
-c000000004B8CA7A90000000000000770
-t1267509161
-s1904
+c000000004B9036F9000000000000079E
+t1267742457
+s1950
 i"BEUGame.h"
 i"BEUActionsController.h"
 i"BEUTestCharacter.h"
 i"BEUSkeletalCharacter.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUHitAction.h
-c000000004B89C8400000000000000312
-t1267320896
+c000000004B8ED29D0000000000000312
+t1267651229
 s786
 i"BEUAction.h"
 i"BEUObject.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUHitAction.m
-c000000004B8C4BF20000000000000435
-t1267485682
+c000000004B8ED29D0000000000000435
+t1267651229
 s1077
 i"BEUHitAction.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUInputEvent.h
-c000000004B8B440A00000000000002BF
-t1267418122
-s703
+c000000004B902AE400000000000003D0
+t1267739364
+s976
 i"cocos2d.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUInputEvent.m
-c000000004B8B444900000000000003D7
-t1267418185
-s983
+c000000004B902A810000000000000453
+t1267739265
+s1107
 i"BEUInputEvent.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUInputLayer.h
-c000000004B86FB7500000000000005D0
-t1267137397
+c000000004B8ED29D00000000000005D0
+t1267651229
 s1488
 i"cocos2d.h"
 i"CGPointExtension.h"
@@ -336,410 +487,447 @@ i"BEUInputReceiverProtocol.h"
 i"BEUInputMovementEvent.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUInputLayer.m
-c000000004B8B52670000000000000F82
-t1267421799
+c000000004B90153D0000000000000F82
+t1267733821
 s3970
 i"BEUInputLayer.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUInputMovementEvent.h
-c000000004B85F32600000000000002F3
-t1267069734
+c000000004B8ED29D00000000000002F3
+t1267651229
 s755
 i"BEUInputEvent.h"
 i"BEUMath.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUInputMovementEvent.m
-c000000004B86DBC400000000000004CE
-t1267129284
+c000000004B8ED29D00000000000004CE
+t1267651229
 s1230
 i"BEUInputMovementEvent.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUInputReceiverProtocol.h
-c000000004B85DBC300000000000000E5
-t1267063747
+c000000004B8ED29D00000000000000E5
+t1267651229
 s229
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUMath.h
-c000000004B80258E000000000000010D
-t1266689422
+c000000004B8ED29D000000000000010D
+t1267651229
 s269
 i<Foundation/Foundation.h>
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUMath.m
-c000000004B870092000000000000049F
-t1267138706
+c000000004B8ED29D000000000000049F
+t1267651229
 s1183
 i"BEUMath.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUMove.h
-c000000004B8B32D100000000000005D8
-t1267413713
-s1496
+c000000004B904EF500000000000006CC
+t1267748597
+s1740
 i"BEUCharacter.h"
 i"BEUAction.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUMove.m
-c000000004B8B3F2C0000000000000656
-t1267416876
-s1622
+c000000004B9051290000000000000792
+t1267749161
+s1938
 i"BEUMove.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUMovesController.h
-c000000004B8B53BD00000000000004A3
-t1267422141
+c000000004B8ED29D00000000000004A3
+t1267651229
 s1187
 i"BEUMove.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUMovesController.m
-c000000004B8C191C0000000000000B71
-t1267472668
-s2929
+c000000004B904EE60000000000000B74
+t1267748582
+s2932
 i"BEUMovesController.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUObject.h
-c000000004B8C5B3E00000000000005FB
-t1267489598
-s1531
+c000000004B90298C0000000000000714
+t1267739020
+s1812
 i"cocos2d.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUObject.m
-c000000004B8C5B3E0000000000000B1B
-t1267489598
-s2843
+c000000004B9029A80000000000000D65
+t1267739048
+s3429
 i"BEUObject.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUObjectController.h
-c000000004B86DC240000000000000393
-t1267129380
-s915
+c000000004B900650000000000000044C
+t1267730000
+s1100
 i"BEUObject.h"
 i"BEUCharacter.h"
 i"BEUEnvironment.h"
 i"BEUActionsController.h"
+i"BEUTriggerController.h"
+i"BEUTrigger.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUObjectController.m
-c000000004B8C5B3E0000000000000EE7
-t1267489598
-s3815
+c000000004B90169500000000000012D3
+t1267734165
+s4819
 i"BEUObjectController.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.h
-c000000004B8CB0130000000000000332
-t1267511315
+c000000004B8ED29D0000000000000332
+t1267651229
 s818
 i"BEUCharacter.h"
 i"cocos2d.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m
-c000000004B8CB38D0000000000001356
-t1267512205
-s4950
+c000000004B90065000000000000013E6
+t1267730000
+s5094
 i"BEUSkeletalCharacter.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUTestCharacter.h
-c000000004B8C45FB0000000000000230
-t1267484155
+c000000004B8ED29D0000000000000230
+t1267651229
 s560
 i"BEUCharacter.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/BEUTestCharacter.m
-c000000004B8C5B3E0000000000002BF2
-t1267489598
-s11250
+c000000004B9051770000000000002CD9
+t1267749239
+s11481
 i"BEUTestCharacter.h"
 
+N/Users/Chris/Projects/BEUEngine/Classes/BEUTrigger.h
+c000000004B9012D1000000000000024E
+t1267733201
+s590
+
+N/Users/Chris/Projects/BEUEngine/Classes/BEUTrigger.m
+c000000004B90131B000000000000034F
+t1267733275
+s847
+i"BEUTrigger.h"
+
+N/Users/Chris/Projects/BEUEngine/Classes/BEUTriggerController.h
+c000000004B90065000000000000004F4
+t1267730000
+s1268
+i"BEUTrigger.h"
+
+N/Users/Chris/Projects/BEUEngine/Classes/BEUTriggerController.m
+c000000004B9015600000000000000AD5
+t1267733856
+s2773
+i"BEUTriggerController.h"
+
 N/Users/Chris/Projects/BEUEngine/Classes/HelloWorldScene.h
-c000000004B7CC47B00000000000000E5
-t1266467963
+c000000004B8ED29D00000000000000E5
+t1267651229
 s229
 i"cocos2d.h"
 
 N/Users/Chris/Projects/BEUEngine/Classes/HelloWorldScene.m
-c000000004B7CC47B0000000000000587
-t1266467963
+c000000004B8ED29D0000000000000587
+t1267651229
 s1415
 i"HelloWorldScene.h"
 
 N/Users/Chris/Projects/BEUEngine/Resources/Default.png
-c000000004B7CC47B00000000000077AB
-t1266467963
+c000000004B8ED29B00000000000077AB
+t1267651227
 s30635
 
 N/Users/Chris/Projects/BEUEngine/Resources/Icon.png
-c000000004B7CC47B000000000000246F
-t1266467963
+c000000004B8ED29B000000000000246F
+t1267651227
 s9327
 
 N/Users/Chris/Projects/BEUEngine/Resources/SkeletalCharacter.plist
-c000000004B8CA4F0000000000000079B
-t1267508464
+c000000004B8ED29B000000000000079B
+t1267651227
 s1947
 
 N/Users/Chris/Projects/BEUEngine/Resources/SkeletalCharacter.png
-c000000004B8CA4E50000000000000788
-t1267508453
+c000000004B8ED29B0000000000000788
+t1267651227
 s1928
 
 N/Users/Chris/Projects/BEUEngine/Resources/TestCharacter.plist
-c000000004B8C2CA40000000000005200
-t1267477668
+c000000004B8ED29B0000000000005200
+t1267651227
 s20992
 
 N/Users/Chris/Projects/BEUEngine/Resources/TestCharacter.png
-c000000004B8C2C9A0000000000010429
-t1267477658
+c000000004B8ED29B0000000000010429
+t1267651227
 s66601
 
 N/Users/Chris/Projects/BEUEngine/Resources/TestTile.png
-c000000004B7CC3B80000000000000468
-t1266467768
+c000000004B8ED29B0000000000000468
+t1267651227
 s1128
 
 N/Users/Chris/Projects/BEUEngine/Resources/fps_images.png
-c000000004B7CC47B000000000000183B
-t1266467963
+c000000004B8ED29B000000000000183B
+t1267651227
 s6203
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUAction.o
-t1267650581
+t1267732722
 s15108
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUActionsController.o
-t1267650581
+t1267732722
 s15636
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUArea.o
-t1267650581
+t1267733455
 s21808
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUCharacter.o
-t1267650581
-s20328
+t1267748610
+s24452
+
+N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUCharacterAI.o
+t1267746161
+s19316
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEngine.LinkFileList
-c000000004B8ED0140000000000000B04
-t1267650580
-s2820
+c000000004B9037EC0000000000000C89
+t1267742700
+s3209
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEngine.o
-t1267650581
+t1267748610
 s5680
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEngineAppDelegate.o
-t1267650580
+t1267748610
 s32968
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEnvironment.o
-t1267650581
-s39724
+t1267748610
+s39964
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEnvironmentTile.o
-t1267650581
+t1267732721
 s20596
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUGame.o
-t1267650581
-s26956
+t1267748610
+s27004
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUHitAction.o
-t1267650581
-s17608
+t1267739021
+s17664
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUInputEvent.o
-t1267650581
-s13636
+t1267739365
+s13880
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUInputLayer.o
-t1267650581
+t1267748611
 s37856
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUInputMovementEvent.o
-t1267650581
+t1267739365
 s15004
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUMath.o
-t1267650581
+t1267732721
 s6840
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUMove.o
-t1267650581
-s24616
+t1267749163
+s26196
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUMovesController.o
-t1267650582
-s28932
+t1267748611
+s29180
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUObject.o
-t1267650581
-s28444
+t1267739049
+s31072
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUObjectController.o
-t1267650581
-s27716
+t1267742751
+s32164
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUSkeletalCharacter.o
-t1267650582
-s34228
+t1267748611
+s34836
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUTestCharacter.o
-t1267650582
-s46188
+t1267749240
+s47144
+
+N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUTrigger.o
+t1267733456
+s11060
+
+N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUTriggerController.o
+t1267733897
+s19764
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/HelloWorldScene.o
-t1267650580
+t1267732721
 s19868
 
 N/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/main.o
-t1267650580
+t1267732721
 s6060
 
 N/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app
-t1267650582
-s442
+t1267749240
+s476
 
 N/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app.dSYM
-t1267650582
-s102
+t1267749240
+s136
 
 N/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/BEUEngine
-t1267650582
-s1060192
+t1267749240
+s1081860
 
 N/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/Default.png
-t1267650580
+t1267732720
 s30635
 
 N/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/Icon.png
-t1267650580
+t1267732720
 s9327
 
 N/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/Info.plist
-t1267650580
+t1267732720
 s831
 
 N/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/PkgInfo
-t1267650580
+t1267732720
 s8
 
 N/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/SkeletalCharacter.plist
-t1267650580
+t1267732720
 s457
 
 N/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/SkeletalCharacter.png
-t1267650580
+t1267732720
 s1928
 
 N/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/TestCharacter.plist
-t1267650580
+t1267732720
 s5555
 
 N/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/TestCharacter.png
-t1267650580
+t1267732720
 s66601
 
 N/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/TestTile.png
-t1267650580
+t1267732720
 s1128
 
 N/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/fps_images.png
-t1267650580
+t1267732720
 s6203
 
 N/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/libcocos2d libraries.a
-c000000004B8ED014000000000025A698
-t1267650580
+c000000004B9010F0000000000025A698
+t1267732720
 s2467480
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCAction.h
-c000000004B56160C0000000000000E69
-t1263932940
+c000000004B8ED2990000000000000E69
+t1267651225
 s3689
 i<UIKit/UIKit.h>
 i<sys/time.h>
 i"ccTypes.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCActionManager.h
-c000000004B703FD40000000000000C0E
-t1265647572
+c000000004B8ED2990000000000000C0E
+t1267651225
 s3086
 i"CCAction.h"
 i"Support/ccArray.h"
 i"Support/ccHashSet.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCAtlasNode.h
-c000000004AF4481100000000000008F4
-t1257523217
+c000000004B8ED29900000000000008F4
+t1267651225
 s2292
 i"CCTextureAtlas.h"
 i"CCNode.h"
 i"CCProtocols.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCBitmapFontAtlas.h
-c000000004B620D790000000000001007
-t1264717177
+c000000004B8ED2990000000000001007
+t1267651225
 s4103
 i"CCAtlasNode.h"
 i"CCSpriteSheet.h"
 i"Support/ccHashSet.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCCamera.h
-c000000004B56160C0000000000000815
-t1263932940
+c000000004B8ED2990000000000000815
+t1267651225
 s2069
 i"CCNode.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCCameraAction.h
-c000000004B56160C0000000000000676
-t1263932940
+c000000004B8ED2990000000000000676
+t1267651225
 s1654
 i"CCIntervalAction.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCCompatibility.h
-c000000004B71BA480000000000003A7C
-t1265744456
+c000000004B8ED2990000000000003A7C
+t1267651225
 s14972
 i<Foundation/Foundation.h>
 i"cocos2d.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCConfiguration.h
-c000000004B703FD40000000000000425
-t1265647572
+c000000004B8ED2990000000000000425
+t1267651225
 s1061
 i<Foundation/Foundation.h>
 i<OpenGLES/ES1/gl.h>
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCDirector.h
-c000000004B703FD40000000000003176
-t1265647572
+c000000004B8ED2990000000000003176
+t1267651225
 s12662
 i"ccConfig.h"
 i"ccTypes.h"
 i"Support/EAGLView.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCDrawingPrimitives.h
-c000000004AEC2BDA00000000000007E2
-t1256991706
+c000000004B8ED29900000000000007E2
+t1267651225
 s2018
 i<CoreGraphics/CGGeometry.h>
 i<objc/objc.h>
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCEaseAction.h
-c000000004AF442FC0000000000001338
-t1257521916
+c000000004B8ED2990000000000001338
+t1267651225
 s4920
 i"CCIntervalAction.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCGrabber.h
-c000000004AC4E50800000000000002C0
-t1254417672
+c000000004B8ED29900000000000002C0
+t1267651225
 s704
 i<OpenGLES/ES1/gl.h>
 i<OpenGLES/ES1/glext.h>
 i<UIKit/UIKit.h>
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCGrid.h
-c000000004B5612E20000000000000B52
-t1263932130
+c000000004B8ED2990000000000000B52
+t1267651225
 s2898
 i<UIKit/UIKit.h>
 i"CCNode.h"
@@ -747,14 +935,14 @@ i"CCCamera.h"
 i"ccTypes.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCGrid3DAction.h
-c000000004AF442FC00000000000016A5
-t1257521916
+c000000004B8ED29900000000000016A5
+t1267651225
 s5797
 i"CCGridAction.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCGridAction.h
-c000000004AF442FC000000000000116D
-t1257521916
+c000000004B8ED299000000000000116D
+t1267651225
 s4461
 i<UIKit/UIKit.h>
 i"CCIntervalAction.h"
@@ -762,15 +950,15 @@ i"CCInstantAction.h"
 i"CCGrid.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCInstantAction.h
-c000000004B703FD40000000000000A17
-t1265647572
+c000000004B8ED2990000000000000A17
+t1267651225
 s2583
 i<UIKit/UIKit.h>
 i"CCAction.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCIntervalAction.h
-c000000004B703FD40000000000002F70
-t1265647572
+c000000004B8ED2990000000000002F70
+t1267651225
 s12144
 i"CCNode.h"
 i"CCAction.h"
@@ -778,22 +966,22 @@ i"CCProtocols.h"
 i<sys/time.h>
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCLabel.h
-c000000004B5338A800000000000006E7
-t1263745192
+c000000004B8ED29900000000000006E7
+t1267651225
 s1767
 i"CCTexture2D.h"
 i"CCSprite.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCLabelAtlas.h
-c000000004AF448110000000000000653
-t1257523217
+c000000004B8ED2990000000000000653
+t1267651225
 s1619
 i"CCAtlasNode.h"
 i"CCTextureAtlas.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCLayer.h
-c000000004B15903D0000000000001063
-t1259704381
+c000000004B8ED2990000000000001063
+t1267651225
 s4195
 i<UIKit/UIKit.h>
 i"CCProtocols.h"
@@ -801,31 +989,31 @@ i"CCNode.h"
 i"CCTouchDelegateProtocol.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCMenu.h
-c000000004AF4481100000000000007B3
-t1257523217
+c000000004B8ED29900000000000007B3
+t1267651225
 s1971
 i<UIKit/UIKit.h>
 i"CCMenuItem.h"
 i"CCLayer.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCMenuItem.h
-c000000004AF4481100000000000020AA
-t1257523217
+c000000004B8ED29900000000000020AA
+t1267651225
 s8362
 i"CCNode.h"
 i"CCProtocols.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCMotionStreak.h
-c000000004AF4481100000000000007F1
-t1257523217
+c000000004B8ED29900000000000007F1
+t1267651225
 s2033
 i<Foundation/Foundation.h>
 i"CCNode.h"
 i"CCRibbon.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCNode.h
-c000000004B75B904000000000000348B
-t1266006276
+c000000004B8ED299000000000000348B
+t1267651225
 s13451
 i<OpenGLES/ES1/gl.h>
 i"CCAction.h"
@@ -834,69 +1022,69 @@ i"CCTexture2D.h"
 i"CCProtocols.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCPVRTexture.h
-c000000004AFDC4440000000000000CA5
-t1258144836
+c000000004B8ED2990000000000000CA5
+t1267651225
 s3237
 i<UIKit/UIKit.h>
 i<OpenGLES/ES1/gl.h>
 i<OpenGLES/ES1/glext.h>
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCPageTurn3DAction.h
-c000000004AEC2BDA000000000000030A
-t1256991706
+c000000004B8ED299000000000000030A
+t1267651225
 s778
 i"CCGrid3DAction.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCPageTurnTransition.h
-c000000004AF442FC00000000000005BA
-t1257521916
+c000000004B8ED29900000000000005BA
+t1267651225
 s1466
 i"CCTransition.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCParallaxNode.h
-c000000004AF442FC000000000000041B
-t1257521916
+c000000004B8ED299000000000000041B
+t1267651225
 s1051
 i"CCNode.h"
 i"Support/ccArray.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCParticleExamples.h
-c000000004AF442FC0000000000000591
-t1257521916
+c000000004B8ED2990000000000000591
+t1267651225
 s1425
 i"CCPointParticleSystem.h"
 i"CCQuadParticleSystem.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCParticleSystem.h
-c000000004B072A500000000000001F33
-t1258760784
+c000000004B8ED2990000000000001F33
+t1267651225
 s7987
 i"CCProtocols.h"
 i"CCNode.h"
 i"ccTypes.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCPointParticleSystem.h
-c000000004AF442FC0000000000000393
-t1257521916
+c000000004B8ED2990000000000000393
+t1267651225
 s915
 i"CCParticleSystem.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCProtocols.h
-c000000004B703FD40000000000000F5E
-t1265647572
+c000000004B8ED2990000000000000F5E
+t1267651225
 s3934
 i"ccTypes.h"
 i"CCTexture2D.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCQuadParticleSystem.h
-c000000004B072A50000000000000045E
-t1258760784
+c000000004B8ED299000000000000045E
+t1267651225
 s1118
 i"CCParticleSystem.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCRenderTexture.h
-c000000004B32D0480000000000000722
-t1261621320
+c000000004B8ED2990000000000000722
+t1267651225
 s1826
 i<Foundation/Foundation.h>
 i"CCNode.h"
@@ -904,8 +1092,8 @@ i"CCSprite.h"
 i"Support/OpenGL_Internal.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCRibbon.h
-c000000004AF448110000000000000C7D
-t1257523217
+c000000004B8ED2990000000000000C7D
+t1267651225
 s3197
 i"CCNode.h"
 i"CCTexture2D.h"
@@ -913,46 +1101,46 @@ i"CCProtocols.h"
 i<OpenGLES/ES1/gl.h>
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCScene.h
-c000000004AF442FC0000000000000356
-t1257521916
+c000000004B8ED2990000000000000356
+t1267651225
 s854
 i<UIKit/UIKit.h>
 i"CCNode.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCScheduler.h
-c000000004B703FD40000000000000A9F
-t1265647572
+c000000004B8ED2990000000000000A9F
+t1267651225
 s2719
 i<UIKit/UIKit.h>
 i"ccTypes.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCSprite.h
-c000000004B74B7C7000000000000277D
-t1265940423
+c000000004B8ED299000000000000277D
+t1267651225
 s10109
 i"CCNode.h"
 i"CCProtocols.h"
 i"CCTextureAtlas.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCSpriteFrame.h
-c000000004B4B32560000000000000E49
-t1263219286
+c000000004B8ED2990000000000000E49
+t1267651225
 s3657
 i<Foundation/Foundation.h>
 i"CCNode.h"
 i"CCProtocols.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCSpriteFrameCache.h
-c000000004B392E670000000000000CC0
-t1262038631
+c000000004B8ED2990000000000000CC0
+t1267651225
 s3264
 i<Foundation/Foundation.h>
 i"CCSpriteFrame.h"
 i"CCTexture2D.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCSpriteSheet.h
-c000000004B703FD40000000000000F8B
-t1265647572
+c000000004B8ED2990000000000000F8B
+t1267651225
 s3979
 i"CCNode.h"
 i"CCProtocols.h"
@@ -961,122 +1149,163 @@ i"ccMacros.h"
 i"Support/ccArray.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCTMXLayer.h
-c000000004B71B6540000000000001003
-t1265743444
+c000000004B8ED2990000000000001003
+t1267651225
 s4099
 i"CCAtlasNode.h"
 i"CCSpriteSheet.h"
 i"Support/ccArray.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCTMXObjectGroup.h
-c000000004B703FD400000000000005CC
-t1265647572
+c000000004B8ED29900000000000005CC
+t1267651225
 s1484
 i"CCAtlasNode.h"
 i"CCSpriteSheet.h"
 i"Support/ccArray.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCTMXTiledMap.h
-c000000004B74509B00000000000010FE
-t1265914011
+c000000004B8ED29900000000000010FE
+t1267651225
 s4350
 i"CCAtlasNode.h"
 i"CCSpriteSheet.h"
 i"Support/ccArray.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCTMXXMLParser.h
-c000000004B2F82C4000000000000116E
-t1261404868
+c000000004B8ED299000000000000116E
+t1267651225
 s4462
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCTexture2D.h
-c000000004B703FD400000000000022D1
-t1265647572
+c000000004B8ED29900000000000022D1
+t1267651225
 s8913
 i<UIKit/UIKit.h>
 i<OpenGLES/ES1/gl.h>
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCTextureAtlas.h
-c000000004B71B654000000000000113D
-t1265743444
+c000000004B8ED299000000000000113D
+t1267651225
 s4413
 i"CCTexture2D.h"
 i"ccTypes.h"
 i"ccConfig.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCTextureCache.h
-c000000004B703FD40000000000000EE7
-t1265647572
+c000000004B8ED2990000000000000EE7
+t1267651225
 s3815
 i<Foundation/Foundation.h>
 i"CCTexture2D.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCTileMapAtlas.h
-c000000004AF442FC000000000000085A
-t1257521916
+c000000004B8ED299000000000000085A
+t1267651225
 s2138
 i"CCTextureAtlas.h"
 i"CCAtlasNode.h"
 i"Support/TGAlib.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCTiledGridAction.h
-c000000004AF442FC00000000000016DC
-t1257521916
+c000000004B8ED29900000000000016DC
+t1267651225
 s5852
 i"CCGridAction.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCTouchDelegateProtocol.h
-c000000004B4D3641000000000000078B
-t1263351361
+c000000004B8ED299000000000000078B
+t1267651225
 s1931
 i<UIKit/UIKit.h>
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCTouchDispatcher.h
-c000000004B4D36410000000000000C8C
-t1263351361
+c000000004B8ED2990000000000000C8C
+t1267651225
 s3212
 i"CCTouchDelegateProtocol.h"
 i"Support/EAGLView.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCTouchHandler.h
-c000000004B4D36410000000000000886
-t1263351361
+c000000004B8ED2990000000000000886
+t1267651225
 s2182
 i"CCTouchDelegateProtocol.h"
 i"CCTouchDispatcher.h"
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/CCTransition.h
-c000000004B6AF8B80000000000001DF5
-t1265301688
+c000000004B8ED2990000000000001DF5
+t1267651225
 s7669
 i"CCScene.h"
 
+N/Users/Chris/Projects/BEUEngine/libs/cocos2d/Support/CCFileUtils.h
+c000000004B8ED2970000000000000251
+t1267651223
+s593
+i<Foundation/Foundation.h>
+
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/Support/CGPointExtension.h
-c000000004A37906500000000000013C1
-t1245155429
+c000000004B8ED29700000000000013C1
+t1267651223
 s5057
+i<CoreGraphics/CGGeometry.h>
+i<math.h>
+
+N/Users/Chris/Projects/BEUEngine/libs/cocos2d/Support/EAGLView.h
+c000000004B8ED297000000000000175A
+t1267651223
+s5978
+i<UIKit/UIKit.h>
+i<OpenGLES/EAGL.h>
+i<OpenGLES/EAGLDrawable.h>
+i<OpenGLES/ES1/gl.h>
+i<OpenGLES/ES1/glext.h>
+
+N/Users/Chris/Projects/BEUEngine/libs/cocos2d/Support/OpenGL_Internal.h
+c000000004B8ED297000000000000111D
+t1267651223
+s4381
+
+N/Users/Chris/Projects/BEUEngine/libs/cocos2d/Support/TGAlib.h
+c000000004B8ED2970000000000000444
+t1267651223
+s1092
+
+N/Users/Chris/Projects/BEUEngine/libs/cocos2d/Support/ccArray.h
+c000000004B8ED2970000000000002E36
+t1267651223
+s11830
+i<Foundation/Foundation.h>
+i<stdlib.h>
+i<string.h>
+
+N/Users/Chris/Projects/BEUEngine/libs/cocos2d/Support/ccHashSet.h
+c000000004B8ED29700000000000011BE
+t1267651223
+s4542
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/ccConfig.h
-c000000004B71B6540000000000000ED8
-t1265743444
+c000000004B8ED2990000000000000ED8
+t1267651225
 s3800
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/ccMacros.h
-c000000004B61F2D200000000000007E8
-t1264710354
+c000000004B8ED29900000000000007E8
+t1267651225
 s2024
 i<math.h>
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/ccTypes.h
-c000000004B56160C00000000000010AD
-t1263932940
+c000000004B8ED29900000000000010AD
+t1267651225
 s4269
 i<CoreGraphics/CGGeometry.h>
 i<OpenGLES/ES1/gl.h>
 
 N/Users/Chris/Projects/BEUEngine/libs/cocos2d/cocos2d.h
-c000000004B5FC12A0000000000000A26
-t1264566570
+c000000004B8ED2990000000000000A26
+t1267651225
 s2598
 i"CCAction.h"
 i"CCCamera.h"
@@ -1142,27 +1371,259 @@ i"Support/ccArray.h"
 i"CCCompatibility.h"
 
 N/Users/Chris/Projects/BEUEngine/main.m
-c000000004B7CC47C0000000000000158
-t1266467964
+c000000004B8ED29D0000000000000158
+t1267651229
 s344
 i<UIKit/UIKit.h>
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk
+c000000004AF0C10000000000000000EE
+t1257292032
+s238
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/AVFoundation.framework/AVFoundation
+c000000004ABDC9F500000000000120D0
+t1253951989
+s73936
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
+c000000004ABDC8DB0000000000193960
+t1253951707
+s1653088
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004ABDC853000000000026EE30
+t1253951571
+s2551344
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h
+c000000004ABDC8530000000000002384
+t1253951571
+s9092
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004ABDC952000000000027E880
+t1253951826
+s2615424
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004ABDC93F0000000000001355
+t1253951807
+s4949
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/OpenAL.framework/OpenAL
+c000000004ABDC952000000000001EEA0
+t1253951826
+s126624
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/EAGL.h
+c000000004ABDCA29000000000000094F
+t1253952041
+s2383
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/EAGLDrawable.h
+c000000004ABDCA290000000000000A61
+t1253952041
+s2657
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/ES1/gl.h
+c000000004ABDCA290000000000009369
+t1253952041
+s37737
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/ES1/glext.h
+c000000004ABDCA290000000000002A42
+t1253952041
+s10818
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/OpenGLES.framework/OpenGLES
+c000000004ABDCA31000000000001F8E0
+t1253952049
+s129248
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c000000004ABDCB2000000000000E5890
+t1253952288
+s940176
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004ABDEE1D0000000000000788
+t1253961245
+s1928
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004ABDEEE200000000016721E0
+t1253961442
+s23536096
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/usr/include/math.h
+c000000004748A10600000000000004B7
+t1195942150
+s1207
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/usr/include/objc/objc.h
+c000000004748F47C0000000000000A27
+t1195963516
+s2599
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/usr/include/stdlib.h
+c000000004748A1330000000000002A79
+t1195942195
+s10873
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/usr/include/string.h
+c000000004748A1330000000000001731
+t1195942195
+s5937
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/usr/include/sys/time.h
+c00000000476344C00000000000001E18
+t1197688000
+s7704
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/usr/lib/libz.dylib
+c00000000476CCCD10000000000006EE8
+t1198312657
+s28392
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk
+c000000004B8FEE330000000000000110
+t1267723827
+s272
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/AVFoundation.framework/AVFoundation
+c000000004B7CD2400000000000012140
+t1266471488
+s74048
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
+c000000004B7CD1DC00000000001A5FE0
+t1266471388
+s1728480
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004B7D0575000000000026F020
+t1266484597
+s2551840
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h
+c000000004B7D05750000000000002384
+t1266484597
+s9092
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004B7D05600000000000288B20
+t1266484576
+s2657056
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004B7D05520000000000001355
+t1266484562
+s4949
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/OpenAL.framework/OpenAL
+c000000004B7CD1FA000000000001EEA0
+t1266471418
+s126624
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/EAGL.h
+c000000004B7D0F7D000000000000094F
+t1266487165
+s2383
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/EAGLDrawable.h
+c000000004B7D0F7D0000000000000A61
+t1266487165
+s2657
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/ES1/gl.h
+c000000004B7D0F7D0000000000009369
+t1266487165
+s37737
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/ES1/glext.h
+c000000004B7D0F7D0000000000002A42
+t1266487165
+s10818
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/OpenGLES.framework/OpenGLES
+c000000004B7D0F86000000000001F9F0
+t1266487174
+s129520
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c000000004B7D10A0000000000011BE30
+t1266487456
+s1162800
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004B7E2999000000000000098F
+t1266559385
+s2447
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004B7E2A2E000000000213D0F0
+t1266559534
+s34853104
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/math.h
+c000000004748A10600000000000004B7
+t1195942150
+s1207
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/objc/objc.h
+c000000004748F47C0000000000000A27
+t1195963516
+s2599
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/stdlib.h
+c000000004748A1330000000000002A79
+t1195942195
+s10873
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/string.h
+c000000004748A1330000000000001731
+t1195942195
+s5937
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/include/sys/time.h
+c00000000476344C00000000000001E18
+t1197688000
+s7704
+
+N/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk/usr/lib/libz.dylib
+c00000000476CCCD10000000000006EE8
+t1198312657
+s28392
+
+N/var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-awvtsnzbzumybfeswcaxydzammhd/BEUEngine_Prefix.pch.gch
+t1267724606
+s13801360
+
+N/var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-dfwmegtzhulqlbfegfxzvipewtxx/BEUEngine_Prefix.pch.gch
+t1267724532
+s13026768
 
 N/var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch.gch
 t1267650580
 s13034960
 
+N/var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch.gch
+t1267732720
+s13034960
+
 NResources/Info.plist
-c000000004B7CC47B000000000000056C
-t1266467963
+c000000004B8ED29B000000000000056C
+t1267651227
 s1388
 
 CCheck dependencies
 r0
-lSLF07#2@18"Check dependencies289343380#289343380#0(0"0(0#1#0"4300885448#0"0#
+lSLF07#2@18"Check dependencies289442040#289442040#0(0"0(0#1#0"4300885448#0"0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUAction.o /Users/Chris/Projects/BEUEngine/Classes/BEUAction.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.682965
-e289343381.789399
+s289425522.161461
+e289425522.285981
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUAction.o
@@ -1171,11 +1632,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@59"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUAction.m289343381#289343381#0(0"0(0#0#51"/Users/Chris/Projects/BEUEngine/Classes/BEUAction.m4300885448#1864"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUAction.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUAction.o0#
+lSLF07#2@59"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUAction.m289425522#289425522#0(0"0(0#0#51"/Users/Chris/Projects/BEUEngine/Classes/BEUAction.m4300885448#1864"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUAction.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUAction.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUActionsController.o /Users/Chris/Projects/BEUEngine/Classes/BEUActionsController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.755537
-e289343381.894827
+s289425522.215182
+e289425522.379165
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUActionsController.o
@@ -1184,11 +1645,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@70"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUActionsController.m289343381#289343381#0(0"0(0#0#62"/Users/Chris/Projects/BEUEngine/Classes/BEUActionsController.m4300885448#1886"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUActionsController.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUActionsController.o0#
+lSLF07#2@70"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUActionsController.m289425522#289425522#0(0"0(0#0#62"/Users/Chris/Projects/BEUEngine/Classes/BEUActionsController.m4300885448#1886"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUActionsController.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUActionsController.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUArea.o /Users/Chris/Projects/BEUEngine/Classes/BEUArea.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.470456
-e289343381.582992
+s289426255.329550
+e289426255.571834
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUArea.o
@@ -1197,11 +1658,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@57"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUArea.m289343381#289343381#0(0"0(0#0#49"/Users/Chris/Projects/BEUEngine/Classes/BEUArea.m4300885448#1860"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUArea.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUArea.o0#
+lSLF07#2@57"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUArea.m289426255#289426255#0(0"0(0#0#49"/Users/Chris/Projects/BEUEngine/Classes/BEUArea.m4300885448#1860"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUArea.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUArea.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUCharacter.o /Users/Chris/Projects/BEUEngine/Classes/BEUCharacter.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.281047
-e289343381.390531
+s289441410.837215
+e289441410.948022
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUCharacter.o
@@ -1210,11 +1671,24 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@62"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUCharacter.m289343381#289343381#0(0"0(0#0#54"/Users/Chris/Projects/BEUEngine/Classes/BEUCharacter.m4300885448#1870"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUCharacter.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUCharacter.o0#
+lSLF07#2@62"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUCharacter.m289441410#289441410#0(0"0(0#0#54"/Users/Chris/Projects/BEUEngine/Classes/BEUCharacter.m4300885448#1870"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUCharacter.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUCharacter.o0#
+
+CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUCharacterAI.o /Users/Chris/Projects/BEUEngine/Classes/BEUCharacterAI.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s289438961.711677
+e289438961.854241
+r1
+xCompileC
+xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUCharacterAI.o
+x/Users/Chris/Projects/BEUEngine/Classes/BEUCharacterAI.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@64"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUCharacterAI.m289438961#289438961#0(0"0(0#0#56"/Users/Chris/Projects/BEUEngine/Classes/BEUCharacterAI.m4300885448#1874"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUCharacterAI.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUCharacterAI.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEngine.o /Users/Chris/Projects/BEUEngine/Classes/BEUEngine.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.202418
-e289343381.280954
+s289441410.741554
+e289441410.837121
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEngine.o
@@ -1223,11 +1697,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@59"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUEngine.m289343381#289343381#0(0"0(0#0#51"/Users/Chris/Projects/BEUEngine/Classes/BEUEngine.m4300885448#1864"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUEngine.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEngine.o0#
+lSLF07#2@59"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUEngine.m289441410#289441410#0(0"0(0#0#51"/Users/Chris/Projects/BEUEngine/Classes/BEUEngine.m4300885448#1864"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUEngine.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEngine.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEngineAppDelegate.o /Users/Chris/Projects/BEUEngine/Classes/BEUEngineAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343380.843163
-e289343380.949668
+s289441410.609380
+e289441410.741368
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEngineAppDelegate.o
@@ -1236,11 +1710,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@70"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUEngineAppDelegate.m289343380#289343380#0(0"0(0#0#62"/Users/Chris/Projects/BEUEngine/Classes/BEUEngineAppDelegate.m4300885448#1886"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUEngineAppDelegate.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEngineAppDelegate.o0#
+lSLF07#2@70"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUEngineAppDelegate.m289441410#289441410#0(0"0(0#0#62"/Users/Chris/Projects/BEUEngine/Classes/BEUEngineAppDelegate.m4300885448#1886"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUEngineAppDelegate.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEngineAppDelegate.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEnvironment.o /Users/Chris/Projects/BEUEngine/Classes/BEUEnvironment.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.000433
-e289343381.202333
+s289441410.739235
+e289441410.942074
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEnvironment.o
@@ -1249,11 +1723,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@64"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUEnvironment.m289343381#289343381#0(0"0(0#0#56"/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironment.m4300885448#1874"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUEnvironment.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEnvironment.o0#
+lSLF07#2@64"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUEnvironment.m289441410#289441410#0(0"0(0#0#56"/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironment.m4300885448#1874"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUEnvironment.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEnvironment.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEnvironmentTile.o /Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.169776
-e289343381.286672
+s289425521.353728
+e289425521.465727
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEnvironmentTile.o
@@ -1267,11 +1741,11 @@ o/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m:58: warning: 'BEUE
 o/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m:58: warning: (Messages without a matching method signature
 o/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m:58: warning: will be assumed to return 'id' and accept
 o/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m:58: warning: '...' as arguments.)
-lSLF07#2@68"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m289343381#289343381#0(562"/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m: In function '-[BEUEnvironmentTile draw]':/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m:58: warning: 'BEUEnvironmentTile' may not respond to '-drawRect:'/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m:58: warning: (Messages without a matching method signature/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m:58: warning: will be assumed to return 'id' and accept/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m:58: warning: '...' as arguments.)2(22@52"'BEUEnvironmentTile' may not respond to '-drawRect:'289343381#104#127#0(6@60"/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m288668265#58#0#58#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)289343381#231#120#0(6@60"/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m288668265#58#0#58#0#0"0(0#0#60"/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m4300885448#1882"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEnvironmentTile.o0#
+lSLF07#2@68"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m289425521#289425521#0(562"/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m: In function '-[BEUEnvironmentTile draw]':/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m:58: warning: 'BEUEnvironmentTile' may not respond to '-drawRect:'/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m:58: warning: (Messages without a matching method signature/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m:58: warning: will be assumed to return 'id' and accept/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m:58: warning: '...' as arguments.)2(22@52"'BEUEnvironmentTile' may not respond to '-drawRect:'289425521#104#127#0(6@60"/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m289344029#58#0#58#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)289425521#231#120#0(6@60"/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m289344029#58#0#58#0#0"0(0#0#60"/Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m4300885448#1882"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUEnvironmentTile.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEnvironmentTile.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUGame.o /Users/Chris/Projects/BEUEngine/Classes/BEUGame.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343380.949759
-e289343381.169694
+s289441410.611466
+e289441410.739151
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUGame.o
@@ -1280,11 +1754,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@57"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUGame.m289343380#289343381#0(0"0(0#0#49"/Users/Chris/Projects/BEUEngine/Classes/BEUGame.m4300885448#1860"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUGame.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUGame.o0#
+lSLF07#2@57"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUGame.m289441410#289441410#0(0"0(0#0#49"/Users/Chris/Projects/BEUEngine/Classes/BEUGame.m4300885448#1860"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUGame.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUGame.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUHitAction.o /Users/Chris/Projects/BEUEngine/Classes/BEUHitAction.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.789488
-e289343381.882415
+s289431821.735446
+e289431821.885466
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUHitAction.o
@@ -1293,11 +1767,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@62"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUHitAction.m289343381#289343381#0(0"0(0#0#54"/Users/Chris/Projects/BEUEngine/Classes/BEUHitAction.m4300885448#1870"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUHitAction.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUHitAction.o0#
+lSLF07#2@62"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUHitAction.m289431821#289431821#0(0"0(0#0#54"/Users/Chris/Projects/BEUEngine/Classes/BEUHitAction.m4300885448#1870"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUHitAction.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUHitAction.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUInputEvent.o /Users/Chris/Projects/BEUEngine/Classes/BEUInputEvent.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.583080
-e289343381.682878
+s289432165.655215
+e289432165.749794
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUInputEvent.o
@@ -1306,11 +1780,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@63"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUInputEvent.m289343381#289343381#0(0"0(0#0#55"/Users/Chris/Projects/BEUEngine/Classes/BEUInputEvent.m4300885448#1872"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUInputEvent.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUInputEvent.o0#
+lSLF07#2@63"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUInputEvent.m289432165#289432165#0(0"0(0#0#55"/Users/Chris/Projects/BEUEngine/Classes/BEUInputEvent.m4300885448#1872"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUInputEvent.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUInputEvent.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUInputLayer.o /Users/Chris/Projects/BEUEngine/Classes/BEUInputLayer.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.390620
-e289343381.532374
+s289441410.942235
+e289441411.083729
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUInputLayer.o
@@ -1319,11 +1793,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@63"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUInputLayer.m289343381#289343381#0(0"0(0#0#55"/Users/Chris/Projects/BEUEngine/Classes/BEUInputLayer.m4300885448#1872"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUInputLayer.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUInputLayer.o0#
+lSLF07#2@63"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUInputLayer.m289441410#289441411#0(0"0(0#0#55"/Users/Chris/Projects/BEUEngine/Classes/BEUInputLayer.m4300885448#1872"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUInputLayer.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUInputLayer.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUInputMovementEvent.o /Users/Chris/Projects/BEUEngine/Classes/BEUInputMovementEvent.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.657160
-e289343381.755453
+s289432165.718535
+e289432165.844068
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUInputMovementEvent.o
@@ -1332,11 +1806,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@71"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUInputMovementEvent.m289343381#289343381#0(0"0(0#0#63"/Users/Chris/Projects/BEUEngine/Classes/BEUInputMovementEvent.m4300885448#1888"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUInputMovementEvent.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUInputMovementEvent.o0#
+lSLF07#2@71"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUInputMovementEvent.m289432165#289432165#0(0"0(0#0#63"/Users/Chris/Projects/BEUEngine/Classes/BEUInputMovementEvent.m4300885448#1888"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUInputMovementEvent.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUInputMovementEvent.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUMath.o /Users/Chris/Projects/BEUEngine/Classes/BEUMath.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.426373
-e289343381.470377
+s289425521.791692
+e289425521.855907
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUMath.o
@@ -1345,11 +1819,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@57"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUMath.m289343381#289343381#0(0"0(0#0#49"/Users/Chris/Projects/BEUEngine/Classes/BEUMath.m4300885448#1860"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUMath.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUMath.o0#
+lSLF07#2@57"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUMath.m289425521#289425521#0(0"0(0#0#49"/Users/Chris/Projects/BEUEngine/Classes/BEUMath.m4300885448#1860"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUMath.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUMath.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUMove.o /Users/Chris/Projects/BEUEngine/Classes/BEUMove.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.882511
-e289343381.986864
+s289441963.850422
+e289441964.001669
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUMove.o
@@ -1358,11 +1832,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@57"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUMove.m289343381#289343381#0(0"0(0#0#49"/Users/Chris/Projects/BEUEngine/Classes/BEUMove.m4300885448#1860"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUMove.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUMove.o0#
+lSLF07#2@57"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUMove.m289441963#289441964#0(0"0(0#0#49"/Users/Chris/Projects/BEUEngine/Classes/BEUMove.m4300885448#1860"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUMove.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUMove.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUMovesController.o /Users/Chris/Projects/BEUEngine/Classes/BEUMovesController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.894911
-e289343382.007259
+s289441411.083817
+e289441411.202934
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUMovesController.o
@@ -1371,11 +1845,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@68"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUMovesController.m289343381#289343382#0(0"0(0#0#60"/Users/Chris/Projects/BEUEngine/Classes/BEUMovesController.m4300885448#1882"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUMovesController.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUMovesController.o0#
+lSLF07#2@68"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUMovesController.m289441411#289441411#0(0"0(0#0#60"/Users/Chris/Projects/BEUEngine/Classes/BEUMovesController.m4300885448#1882"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUMovesController.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUMovesController.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUObject.o /Users/Chris/Projects/BEUEngine/Classes/BEUObject.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.286749
-e289343381.426293
+s289431849.264731
+e289431849.481283
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUObject.o
@@ -1384,11 +1858,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@59"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUObject.m289343381#289343381#0(0"0(0#0#51"/Users/Chris/Projects/BEUEngine/Classes/BEUObject.m4300885448#1864"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUObject.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUObject.o0#
+lSLF07#2@59"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUObject.m289431849#289431849#0(0"0(0#0#51"/Users/Chris/Projects/BEUEngine/Classes/BEUObject.m4300885448#1864"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUObject.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUObject.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUObjectController.o /Users/Chris/Projects/BEUEngine/Classes/BEUObjectController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.532460
-e289343381.657069
+s289435551.033388
+e289435551.175536
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUObjectController.o
@@ -1397,11 +1871,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@69"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUObjectController.m289343381#289343381#0(0"0(0#0#61"/Users/Chris/Projects/BEUEngine/Classes/BEUObjectController.m4300885448#1884"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUObjectController.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUObjectController.o0#
+lSLF07#2@69"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUObjectController.m289435551#289435551#0(0"0(0#0#61"/Users/Chris/Projects/BEUEngine/Classes/BEUObjectController.m4300885448#1884"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUObjectController.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUObjectController.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUSkeletalCharacter.o /Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343382.007350
-e289343382.132539
+s289441411.203036
+e289441411.332716
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUSkeletalCharacter.o
@@ -1411,17 +1885,17 @@ xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
 o/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m: In function '-[BEUSkeletalCharacter moveCharacterWithAngle:percent:]':
-o/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:75: warning: 'BEUSkeletalCharacter' may not respond to '-moveLeft'
-o/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:75: warning: (Messages without a matching method signature
-o/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:75: warning: will be assumed to return 'id' and accept
-o/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:75: warning: '...' as arguments.)
-o/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:77: warning: 'BEUSkeletalCharacter' may not respond to '-moveRight'
-o/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:79: warning: 'BEUSkeletalCharacter' may not respond to '-standStill'
-lSLF07#2@70"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m289343382#289343382#0(865"/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m: In function '-[BEUSkeletalCharacter moveCharacterWithAngle:percent:]':/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:75: warning: 'BEUSkeletalCharacter' may not respond to '-moveLeft'/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:75: warning: (Messages without a matching method signature/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:75: warning: will be assumed to return 'id' and accept/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:75: warning: '...' as arguments.)/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:77: warning: 'BEUSkeletalCharacter' may not respond to '-moveRight'/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:79: warning: 'BEUSkeletalCharacter' may not respond to '-standStill'4(22@53"'BEUSkeletalCharacter' may not respond to '-moveLeft'289343382#135#130#0(6@62"/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m289205005#75#0#75#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)289343382#265#122#0(6@62"/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m289205005#75#0#75#0#0"0(22@54"'BEUSkeletalCharacter' may not respond to '-moveRight'289343382#602#131#0(6@62"/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m289205005#77#0#77#0#26"'*' may not respond to '*'0(22@55"'BEUSkeletalCharacter' may not respond to '-standStill'289343382#733#132#0(6@62"/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m289205005#79#0#79#0#26"'*' may not respond to '*'0(0#0#62"/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m4300885448#1886"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUSkeletalCharacter.o0#
+o/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:78: warning: 'BEUSkeletalCharacter' may not respond to '-moveLeft'
+o/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:78: warning: (Messages without a matching method signature
+o/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:78: warning: will be assumed to return 'id' and accept
+o/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:78: warning: '...' as arguments.)
+o/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:80: warning: 'BEUSkeletalCharacter' may not respond to '-moveRight'
+o/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:82: warning: 'BEUSkeletalCharacter' may not respond to '-standStill'
+lSLF07#2@70"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m289441411#289441411#0(865"/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m: In function '-[BEUSkeletalCharacter moveCharacterWithAngle:percent:]':/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:78: warning: 'BEUSkeletalCharacter' may not respond to '-moveLeft'/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:78: warning: (Messages without a matching method signature/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:78: warning: will be assumed to return 'id' and accept/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:78: warning: '...' as arguments.)/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:80: warning: 'BEUSkeletalCharacter' may not respond to '-moveRight'/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m:82: warning: 'BEUSkeletalCharacter' may not respond to '-standStill'4(22@53"'BEUSkeletalCharacter' may not respond to '-moveLeft'289441411#135#130#0(6@62"/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m289422800#78#0#78#0#26"'*' may not respond to '*'0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)289441411#265#122#0(6@62"/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m289422800#78#0#78#0#0"0(22@54"'BEUSkeletalCharacter' may not respond to '-moveRight'289441411#602#131#0(6@62"/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m289422800#80#0#80#0#26"'*' may not respond to '*'0(22@55"'BEUSkeletalCharacter' may not respond to '-standStill'289441411#733#132#0(6@62"/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m289422800#82#0#82#0#26"'*' may not respond to '*'0(0#0#62"/Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m4300885448#1886"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUSkeletalCharacter.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUSkeletalCharacter.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUTestCharacter.o /Users/Chris/Projects/BEUEngine/Classes/BEUTestCharacter.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343381.986961
-e289343382.145641
+s289442040.107614
+e289442040.289470
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUTestCharacter.o
@@ -1430,11 +1904,37 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@66"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUTestCharacter.m289343381#289343382#0(0"0(0#0#58"/Users/Chris/Projects/BEUEngine/Classes/BEUTestCharacter.m4300885448#1878"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUTestCharacter.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUTestCharacter.o0#
+lSLF07#2@66"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUTestCharacter.m289442040#289442040#0(0"0(0#0#58"/Users/Chris/Projects/BEUEngine/Classes/BEUTestCharacter.m4300885448#1878"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUTestCharacter.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUTestCharacter.o0#
+
+CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUTrigger.o /Users/Chris/Projects/BEUEngine/Classes/BEUTrigger.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s289426256.008792
+e289426256.145796
+r1
+xCompileC
+xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUTrigger.o
+x/Users/Chris/Projects/BEUEngine/Classes/BEUTrigger.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@60"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUTrigger.m289426256#289426256#0(0"0(0#0#52"/Users/Chris/Projects/BEUEngine/Classes/BEUTrigger.m4300885448#1866"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUTrigger.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUTrigger.o0#
+
+CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUTriggerController.o /Users/Chris/Projects/BEUEngine/Classes/BEUTriggerController.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s289426697.788399
+e289426697.939271
+r1
+xCompileC
+xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUTriggerController.o
+x/Users/Chris/Projects/BEUEngine/Classes/BEUTriggerController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@70"Compile /Users/Chris/Projects/BEUEngine/Classes/BEUTriggerController.m289426697#289426697#0(0"0(0#0#62"/Users/Chris/Projects/BEUEngine/Classes/BEUTriggerController.m4300885448#1886"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/BEUTriggerController.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUTriggerController.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/HelloWorldScene.o /Users/Chris/Projects/BEUEngine/Classes/HelloWorldScene.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343380.890903
-e289343381.000328
+s289425521.090818
+e289425521.200282
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/HelloWorldScene.o
@@ -1443,11 +1943,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@65"Compile /Users/Chris/Projects/BEUEngine/Classes/HelloWorldScene.m289343380#289343381#0(0"0(0#0#57"/Users/Chris/Projects/BEUEngine/Classes/HelloWorldScene.m4300885448#1876"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/HelloWorldScene.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/HelloWorldScene.o0#
+lSLF07#2@65"Compile /Users/Chris/Projects/BEUEngine/Classes/HelloWorldScene.m289425521#289425521#0(0"0(0#0#57"/Users/Chris/Projects/BEUEngine/Classes/HelloWorldScene.m4300885448#1876"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/Classes/HelloWorldScene.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/HelloWorldScene.o0#
 
 CCompileC build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/main.o /Users/Chris/Projects/BEUEngine/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s289343380.842052
-e289343380.890637
+s289425521.008183
+e289425521.090735
 r1
 xCompileC
 xbuild/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/main.o
@@ -1456,122 +1956,148 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@46"Compile /Users/Chris/Projects/BEUEngine/main.m289343380#289343380#0(0"0(0#0#38"/Users/Chris/Projects/BEUEngine/main.m4300885448#1846"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/main.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/main.o0#
+lSLF07#2@46"Compile /Users/Chris/Projects/BEUEngine/main.m289425521#289425521#0(0"0(0#0#38"/Users/Chris/Projects/BEUEngine/main.m4300885448#1846"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -include /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch -c /Users/Chris/Projects/BEUEngine/main.m -o /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/main.o0#
 
 CCopyPlistFile /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/SkeletalCharacter.plist ../textures/SkeletalCharacter/SkeletalCharacter.plist
 r0
 
 CCopyPlistFile /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/SkeletalCharacter.plist Resources/SkeletalCharacter.plist
-s289343380.303738
-e289343380.391335
+s289425520.207887
+e289425520.397808
 r1
 xCopyPlistFile
 x/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/SkeletalCharacter.plist
 xResources/SkeletalCharacter.plist
-lSLF07#2@38"Copy Resources/SkeletalCharacter.plist289343380#289343380#0(0"0(0#0#65"/Users/Chris/Projects/BEUEngine/Resources/SkeletalCharacter.plist4300885448#396"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copyplist --convert binary1 Resources/SkeletalCharacter.plist --outdir /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
+lSLF07#2@38"Copy Resources/SkeletalCharacter.plist289425520#289425520#0(0"0(0#0#65"/Users/Chris/Projects/BEUEngine/Resources/SkeletalCharacter.plist4300885448#396"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copyplist --convert binary1 Resources/SkeletalCharacter.plist --outdir /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
 
 CCopyPlistFile /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/TestCharacter.plist ../textures/TestCharacter/TestCharacter.plist
 r0
 
 CCopyPlistFile /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/TestCharacter.plist Resources/TestCharacter.plist
-s289343380.312039
-e289343380.393418
+s289425520.277448
+e289425520.400455
 r1
 xCopyPlistFile
 x/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/TestCharacter.plist
 xResources/TestCharacter.plist
-lSLF07#2@34"Copy Resources/TestCharacter.plist289343380#289343380#0(0"0(0#0#61"/Users/Chris/Projects/BEUEngine/Resources/TestCharacter.plist4300885448#392"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copyplist --convert binary1 Resources/TestCharacter.plist --outdir /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
+lSLF07#2@34"Copy Resources/TestCharacter.plist289425520#289425520#0(0"0(0#0#61"/Users/Chris/Projects/BEUEngine/Resources/TestCharacter.plist4300885448#392"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copyplist --convert binary1 Resources/TestCharacter.plist --outdir /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
 
 CCpResource build/Debug-iphonesimulator/BEUEngine.app/Default.png Resources/Default.png
-s289343380.302243
-e289343380.306902
+s289425520.204041
+e289425520.276779
 r1
 xCpResource
 xbuild/Debug-iphonesimulator/BEUEngine.app/Default.png
 xResources/Default.png
-lSLF07#2@26"Copy Resources/Default.png289343380#289343380#0(0"0(0#0#53"/Users/Chris/Projects/BEUEngine/Resources/Default.png4300885448#446"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/Chris/Projects/BEUEngine/Resources/Default.png /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
+lSLF07#2@26"Copy Resources/Default.png289425520#289425520#0(0"0(0#0#53"/Users/Chris/Projects/BEUEngine/Resources/Default.png4300885448#446"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/Chris/Projects/BEUEngine/Resources/Default.png /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
 
 CCpResource build/Debug-iphonesimulator/BEUEngine.app/Icon.png Resources/Icon.png
-s289343380.303272
-e289343380.311395
+s289425520.206891
+e289425520.276377
 r1
 xCpResource
 xbuild/Debug-iphonesimulator/BEUEngine.app/Icon.png
 xResources/Icon.png
-lSLF07#2@23"Copy Resources/Icon.png289343380#289343380#0(0"0(0#0#50"/Users/Chris/Projects/BEUEngine/Resources/Icon.png4300885448#443"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/Chris/Projects/BEUEngine/Resources/Icon.png /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
+lSLF07#2@23"Copy Resources/Icon.png289425520#289425520#0(0"0(0#0#50"/Users/Chris/Projects/BEUEngine/Resources/Icon.png4300885448#443"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/Chris/Projects/BEUEngine/Resources/Icon.png /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
 
 CCpResource build/Debug-iphonesimulator/BEUEngine.app/SkeletalCharacter.png ../textures/SkeletalCharacter/SkeletalCharacter.png
 r0
 
 CCpResource build/Debug-iphonesimulator/BEUEngine.app/SkeletalCharacter.png Resources/SkeletalCharacter.png
-s289343380.311472
-e289343380.315544
+s289425520.276840
+e289425520.281499
 r1
 xCpResource
 xbuild/Debug-iphonesimulator/BEUEngine.app/SkeletalCharacter.png
 xResources/SkeletalCharacter.png
-lSLF07#2@36"Copy Resources/SkeletalCharacter.png289343380#289343380#0(0"0(0#0#63"/Users/Chris/Projects/BEUEngine/Resources/SkeletalCharacter.png4300885448#456"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/Chris/Projects/BEUEngine/Resources/SkeletalCharacter.png /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
+lSLF07#2@36"Copy Resources/SkeletalCharacter.png289425520#289425520#0(0"0(0#0#63"/Users/Chris/Projects/BEUEngine/Resources/SkeletalCharacter.png4300885448#456"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/Chris/Projects/BEUEngine/Resources/SkeletalCharacter.png /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
 
 CCpResource build/Debug-iphonesimulator/BEUEngine.app/TestCharacter.png ../textures/TestCharacter/TestCharacter.png
 r0
 
 CCpResource build/Debug-iphonesimulator/BEUEngine.app/TestCharacter.png Resources/TestCharacter.png
-s289343380.391415
-e289343380.397583
+s289425520.397886
+e289425520.405051
 r1
 xCpResource
 xbuild/Debug-iphonesimulator/BEUEngine.app/TestCharacter.png
 xResources/TestCharacter.png
-lSLF07#2@32"Copy Resources/TestCharacter.png289343380#289343380#0(0"0(0#0#59"/Users/Chris/Projects/BEUEngine/Resources/TestCharacter.png4300885448#452"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/Chris/Projects/BEUEngine/Resources/TestCharacter.png /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
+lSLF07#2@32"Copy Resources/TestCharacter.png289425520#289425520#0(0"0(0#0#59"/Users/Chris/Projects/BEUEngine/Resources/TestCharacter.png4300885448#452"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/Chris/Projects/BEUEngine/Resources/TestCharacter.png /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
 
 CCpResource build/Debug-iphonesimulator/BEUEngine.app/TestTile.png ../textures/TestTile.png
 r0
 
 CCpResource build/Debug-iphonesimulator/BEUEngine.app/TestTile.png Resources/TestTile.png
-s289343380.392765
-e289343380.397415
+s289425520.398795
+e289425520.404444
 r1
 xCpResource
 xbuild/Debug-iphonesimulator/BEUEngine.app/TestTile.png
 xResources/TestTile.png
-lSLF07#2@27"Copy Resources/TestTile.png289343380#289343380#0(0"0(0#0#54"/Users/Chris/Projects/BEUEngine/Resources/TestTile.png4300885448#447"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/Chris/Projects/BEUEngine/Resources/TestTile.png /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
+lSLF07#2@27"Copy Resources/TestTile.png289425520#289425520#0(0"0(0#0#54"/Users/Chris/Projects/BEUEngine/Resources/TestTile.png4300885448#447"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/Chris/Projects/BEUEngine/Resources/TestTile.png /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
 
 CCpResource build/Debug-iphonesimulator/BEUEngine.app/fps_images.png Resources/fps_images.png
-s289343380.302812
-e289343380.307517
+s289425520.205142
+e289425520.275958
 r1
 xCpResource
 xbuild/Debug-iphonesimulator/BEUEngine.app/fps_images.png
 xResources/fps_images.png
-lSLF07#2@29"Copy Resources/fps_images.png289343380#289343380#0(0"0(0#0#56"/Users/Chris/Projects/BEUEngine/Resources/fps_images.png4300885448#449"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/Chris/Projects/BEUEngine/Resources/fps_images.png /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
+lSLF07#2@29"Copy Resources/fps_images.png289425520#289425520#0(0"0(0#0#56"/Users/Chris/Projects/BEUEngine/Resources/fps_images.png4300885448#449"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Users/Chris/Projects/BEUEngine/Resources/fps_images.png /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
 
 CGenerateDSYMFile /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app.dSYM /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/BEUEngine
-s289343382.651026
-e289343382.772428
+s289442040.431458
+e289442040.518544
 r1
 xGenerateDSYMFile
 x/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app.dSYM
 x/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/BEUEngine
-lSLF07#2@115"GenerateDSYMFile build/Debug-iphonesimulator/BEUEngine.app.dSYM build/Debug-iphonesimulator/BEUEngine.app/BEUEngine289343382#289343382#0(0"0(0#0#83"/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/BEUEngine4300885448#368"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/BEUEngine -o /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app.dSYM0#
+lSLF07#2@115"GenerateDSYMFile build/Debug-iphonesimulator/BEUEngine.app.dSYM build/Debug-iphonesimulator/BEUEngine.app/BEUEngine289442040#289442040#0(0"0(0#0#83"/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/BEUEngine4300885448#368"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/BEUEngine -o /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app.dSYM0#
 
 CLd /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/BEUEngine normal i386
-s289343382.145719
-e289343382.650811
+s289442040.289546
+e289442040.431145
 r1
 xLd
 x/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/BEUEngine
 xnormal
 xi386
-lSLF07#2@88"Link /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/BEUEngine289343382#289343382#0(0"0(0#0#0"4300885448#989"    cd /Users/Chris/Projects/BEUEngine    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -L/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -filelist /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEngine.LinkFileList -mmacosx-version-min=10.5 -all_load -ObjC -framework CoreGraphics -framework Foundation -framework OpenGLES -framework QuartzCore -framework UIKit -framework AudioToolbox -framework OpenAL -lz -framework AVFoundation "-lcocos2d libraries" -o /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/BEUEngine0#
+lSLF07#2@88"Link /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/BEUEngine289442040#289442040#0(0"0(0#0#0"4300885448#989"    cd /Users/Chris/Projects/BEUEngine    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -L/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -filelist /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/Objects-normal/i386/BEUEngine.LinkFileList -mmacosx-version-min=10.5 -all_load -ObjC -framework CoreGraphics -framework Foundation -framework OpenGLES -framework QuartzCore -framework UIKit -framework AudioToolbox -framework OpenAL -lz -framework AVFoundation "-lcocos2d libraries" -o /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/BEUEngine0#
 
 CProcessInfoPlistFile /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/Info.plist Resources/Info.plist
-s289343380.289965
-e289343380.302162
+s289425520.197184
+e289425520.203962
 r1
 xProcessInfoPlistFile
 x/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/Info.plist
 xResources/Info.plist
-lSLF07#2@28"Process Resources/Info.plist289343380#289343380#0(0"0(0#0#52"/Users/Chris/Projects/BEUEngine/Resources/Info.plist4300885448#464"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility Resources/Info.plist -genpkginfo /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/Info.plist0#
+lSLF07#2@28"Process Resources/Info.plist289425520#289425520#0(0"0(0#0#52"/Users/Chris/Projects/BEUEngine/Resources/Info.plist4300885448#464"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility Resources/Info.plist -genpkginfo /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app/Info.plist0#
+
+CProcessPCH /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-awvtsnzbzumybfeswcaxydzammhd/BEUEngine_Prefix.pch.gch BEUEngine_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s289417406.302196
+e289417406.801193
+r1
+xProcessPCH
+x/var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-awvtsnzbzumybfeswcaxydzammhd/BEUEngine_Prefix.pch.gch
+xBEUEngine_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@31"Precompile BEUEngine_Prefix.pch289417406#289417406#0(0"0(0#0#52"/Users/Chris/Projects/BEUEngine/BEUEngine_Prefix.pch4300907800#1753"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Xcode3.2Beta/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30200 -isysroot /Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -c /Users/Chris/Projects/BEUEngine/BEUEngine_Prefix.pch -o /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-awvtsnzbzumybfeswcaxydzammhd/BEUEngine_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-dfwmegtzhulqlbfegfxzvipewtxx/BEUEngine_Prefix.pch.gch BEUEngine_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s289417332.357200
+e289417332.792951
+r1
+xProcessPCH
+x/var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-dfwmegtzhulqlbfegfxzvipewtxx/BEUEngine_Prefix.pch.gch
+xBEUEngine_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@31"Precompile BEUEngine_Prefix.pch289417332#289417332#0(0"0(0#0#52"/Users/Chris/Projects/BEUEngine/BEUEngine_Prefix.pch4300907800#1755"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Xcode3.2Beta/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Xcode3.2Beta/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -c /Users/Chris/Projects/BEUEngine/BEUEngine_Prefix.pch -o /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-dfwmegtzhulqlbfegfxzvipewtxx/BEUEngine_Prefix.pch.gch0#
 
 CProcessPCH /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch.gch BEUEngine_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
 s289343380.397652
@@ -1586,11 +2112,24 @@ xobjective-c
 xcom.apple.compilers.gcc.4_2
 lSLF07#2@31"Precompile BEUEngine_Prefix.pch289343380#289343380#0(0"0(0#0#52"/Users/Chris/Projects/BEUEngine/BEUEngine_Prefix.pch4300885448#1743"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -c /Users/Chris/Projects/BEUEngine/BEUEngine_Prefix.pch -o /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-exwlkipwmmennxheafetddpzamoh/BEUEngine_Prefix.pch.gch0#
 
+CProcessPCH /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch.gch BEUEngine_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s289425520.405206
+e289425521.007879
+r1
+xProcessPCH
+x/var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch.gch
+xBEUEngine_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@31"Precompile BEUEngine_Prefix.pch289425520#289425521#0(0"0(0#0#52"/Users/Chris/Projects/BEUEngine/BEUEngine_Prefix.pch4300885448#1743"    cd /Users/Chris/Projects/BEUEngine    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -DCOCOS2D_DEBUG=1 -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.3.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-generated-files.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-own-target-headers.hmap -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-all-target-headers.hmap -iquote /Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/BEUEngine-project-headers.hmap -Wall -F/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator -I/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/include -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources/i386 -I/Users/Chris/Projects/BEUEngine/build/BEUEngine.build/Debug-iphonesimulator/BEUEngine.build/DerivedSources -c /Users/Chris/Projects/BEUEngine/BEUEngine_Prefix.pch -o /var/folders/oQ/oQ5budLLHy8YccdxbildCE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/BEUEngine_Prefix-gxfdlthdmfzzqqgwfnkkyzwpvmmi/BEUEngine_Prefix.pch.gch0#
+
 CTouch /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app
-s289343382.772567
-e289343382.802962
+s289442040.518617
+e289442040.520737
 r1
 xTouch
 x/Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app
-lSLF07#2@79"Touch /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app289343382#289343382#0(0"0(0#0#0"4300885448#266"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
+lSLF07#2@79"Touch /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app289442040#289442040#0(0"0(0#0#0"4300885448#266"    cd /Users/Chris/Projects/BEUEngine    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/Chris/Projects/BEUEngine/build/Debug-iphonesimulator/BEUEngine.app0#
 

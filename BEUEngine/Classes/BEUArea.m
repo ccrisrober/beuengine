@@ -38,8 +38,7 @@
 
 -(void)addTile:(BEUEnvironmentTile *)tile
 {
-	float offset = 0.0f;//0.5f;
-	//if([tiles count] == 0) offset = 0.0f;
+	float offset = 0.0f;
 	[tiles addObject:tile];
 	
 	tile.position = ccp(self.contentSize.width - offset, 0.0f);

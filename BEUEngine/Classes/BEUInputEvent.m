@@ -19,6 +19,10 @@ NSString *const BEUInputSwipeRight = @"BEUInputSwipeRight";
 NSString *const BEUInputSwipeUp = @"BEUInputSwipeUp";
 NSString *const BEUInputSwipeDown = @"BEUInputSwipeDown";
 
+NSString *const BEUInputSwipeForward = @"BEUInputSwipeForward";
+NSString *const BEUInputSwipeBack = @"BEUInputSwipeBack";
+
+
 -(id)initWithType:(NSString *)type_
 {
 	if( (self = [super init]) ) {

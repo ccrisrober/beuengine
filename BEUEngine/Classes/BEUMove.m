@@ -19,7 +19,8 @@ moveSelector,
 completeSelector, 
 completeTarget,
 completed,
-inProgress;
+inProgress,
+name;
 
 
 -(id)init
@@ -36,15 +37,27 @@ inProgress;
 	return self;
 }
 
--(id)initWithCharacter:(BEUCharacter *)character_ 
-			  sequence:(NSArray *)sequence
-			  selector:(SEL)selector_
++(id)moveWithName:(NSString *)name_
+		character:(BEUCharacter *)character_ 
+		 sequence:(NSArray *)sequence_ 
+		 selector:(SEL)selector_
+{
+	return [[[BEUMove alloc] initWithName:name_
+								character:character_ 
+								 sequence:sequence_
+								selector:selector_] autorelease];
+}
+
+-(id)initWithName:(NSString *)name_
+		character:(BEUCharacter *)character_ 
+		 sequence:(NSArray *)sequence_
+		 selector:(SEL)selector_
 {
 	[self init];
-	
-	self.character = character_;
-	self.inputSequence = sequence;
-	self.moveSelector = selector_;
+	name = name_;
+	character = character_;
+	inputSequence = sequence_;
+	moveSelector = selector_;
 	
 	return self;
 }
@@ -87,6 +100,7 @@ inProgress;
 
 -(BOOL)trySequence:(NSArray *)sequence
 {
+	
 	if(sequence.count != inputSequence.count) return NO;
 		
 	for(int i=0; i<inputSequence.count; i++)

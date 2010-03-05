@@ -18,6 +18,11 @@ NSString *const BEUTriggerAllEnemiesKilled = @"allEnemiesKilled";
 NSString *const BEUTriggerEnteredArea = @"enteredArea";
 NSString *const BEUTriggerExitedArea = @"exitedArea";
 
++(id)triggerWithType:(NSString *)type_ sender:(id)sender_
+{
+	return [[[BEUTrigger alloc] initWithType:type_ sender:sender_] autorelease];	
+}
+
 -(id)init
 {
 	if( (self = [super init]) )

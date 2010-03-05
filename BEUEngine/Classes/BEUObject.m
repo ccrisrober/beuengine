@@ -35,7 +35,7 @@ affectedByGravity;
 	isWall = YES;
 	affectedByGravity = YES;
 	drawBoundingBoxes = NO;
-	_facingRight = YES;
+	facingRight = YES;
 	
 	self.anchorPoint = ccp(0.5f,0.0f);
 	self.honorParentTransform = YES;
@@ -100,14 +100,14 @@ affectedByGravity;
 
 -(BOOL) facingRight
 {
-	return _facingRight;
+	return facingRight;
 }
 
 -(void) setFacingRight:(BOOL)right
 {
-	_facingRight = right;
+	facingRight = right;
 	
-	if(_facingRight)
+	if(facingRight)
 	{
 		self.scaleX = 1;
 	} else {

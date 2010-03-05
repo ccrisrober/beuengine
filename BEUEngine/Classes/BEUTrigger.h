@@ -20,6 +20,8 @@ extern NSString *const BEUTriggerExitedArea;
 @property(nonatomic,retain) NSString *type;
 @property(nonatomic,retain) id sender;
 
++(id)triggerWithType:(NSString *)type_ sender:(id)sender_;
+
 -(id)initWithType:(NSString *)type_ sender:(id)sender_;
 
 @end
