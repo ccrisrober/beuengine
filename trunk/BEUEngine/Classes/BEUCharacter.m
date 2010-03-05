@@ -10,7 +10,7 @@
 
 @implementation BEUCharacter
 
-@synthesize life, canMove, movesController, currentMove;
+@synthesize life,canMove,movesController,currentMove,enemy,ai;
 
 -(id)init
 {
@@ -20,7 +20,7 @@
 		movementSpeed = 100.0f; //100 pixels per second
 		
 		canMove = YES;
-		
+		enemy = YES;
 		//Create moves controller for character, make sure and store all moves for the character in here.
 		//Inputs will automatically be sent into the controller
 		movesController = [[BEUMovesController alloc] init];
@@ -46,8 +46,6 @@
 			[self setFacingRight:NO];
 		}
 		
-	} else {
-		moveX = moveZ = 0.0f;
 	}
 	
 	
@@ -66,11 +64,20 @@
 		//Release the event when its completed, do not release until then so 
 		//BEUInputLayer can continue to modify the theta and percent values of it
 		if(event.completed){
-			[event release];
+			//[event release];
 		}
 	} else {
 		
 		//Send input to the movesController
+		//Check if input is swipeleft or swiperight, if so convert to forward and back based on orientation
+		if(event.type == BEUInputSwipeLeft)
+		{
+			event.type = (NSString *)(self.facingRight ? BEUInputSwipeBack : BEUInputSwipeForward);
+		} else if(event.type == BEUInputSwipeRight)
+		{
+			event.type = (NSString *)(self.facingRight ? BEUInputSwipeForward : BEUInputSwipeBack);
+		}
+		
 		[movesController sendInput:event];
 	}
 }
@@ -78,8 +85,25 @@
 -(void)kill
 {
 	[[BEUTriggerController sharedController] sendTrigger:
-	 [[BEUTrigger alloc] initWithType:BEUTriggerKilled sender:self]
+	 [BEUTrigger triggerWithType:BEUTriggerKilled sender:self]
 	 ];
+}
+
+-(void)step:(ccTime)delta
+{
+	if(ai)[self.ai update:delta];
+	
+	[super step:delta];
+}
+
+-(BEUCharacterAI *)ai
+{
+	return ai;
+}
+
+-(void)setAi:(BEUCharacterAI *)ai_
+{
+	ai = ai_;
 }
 
 -(void)dealloc

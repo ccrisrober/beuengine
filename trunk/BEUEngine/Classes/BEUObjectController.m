@@ -69,7 +69,8 @@ static BEUObjectController *_sharedController = nil;
 	[characters addObject:character];
 	[[BEUTriggerController sharedController] addListener:self 
 													type:BEUTriggerKilled 
-												selector:@selector(characterKilled:)
+												selector:@selector(characterKilled:) 
+											  fromSender:character
 	 ];
 	
 	[self addObject:character];
@@ -89,6 +90,12 @@ static BEUObjectController *_sharedController = nil;
 -(void)characterKilled:(BEUTrigger *)trigger
 {
 	[self removeCharacter: ((BEUCharacter *)trigger.sender)];
+	
+	//If all characters (aside from the player) added to object controller are killed fire trigger BEUTriggerAllEnemiesKilled
+	if([characters count] == 1)
+	{
+		[[BEUTriggerController sharedController] sendTrigger:[BEUTrigger triggerWithType: BEUTriggerAllEnemiesKilled sender:self]];
+	}
 }
 
 //MOVE ALL OBJECTS

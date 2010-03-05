@@ -45,5 +45,5 @@
 -(void)moveComplete:(BEUMove *)move;
 -(void)waitForNextInput;
 -(void)noInputReceived:(ccTime)delta;
-
+-(BEUMove *)getMoveWithName:(NSString *)name;
 @end

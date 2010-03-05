@@ -60,7 +60,9 @@ static BEUTriggerController *_sharedController;
 	
 }
 
--(void)removeListener:(id)listener_ type:(NSString *)type_ selector:(SEL)selector_
+-(void)removeListener:(id)listener_ 
+				 type:(NSString *)type_ 
+			 selector:(SEL)selector_
 {
 	for ( BEUTriggerListener *listener in listeners )
 	{

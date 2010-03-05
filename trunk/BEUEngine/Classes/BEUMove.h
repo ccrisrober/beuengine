@@ -14,6 +14,9 @@
 
 @interface BEUMove : NSObject {
 	
+	//Unique name of move
+	NSString *name;
+	
 	BEUCharacter *character;
 	
 	//Array of string value inputs that must be completed to do move, must match all to do move
@@ -38,6 +41,8 @@
 	
 }
 
+
+@property(nonatomic,copy) NSString *name;
 @property(nonatomic,retain) BEUCharacter *character;
 @property(nonatomic,retain) NSArray *inputSequence;
 @property(nonatomic) BOOL interruptible;
@@ -48,9 +53,15 @@
 @property(nonatomic) BOOL completed;
 @property(nonatomic) BOOL inProgress;
 
--(id)initWithCharacter:(BEUCharacter *)character_ 
-			  sequence:(NSArray *) sequence
-			  selector:(SEL)selector_;
++(id)moveWithName:(NSString *)name_
+		character:(BEUCharacter *)character_ 
+		 sequence:(NSArray *)sequence_
+		 selector:(SEL)selector_;
+
+-(id)initWithName:(NSString *)name_
+		character:(BEUCharacter *)character_ 
+		 sequence:(NSArray *)sequence_
+		 selector:(SEL)selector_;
 
 
 -(void)resetMove;

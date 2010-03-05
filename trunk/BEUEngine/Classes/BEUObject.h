@@ -37,7 +37,7 @@
 	
 	//Simple boolean value to tell if object is facing right
 	//Used in convertRectToGlobal
-	BOOL _facingRight;
+	BOOL facingRight;
 	
 }
 

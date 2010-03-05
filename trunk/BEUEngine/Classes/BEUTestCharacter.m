@@ -108,26 +108,31 @@ float gravity = 5.0f;
 	
 	//Moves
 	
-	BEUMove *move1 = [[BEUMove alloc] initWithCharacter:self 
-											   sequence:[NSArray arrayWithObjects:BEUInputTap,nil]
-											   selector: @selector(punch:)];
+	BEUMove *move1 = [BEUMove moveWithName:@"punch1" 
+								 character:self 
+								  sequence:[[NSArray alloc] initWithObjects:BEUInputTap,nil]			  
+								  selector: @selector(punch:)];
 	
-	BEUMove *move2 = [[BEUMove alloc] initWithCharacter:self 
-											   sequence:[NSArray arrayWithObjects:BEUInputTap,BEUInputSwipeRight, nil]
-											   selector: @selector(punch2:)];
+	BEUMove *move2 = [BEUMove moveWithName:@"punchCombo1" 
+								 character:self 
+								  sequence:[[NSArray alloc] initWithObjects:BEUInputTap,BEUInputSwipeForward, nil]
+								  selector: @selector(punch2:)];
 	
-	BEUMove *move3 = [[BEUMove alloc] initWithCharacter:self 
-											   sequence:[NSArray arrayWithObjects:BEUInputTap,BEUInputSwipeRight, BEUInputTap, nil]
-											   selector: @selector(punch2:)];
+	BEUMove *move3 = [BEUMove moveWithName:@"punchCombo2"
+								 character:self 
+								  sequence:[[NSArray alloc] initWithObjects:BEUInputTap,BEUInputSwipeForward, BEUInputTap, nil]
+								  selector: @selector(punch2:)];
+
+	BEUMove *move4 = [BEUMove moveWithName:@"punchCombo3" 
+								 character:self 
+								  sequence:[[NSArray alloc] initWithObjects:BEUInputTap,BEUInputSwipeForward, BEUInputTap, BEUInputSwipeBack, nil]
+								  selector: @selector(punch:)];
 	
-	BEUMove *move4 = [[BEUMove alloc] initWithCharacter:self 
-											   sequence:[NSArray arrayWithObjects:BEUInputTap,BEUInputSwipeRight, BEUInputTap, BEUInputSwipeLeft, nil]
-											   selector: @selector(punch:)];
 	
-	
-	BEUMove *uppercut = [[BEUMove alloc] initWithCharacter:self	
-												  sequence:[NSArray arrayWithObjects:BEUInputSwipeUp, nil]
-												  selector:@selector(punch2:)];
+	BEUMove *uppercut = [BEUMove moveWithName:@"uppercut"
+									character:self	
+									 sequence:[[NSArray alloc] initWithObjects:BEUInputSwipeUp, nil]
+									 selector:@selector(punch2:)];
 	
 	[movesController addMove:move1];
 	[movesController addMove:move2];
@@ -138,6 +143,15 @@ float gravity = 5.0f;
 	return self;
 }
 
+-(void)setEnemy:(BOOL)enemy_
+{
+	enemy = enemy_;
+	
+	if(enemy){
+		ai = [[BEUCharacterAI alloc] initWithParent:self];
+		ai.moves = [[NSMutableArray alloc] initWithObjects: @"punch1",@"uppercut"];
+	}
+}
 
 -(void)moveCharacterWithAngle:(float)angle percent:(float)percent 
 {
@@ -435,23 +449,19 @@ float gravity = 5.0f;
 	BEUObject *sender = (BEUObject *)action.sender;
 	if(action.sender != self)
 	{
-		if(life > 0){
+	
 			
-			if(sender.x < self.x)
-			{
-				[self hit:YES];
-			} else {
-				[self hit:NO];
-			}
-			
-			return YES;
-			
+		if(sender.x < self.x)
+		{
+			[self hit:YES];
 		} else {
-			
-			[self death];
-			
-			return YES;
+			[self hit:NO];
 		}
+			
+		if(life <= 0) [self death];
+		
+		return YES;
+		
 	} else {
 		return NO;
 	}
@@ -489,8 +499,7 @@ float gravity = 5.0f;
 
 -(void)dealloc
 {
-	
-	
+	if(ai)[ai release];
 	[super dealloc];
 }
 

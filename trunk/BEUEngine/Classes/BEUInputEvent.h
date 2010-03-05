@@ -21,7 +21,12 @@ extern NSString *const BEUInputSwipeLeft;
 extern NSString *const BEUInputSwipeUp;
 extern NSString *const BEUInputSwipeDown;
 
-@property(nonatomic,retain) NSString *type;
+//Converted inputs for forward and back commands that are relative to character orientation
+//You should change the BEUInputEvent type with one of these when converting for orientation
+extern NSString *const BEUInputSwipeForward;
+extern NSString *const BEUInputSwipeBack;
+
+@property(nonatomic,assign) NSString *type;
 
 @property(nonatomic) int startTime;
 @property(nonatomic) int endTime;
