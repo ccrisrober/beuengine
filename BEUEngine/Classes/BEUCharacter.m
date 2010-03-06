@@ -10,7 +10,7 @@
 
 @implementation BEUCharacter
 
-@synthesize life,canMove,movesController,currentMove,enemy,ai;
+@synthesize life,canMove,movesController,currentMove,enemy,ai,updateSelectors;
 
 -(id)init
 {
@@ -24,6 +24,7 @@
 		//Create moves controller for character, make sure and store all moves for the character in here.
 		//Inputs will automatically be sent into the controller
 		movesController = [[BEUMovesController alloc] init];
+		updateSelectors = [NSMutableArray array];
 	}
 	
 	return self;
@@ -91,6 +92,7 @@
 
 -(void)step:(ccTime)delta
 {
+	
 	if(ai)[self.ai update:delta];
 	
 	[super step:delta];

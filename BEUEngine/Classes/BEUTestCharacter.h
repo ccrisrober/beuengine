@@ -15,7 +15,6 @@
 	CCAction *currentAction;
 }
 
-
 @property(nonatomic,retain) CCSprite *body;
 
 -(void)moveRight;

@@ -9,7 +9,7 @@
 
 
 @interface BEUCharacterAIDecision : NSObject {
-	//String name of decisions
+	//String name of decision
 	NSString *name;
 	
 	
