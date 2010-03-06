@@ -204,6 +204,8 @@
 		8333452711320FFC00E3F079 /* BEUArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 8333452611320FFC00E3F079 /* BEUArea.m */; };
 		8333466311338ED000E3F079 /* BEUObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8333466211338ED000E3F079 /* BEUObjectController.m */; };
 		83346ED6113CDCB500CAE125 /* BEUSkeletalCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 83346ED5113CDCB500CAE125 /* BEUSkeletalCharacter.m */; };
+		833569511141AF7F00B676A5 /* BEUCharacterAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 833569501141AF7F00B676A5 /* BEUCharacterAction.m */; };
+		833569551141B5B000B676A5 /* BEUCharacterMoveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 833569541141B5B000B676A5 /* BEUCharacterMoveAction.m */; };
 		8369B2B111408CD300656DB7 /* BEUCharacterAIDecision.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369B2B011408CD300656DB7 /* BEUCharacterAIDecision.m */; };
 		837E348911360E5100F6466D /* BEUInputEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E348811360E5100F6466D /* BEUInputEvent.m */; };
 		837E350C11361B7A00F6466D /* BEUInputMovementEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E350B11361B7A00F6466D /* BEUInputMovementEvent.m */; };
@@ -444,6 +446,10 @@
 		8333466211338ED000E3F079 /* BEUObjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUObjectController.m; sourceTree = "<group>"; };
 		83346ED4113CDCB500CAE125 /* BEUSkeletalCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUSkeletalCharacter.h; sourceTree = "<group>"; };
 		83346ED5113CDCB500CAE125 /* BEUSkeletalCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUSkeletalCharacter.m; sourceTree = "<group>"; };
+		8335694F1141AF7F00B676A5 /* BEUCharacterAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterAction.h; sourceTree = "<group>"; };
+		833569501141AF7F00B676A5 /* BEUCharacterAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAction.m; sourceTree = "<group>"; };
+		833569531141B5B000B676A5 /* BEUCharacterMoveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterMoveAction.h; sourceTree = "<group>"; };
+		833569541141B5B000B676A5 /* BEUCharacterMoveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterMoveAction.m; sourceTree = "<group>"; };
 		8369B2AF11408CD300656DB7 /* BEUCharacterAIDecision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterAIDecision.h; sourceTree = "<group>"; };
 		8369B2B011408CD300656DB7 /* BEUCharacterAIDecision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAIDecision.m; sourceTree = "<group>"; };
 		837E348711360E5100F6466D /* BEUInputEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUInputEvent.h; sourceTree = "<group>"; };
@@ -581,6 +587,8 @@
 		2D500B1D0D5A766B00DBA0E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				833569521141B58A00B676A5 /* character */,
+				8335694D114195A700B676A5 /* ai */,
 				506EDC2F102F528A00A389B3 /* HelloWorldScene.h */,
 				506EDC30102F528A00A389B3 /* HelloWorldScene.m */,
 				1F3B9A2C0EF2145700286867 /* BEUEngineAppDelegate.h */,
@@ -593,8 +601,6 @@
 				83E9135B112CFE6500C10195 /* BEUEnvironmentTile.m */,
 				83E91362112D015C00C10195 /* BEUEngine.h */,
 				83E91363112D015C00C10195 /* BEUEngine.m */,
-				83E913C0112D17D700C10195 /* BEUCharacter.h */,
-				83E913C1112D17D700C10195 /* BEUCharacter.m */,
 				83E9149B112E610200C10195 /* BEUObject.h */,
 				83E9149C112E610200C10195 /* BEUObject.m */,
 				83E914D1112E646A00C10195 /* BEUInputLayer.h */,
@@ -628,10 +634,6 @@
 				83841E88113C695B0018F382 /* BEUTestCharacter.m */,
 				83346ED4113CDCB500CAE125 /* BEUSkeletalCharacter.h */,
 				83346ED5113CDCB500CAE125 /* BEUSkeletalCharacter.m */,
-				83C6A6881140641D006D7FEB /* BEUCharacterAI.h */,
-				83C6A6891140641D006D7FEB /* BEUCharacterAI.m */,
-				8369B2AF11408CD300656DB7 /* BEUCharacterAIDecision.h */,
-				8369B2B011408CD300656DB7 /* BEUCharacterAIDecision.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -901,6 +903,30 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		8335694D114195A700B676A5 /* ai */ = {
+			isa = PBXGroup;
+			children = (
+				83C6A6881140641D006D7FEB /* BEUCharacterAI.h */,
+				83C6A6891140641D006D7FEB /* BEUCharacterAI.m */,
+				8369B2AF11408CD300656DB7 /* BEUCharacterAIDecision.h */,
+				8369B2B011408CD300656DB7 /* BEUCharacterAIDecision.m */,
+			);
+			name = ai;
+			sourceTree = "<group>";
+		};
+		833569521141B58A00B676A5 /* character */ = {
+			isa = PBXGroup;
+			children = (
+				83E913C0112D17D700C10195 /* BEUCharacter.h */,
+				83E913C1112D17D700C10195 /* BEUCharacter.m */,
+				8335694F1141AF7F00B676A5 /* BEUCharacterAction.h */,
+				833569501141AF7F00B676A5 /* BEUCharacterAction.m */,
+				833569531141B5B000B676A5 /* BEUCharacterMoveAction.h */,
+				833569541141B5B000B676A5 /* BEUCharacterMoveAction.m */,
+			);
+			name = character;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1108,6 +1134,8 @@
 				8398855C11403EE500E3E0DE /* BEUTriggerController.m in Sources */,
 				83C6A68A1140641D006D7FEB /* BEUCharacterAI.m in Sources */,
 				8369B2B111408CD300656DB7 /* BEUCharacterAIDecision.m in Sources */,
+				833569511141AF7F00B676A5 /* BEUCharacterAction.m in Sources */,
+				833569551141B5B000B676A5 /* BEUCharacterMoveAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

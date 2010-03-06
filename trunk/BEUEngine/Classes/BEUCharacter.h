@@ -13,6 +13,7 @@
 #import "BEUAction.h"
 #import "BEUActionsController.h"
 #import "BEUHitAction.h"
+#import "BEUMath.h"
 #import "BEUMove.h"
 #import "BEUMovesController.h"
 #import "BEUTrigger.h"
@@ -38,7 +39,15 @@
 	BEUMovesController *movesController;
 	BEUMove *currentMove;
 	
+	
+	//Ai of character, will run if assigned
 	BEUCharacterAI *ai;
+	
+	
+	//Array of selectors that should be run on each update of character
+	//remove and add to array if you ened a specific action to run for the character
+	//Selectors added should accept 1 argument of delta ccTime
+	NSMutableArray *updateSelectors;
 	
 }
 
@@ -48,8 +57,13 @@
 @property(nonatomic) BOOL canMove;
 @property(nonatomic,assign) BOOL enemy;
 @property(nonatomic,retain) BEUCharacterAI *ai;
+@property(nonatomic,retain) NSMutableArray *updateSelectors;
 
+//Basic move function with angle and percent which control the percent of moveSpeed that the character moves
 -(void)moveCharacterWithAngle:(float)angle percent:(float)percent;
+
+
+
 -(void)kill;
 
 
