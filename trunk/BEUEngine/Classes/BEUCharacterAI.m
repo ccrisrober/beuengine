@@ -42,8 +42,8 @@
 			targetCharacter = [self findClosestEnemy];
 		}
 		
-		float targetDirection = [BEUMath angleFromPoint:parent.position toPoint:targetCharacter.position];
-		[parent moveCharacterWithAngle:targetDirection percent:1.0f];
+		/*float targetDirection = [BEUMath angleFromPoint:parent.position toPoint:targetCharacter.position];
+		[parent moveCharacterWithAngle:targetDirection percent:1.0f];*/
 	}
 }
 
