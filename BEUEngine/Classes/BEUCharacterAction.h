@@ -17,8 +17,15 @@
 	//Owner of this character action
 	
 	BOOL completed;
+	
+	id onCompleteTarget;
+	SEL onCompleteSelector;
 }
 
-@property(nonatomic) BOOL completed;
+@property(nonatomic,assign) BOOL completed;
+@property(nonatomic) SEL onCompleteSelector;
+@property(nonatomic,assign) id onCompleteTarget;
+
+-(void)complete;
 
 @end

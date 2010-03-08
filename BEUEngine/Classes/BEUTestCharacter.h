@@ -7,6 +7,13 @@
 //
 
 #import "BEUCharacter.h"
+#import "BEUCharacterAI.h"
+#import "BEUCharacterAIMoveBehavior.h"
+#import "BEUCharacterAIBehavior.h"
+
+@class BEUCharacterAI;
+@class BEUCharacterAIMoveAwayFromTarget;
+@class BEUCharacterAIMoveToTarget;
 
 @interface BEUTestCharacter : BEUCharacter {
 	CCSprite *body;

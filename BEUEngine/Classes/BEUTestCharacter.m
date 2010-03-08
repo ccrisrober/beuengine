@@ -149,7 +149,9 @@ float gravity = 5.0f;
 	
 	if(enemy){
 		ai = [[BEUCharacterAI alloc] initWithParent:self];
-		//ai.moves = [[NSMutableArray alloc] initWithObjects: @"punch1",@"uppercut"];
+		[ai addBehavior: [BEUCharacterAIMoveToTarget behavior]];
+		[ai addBehavior: [BEUCharacterAIMoveAwayFromTarget behavior]];
+		
 	}
 }
 

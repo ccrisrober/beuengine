@@ -30,12 +30,16 @@
 {
 	//Object to move to
 	BEUObject *object;
+	
+	//distance from the object that the character must be for action to be completed
+	float distance;
 }
 
 @property(nonatomic,assign) BEUObject *object;
-	
-+(id)actionWithObject:(BEUObject *)object_;
--(id)initWithObject:(BEUObject *)object_;
+@property(nonatomic) float distance;
+
++(id)actionWithObject:(BEUObject *)object_ distance:(float)distance_;
+-(id)initWithObject:(BEUObject *)object_ distance:(float)distance_;
 
 @end
 

@@ -150,6 +150,9 @@ waitTime, waiting, canReceiveInput;
 	{
 		if(move.name == name) return move;
 	}
+	
+	NSLog(@"No Move with name: %@ found!",name);
+	return nil;
 }
 
 -(void)dealloc
