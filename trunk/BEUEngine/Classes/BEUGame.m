@@ -50,8 +50,7 @@
 			otherChar.x = 200 + arc4random()%200;
 			otherChar.z = arc4random()%120;
 			[[BEUObjectController sharedController] addCharacter:otherChar];
-			[otherChar runAction:[BEUCharacterMoveTo actionWithPoint:ccp(50,50)]];
-
+			
 		}
 		
 				//ADD INPUT LAYER TO STAGE, ADD LAST

@@ -11,7 +11,7 @@
 
 @implementation BEUCharacterAction
 
-@synthesize completed;
+@synthesize completed,onCompleteSelector,onCompleteTarget;
 
 
 -(id)init
@@ -22,6 +22,22 @@
 	}
 	
 	return self;
+}
+
+-(void)complete
+{
+	
+	if(onCompleteSelector && onCompleteTarget)
+		if([onCompleteTarget respondsToSelector:onCompleteSelector])
+			[onCompleteTarget performSelector:onCompleteSelector];
+	
+	completed = YES;
+}
+
+-(BOOL)isDone
+{
+	if(completed) return YES;
+	return NO;
 }
 
 -(void)dealloc

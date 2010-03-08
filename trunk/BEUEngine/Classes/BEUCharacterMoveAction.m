@@ -28,18 +28,17 @@
 	return self;
 }
 
--(BOOL)isDone
-{
-	return completed;
-}
+
 
 -(void)update:(ccTime)delta
 {
 	BEUCharacter *character = (BEUCharacter *)target;
 	
-	if( character.x == point.x && character.z == point.y )
+	float dist = ccpDistance(ccp(character.x,character.z), ccp(point.x,point.y));
+	
+	if( dist < 5 )
 	{
-		completed = YES;
+		[self complete];
 	} else {
 		[character moveCharacterWithAngle:
 		 [BEUMath angleFromPoint:ccp(character.x,character.z)
@@ -54,26 +53,39 @@
 
 @implementation BEUCharacterMoveToObject
 
-@synthesize object;
+@synthesize object,distance;
 
-+(id)actionWithObject:(BEUObject *)object_
++(id)actionWithObject:(BEUObject *)object_ distance:(float)distance_
 {
-	
+	return [[[BEUCharacterMoveToObject alloc] initWithObject:object_ distance:distance_] autorelease];
 }
 
--(id)initWithObject:(BEUObject *)object_
+-(id)initWithObject:(BEUObject *)object_ distance:(float)distance_
 {
+	if( (self = [super init]) )
+	{
+		object = object_;
+		distance = distance_;
+	}
 	
+	return self;
 }
 
--(BOOL)isDone
-{
-	
-}
 
 -(void)update:(ccTime)delta
 {
-	
+	BEUCharacter *character = (BEUCharacter *)target;
+	if( ccpDistance(ccp(character.x,character.z), ccp(object.x,object.z)) < distance )
+	{
+		character.moveX = 0;
+		character.moveZ = 0;
+		[self complete];
+	} else {
+		[character moveCharacterWithAngle:
+		 [BEUMath angleFromPoint:ccp(character.x,character.z)
+						 toPoint:ccp(object.x,object.z)] 
+								  percent: 1];		
+	}
 }
 
 @end

@@ -11,13 +11,17 @@
 
 @implementation BEUCharacterAI
 
-@synthesize parent,targetCharacter;
+@synthesize parent,targetCharacter,behaviors,currentBehavior,updateEvery;
+
+
+int tick = 0;
+
 
 -(id)init
 {
 	if( (self = [super init]) )
 	{
-		
+		updateEvery = 6;
 	}
 	
 	return self;
@@ -34,17 +38,59 @@
 
 -(void)update:(ccTime)delta
 {
+	//return if the tick is not == updateEvery
+	if(tick == updateEvery)
+	{
+		tick = 0;
+	} else {
+		tick++;
+		return;
+	}
+	
+	
 	if(parent)
 	{
 		if(!targetCharacter)
 		{
-			//NSLog(@"NEED TO FIND CLOSEST ENEMY: %@",targetCharacter);
 			targetCharacter = [self findClosestEnemy];
 		}
 		
-		/*float targetDirection = [BEUMath angleFromPoint:parent.position toPoint:targetCharacter.position];
-		[parent moveCharacterWithAngle:targetDirection percent:1.0f];*/
+		if(!currentBehavior)
+		{
+			currentBehavior = [self getHighestValueBehavior];
+			[currentBehavior run];
+		} else {
+			BEUCharacterAIBehavior *nextBehavior = [self getHighestValueBehavior];
+			if(currentBehavior.running)
+			{
+				if(nextBehavior.canInteruptOthers && (nextBehavior.value > currentBehavior.value))
+				{
+					[currentBehavior cancel];
+					currentBehavior = nextBehavior;
+					[currentBehavior run];
+				}
+			} else {
+				currentBehavior = nextBehavior;
+				[currentBehavior run];
+			}
+		}
+		
+		
 	}
+}
+
+-(BEUCharacterAIBehavior *)getHighestValueBehavior
+{
+	BEUCharacterAIBehavior *highest = nil;
+	
+	for ( BEUCharacterAIBehavior *behavior in behaviors )
+	{
+		if(!highest) highest = behavior;
+		if(highest.value < behavior.value)
+			highest = behavior;
+	}
+	
+	return highest;
 }
 
 -(BEUCharacter *)findClosestEnemy
@@ -67,10 +113,26 @@
 	return closest;
 }
 
+-(void)addBehavior:(BEUCharacterAIBehavior *)behavior
+{
+	if(!behaviors) 
+		behaviors = [[NSMutableArray alloc] init];
+	[behaviors addObject:behavior];
+	behavior.ai = self;
+}
+
+-(void)removeBehavior:(BEUCharacterAIBehavior *)behavior
+{
+	if([behaviors containsObject:behavior]) 
+		[behaviors removeObject:behavior];
+}
+
+
 -(void)dealloc
 {
 	parent = nil;
-	
+	currentBehavior = nil;
+	[behaviors release];
 	[super dealloc];
 }
 

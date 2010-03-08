@@ -9,7 +9,9 @@
 #import "BEUObject.h"
 #import "BEUObjectController.h"
 #import "BEUMath.h"
+#import "BEUCharacterAIBehavior.h"
 
+@class BEUCharacterAIBehavior;
 @class BEUObject;
 @class BEUObjectController;
 @class BEUCharacter;
@@ -22,19 +24,31 @@
 	//Object that the ai is currently targeting
 	BEUCharacter *targetCharacter;
 	
-	//Array of move NAMES that the ai has access to
-	NSMutableArray *moves;
+		//Array of behaviors, behaviors then have sub behaviors and so on until a actual behavior is reached
+	NSMutableArray *behaviors;
 	
-	//Array of decisions, decisions then have sub decisions and so on until a actual decision is reach
-	NSMutableArray *decisions;
+	//Current Behavior running
+	BEUCharacterAIBehavior *currentBehavior;
+	
+	//run updated function every so many ticks
+	int updateEvery;
+	
 }
 
 @property(nonatomic,assign) BEUCharacter *parent;
 @property(nonatomic,assign) BEUCharacter *targetCharacter;
+@property(nonatomic,retain) NSMutableArray *behaviors;
+@property(nonatomic,assign) BEUCharacterAIBehavior *currentBehavior;
+@property(nonatomic,assign) int updateEvery;
 
 -(id)initWithParent:(BEUCharacter *)parent_;
 
 -(void)update:(ccTime)delta;
+
+-(void)addBehavior:(BEUCharacterAIBehavior *)behavior_;
+-(void)removeBehavior:(BEUCharacterAIBehavior *)behavior_;
+
+-(BEUCharacterAIBehavior *)getHighestValueBehavior;
 
 -(BEUCharacter *)findClosestEnemy;
 
