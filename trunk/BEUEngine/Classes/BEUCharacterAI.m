@@ -11,7 +11,7 @@
 
 @implementation BEUCharacterAI
 
-@synthesize parent,targetCharacter,behaviors,currentBehavior,updateEvery;
+@synthesize parent,targetCharacter,rootBehavior,currentBehavior,updateEvery;
 
 
 int tick = 0;
@@ -22,6 +22,8 @@ int tick = 0;
 	if( (self = [super init]) )
 	{
 		updateEvery = 6;
+		rootBehavior = [[BEUCharacterAIBehavior alloc] initWithName:@"root"];
+		rootBehavior.ai = self;
 	}
 	
 	return self;
@@ -58,20 +60,24 @@ int tick = 0;
 		if(!currentBehavior)
 		{
 			currentBehavior = [self getHighestValueBehavior];
-			[currentBehavior run];
+			if(currentBehavior){
+				[currentBehavior run];
+			}
 		} else {
 			BEUCharacterAIBehavior *nextBehavior = [self getHighestValueBehavior];
-			if(currentBehavior.running)
-			{
-				if(nextBehavior.canInteruptOthers && (nextBehavior.value > currentBehavior.value))
+			if(nextBehavior){
+				if(currentBehavior.running)
 				{
-					[currentBehavior cancel];
+					if(nextBehavior.canInteruptOthers && (nextBehavior.value > currentBehavior.value))
+					{
+						[currentBehavior cancel];
+						currentBehavior = nextBehavior;
+						[currentBehavior run];
+					}
+				} else {
 					currentBehavior = nextBehavior;
 					[currentBehavior run];
 				}
-			} else {
-				currentBehavior = nextBehavior;
-				[currentBehavior run];
 			}
 		}
 		
@@ -81,22 +87,40 @@ int tick = 0;
 
 -(BEUCharacterAIBehavior *)getHighestValueBehavior
 {
+	
+	if(!rootBehavior) return nil;
+	
+	return [self getHighestValueBehaviorFromBehavior:rootBehavior];
+}
+
+-(BEUCharacterAIBehavior *)getHighestValueBehaviorFromBehavior:(BEUCharacterAIBehavior *)behavior_
+{
+	if([behavior_ isLeaf]) return behavior_;
+	
+	//temp variable for highest value behavior so far
 	BEUCharacterAIBehavior *highest = nil;
 	
-	for ( BEUCharacterAIBehavior *behavior in behaviors )
-	{
-		if(!highest) highest = behavior;
-		if(highest.value < behavior.value)
-			highest = behavior;
-	}
+	//temp variable for actual highest value number so far, this is necessary because sometimes the value of
+	//behavior.value is random and we dont want it to change mid loop
+	float highestValue = 0;
 	
-	return highest;
+	for ( BEUCharacterAIBehavior *behavior in behavior_.behaviors )
+	{
+		float val = behavior.value;
+		if(val > highestValue)
+		{	
+			highest = behavior;
+			highestValue = val;
+		}
+	}
+	return [self getHighestValueBehaviorFromBehavior:highest];
+	
 }
 
 -(BEUCharacter *)findClosestEnemy
 {
 	BEUCharacter *closest = nil;
-	float closestDist = 999999.0;//absurdly high number, dont know how to use NAN in obj-c to test against
+	float closestDist = 999999.0; //absurdly high number, dont know how to use NAN in obj-c to test against
 	for ( BEUCharacter *character in [[BEUObjectController sharedController] characters] )
 	{
 		if(character.enemy != parent.enemy)
@@ -115,16 +139,12 @@ int tick = 0;
 
 -(void)addBehavior:(BEUCharacterAIBehavior *)behavior
 {
-	if(!behaviors) 
-		behaviors = [[NSMutableArray alloc] init];
-	[behaviors addObject:behavior];
-	behavior.ai = self;
+	[rootBehavior addBehavior:behavior];
 }
 
 -(void)removeBehavior:(BEUCharacterAIBehavior *)behavior
 {
-	if([behaviors containsObject:behavior]) 
-		[behaviors removeObject:behavior];
+	[rootBehavior removeBehavior:behavior];
 }
 
 
@@ -132,7 +152,7 @@ int tick = 0;
 {
 	parent = nil;
 	currentBehavior = nil;
-	[behaviors release];
+	[rootBehavior release];
 	[super dealloc];
 }
 

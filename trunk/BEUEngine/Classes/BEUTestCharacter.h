@@ -10,10 +10,12 @@
 #import "BEUCharacterAI.h"
 #import "BEUCharacterAIMoveBehavior.h"
 #import "BEUCharacterAIBehavior.h"
+#import "BEUCharacterAIIdleBehavior.h"
 
 @class BEUCharacterAI;
 @class BEUCharacterAIMoveAwayFromTarget;
 @class BEUCharacterAIMoveToTarget;
+@class BEUCharacterAIIdleBehavior;
 
 @interface BEUTestCharacter : BEUCharacter {
 	CCSprite *body;

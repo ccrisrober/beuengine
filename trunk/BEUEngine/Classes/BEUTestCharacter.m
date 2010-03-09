@@ -149,8 +149,12 @@ float gravity = 5.0f;
 	
 	if(enemy){
 		ai = [[BEUCharacterAI alloc] initWithParent:self];
-		[ai addBehavior: [BEUCharacterAIMoveToTarget behavior]];
-		[ai addBehavior: [BEUCharacterAIMoveAwayFromTarget behavior]];
+		BEUCharacterAIBehavior *moveBranch = [BEUCharacterAIMove behaviorWithName:@"move"];
+		[moveBranch addBehavior: [BEUCharacterAIMoveToTarget behavior]];
+		[moveBranch addBehavior: [BEUCharacterAIMoveAwayFromTarget behavior]];
+		[ai addBehavior:moveBranch];
+		[ai addBehavior:[BEUCharacterAIIdleBehavior behaviorWithMinTime:1 maxTime:2]];
+		
 		
 	}
 }

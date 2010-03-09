@@ -24,8 +24,9 @@
 	//Object that the ai is currently targeting
 	BEUCharacter *targetCharacter;
 	
-		//Array of behaviors, behaviors then have sub behaviors and so on until a actual behavior is reached
-	NSMutableArray *behaviors;
+	
+	//The root behavior, which must contain all of the branches and leaf behaviors in it
+	BEUCharacterAIBehavior *rootBehavior;
 	
 	//Current Behavior running
 	BEUCharacterAIBehavior *currentBehavior;
@@ -37,7 +38,9 @@
 
 @property(nonatomic,assign) BEUCharacter *parent;
 @property(nonatomic,assign) BEUCharacter *targetCharacter;
-@property(nonatomic,retain) NSMutableArray *behaviors;
+
+@property(nonatomic,retain) BEUCharacterAIBehavior *rootBehavior;
+
 @property(nonatomic,assign) BEUCharacterAIBehavior *currentBehavior;
 @property(nonatomic,assign) int updateEvery;
 
@@ -45,11 +48,12 @@
 
 -(void)update:(ccTime)delta;
 
+//Add or remove behaviors from the Root behavior node
 -(void)addBehavior:(BEUCharacterAIBehavior *)behavior_;
 -(void)removeBehavior:(BEUCharacterAIBehavior *)behavior_;
 
 -(BEUCharacterAIBehavior *)getHighestValueBehavior;
-
+-(BEUCharacterAIBehavior *)getHighestValueBehaviorFromBehavior:(BEUCharacterAIBehavior *)behavior_;
 -(BEUCharacter *)findClosestEnemy;
 
 @end

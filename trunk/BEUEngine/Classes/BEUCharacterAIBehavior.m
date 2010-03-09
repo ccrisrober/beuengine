@@ -11,7 +11,7 @@
 
 @implementation BEUCharacterAIBehavior
 
-@synthesize name,ai,behaviors,running,canInteruptOthers;
+@synthesize name,behaviors,ai,running,canInteruptOthers;
 
 +(id)behavior
 {
@@ -38,6 +38,7 @@
 {
 	if( (self = [super init]) )
 	{
+		ai = nil;
 		running = NO;
 		canInteruptOthers = NO;
 	}
@@ -61,23 +62,39 @@
 	return self;
 }
 
+-(void)setAi:(BEUCharacterAI *)ai_
+{
+	ai = ai_;
+	for(BEUCharacterAIBehavior *behavior in behaviors)
+	{
+		behavior.ai = ai_;
+	}
+}
+
+-(BEUCharacterAI *)ai
+{
+	return ai;
+}
+
 -(void)addBehavior:(BEUCharacterAIBehavior *)behavior
 {
 	if(!behaviors) 
 		behaviors = [[NSMutableArray alloc] init];
 	[behaviors addObject:behavior];
+	if(ai) behavior.ai = ai;
 }
 
 -(void)removeBehavior:(BEUCharacterAIBehavior *)behavior
 {
 	if([behaviors containsObject:behavior]) 
 		[behaviors removeObject:behavior];
+	[behavior release];
 }
 
 -(BOOL)isLeaf
 {
 	if(!behaviors) return YES;
-	if(behaviors.count == 0) return NO;
+	if(behaviors.count > 0) return NO;
 	
 	return YES;
 }
@@ -85,7 +102,7 @@
 -(float)value
 {
 	//OVERRIDE THIS AND RRETURN THE CORRECT VALUE
-	return 0;
+	return 1;
 }
 
 -(void)run
@@ -108,7 +125,7 @@
 }
 
 -(void)dealloc
-{
+{	
 	[behaviors release];
 	ai = nil;
 	[name release];
