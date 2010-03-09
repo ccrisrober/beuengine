@@ -39,6 +39,9 @@
 	BOOL completed;
 	BOOL inProgress;
 	
+	//Distance range of the move, useful for AI so it 
+	//knows how far the character must be to perform the move
+	float range;
 }
 
 
@@ -52,6 +55,7 @@
 @property(nonatomic, retain) id completeTarget;
 @property(nonatomic) BOOL completed;
 @property(nonatomic) BOOL inProgress;
+@property(nonatomic) float range;
 
 +(id)moveWithName:(NSString *)name_
 		character:(BEUCharacter *)character_ 

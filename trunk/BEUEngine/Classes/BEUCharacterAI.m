@@ -107,6 +107,7 @@ int tick = 0;
 	for ( BEUCharacterAIBehavior *behavior in behavior_.behaviors )
 	{
 		float val = behavior.value;
+		
 		if(val > highestValue)
 		{	
 			highest = behavior;

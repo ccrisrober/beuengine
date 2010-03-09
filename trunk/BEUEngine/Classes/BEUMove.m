@@ -31,7 +31,7 @@ name;
 		self.cooldownTime = .2;
 		self.completed = NO;
 		self.inProgress = NO;
-		
+		range = 60;
 	}
 	
 	return self;

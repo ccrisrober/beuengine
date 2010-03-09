@@ -206,6 +206,7 @@
 		83346ED6113CDCB500CAE125 /* BEUSkeletalCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 83346ED5113CDCB500CAE125 /* BEUSkeletalCharacter.m */; };
 		833569511141AF7F00B676A5 /* BEUCharacterAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 833569501141AF7F00B676A5 /* BEUCharacterAction.m */; };
 		833569551141B5B000B676A5 /* BEUCharacterMoveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 833569541141B5B000B676A5 /* BEUCharacterMoveAction.m */; };
+		8348EFC61146038D00764BCA /* BEUCharacterAIAttackBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 8348EFC51146038D00764BCA /* BEUCharacterAIAttackBehavior.m */; };
 		837E348911360E5100F6466D /* BEUInputEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E348811360E5100F6466D /* BEUInputEvent.m */; };
 		837E350C11361B7A00F6466D /* BEUInputMovementEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E350B11361B7A00F6466D /* BEUInputMovementEvent.m */; };
 		837E377D11399ADF00F6466D /* BEUHitAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E377C11399ADF00F6466D /* BEUHitAction.m */; };
@@ -452,6 +453,8 @@
 		833569501141AF7F00B676A5 /* BEUCharacterAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAction.m; sourceTree = "<group>"; };
 		833569531141B5B000B676A5 /* BEUCharacterMoveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterMoveAction.h; sourceTree = "<group>"; };
 		833569541141B5B000B676A5 /* BEUCharacterMoveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterMoveAction.m; sourceTree = "<group>"; };
+		8348EFC41146038D00764BCA /* BEUCharacterAIAttackBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterAIAttackBehavior.h; sourceTree = "<group>"; };
+		8348EFC51146038D00764BCA /* BEUCharacterAIAttackBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAIAttackBehavior.m; sourceTree = "<group>"; };
 		837E348711360E5100F6466D /* BEUInputEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUInputEvent.h; sourceTree = "<group>"; };
 		837E348811360E5100F6466D /* BEUInputEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUInputEvent.m; sourceTree = "<group>"; };
 		837E350A11361B7A00F6466D /* BEUInputMovementEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUInputMovementEvent.h; sourceTree = "<group>"; };
@@ -920,6 +923,8 @@
 				83BEA34A1144959F00AAAD2A /* BEUCharacterAIMoveBehavior.m */,
 				83CD6A161145C99C006BB2AF /* BEUCharacterAIIdleBehavior.h */,
 				83CD6A171145C99C006BB2AF /* BEUCharacterAIIdleBehavior.m */,
+				8348EFC41146038D00764BCA /* BEUCharacterAIAttackBehavior.h */,
+				8348EFC51146038D00764BCA /* BEUCharacterAIAttackBehavior.m */,
 			);
 			name = ai;
 			sourceTree = "<group>";
@@ -1148,6 +1153,7 @@
 				83BEA34B1144959F00AAAD2A /* BEUCharacterAIBehavior.m in Sources */,
 				83BEA34C1144959F00AAAD2A /* BEUCharacterAIMoveBehavior.m in Sources */,
 				83CD6A181145C99C006BB2AF /* BEUCharacterAIIdleBehavior.m in Sources */,
+				8348EFC61146038D00764BCA /* BEUCharacterAIAttackBehavior.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

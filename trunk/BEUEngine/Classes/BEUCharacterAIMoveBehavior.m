@@ -23,7 +23,6 @@
 	return self;
 }
 
-
 +(id)behavior
 {
 	return [[[BEUCharacterAIMove alloc] init] autorelease];
@@ -43,6 +42,11 @@
 	
 	[ai.parent stopAction:currentAction];
 	currentAction = nil;
+}
+
+-(float)value
+{
+	return arc4random() % 100;
 }
 
 @end
@@ -141,7 +145,7 @@
 	
 	return 0;*/
 	
-	return arc4random()%100;
+	return arc4random()%30;
 }
 
 @end
