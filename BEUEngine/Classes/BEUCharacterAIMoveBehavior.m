@@ -69,8 +69,7 @@
 -(void)run
 {
 	[super run];
-	NSLog(@"MOVING TO TARGET");
-	currentAction = [BEUCharacterMoveToObject actionWithObject:[ai targetCharacter] 
+	currentAction = [BEUCharacterMoveToObject actionWithObject:ai.targetCharacter 
 													  distance: (30 + (50 % arc4random()))]; 
 	currentAction.onCompleteTarget = self;
 	currentAction.onCompleteSelector = @selector(complete);

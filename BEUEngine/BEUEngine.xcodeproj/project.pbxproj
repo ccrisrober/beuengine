@@ -206,7 +206,6 @@
 		83346ED6113CDCB500CAE125 /* BEUSkeletalCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 83346ED5113CDCB500CAE125 /* BEUSkeletalCharacter.m */; };
 		833569511141AF7F00B676A5 /* BEUCharacterAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 833569501141AF7F00B676A5 /* BEUCharacterAction.m */; };
 		833569551141B5B000B676A5 /* BEUCharacterMoveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 833569541141B5B000B676A5 /* BEUCharacterMoveAction.m */; };
-		8369B2B111408CD300656DB7 /* BEUCharacterAIDecision.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369B2B011408CD300656DB7 /* BEUCharacterAIDecision.m */; };
 		837E348911360E5100F6466D /* BEUInputEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E348811360E5100F6466D /* BEUInputEvent.m */; };
 		837E350C11361B7A00F6466D /* BEUInputMovementEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E350B11361B7A00F6466D /* BEUInputMovementEvent.m */; };
 		837E377D11399ADF00F6466D /* BEUHitAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E377C11399ADF00F6466D /* BEUHitAction.m */; };
@@ -220,6 +219,7 @@
 		83C6A68A1140641D006D7FEB /* BEUCharacterAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C6A6891140641D006D7FEB /* BEUCharacterAI.m */; };
 		83C915A41136FA6000734692 /* BEUAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C915A31136FA6000734692 /* BEUAction.m */; };
 		83C915A71136FA9600734692 /* BEUActionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C915A61136FA9600734692 /* BEUActionsController.m */; };
+		83CD6A181145C99C006BB2AF /* BEUCharacterAIIdleBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CD6A171145C99C006BB2AF /* BEUCharacterAIIdleBehavior.m */; };
 		83E91353112CFC9B00C10195 /* BEUGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E91352112CFC9B00C10195 /* BEUGame.m */; };
 		83E91356112CFCD900C10195 /* BEUEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E91355112CFCD900C10195 /* BEUEnvironment.m */; };
 		83E9135C112CFE6500C10195 /* BEUEnvironmentTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E9135B112CFE6500C10195 /* BEUEnvironmentTile.m */; };
@@ -452,8 +452,6 @@
 		833569501141AF7F00B676A5 /* BEUCharacterAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAction.m; sourceTree = "<group>"; };
 		833569531141B5B000B676A5 /* BEUCharacterMoveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterMoveAction.h; sourceTree = "<group>"; };
 		833569541141B5B000B676A5 /* BEUCharacterMoveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterMoveAction.m; sourceTree = "<group>"; };
-		8369B2AF11408CD300656DB7 /* BEUCharacterAIDecision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterAIDecision.h; sourceTree = "<group>"; };
-		8369B2B011408CD300656DB7 /* BEUCharacterAIDecision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAIDecision.m; sourceTree = "<group>"; };
 		837E348711360E5100F6466D /* BEUInputEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUInputEvent.h; sourceTree = "<group>"; };
 		837E348811360E5100F6466D /* BEUInputEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUInputEvent.m; sourceTree = "<group>"; };
 		837E350A11361B7A00F6466D /* BEUInputMovementEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUInputMovementEvent.h; sourceTree = "<group>"; };
@@ -481,6 +479,8 @@
 		83C915A51136FA9600734692 /* BEUActionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUActionsController.h; sourceTree = "<group>"; };
 		83C915A61136FA9600734692 /* BEUActionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUActionsController.m; sourceTree = "<group>"; };
 		83C916421137130D00734692 /* BEUInputReceiverProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUInputReceiverProtocol.h; sourceTree = "<group>"; };
+		83CD6A161145C99C006BB2AF /* BEUCharacterAIIdleBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterAIIdleBehavior.h; sourceTree = "<group>"; };
+		83CD6A171145C99C006BB2AF /* BEUCharacterAIIdleBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAIIdleBehavior.m; sourceTree = "<group>"; };
 		83E91351112CFC9B00C10195 /* BEUGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUGame.h; sourceTree = "<group>"; };
 		83E91352112CFC9B00C10195 /* BEUGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUGame.m; sourceTree = "<group>"; };
 		83E91354112CFCD900C10195 /* BEUEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUEnvironment.h; sourceTree = "<group>"; };
@@ -913,13 +913,13 @@
 			isa = PBXGroup;
 			children = (
 				83C6A6881140641D006D7FEB /* BEUCharacterAI.h */,
+				83C6A6891140641D006D7FEB /* BEUCharacterAI.m */,
 				83BEA3471144959F00AAAD2A /* BEUCharacterAIBehavior.h */,
 				83BEA3481144959F00AAAD2A /* BEUCharacterAIBehavior.m */,
 				83BEA3491144959F00AAAD2A /* BEUCharacterAIMoveBehavior.h */,
 				83BEA34A1144959F00AAAD2A /* BEUCharacterAIMoveBehavior.m */,
-				83C6A6891140641D006D7FEB /* BEUCharacterAI.m */,
-				8369B2AF11408CD300656DB7 /* BEUCharacterAIDecision.h */,
-				8369B2B011408CD300656DB7 /* BEUCharacterAIDecision.m */,
+				83CD6A161145C99C006BB2AF /* BEUCharacterAIIdleBehavior.h */,
+				83CD6A171145C99C006BB2AF /* BEUCharacterAIIdleBehavior.m */,
 			);
 			name = ai;
 			sourceTree = "<group>";
@@ -1143,11 +1143,11 @@
 				8398855B11403EE500E3E0DE /* BEUTrigger.m in Sources */,
 				8398855C11403EE500E3E0DE /* BEUTriggerController.m in Sources */,
 				83C6A68A1140641D006D7FEB /* BEUCharacterAI.m in Sources */,
-				8369B2B111408CD300656DB7 /* BEUCharacterAIDecision.m in Sources */,
 				833569511141AF7F00B676A5 /* BEUCharacterAction.m in Sources */,
 				833569551141B5B000B676A5 /* BEUCharacterMoveAction.m in Sources */,
 				83BEA34B1144959F00AAAD2A /* BEUCharacterAIBehavior.m in Sources */,
 				83BEA34C1144959F00AAAD2A /* BEUCharacterAIMoveBehavior.m in Sources */,
+				83CD6A181145C99C006BB2AF /* BEUCharacterAIIdleBehavior.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

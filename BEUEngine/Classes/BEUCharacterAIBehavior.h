@@ -30,8 +30,8 @@
 }
 
 @property(nonatomic,copy) NSString *name;
-@property(nonatomic,assign) BEUCharacterAI *ai;
 @property(nonatomic,retain) NSMutableArray *behaviors;
+@property(nonatomic,assign) BEUCharacterAI *ai;
 @property(nonatomic,assign) BOOL running;
 @property(nonatomic,assign) BOOL canInteruptOthers;
 
@@ -51,6 +51,9 @@
 -(void)addBehavior:(BEUCharacterAIBehavior *)behavior;
 
 -(void)removeBehavior:(BEUCharacterAIBehavior *)behavior;
+
+-(void)setAi:(BEUCharacterAI *)ai_;
+-(BEUCharacterAI *)ai;
 
 //The value of the behavior, higher is better, 0 is no value and decision will not be picked
 -(float)value;
