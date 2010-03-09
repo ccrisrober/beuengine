@@ -24,7 +24,7 @@ float gravity = 5.0f;
 	life = 100;
 	
 	drawBoundingBoxes = YES;
-	
+	isWall = NO;
 	
 	
 	body = [[CCSprite alloc] init];
@@ -149,7 +149,7 @@ float gravity = 5.0f;
 	
 	if(enemy){
 		ai = [[BEUCharacterAI alloc] initWithParent:self];
-		BEUCharacterAIBehavior *moveBranch = [BEUCharacterAIMove behaviorWithName:@"move"];
+		BEUCharacterAIBehavior *moveBranch = [BEUCharacterAIMove behavior];
 		[moveBranch addBehavior: [BEUCharacterAIMoveToTarget behavior]];
 		[moveBranch addBehavior: [BEUCharacterAIMoveAwayFromTarget behavior]];
 		[ai addBehavior:moveBranch];

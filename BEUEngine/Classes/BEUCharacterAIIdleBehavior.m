@@ -30,12 +30,11 @@
 
 -(float)value
 {
-	return arc4random() % 50;
+	return arc4random() % 100;
 }
 
 -(void)run
 {
-	NSLog(@"GOING IDLE");
 	[super run];
 	[ai.parent runAction:
 	 [CCSequence actions: 
