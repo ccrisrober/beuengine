@@ -44,11 +44,11 @@
 		[[BEUObjectController sharedController] setPlayerCharacter: character];
 		
 		
-		for(int i=0; i<2; i++){
+		for(int i=0; i<6; i++){
 			BEUCharacter *otherChar = [[BEUTestCharacter alloc] init];
 			otherChar.enemy = YES;
-			otherChar.x = 200 + arc4random()%200;
-			otherChar.z = arc4random()%120;
+			otherChar.x = 200 + arc4random()%350;
+			otherChar.z = arc4random()%100;
 			[[BEUObjectController sharedController] addCharacter:otherChar];
 			
 		}

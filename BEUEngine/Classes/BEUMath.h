@@ -15,5 +15,6 @@
 
 +(double)angleFromPoint:(CGPoint)point1 toPoint:(CGPoint)point2;
 
++(float)random;
 
 @end

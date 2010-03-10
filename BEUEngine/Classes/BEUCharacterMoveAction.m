@@ -48,6 +48,13 @@
 	
 }
 
+-(void)complete
+{
+	[super complete];
+	BEUCharacter *character = (BEUCharacter *)target;
+	[character moveCharacterWithAngle:0 percent:0];
+}
+
 @end
 
 
@@ -86,6 +93,13 @@
 						 toPoint:ccp(object.x,object.z)] 
 								  percent: 1];		
 	}
+}
+
+-(void)complete
+{
+	[super complete];
+	BEUCharacter *character = (BEUCharacter *)target;
+	[character moveCharacterWithAngle:0 percent:0];
 }
 
 @end

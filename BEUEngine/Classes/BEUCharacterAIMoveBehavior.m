@@ -25,7 +25,7 @@
 
 +(id)behavior
 {
-	return [[[BEUCharacterAIMove alloc] init] autorelease];
+	return [[[self alloc] init] autorelease];
 }
 
 -(void)cancel
@@ -46,7 +46,7 @@
 
 -(float)value
 {
-	return arc4random() % 100;
+	return lastValue = [BEUMath random];
 }
 
 @end
@@ -67,14 +67,14 @@
 
 +(id)behavior
 {
-	return [[[BEUCharacterAIMoveToTarget alloc] init] autorelease];
+	return [[[self alloc] init] autorelease];
 }
 			  
 -(void)run
 {
 	[super run];
 	currentAction = [BEUCharacterMoveToObject actionWithObject:ai.targetCharacter 
-													  distance: (30 + (50 % arc4random()))]; 
+													  distance: (30 + (10 % arc4random()))]; 
 	currentAction.onCompleteTarget = self;
 	currentAction.onCompleteSelector = @selector(complete);
 	[ai.parent runAction: currentAction];
@@ -91,7 +91,7 @@
 	}
 	
 	return 0;*/
-	return arc4random() % 100;
+	return lastValue = (1 - ai.difficultyMultiplier)*[BEUMath random];
 }
 
 @end
@@ -145,7 +145,7 @@
 	
 	return 0;*/
 	
-	return arc4random()%30;
+	return lastValue = [BEUMath random] * ai.difficultyMultiplier;
 }
 
 @end

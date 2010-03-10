@@ -11,7 +11,7 @@
 
 @implementation BEUCharacterAI
 
-@synthesize parent,targetCharacter,rootBehavior,currentBehavior,updateEvery;
+@synthesize parent,targetCharacter,rootBehavior,currentBehavior,updateEvery,difficultyMultiplier;
 
 
 int tick = 0;
@@ -24,6 +24,7 @@ int tick = 0;
 		updateEvery = 6;
 		rootBehavior = [[BEUCharacterAIBehavior alloc] initWithName:@"root"];
 		rootBehavior.ai = self;
+		difficultyMultiplier = .7;
 	}
 	
 	return self;
@@ -55,6 +56,7 @@ int tick = 0;
 		if(!targetCharacter)
 		{
 			targetCharacter = [self findClosestEnemy];
+			parent.orientToObject = targetCharacter;
 		}
 		
 		if(!currentBehavior)
@@ -65,11 +67,13 @@ int tick = 0;
 			}
 		} else {
 			BEUCharacterAIBehavior *nextBehavior = [self getHighestValueBehavior];
+			NSLog(@"HIGHEST VALUE BEHAVIOR: %@",nextBehavior.name);
 			if(nextBehavior){
 				if(currentBehavior.running)
 				{
 					if(nextBehavior.canInteruptOthers && (nextBehavior.value > currentBehavior.value))
 					{
+						NSLog(@"INTERRUPTING CURRENT BEHAVIOR WITH BLOCK");
 						[currentBehavior cancel];
 						currentBehavior = nextBehavior;
 						[currentBehavior run];
@@ -95,26 +99,22 @@ int tick = 0;
 
 -(BEUCharacterAIBehavior *)getHighestValueBehaviorFromBehavior:(BEUCharacterAIBehavior *)behavior_
 {
-	if([behavior_ isLeaf]) return behavior_;
-	
 	//temp variable for highest value behavior so far
 	BEUCharacterAIBehavior *highest = nil;
 	
-	//temp variable for actual highest value number so far, this is necessary because sometimes the value of
-	//behavior.value is random and we dont want it to change mid loop
-	float highestValue = 0;
-	
 	for ( BEUCharacterAIBehavior *behavior in behavior_.behaviors )
 	{
-		float val = behavior.value;
+		if(![behavior isLeaf]) behavior = [self getHighestValueBehaviorFromBehavior:behavior];
 		
-		if(val > highestValue)
-		{	
+		if(!highest)
+		{
+			[behavior value];
 			highest = behavior;
-			highestValue = val;
+		} else if(highest.lastValue < behavior.value){
+			highest = behavior;
 		}
 	}
-	return [self getHighestValueBehaviorFromBehavior:highest];
+	return highest;
 	
 }
 

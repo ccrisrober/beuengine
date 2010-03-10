@@ -149,11 +149,20 @@ float gravity = 5.0f;
 	
 	if(enemy){
 		ai = [[BEUCharacterAI alloc] initWithParent:self];
+		
 		BEUCharacterAIBehavior *moveBranch = [BEUCharacterAIMove behavior];
 		[moveBranch addBehavior: [BEUCharacterAIMoveToTarget behavior]];
 		[moveBranch addBehavior: [BEUCharacterAIMoveAwayFromTarget behavior]];
 		[ai addBehavior:moveBranch];
-		[ai addBehavior:[BEUCharacterAIIdleBehavior behaviorWithMinTime:1 maxTime:2]];
+		
+		[ai addBehavior:[BEUCharacterAIIdleBehavior behaviorWithMinTime:.3 maxTime:2]];
+		
+		BEUCharacterAIBehavior *attackBranch = [BEUCharacterAIBehavior behaviorWithName:@"attack"];
+		[attackBranch addBehavior:[BEUCharacterAIAttackWithRandomMove behaviorWithMoves:[movesController moves]]];
+		[attackBranch addBehavior:[BEUCharacterAIMoveToAndAttack behaviorWithMoves:[movesController moves]]]; 
+		[ai addBehavior:attackBranch];
+		
+		[ai addBehavior:[BEUCharacterAIBlockBehavior behavior]];
 		
 		
 	}
@@ -180,6 +189,8 @@ float gravity = 5.0f;
 
 -(void)moveLeft
 {
+	state = BEUCharacterStateMoving;
+
 	if(currentAnimation != @"moveLeft"){
 		currentAnimation = @"moveLeft";
 		//NSLog(@"MOVE LEFT");
@@ -194,6 +205,7 @@ float gravity = 5.0f;
 
 -(void)moveRight
 {
+	state = BEUCharacterStateMoving;
 	if(currentAnimation != @"moveRight"){
 		currentAnimation = @"moveRight";
 		//NSLog(@"MOVE RIGHT");
@@ -207,6 +219,7 @@ float gravity = 5.0f;
 
 -(void)standStill
 {
+	state = BEUCharacterStateIdle;
 	if(currentAnimation != @"stand"){
 		currentAnimation = @"stand";
 		//NSLog(@"STAND STILL");
@@ -215,10 +228,28 @@ float gravity = 5.0f;
 	}
 }
 
+-(void)block
+{
+	state = BEUCharacterStateBlocking;
+	currentAnimation = @"blocking";
+	[body stopAllActions];
+	canMove = NO;
+	moveX = 0;
+	moveZ = 0;
+	[body setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"TestCharacter0035.png"]];
+}
+
+-(void)blockComplete
+{
+	canMove = YES;
+	[self standStill];
+}
+
 -(void)punch: (BEUMove *)move
 {
 	
 	currentMove = move;
+	state = BEUCharacterStateAttacking;
 	
 	if(currentAnimation != @"punch")
 	{
@@ -254,6 +285,7 @@ float gravity = 5.0f;
 -(void)punch2: (BEUMove *)move
 {
 	currentMove = move;
+	state = BEUCharacterStateAttacking;
 	
 	if(currentAnimation != @"punch2")
 	{
@@ -329,6 +361,7 @@ float gravity = 5.0f;
 -(void)punchComplete
 {
 	//NSLog(@"makeMoveable");
+	
 	canMove = YES;
 	[currentMove completeMove];
 	
@@ -451,12 +484,13 @@ float gravity = 5.0f;
 
 -(BOOL)receiveHit:(BEUAction *)action
 {
-	life -= ((BEUHitAction *)action).power;
-	BEUObject *sender = (BEUObject *)action.sender;
-	if(action.sender != self)
-	{
 	
-			
+	BEUCharacter *sender = (BEUCharacter *)action.sender;
+	if(sender != self && sender.enemy != self.enemy)
+	{
+		if(state == BEUCharacterStateBlocking) return YES;
+		
+		life -= ((BEUHitAction *)action).power;	
 		if(sender.x < self.x)
 		{
 			[self hit:YES];
@@ -476,10 +510,14 @@ float gravity = 5.0f;
 
 -(BOOL)receiveHitUppercut:(BEUAction *)action
 {
-	life -= ((BEUHitAction *)action).power;
-	BEUObject *sender = (BEUObject *)action.sender;
-	if(action.sender != self)
+	BEUCharacter *sender = (BEUCharacter *)action.sender;
+	
+	if(sender != self && sender.enemy != self.enemy)
 	{
+		if(state == BEUCharacterStateBlocking) return YES;
+		
+		life -= ((BEUHitAction *)action).power;
+
 		if(life > 0){
 			
 			if(sender.x < self.x)

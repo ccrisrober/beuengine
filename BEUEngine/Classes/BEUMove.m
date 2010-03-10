@@ -20,7 +20,8 @@ completeSelector,
 completeTarget,
 completed,
 inProgress,
-name;
+name,
+range;
 
 
 -(id)init

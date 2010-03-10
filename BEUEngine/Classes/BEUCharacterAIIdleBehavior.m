@@ -25,20 +25,21 @@
 
 +(id)behaviorWithMinTime:(float)min maxTime:(float)max
 {
-	return [[[BEUCharacterAIIdleBehavior alloc] initWithMinTime:min maxTime:max] autorelease];
+	return [[[self alloc] initWithMinTime:min maxTime:max] autorelease];
 }
 
 -(float)value
 {
-	return arc4random() % 100;
+	return lastValue = (ai.difficultyMultiplier)*[BEUMath random];
 }
 
 -(void)run
 {
 	[super run];
+	float randTime = minTime + (maxTime - minTime)*[BEUMath random];
 	[ai.parent runAction:
 	 [CCSequence actions: 
-	  [CCDelayTime actionWithDuration:1],
+	  [CCDelayTime actionWithDuration:randTime],
 	  [CCCallFunc actionWithTarget:self selector:@selector(complete)],
 	  nil 
 	  ]

@@ -18,7 +18,7 @@
 		
 		receivers = [[NSMutableArray alloc] init];
 		
-		maximumMovementDist = 15;
+		maximumMovementDist = 25;
 		
 		maximumTapDist = 10;
 		
@@ -30,6 +30,18 @@
 		
 		
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+		
+		joystickBase = [[CCSprite alloc] initWithFile:@"joystickBase.png"];
+		joystickBase.position = ccp(60,60);
+		joystickStick = [[CCSprite alloc] initWithFile:@"joystickStick.png"];
+		joystickStick.position = ccp(joystickBase.contentSize.width/2,joystickBase.contentSize.height/2);
+		joystickStick.scaleX = joystickStick.scaleY = 1.5;
+		[joystickBase addChild:joystickStick];
+		
+		joystickBase.visible = NO;
+		
+		[self addChild:joystickBase];
+		
 	}
 	
 	return self;
@@ -52,6 +64,10 @@
 														 maximumMovementDist:maximumMovementDist];
 		[self dispatchEvent:movementEvent];
 		
+		
+		joystickBase.position = ccp(location.x,location.y);
+		joystickBase.visible = YES;
+		joystickStick.position = ccp(0,0);
 		return YES;
 	}
 	
@@ -76,6 +92,13 @@
 	{
 		[self.movementEvent addPosition:location];
 		[self dispatchEvent:self.movementEvent];
+		
+		
+		joystickStick.position = ccp(
+									 joystickBase.contentSize.width/2 + cos(movementEvent.movementTheta)*maximumMovementDist*movementEvent.movementPercent, 
+									 joystickBase.contentSize.height/2 + sin(movementEvent.movementTheta)*maximumMovementDist*movementEvent.movementPercent
+									 );
+		
 	}
 	
 	if(touch == self.gestureTouch)
@@ -96,6 +119,8 @@
 	{
 		[self.movementEvent complete];
 		[self dispatchEvent:self.movementEvent];
+		
+		joystickBase.visible = NO;
 		
 		self.movementTouch = nil;
 	}
