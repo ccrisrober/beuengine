@@ -38,7 +38,7 @@ NSString *const BEUTriggerExitedArea = @"exitedArea";
 {
 	[self init];
 	type = type_;
-	sender = sender_;
+	sender = [sender_ retain];
 	
 	return self;
 }

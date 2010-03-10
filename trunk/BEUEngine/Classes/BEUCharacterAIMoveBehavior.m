@@ -46,7 +46,7 @@
 
 -(float)value
 {
-	return lastValue = [BEUMath random];
+	return lastValue = (1-ai.difficultyMultiplier)*[BEUMath random];
 }
 
 @end

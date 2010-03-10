@@ -218,6 +218,7 @@
 		83841E89113C695B0018F382 /* BEUTestCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 83841E88113C695B0018F382 /* BEUTestCharacter.m */; };
 		8398855B11403EE500E3E0DE /* BEUTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 8398855811403EE500E3E0DE /* BEUTrigger.m */; };
 		8398855C11403EE500E3E0DE /* BEUTriggerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8398855A11403EE500E3E0DE /* BEUTriggerController.m */; };
+		83A2A05011476B3600B0224B /* BEUSpawner.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A2A04F11476B3600B0224B /* BEUSpawner.m */; };
 		83BEA34B1144959F00AAAD2A /* BEUCharacterAIBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BEA3481144959F00AAAD2A /* BEUCharacterAIBehavior.m */; };
 		83BEA34C1144959F00AAAD2A /* BEUCharacterAIMoveBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BEA34A1144959F00AAAD2A /* BEUCharacterAIMoveBehavior.m */; };
 		83C6A68A1140641D006D7FEB /* BEUCharacterAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C6A6891140641D006D7FEB /* BEUCharacterAI.m */; };
@@ -478,6 +479,8 @@
 		8398855811403EE500E3E0DE /* BEUTrigger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUTrigger.m; sourceTree = "<group>"; };
 		8398855911403EE500E3E0DE /* BEUTriggerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUTriggerController.h; sourceTree = "<group>"; };
 		8398855A11403EE500E3E0DE /* BEUTriggerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUTriggerController.m; sourceTree = "<group>"; };
+		83A2A04E11476B3600B0224B /* BEUSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUSpawner.h; sourceTree = "<group>"; };
+		83A2A04F11476B3600B0224B /* BEUSpawner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUSpawner.m; sourceTree = "<group>"; };
 		83BEA3471144959F00AAAD2A /* BEUCharacterAIBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterAIBehavior.h; sourceTree = "<group>"; };
 		83BEA3481144959F00AAAD2A /* BEUCharacterAIBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAIBehavior.m; sourceTree = "<group>"; };
 		83BEA3491144959F00AAAD2A /* BEUCharacterAIMoveBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterAIMoveBehavior.h; sourceTree = "<group>"; };
@@ -650,6 +653,8 @@
 				83841E88113C695B0018F382 /* BEUTestCharacter.m */,
 				83346ED4113CDCB500CAE125 /* BEUSkeletalCharacter.h */,
 				83346ED5113CDCB500CAE125 /* BEUSkeletalCharacter.m */,
+				83A2A04E11476B3600B0224B /* BEUSpawner.h */,
+				83A2A04F11476B3600B0224B /* BEUSpawner.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1168,6 +1173,7 @@
 				83CD6A181145C99C006BB2AF /* BEUCharacterAIIdleBehavior.m in Sources */,
 				8348EFC61146038D00764BCA /* BEUCharacterAIAttackBehavior.m in Sources */,
 				831413551146FBA400643E64 /* BEUCharacterAIBlockBehavior.m in Sources */,
+				83A2A05011476B3600B0224B /* BEUSpawner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

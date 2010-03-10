@@ -10,8 +10,9 @@
 #import "BEUActionsController.h"
 #import "BEUTestCharacter.h"
 #import "BEUSkeletalCharacter.h"
-#import "BEUCharacterAction.h"
-#import "BEUCharacterMoveAction.h"
+
+#import "BEUSpawner.h"
+
 @implementation BEUGame
 
 @synthesize environment, inputLayer;
@@ -44,16 +45,23 @@
 		[[BEUObjectController sharedController] setPlayerCharacter: character];
 		
 		
-		for(int i=0; i<6; i++){
+		/*for(int i=0; i<1; i++){
 			BEUCharacter *otherChar = [[BEUTestCharacter alloc] init];
 			otherChar.enemy = YES;
 			otherChar.x = 200 + arc4random()%350;
 			otherChar.z = arc4random()%100;
 			[[BEUObjectController sharedController] addCharacter:otherChar];
 			
-		}
+		}*/
 		
-				//ADD INPUT LAYER TO STAGE, ADD LAST
+		BEUSpawner *spawner = [[BEUSpawner alloc] initWithSpawnArea:CGRectMake(300, 0, 50, 100) 
+															  types:[NSMutableSet setWithObjects:[BEUTestCharacter class],nil]
+													  numberToSpawn:12];
+		[spawner start];
+		[[BEUObjectController sharedController] addSpawner:spawner];
+		
+		
+		//ADD INPUT LAYER TO STAGE, ADD LAST
 		inputLayer = [[BEUInputLayer alloc] init];
 		[self addChild:inputLayer];
 		

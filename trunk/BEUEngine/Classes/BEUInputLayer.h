@@ -34,6 +34,7 @@
 	BEUInputEvent *gestureEvent;
 	BEUInputMovementEvent *movementEvent;
 	
+	CCSprite *joystick;
 	CCSprite *joystickBase;
 	CCSprite *joystickStick;
 	

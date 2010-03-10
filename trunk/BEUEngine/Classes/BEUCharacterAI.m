@@ -21,7 +21,7 @@ int tick = 0;
 {
 	if( (self = [super init]) )
 	{
-		updateEvery = 6;
+		updateEvery = 8;
 		rootBehavior = [[BEUCharacterAIBehavior alloc] initWithName:@"root"];
 		rootBehavior.ai = self;
 		difficultyMultiplier = .7;
@@ -100,11 +100,13 @@ int tick = 0;
 -(BEUCharacterAIBehavior *)getHighestValueBehaviorFromBehavior:(BEUCharacterAIBehavior *)behavior_
 {
 	//temp variable for highest value behavior so far
+	if([behavior_ isLeaf]) return behavior_;
+	
 	BEUCharacterAIBehavior *highest = nil;
 	
 	for ( BEUCharacterAIBehavior *behavior in behavior_.behaviors )
 	{
-		if(![behavior isLeaf]) behavior = [self getHighestValueBehaviorFromBehavior:behavior];
+		//if(![behavior isLeaf]) behavior = [self getHighestValueBehaviorFromBehavior:behavior];
 		
 		if(!highest)
 		{
@@ -114,7 +116,7 @@ int tick = 0;
 			highest = behavior;
 		}
 	}
-	return highest;
+	return [self getHighestValueBehaviorFromBehavior:highest];//highest;
 	
 }
 

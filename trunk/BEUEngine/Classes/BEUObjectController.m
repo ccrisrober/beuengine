@@ -11,7 +11,7 @@
 
 @implementation BEUObjectController
 
-@synthesize objects, characters, _playerCharacter, gravity;
+@synthesize objects, characters, spawners, _playerCharacter, gravity;
 
 static BEUObjectController *_sharedController = nil;
 
@@ -20,6 +20,9 @@ static BEUObjectController *_sharedController = nil;
 	if( (self=[super init] )) {
 		objects = [[NSMutableArray alloc] init];
 		characters = [[NSMutableArray alloc] init];
+		spawners = [[NSMutableArray alloc] init];
+		
+		
 		gravity = 10.0f;
 	}
 	
@@ -90,12 +93,24 @@ static BEUObjectController *_sharedController = nil;
 -(void)characterKilled:(BEUTrigger *)trigger
 {
 	[self removeCharacter: ((BEUCharacter *)trigger.sender)];
-	
 	//If all characters (aside from the player) added to object controller are killed fire trigger BEUTriggerAllEnemiesKilled
 	if([characters count] == 1)
 	{
-		[[BEUTriggerController sharedController] sendTrigger:[BEUTrigger triggerWithType: BEUTriggerAllEnemiesKilled sender:self]];
+		[[BEUTriggerController sharedController] 
+		 sendTrigger:[BEUTrigger triggerWithType: BEUTriggerAllEnemiesKilled sender:self]
+		 ];
 	}
+}
+
+
+-(void)addSpawner:(BEUSpawner *)spawner
+{
+	[spawners addObject:spawner];
+}
+
+-(void)removeSpawner:(BEUSpawner *)spawner
+{
+	[spawners removeObject:spawner];
 }
 
 //MOVE ALL OBJECTS
@@ -180,6 +195,15 @@ static BEUObjectController *_sharedController = nil;
 	}
 }
 
+
+-(void)updateSpawners:(ccTime)delta
+{
+	for(BEUSpawner *spawner in spawners)
+	{
+		[spawner update:delta];
+	}
+}
+
 -(void)step:(ccTime)delta
 {
 	for(BEUObject *obj in objects)
@@ -187,10 +211,10 @@ static BEUObjectController *_sharedController = nil;
 		[obj step:delta];
 	}
 	
+	
 	[self moveObjects:delta];
+	[self updateSpawners:delta];
 }
-
-
 
 -(void)dealloc
 {
@@ -199,6 +223,8 @@ static BEUObjectController *_sharedController = nil;
 	
 	[objects release];
 	[characters release];
+	[spawners release];
+	
 	[super dealloc];
 }
 
