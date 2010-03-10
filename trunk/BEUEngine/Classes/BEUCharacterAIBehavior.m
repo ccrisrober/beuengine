@@ -11,16 +11,16 @@
 
 @implementation BEUCharacterAIBehavior
 
-@synthesize name,behaviors,ai,running,canInteruptOthers;
+@synthesize name,behaviors,ai,running,canInteruptOthers,lastValue;
 
 +(id)behavior
 {
-	return [[[BEUCharacterAIBehavior alloc] init] autorelease];
+	return [[[self alloc] init] autorelease];
 }
 
 +(id)behaviorWithName:(NSString *)name_ 
 {
-	return [[[BEUCharacterAIBehavior alloc]
+	return [[[self alloc]
 			 initWithName:name_]
 			autorelease];
 }
@@ -28,7 +28,7 @@
 +(id)behaviorWithName:(NSString *)name_
 			behaviors:(NSMutableArray *)behaviors_
 {
-	return [[[BEUCharacterAIBehavior alloc] 
+	return [[[self alloc] 
 			 initWithName:name_ 
 			 behaviors:behaviors_] 
 			autorelease];
@@ -41,6 +41,7 @@
 		ai = nil;
 		running = NO;
 		canInteruptOthers = NO;
+		lastValue = 0;
 	}
 	
 	return self;
@@ -102,7 +103,7 @@
 -(float)value
 {
 	//OVERRIDE THIS AND RRETURN THE CORRECT VALUE
-	return 1;
+	return lastValue = 0;
 }
 
 -(void)run

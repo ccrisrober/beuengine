@@ -196,6 +196,9 @@
 		50F414F01069373D002A0D5E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414EC1069373D002A0D5E /* Default.png */; };
 		50F414F11069373D002A0D5E /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414ED1069373D002A0D5E /* fps_images.png */; };
 		50F414F21069373D002A0D5E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414EE1069373D002A0D5E /* Icon.png */; };
+		831413551146FBA400643E64 /* BEUCharacterAIBlockBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 831413541146FBA400643E64 /* BEUCharacterAIBlockBehavior.m */; };
+		831413FC11471BE200643E64 /* joystickStick.png in Resources */ = {isa = PBXBuildFile; fileRef = 831413FA11471BE200643E64 /* joystickStick.png */; };
+		8314142411471E2B00643E64 /* joystickBase.png in Resources */ = {isa = PBXBuildFile; fileRef = 8314142311471E2B00643E64 /* joystickBase.png */; };
 		832312E9113F06C900EE2AC0 /* SkeletalCharacter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 832312E7113F06C900EE2AC0 /* SkeletalCharacter.plist */; };
 		832312EA113F06C900EE2AC0 /* SkeletalCharacter.png in Resources */ = {isa = PBXBuildFile; fileRef = 832312E8113F06C900EE2AC0 /* SkeletalCharacter.png */; };
 		832312EE113F06D700EE2AC0 /* TestCharacter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 832312EC113F06D700EE2AC0 /* TestCharacter.plist */; };
@@ -438,6 +441,10 @@
 		50F414ED1069373D002A0D5E /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fps_images.png; sourceTree = "<group>"; };
 		50F414EE1069373D002A0D5E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		50F414EF1069373D002A0D5E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		831413531146FBA400643E64 /* BEUCharacterAIBlockBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterAIBlockBehavior.h; sourceTree = "<group>"; };
+		831413541146FBA400643E64 /* BEUCharacterAIBlockBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAIBlockBehavior.m; sourceTree = "<group>"; };
+		831413FA11471BE200643E64 /* joystickStick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joystickStick.png; sourceTree = "<group>"; };
+		8314142311471E2B00643E64 /* joystickBase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joystickBase.png; sourceTree = "<group>"; };
 		832312E7113F06C900EE2AC0 /* SkeletalCharacter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SkeletalCharacter.plist; sourceTree = "<group>"; };
 		832312E8113F06C900EE2AC0 /* SkeletalCharacter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SkeletalCharacter.png; sourceTree = "<group>"; };
 		832312EC113F06D700EE2AC0 /* TestCharacter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestCharacter.plist; sourceTree = "<group>"; };
@@ -625,8 +632,8 @@
 				8398855711403EE500E3E0DE /* BEUTrigger.h */,
 				8398855811403EE500E3E0DE /* BEUTrigger.m */,
 				8398855911403EE500E3E0DE /* BEUTriggerController.h */,
-				8398855A11403EE500E3E0DE /* BEUTriggerController.m */,
 				83C916421137130D00734692 /* BEUInputReceiverProtocol.h */,
+				8398855A11403EE500E3E0DE /* BEUTriggerController.m */,
 				837E350A11361B7A00F6466D /* BEUInputMovementEvent.h */,
 				837E350B11361B7A00F6466D /* BEUInputMovementEvent.m */,
 				83C915A21136FA6000734692 /* BEUAction.h */,
@@ -899,6 +906,8 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				831413FA11471BE200643E64 /* joystickStick.png */,
+				8314142311471E2B00643E64 /* joystickBase.png */,
 				50F414EC1069373D002A0D5E /* Default.png */,
 				832312E7113F06C900EE2AC0 /* SkeletalCharacter.plist */,
 				832312EC113F06D700EE2AC0 /* TestCharacter.plist */,
@@ -925,6 +934,8 @@
 				83CD6A171145C99C006BB2AF /* BEUCharacterAIIdleBehavior.m */,
 				8348EFC41146038D00764BCA /* BEUCharacterAIAttackBehavior.h */,
 				8348EFC51146038D00764BCA /* BEUCharacterAIAttackBehavior.m */,
+				831413531146FBA400643E64 /* BEUCharacterAIBlockBehavior.h */,
+				831413541146FBA400643E64 /* BEUCharacterAIBlockBehavior.m */,
 			);
 			name = ai;
 			sourceTree = "<group>";
@@ -1113,6 +1124,8 @@
 				832312EE113F06D700EE2AC0 /* TestCharacter.plist in Resources */,
 				832312EF113F06D700EE2AC0 /* TestCharacter.png in Resources */,
 				832312F1113F06DD00EE2AC0 /* TestTile.png in Resources */,
+				831413FC11471BE200643E64 /* joystickStick.png in Resources */,
+				8314142411471E2B00643E64 /* joystickBase.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1154,6 +1167,7 @@
 				83BEA34C1144959F00AAAD2A /* BEUCharacterAIMoveBehavior.m in Sources */,
 				83CD6A181145C99C006BB2AF /* BEUCharacterAIIdleBehavior.m in Sources */,
 				8348EFC61146038D00764BCA /* BEUCharacterAIAttackBehavior.m in Sources */,
+				831413551146FBA400643E64 /* BEUCharacterAIBlockBehavior.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

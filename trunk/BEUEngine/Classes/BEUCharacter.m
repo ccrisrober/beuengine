@@ -10,7 +10,12 @@
 
 @implementation BEUCharacter
 
-@synthesize life,canMove,movesController,currentMove,enemy,ai,updateSelectors;
+@synthesize life,canMove,movesController,currentMove,enemy,ai,updateSelectors,state,orientToObject;
+
+NSString *const BEUCharacterStateIdle = @"idle";
+NSString *const BEUCharacterStateMoving = @"moving";
+NSString *const BEUCharacterStateBlocking = @"blocking";
+NSString *const BEUCharacterStateAttacking = @"attacking";
 
 -(id)init
 {
@@ -25,6 +30,7 @@
 		//Inputs will automatically be sent into the controller
 		movesController = [[BEUMovesController alloc] init];
 		updateSelectors = [NSMutableArray array];
+		state = BEUCharacterStateIdle;
 	}
 	
 	return self;
@@ -38,13 +44,21 @@
 		double moveSpeed = movementSpeed*percent;
 		moveX = cos(angle)*moveSpeed;
 		moveZ = sin(angle)*moveSpeed;
-		
-		if(moveX > 0)
+		if(!orientToObject)
 		{
-			[self setFacingRight:YES];
-		} else if(moveX < 0)
-		{
-			[self setFacingRight:NO];
+			if(moveX > 0)
+			{
+				[self setFacingRight:YES];
+			} else if(moveX < 0)
+			{
+				[self setFacingRight:NO];
+			}
+		} else {
+			if(orientToObject.x < self.x){
+				[self setFacingRight:NO];
+			} else {
+				[self setFacingRight:YES];
+			}
 		}
 		
 	}
@@ -111,6 +125,10 @@
 -(void)dealloc
 {
 	currentMove = nil;
+	orientToObject = nil;
+	
+	[state release];
+	[ai release];
 	[movesController release];
 	
 	[super dealloc];

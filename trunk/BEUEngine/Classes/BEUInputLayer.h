@@ -33,6 +33,10 @@
 	//Input Events to store while inputs are happening
 	BEUInputEvent *gestureEvent;
 	BEUInputMovementEvent *movementEvent;
+	
+	CCSprite *joystickBase;
+	CCSprite *joystickStick;
+	
 }
 
 @property(nonatomic,retain) UITouch *movementTouch;

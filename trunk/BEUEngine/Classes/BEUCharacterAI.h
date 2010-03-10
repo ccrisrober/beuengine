@@ -34,6 +34,12 @@
 	//run updated function every so many ticks
 	int updateEvery;
 	
+	
+	//This number should be used to either decrease or increase difficulty in the AI
+	//The multiplier should go from 0->1 where 0 is the most difficult the game can get and 1
+	//is the easiest the game can get
+	float difficultyMultiplier;
+	
 }
 
 @property(nonatomic,assign) BEUCharacter *parent;
@@ -43,6 +49,8 @@
 
 @property(nonatomic,assign) BEUCharacterAIBehavior *currentBehavior;
 @property(nonatomic,assign) int updateEvery;
+
+@property(nonatomic,assign) float difficultyMultiplier;
 
 -(id)initWithParent:(BEUCharacter *)parent_;
 

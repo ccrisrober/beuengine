@@ -11,11 +11,15 @@
 #import "BEUCharacterAIMoveBehavior.h"
 #import "BEUCharacterAIBehavior.h"
 #import "BEUCharacterAIIdleBehavior.h"
+#import "BEUCharacterAIAttackBehavior.h"
+#import "BEUCharacterAIBlockBehavior.h"
 
 @class BEUCharacterAI;
 @class BEUCharacterAIMoveAwayFromTarget;
 @class BEUCharacterAIMoveToTarget;
 @class BEUCharacterAIIdleBehavior;
+@class BEUCharacterAIAttackWithRandomMove;
+@class BEUCharacterAIBlockBehavior;
 
 @interface BEUTestCharacter : BEUCharacter {
 	CCSprite *body;
@@ -29,7 +33,7 @@
 -(void)moveRight;
 -(void)moveLeft;
 -(void)standStill;
-
+-(void)block;
 -(void)hit:(BOOL)right;
 
 -(void)punch:(BEUMove *)move;

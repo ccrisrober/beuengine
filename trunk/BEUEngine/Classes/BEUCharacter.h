@@ -49,7 +49,22 @@
 	//Selectors added should accept 1 argument of delta ccTime
 	NSMutableArray *updateSelectors;
 	
+	//String value of the current state the character is in, the character
+	//should always have a state
+	NSString *state;
+	
+	//If set, the character should orient itself to the object, even 
+	//when moving away from it. (Useful for enemies as they really only look at 
+	//the player)
+	BEUObject *orientToObject;
+	
 }
+
+//Some standard character states to use
+extern NSString *const BEUCharacterStateIdle;
+extern NSString *const BEUCharacterStateMoving;
+extern NSString *const BEUCharacterStateBlocking;
+extern NSString *const BEUCharacterStateAttacking;
 
 @property(nonatomic,retain) BEUMovesController *movesController;
 @property(nonatomic,retain) BEUMove *currentMove;
@@ -58,6 +73,8 @@
 @property(nonatomic,assign) BOOL enemy;
 @property(nonatomic,retain) BEUCharacterAI *ai;
 @property(nonatomic,retain) NSMutableArray *updateSelectors;
+@property(nonatomic,copy) NSString *state;
+@property(nonatomic,assign) BEUObject *orientToObject;
 
 //Basic move function with angle and percent which control the percent of moveSpeed that the character moves
 -(void)moveCharacterWithAngle:(float)angle percent:(float)percent;

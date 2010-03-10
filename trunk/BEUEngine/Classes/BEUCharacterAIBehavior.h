@@ -27,6 +27,12 @@
 	//Boolean value if the behavior can interupt other behaviors
 	BOOL canInteruptOthers;
 	
+	
+	//Using the value getter should store the last value gotten in this variable
+	//This is useful because sometimes our value getter makes a random value, but 
+	//we want to reuse the random value to test against it later
+	float lastValue;
+	
 }
 
 @property(nonatomic,copy) NSString *name;
@@ -34,6 +40,7 @@
 @property(nonatomic,assign) BEUCharacterAI *ai;
 @property(nonatomic,assign) BOOL running;
 @property(nonatomic,assign) BOOL canInteruptOthers;
+@property(nonatomic,assign) float lastValue;
 
 
 +(id)behavior;
