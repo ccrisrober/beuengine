@@ -157,7 +157,7 @@ float gravity = 5.0f;
 		
 		[ai addBehavior:[BEUCharacterAIIdleBehavior behaviorWithMinTime:.3 maxTime:2]];
 		
-		BEUCharacterAIBehavior *attackBranch = [BEUCharacterAIBehavior behaviorWithName:@"attack"];
+		BEUCharacterAIBehavior *attackBranch = [BEUCharacterAIAttackBehavior behaviorWithName:@"attack"];
 		[attackBranch addBehavior:[BEUCharacterAIAttackWithRandomMove behaviorWithMoves:[movesController moves]]];
 		[attackBranch addBehavior:[BEUCharacterAIMoveToAndAttack behaviorWithMoves:[movesController moves]]]; 
 		[ai addBehavior:attackBranch];

@@ -33,7 +33,7 @@
 
 -(float)value
 {
-	return lastValue = 1;
+	return lastValue = (1 - ai.difficultyMultiplier)*[BEUMath random];
 	
 }
 
