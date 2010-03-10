@@ -52,6 +52,7 @@
 @property(nonatomic,retain) NSMutableSet *types;
 @property(nonatomic,readonly) BOOL running;
 @property(nonatomic,assign) float timeBetweenSpawns;
+@property(nonatomic,assign) int maximumSpawnableAtOnce;
 
 -(id)initWithSpawnArea:(CGRect)area types:(NSMutableSet *)types_ numberToSpawn:(int)toSpawn_;
 

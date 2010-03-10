@@ -57,6 +57,7 @@
 		BEUSpawner *spawner = [[BEUSpawner alloc] initWithSpawnArea:CGRectMake(300, 0, 50, 100) 
 															  types:[NSMutableSet setWithObjects:[BEUTestCharacter class],nil]
 													  numberToSpawn:12];
+		spawner.maximumSpawnableAtOnce = 1;
 		[spawner start];
 		[[BEUObjectController sharedController] addSpawner:spawner];
 		

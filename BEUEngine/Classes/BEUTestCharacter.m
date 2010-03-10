@@ -163,7 +163,7 @@ float gravity = 5.0f;
 		[ai addBehavior:attackBranch];
 		
 		[ai addBehavior:[BEUCharacterAIBlockBehavior behavior]];
-		
+		ai.difficultyMultiplier = 1;
 		
 	}
 }
