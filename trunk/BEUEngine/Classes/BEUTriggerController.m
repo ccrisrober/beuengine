@@ -58,6 +58,8 @@ static BEUTriggerController *_sharedController;
 	
 	[listeners addObject:listener];
 	
+	
+	NSLog(@"ADDED LISTENER \n ALL LISTENERS: %@",listeners);
 }
 
 -(void)removeListener:(id)listener_ 
@@ -107,8 +109,12 @@ static BEUTriggerController *_sharedController;
 
 -(void)sendTrigger:(BEUTrigger *)trigger_
 {
+	NSLog(@"SENDING TRIGGER: %@",trigger_.type);
+	NSLog(@"CHECKING LISTENER \n ALL LISTENERS: %@",listeners);
 	for ( BEUTriggerListener *listener in listeners )
 	{
+		//NSLog(@"\nLOOPING THROUGH LISTENERS: %@ FROM SENDER: %@ TYPE: %@ \n TRIGGER SENDER: %@ TYPE: %@",
+			 // listener.listener, listener.fromSender, listener.type, trigger_.sender, trigger_.type);
 		if(listener.fromSender) if(listener.fromSender != trigger_.sender) continue;
 		
 		if(listener.type == trigger_.type)

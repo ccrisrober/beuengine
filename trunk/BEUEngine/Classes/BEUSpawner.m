@@ -11,7 +11,7 @@
 
 @implementation BEUSpawner
 
-@synthesize spawnArea,types,running,timeBetweenSpawns;
+@synthesize spawnArea,types,running,timeBetweenSpawns,maximumSpawnableAtOnce;
 
 -(id)initWithSpawnArea:(CGRect)area types:(NSMutableSet *)types_ numberToSpawn:(int)toSpawn_
 {
@@ -61,11 +61,12 @@
 
 -(void)characterKilled:(BEUTrigger *)trigger
 {
+	currentlySpawned--;
 	[[BEUTriggerController sharedController] removeListener:self 
 													   type:BEUTriggerKilled 
 												   selector:@selector(characterKilled:) 
 												 fromSender:[trigger sender]];
-	currentlySpawned--;
+		
 }
 
 -(void)complete
@@ -77,9 +78,9 @@
 -(void)update:(ccTime)delta
 {
 	timeSinceLastSpawn += delta;
+	
 	if(running)
 	{
-		NSLog(@"currentlySpawned: %d",currentlySpawned);
 		if(timeSinceLastSpawn > timeBetweenSpawns 
 		   && currentlySpawned < maximumSpawnableAtOnce
 		   && spawnsLeft > 0)
