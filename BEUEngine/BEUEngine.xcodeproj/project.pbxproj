@@ -210,6 +210,10 @@
 		833569511141AF7F00B676A5 /* BEUCharacterAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 833569501141AF7F00B676A5 /* BEUCharacterAction.m */; };
 		833569551141B5B000B676A5 /* BEUCharacterMoveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 833569541141B5B000B676A5 /* BEUCharacterMoveAction.m */; };
 		8348EFC61146038D00764BCA /* BEUCharacterAIAttackBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 8348EFC51146038D00764BCA /* BEUCharacterAIAttackBehavior.m */; };
+		8373F10A1148A840003592F7 /* PenguinCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8373F1091148A840003592F7 /* PenguinCharacter.m */; };
+		8373F1181148AD2D003592F7 /* Penguin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8373F1161148AD2D003592F7 /* Penguin.plist */; };
+		8373F1191148AD2D003592F7 /* Penguin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8373F1171148AD2D003592F7 /* Penguin.png */; };
+		8373F13C1148B337003592F7 /* BEUSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8373F13B1148B337003592F7 /* BEUSprite.m */; };
 		837E348911360E5100F6466D /* BEUInputEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E348811360E5100F6466D /* BEUInputEvent.m */; };
 		837E350C11361B7A00F6466D /* BEUInputMovementEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E350B11361B7A00F6466D /* BEUInputMovementEvent.m */; };
 		837E377D11399ADF00F6466D /* BEUHitAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E377C11399ADF00F6466D /* BEUHitAction.m */; };
@@ -463,6 +467,12 @@
 		833569541141B5B000B676A5 /* BEUCharacterMoveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterMoveAction.m; sourceTree = "<group>"; };
 		8348EFC41146038D00764BCA /* BEUCharacterAIAttackBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterAIAttackBehavior.h; sourceTree = "<group>"; };
 		8348EFC51146038D00764BCA /* BEUCharacterAIAttackBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAIAttackBehavior.m; sourceTree = "<group>"; };
+		8373F1081148A840003592F7 /* PenguinCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PenguinCharacter.h; sourceTree = "<group>"; };
+		8373F1091148A840003592F7 /* PenguinCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PenguinCharacter.m; sourceTree = "<group>"; };
+		8373F1161148AD2D003592F7 /* Penguin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Penguin.plist; path = "Game Art/Penguin/Penguin.plist"; sourceTree = SOURCE_ROOT; };
+		8373F1171148AD2D003592F7 /* Penguin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Penguin.png; path = "Game Art/Penguin/Penguin.png"; sourceTree = SOURCE_ROOT; };
+		8373F13A1148B337003592F7 /* BEUSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUSprite.h; sourceTree = "<group>"; };
+		8373F13B1148B337003592F7 /* BEUSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUSprite.m; sourceTree = "<group>"; };
 		837E348711360E5100F6466D /* BEUInputEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUInputEvent.h; sourceTree = "<group>"; };
 		837E348811360E5100F6466D /* BEUInputEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUInputEvent.m; sourceTree = "<group>"; };
 		837E350A11361B7A00F6466D /* BEUInputMovementEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUInputMovementEvent.h; sourceTree = "<group>"; };
@@ -606,6 +616,7 @@
 		2D500B1D0D5A766B00DBA0E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8373F1071148A82A003592F7 /* kungfuninjapenguin */,
 				833569521141B58A00B676A5 /* character */,
 				8335694D114195A700B676A5 /* ai */,
 				506EDC2F102F528A00A389B3 /* HelloWorldScene.h */,
@@ -655,6 +666,8 @@
 				83346ED5113CDCB500CAE125 /* BEUSkeletalCharacter.m */,
 				83A2A04E11476B3600B0224B /* BEUSpawner.h */,
 				83A2A04F11476B3600B0224B /* BEUSpawner.m */,
+				8373F13A1148B337003592F7 /* BEUSprite.h */,
+				8373F13B1148B337003592F7 /* BEUSprite.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -913,6 +926,8 @@
 			children = (
 				831413FA11471BE200643E64 /* joystickStick.png */,
 				8314142311471E2B00643E64 /* joystickBase.png */,
+				8373F1161148AD2D003592F7 /* Penguin.plist */,
+				8373F1171148AD2D003592F7 /* Penguin.png */,
 				50F414EC1069373D002A0D5E /* Default.png */,
 				832312E7113F06C900EE2AC0 /* SkeletalCharacter.plist */,
 				832312EC113F06D700EE2AC0 /* TestCharacter.plist */,
@@ -956,6 +971,15 @@
 				833569541141B5B000B676A5 /* BEUCharacterMoveAction.m */,
 			);
 			name = character;
+			sourceTree = "<group>";
+		};
+		8373F1071148A82A003592F7 /* kungfuninjapenguin */ = {
+			isa = PBXGroup;
+			children = (
+				8373F1081148A840003592F7 /* PenguinCharacter.h */,
+				8373F1091148A840003592F7 /* PenguinCharacter.m */,
+			);
+			name = kungfuninjapenguin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1131,6 +1155,8 @@
 				832312F1113F06DD00EE2AC0 /* TestTile.png in Resources */,
 				831413FC11471BE200643E64 /* joystickStick.png in Resources */,
 				8314142411471E2B00643E64 /* joystickBase.png in Resources */,
+				8373F1181148AD2D003592F7 /* Penguin.plist in Resources */,
+				8373F1191148AD2D003592F7 /* Penguin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1174,6 +1200,8 @@
 				8348EFC61146038D00764BCA /* BEUCharacterAIAttackBehavior.m in Sources */,
 				831413551146FBA400643E64 /* BEUCharacterAIBlockBehavior.m in Sources */,
 				83A2A05011476B3600B0224B /* BEUSpawner.m in Sources */,
+				8373F10A1148A840003592F7 /* PenguinCharacter.m in Sources */,
+				8373F13C1148B337003592F7 /* BEUSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

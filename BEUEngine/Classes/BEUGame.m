@@ -9,7 +9,7 @@
 #import "BEUGame.h"
 #import "BEUActionsController.h"
 #import "BEUTestCharacter.h"
-#import "BEUSkeletalCharacter.h"
+#import "PenguinCharacter.h"
 
 #import "BEUSpawner.h"
 
@@ -38,7 +38,7 @@
 		
 		 
 		
-		BEUCharacter *character = [[BEUTestCharacter alloc] init];
+		BEUCharacter *character = [[PenguinCharacter alloc] init];
 		character.x = 20;
 		character.z = 50;
 		character.enemy = NO;

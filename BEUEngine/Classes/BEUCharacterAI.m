@@ -67,13 +67,13 @@ int tick = 0;
 			}
 		} else {
 			BEUCharacterAIBehavior *nextBehavior = [self getHighestValueBehavior];
-			NSLog(@"HIGHEST VALUE BEHAVIOR: %@",nextBehavior.name);
+			//NSLog(@"HIGHEST VALUE BEHAVIOR: %@",nextBehavior.name);
 			if(nextBehavior){
 				if(currentBehavior.running)
 				{
 					if(nextBehavior.canInteruptOthers && (nextBehavior.value > currentBehavior.value))
 					{
-						NSLog(@"INTERRUPTING CURRENT BEHAVIOR WITH BLOCK");
+						//NSLog(@"INTERRUPTING CURRENT BEHAVIOR WITH BLOCK");
 						[currentBehavior cancel];
 						currentBehavior = nextBehavior;
 						[currentBehavior run];
