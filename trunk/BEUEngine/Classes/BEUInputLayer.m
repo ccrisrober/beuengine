@@ -40,7 +40,7 @@
 		joystickStick.scaleX = joystickStick.scaleY = 50/joystickStick.contentSize.width;
 		[joystick addChild:joystickBase];
 		[joystick addChild:joystickStick];
-		
+		joystick.opacity = 0x55;
 		joystick.visible = NO;
 		
 		[self addChild:joystick];

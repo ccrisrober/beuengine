@@ -7,8 +7,11 @@
 //
 
 #import "cocos2d.h"
+#import "BEUSprite.h"
 
-@interface BEUObject : CCSprite {
+@class BEUSprite;
+
+@interface BEUObject : BEUSprite {
 	//x,y,z positions of the object, these positions are converted in BEUObjectController in to x,y positions
 	float x;
 	float y;

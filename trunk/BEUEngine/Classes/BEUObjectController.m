@@ -121,7 +121,7 @@ static BEUObjectController *_sharedController = nil;
 	
 	for ( BEUObject *obj in objects )
 	{
-		if(obj.moveX != 0 || obj.moveY != 0 || obj.moveZ != 0)
+		if(obj.moveX != 0 || obj.moveY != 0 || obj.moveZ != 0 || obj.y > 0)
 		{
 			CGRect movedRect = [obj globalMoveArea];
 			
@@ -186,7 +186,7 @@ static BEUObjectController *_sharedController = nil;
 				if(obj.affectedByGravity) obj.moveY -= gravity;
 			}
 			
-			
+		
 		}
 		
 		//Set objects x and y positions with x,y and z properties
