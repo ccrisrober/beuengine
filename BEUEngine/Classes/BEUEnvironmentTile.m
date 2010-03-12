@@ -12,25 +12,8 @@
 @implementation BEUEnvironmentTile
 @synthesize walls, origWalls;
 
--(id)initWithFile:(NSString *)filename {
-	
-	
-	[super initWithFile:filename];
-	
-	[self.texture setAliasTexParameters];
-	
-	origWalls = [[NSMutableArray alloc] initWithObjects:
-								[NSValue valueWithCGRect:CGRectMake(0,130,480,190)],
-								//[NSValue valueWithCGRect:CGRectMake(-2,0,1,320)],
-								[NSValue valueWithCGRect:CGRectMake(0,-1,480,1)],
-								//[NSValue valueWithCGRect:CGRectMake(480,0,1,320)],
-								nil];	
-	[self createTileWallsWithOffset: ccp(0,0)];
-	
-	self.anchorPoint = ccp(0.0f, 0.0f);
-	
-	return self;
-}
+
+
 
 -(void)createTileWallsWithOffset:(CGPoint)offset
 {

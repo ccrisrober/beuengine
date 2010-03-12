@@ -209,11 +209,16 @@
 		83346ED6113CDCB500CAE125 /* BEUSkeletalCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 83346ED5113CDCB500CAE125 /* BEUSkeletalCharacter.m */; };
 		833569511141AF7F00B676A5 /* BEUCharacterAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 833569501141AF7F00B676A5 /* BEUCharacterAction.m */; };
 		833569551141B5B000B676A5 /* BEUCharacterMoveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 833569541141B5B000B676A5 /* BEUCharacterMoveAction.m */; };
+		833A68DC1149AD5D00541113 /* EskimoCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 833A68DB1149AD5D00541113 /* EskimoCharacter.m */; };
+		833A68DF1149B39A00541113 /* Eskimo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 833A68DD1149B39A00541113 /* Eskimo.plist */; };
+		833A68E01149B39A00541113 /* Eskimo.png in Resources */ = {isa = PBXBuildFile; fileRef = 833A68DE1149B39A00541113 /* Eskimo.png */; };
+		833A690C1149CAB100541113 /* IceTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 833A690B1149CAB100541113 /* IceTile.m */; };
+		833A696B1149CFFD00541113 /* IceTile1.png in Resources */ = {isa = PBXBuildFile; fileRef = 833A696A1149CFFD00541113 /* IceTile1.png */; };
 		8348EFC61146038D00764BCA /* BEUCharacterAIAttackBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 8348EFC51146038D00764BCA /* BEUCharacterAIAttackBehavior.m */; };
 		8373F10A1148A840003592F7 /* PenguinCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8373F1091148A840003592F7 /* PenguinCharacter.m */; };
-		8373F1181148AD2D003592F7 /* Penguin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8373F1161148AD2D003592F7 /* Penguin.plist */; };
-		8373F1191148AD2D003592F7 /* Penguin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8373F1171148AD2D003592F7 /* Penguin.png */; };
 		8373F13C1148B337003592F7 /* BEUSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8373F13B1148B337003592F7 /* BEUSprite.m */; };
+		8377DBEE114976A100EADA8A /* Penguin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8377DBEC114976A100EADA8A /* Penguin.plist */; };
+		8377DBEF114976A100EADA8A /* Penguin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8377DBED114976A100EADA8A /* Penguin.png */; };
 		837E348911360E5100F6466D /* BEUInputEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E348811360E5100F6466D /* BEUInputEvent.m */; };
 		837E350C11361B7A00F6466D /* BEUInputMovementEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E350B11361B7A00F6466D /* BEUInputMovementEvent.m */; };
 		837E377D11399ADF00F6466D /* BEUHitAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E377C11399ADF00F6466D /* BEUHitAction.m */; };
@@ -465,14 +470,21 @@
 		833569501141AF7F00B676A5 /* BEUCharacterAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAction.m; sourceTree = "<group>"; };
 		833569531141B5B000B676A5 /* BEUCharacterMoveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterMoveAction.h; sourceTree = "<group>"; };
 		833569541141B5B000B676A5 /* BEUCharacterMoveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterMoveAction.m; sourceTree = "<group>"; };
+		833A68DA1149AD5D00541113 /* EskimoCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EskimoCharacter.h; sourceTree = "<group>"; };
+		833A68DB1149AD5D00541113 /* EskimoCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EskimoCharacter.m; sourceTree = "<group>"; };
+		833A68DD1149B39A00541113 /* Eskimo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Eskimo.plist; sourceTree = "<group>"; };
+		833A68DE1149B39A00541113 /* Eskimo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Eskimo.png; sourceTree = "<group>"; };
+		833A690A1149CAB100541113 /* IceTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IceTile.h; sourceTree = "<group>"; };
+		833A690B1149CAB100541113 /* IceTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IceTile.m; sourceTree = "<group>"; };
+		833A696A1149CFFD00541113 /* IceTile1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IceTile1.png; sourceTree = "<group>"; };
 		8348EFC41146038D00764BCA /* BEUCharacterAIAttackBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterAIAttackBehavior.h; sourceTree = "<group>"; };
 		8348EFC51146038D00764BCA /* BEUCharacterAIAttackBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAIAttackBehavior.m; sourceTree = "<group>"; };
 		8373F1081148A840003592F7 /* PenguinCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PenguinCharacter.h; sourceTree = "<group>"; };
 		8373F1091148A840003592F7 /* PenguinCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PenguinCharacter.m; sourceTree = "<group>"; };
-		8373F1161148AD2D003592F7 /* Penguin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Penguin.plist; path = "Game Art/Penguin/Penguin.plist"; sourceTree = SOURCE_ROOT; };
-		8373F1171148AD2D003592F7 /* Penguin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Penguin.png; path = "Game Art/Penguin/Penguin.png"; sourceTree = SOURCE_ROOT; };
 		8373F13A1148B337003592F7 /* BEUSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUSprite.h; sourceTree = "<group>"; };
 		8373F13B1148B337003592F7 /* BEUSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUSprite.m; sourceTree = "<group>"; };
+		8377DBEC114976A100EADA8A /* Penguin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Penguin.plist; path = "Game Art/Penguin/Penguin.plist"; sourceTree = SOURCE_ROOT; };
+		8377DBED114976A100EADA8A /* Penguin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Penguin.png; path = "Game Art/Penguin/Penguin.png"; sourceTree = SOURCE_ROOT; };
 		837E348711360E5100F6466D /* BEUInputEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUInputEvent.h; sourceTree = "<group>"; };
 		837E348811360E5100F6466D /* BEUInputEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUInputEvent.m; sourceTree = "<group>"; };
 		837E350A11361B7A00F6466D /* BEUInputMovementEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUInputMovementEvent.h; sourceTree = "<group>"; };
@@ -926,13 +938,16 @@
 			children = (
 				831413FA11471BE200643E64 /* joystickStick.png */,
 				8314142311471E2B00643E64 /* joystickBase.png */,
-				8373F1161148AD2D003592F7 /* Penguin.plist */,
-				8373F1171148AD2D003592F7 /* Penguin.png */,
 				50F414EC1069373D002A0D5E /* Default.png */,
+				8377DBEC114976A100EADA8A /* Penguin.plist */,
+				8377DBED114976A100EADA8A /* Penguin.png */,
 				832312E7113F06C900EE2AC0 /* SkeletalCharacter.plist */,
 				832312EC113F06D700EE2AC0 /* TestCharacter.plist */,
 				832312F0113F06DD00EE2AC0 /* TestTile.png */,
 				832312ED113F06D700EE2AC0 /* TestCharacter.png */,
+				833A68DD1149B39A00541113 /* Eskimo.plist */,
+				833A68DE1149B39A00541113 /* Eskimo.png */,
+				833A696A1149CFFD00541113 /* IceTile1.png */,
 				832312E8113F06C900EE2AC0 /* SkeletalCharacter.png */,
 				50F414ED1069373D002A0D5E /* fps_images.png */,
 				50F414EE1069373D002A0D5E /* Icon.png */,
@@ -978,6 +993,10 @@
 			children = (
 				8373F1081148A840003592F7 /* PenguinCharacter.h */,
 				8373F1091148A840003592F7 /* PenguinCharacter.m */,
+				833A68DA1149AD5D00541113 /* EskimoCharacter.h */,
+				833A68DB1149AD5D00541113 /* EskimoCharacter.m */,
+				833A690A1149CAB100541113 /* IceTile.h */,
+				833A690B1149CAB100541113 /* IceTile.m */,
 			);
 			name = kungfuninjapenguin;
 			sourceTree = "<group>";
@@ -1155,8 +1174,11 @@
 				832312F1113F06DD00EE2AC0 /* TestTile.png in Resources */,
 				831413FC11471BE200643E64 /* joystickStick.png in Resources */,
 				8314142411471E2B00643E64 /* joystickBase.png in Resources */,
-				8373F1181148AD2D003592F7 /* Penguin.plist in Resources */,
-				8373F1191148AD2D003592F7 /* Penguin.png in Resources */,
+				8377DBEE114976A100EADA8A /* Penguin.plist in Resources */,
+				8377DBEF114976A100EADA8A /* Penguin.png in Resources */,
+				833A68DF1149B39A00541113 /* Eskimo.plist in Resources */,
+				833A68E01149B39A00541113 /* Eskimo.png in Resources */,
+				833A696B1149CFFD00541113 /* IceTile1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1202,6 +1224,8 @@
 				83A2A05011476B3600B0224B /* BEUSpawner.m in Sources */,
 				8373F10A1148A840003592F7 /* PenguinCharacter.m in Sources */,
 				8373F13C1148B337003592F7 /* BEUSprite.m in Sources */,
+				833A68DC1149AD5D00541113 /* EskimoCharacter.m in Sources */,
+				833A690C1149CAB100541113 /* IceTile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
