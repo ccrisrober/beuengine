@@ -53,26 +53,16 @@ affectedByGravity,friction;
 -(void)draw
 {
 	[super draw];
-	if(drawBoundingBoxes)
+/*	if(drawBoundingBoxes)
 	{
 		
 		
-		//Draw Movement rectangle 
-		glLineWidth( 2.0f );
-		glColor4ub(0, 255, 0, 125);
-		[self drawRect:moveArea];
 		
-		//Draw Hit Rectangle
-		glColor4ub(0, 0, 255, 125);
-		[self drawRect:hitArea];
+		[[[BEUEnvironment sharedEnvironment] debugLayer] drawRect:[self convertRectToGlobal:moveArea] color: ccc4(0, 255, 0, 125) lineWidth:2.0f];
+		[[[BEUEnvironment sharedEnvironment] debugLayer] drawRect:[self convertRectToGlobal:hitArea] color: ccc4(0, 0, 255, 125) lineWidth:2.0f];
 		
-		//Draw Origin
-		glDisable(GL_LINE_SMOOTH);
-		glLineWidth( 2.0f );
-		glColor4ub(255,0,0,255);
-		ccDrawLine( ccp(-5, 0), ccp(5, 0) );
-		ccDrawLine( ccp(0, -5), ccp(0, 5) );
-	}
+		
+	}*/
 }
 
 -(CGRect)convertRectToLocal:(CGRect)rect
@@ -88,7 +78,7 @@ affectedByGravity,friction;
 -(CGRect)convertRectToGlobal:(CGRect)rect
 {
 	CGRect locRect = [self convertRectToLocal:rect];
-	return CGRectMake(x + locRect.origin.x, z + locRect.origin.y, locRect.size.width, locRect.size.height);
+	return CGRectMake(x + locRect.origin.x, z + y + locRect.origin.y, locRect.size.width, locRect.size.height);
 
 }
 	

@@ -60,12 +60,14 @@
 	
 	[self setOrigPositions];
 	
-	moveArea = CGRectMake(0,0,65,15);
-	hitArea = CGRectMake(0,0,65,100);
+	moveArea = CGRectMake(-18,0,36,15);
+	hitArea = CGRectMake(-32,0,65,130);
 	
-	drawBoundingBoxes = YES;
+	drawBoundingBoxes = NO;
+	isWall = NO;
 	
 }
+
 
 -(void)setOrigPositions
 {
@@ -106,8 +108,8 @@
 	[animations setValue:
 	 [CCRepeatForever actionWithAction:
 	  [CCSequence actions:
+	   [CCRotateTo actionWithDuration:0.2f angle:-35],
 	   [CCRotateTo actionWithDuration:0.2f angle:30],
-	   [CCRotateTo actionWithDuration:0.2f angle:-30],
 	   nil
 	   ]
 	  ]
@@ -117,15 +119,35 @@
 	[animations setValue:
 	 [CCRepeatForever actionWithAction:
 	  [CCSequence actions:
-	   [CCRotateTo actionWithDuration:0.2f angle:-30],
 	   [CCRotateTo actionWithDuration:0.2f angle:30],
+	   [CCRotateTo actionWithDuration:0.2f angle:-30],
 	   nil
 	   ]
 	  ]
 				  forKey:@"rightLegWalk"
 	 ];
 	
+	[animations setValue:
+				  [CCRepeatForever actionWithAction:
+				   [CCSequence actions:
+					[CCRotateTo actionWithDuration:0.2f angle:-35],
+					[CCRotateTo actionWithDuration:0.2f angle:20],
+					nil
+					]
+				   ]
+				  forKey:@"leftArmWalk"
+	 ];
 	
+	[animations setValue:
+	 [CCRepeatForever actionWithAction:
+	  [CCSequence actions:
+	   [CCRotateTo actionWithDuration:0.2f angle:20],
+	   [CCRotateTo actionWithDuration:0.2f angle:-45],
+	   nil
+	   ]
+	  ]
+				  forKey:@"rightArmWalk"
+	 ];
 	
 	/*[animations setValue:
 	 [CCSequence actions:
@@ -162,15 +184,16 @@
 -(void)moveCharacterWithAngle:(float)angle percent:(float)percent
 {
 	[super moveCharacterWithAngle:angle percent:percent];
-	
-	if(moveX > 0)
-	{
-		[self walk];
-	} else if(moveX < 0)
-	{
-		[self walk];
-	} else {
-		[self idle];
+	if(canMove){
+		if(moveX > 0)
+		{
+			[self walk];
+		} else if(moveX < 0)
+		{
+			[self walk];
+		} else {
+			[self idle];
+		}
 	}
 }
 
@@ -182,15 +205,80 @@
 		[self stopAllAnimations];
 		[rightLeg runAction:[animations valueForKey:@"rightLegWalk"]];
 		[leftLeg runAction:[animations valueForKey:@"leftLegWalk"]];
+		[leftArm runAction:[animations valueForKey:@"leftArmWalk"]];
+		[rightArm runAction:[animations valueForKey:@"rightArmWalk"]];
 	}
 }
 
 
 -(void)idle
 {
-	
+	if(currentAnimation != @"idle")
+	currentAnimation = @"idle";
+	canMove = YES;
 }
 
+-(void)hit
+{
+	canMove = NO;
+	
+	
+	if(currentAnimation != @"hit")
+	{
+		currentAnimation = @"hit";
+		[self stopAllAnimations];
+		[self setOrigPositions];
+		if(![animations valueForKey:@"hitAnimationEskimo"])
+		{
+			
+			[animations setObject:
+						   [CCSequence actions:
+							[CCRotateTo actionWithDuration:0.2f angle:-20.0f],
+							[CCRotateTo actionWithDuration:0.3f angle:0.0f],
+							[CCCallFunc actionWithTarget:self selector:@selector(idle)],
+							nil
+							]
+							
+						   forKey:@"hitAnimationEskimo"];
+		}
+		
+		[head runAction:[animations valueForKey:@"hitAnimationEskimo"]];
+		
+	}
+}
+
+-(BOOL)receiveHit:(BEUAction *)action
+{
+	
+	BEUCharacter *sender = (BEUCharacter *)action.sender;
+	BEUHitAction *hit = ((BEUHitAction *)action);
+	if(sender != self && sender.enemy != self.enemy)
+	{
+		if(state == BEUCharacterStateBlocking) return YES;
+		
+		life -= hit.power;	
+		canMove = 0;
+		if(sender.x < self.x)
+		{
+			moveX = hit.xForce;
+			
+		} else {
+			moveX = -hit.xForce;
+		}
+		
+		moveY = hit.yForce;
+		moveZ = hit.zForce;
+		
+		NSLog(@"RECIEVED HIT: %1.2f, %1.2f, %1.2f",hit.xForce,hit.yForce,hit.zForce);
+		
+		//if(life <= 0) [self death];
+		
+		return YES;
+		
+	} else {
+		return NO;
+	}
+}
 
 -(void)dealloc
 {

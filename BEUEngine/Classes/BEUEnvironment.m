@@ -11,7 +11,7 @@
 
 @implementation BEUEnvironment
 @synthesize areas, centerPoint, currentArea;
-@synthesize objectsLayer, backgroundLayer, foregroundLayer, areasLayer;
+@synthesize objectsLayer, backgroundLayer, foregroundLayer, areasLayer,debugLayer;
 
 static BEUEnvironment *_sharedEnvironment = nil;
 
@@ -33,6 +33,8 @@ static BEUEnvironment *_sharedEnvironment = nil;
 		
 		foregroundLayer = [[CCLayer alloc] init];
 		[self addChild:foregroundLayer];
+		debugLayer = [[DebugLayer alloc] init];
+		[self addChild:debugLayer];
 	}
 	
 	return self;
@@ -86,6 +88,7 @@ static BEUEnvironment *_sharedEnvironment = nil;
 	}
 }
 
+
 -(void)moveEnvironment
 {
 	
@@ -132,6 +135,10 @@ static BEUEnvironment *_sharedEnvironment = nil;
 {
 	[self manageDepths];
 	[self moveEnvironment];
+	
+	
+	
+	
 }
 
 -(void)dealloc
@@ -191,5 +198,36 @@ typedef struct {
 }
 
 
+@end
+
+@implementation DebugLayer
+
+-(void)draw
+{
+	[super draw];
+	
+	for ( BEUObject *obj in  [[BEUObjectController sharedController] objects])
+	{
+		if(obj.drawBoundingBoxes)
+		{
+			[self drawRect:[obj convertRectToGlobal:obj.moveArea] color: ccc4(0, 255, 0, 125) lineWidth:2.0f];
+			[self drawRect:[obj convertRectToGlobal:obj.hitArea] color: ccc4(0, 0, 255, 125) lineWidth:2.0f];	
+		}
+
+	}
+	
+}
+
+-(void) drawRect:(CGRect)rect color:(ccColor4B)color lineWidth:(float)width;
+{
+	glLineWidth( width );
+	glColor4ub(color.r, color.g, color.b, color.a);
+	NSLog(@"DRAWING");
+	ccDrawLine(ccp(rect.origin.x, rect.origin.y), ccp(rect.origin.x + rect.size.width, rect.origin.y));
+	ccDrawLine(ccp(rect.origin.x + rect.size.width, rect.origin.y), ccp(rect.origin.x + rect.size.width, rect.origin.y + rect.size.height));
+	ccDrawLine(ccp(rect.origin.x + rect.size.width, rect.origin.y + rect.size.height), ccp(rect.origin.x, rect.origin.y + rect.size.height));
+	ccDrawLine(ccp(rect.origin.x, rect.origin.y + rect.size.height), ccp(rect.origin.x, rect.origin.y));
+}
 
 @end
+

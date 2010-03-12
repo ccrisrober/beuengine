@@ -17,7 +17,7 @@
 @class BEUObject;
 @class BEUCharacter;
 @class BEUObjectController;
-
+@class DebugLayer;
 @interface BEUEnvironment : CCLayer {
 	NSMutableArray *areas;
 	CGPoint centerPoint;
@@ -27,6 +27,9 @@
 	CCLayer *backgroundLayer;
 	CCLayer *foregroundLayer;
 	CCLayer *areasLayer;
+	
+	
+	DebugLayer *debugLayer;
 }
 
 @property(nonatomic,retain) NSMutableArray *areas;
@@ -37,6 +40,7 @@
 @property(nonatomic,retain) CCLayer *backgroundLayer;
 @property(nonatomic,retain) CCLayer *foregroundLayer;
 @property(nonatomic,retain) CCLayer *areasLayer;
+@property(nonatomic,retain) DebugLayer *debugLayer;
 
 -(void)addArea:(BEUArea *)area;
 -(void)addObject:(BEUObject *)obj;
@@ -49,3 +53,8 @@
 -(void)step:(ccTime)delta;
 
 @end
+
+@interface DebugLayer : CCLayer
+-(void)drawRect:(CGRect)rect color:(ccColor4B)color lineWidth:(float)width;
+@end
+
