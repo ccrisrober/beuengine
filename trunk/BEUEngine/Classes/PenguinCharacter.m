@@ -57,9 +57,9 @@
 				 ];
 	rightLeg.anchorPoint = ccp(0.2f,0.7f);
 	
-	[penguin addChild:rightLeg z:0 tag:0];
-	[penguin addChild:leftLeg z:1 tag:1];
-	[penguin addChild:rightWing z:2 tag:2];
+	[penguin addChild:rightWing z:0 tag:2];
+	[penguin addChild:rightLeg z:1 tag:0];
+	[penguin addChild:leftLeg z:2 tag:1];
 	[penguin addChild:body z:3 tag:3];
 	[penguin addChild:leftWing z:4 tag:4];
 	
@@ -89,6 +89,19 @@
 	  ]
 	 ];
 	
+	[movesController addMove:
+	 [BEUMove moveWithName:@"kick1"
+				 character:self
+				  sequence:[[NSArray alloc] initWithObjects:BEUInputSwipeForward, nil]
+				  selector:@selector(kick1:)
+	  ]
+	 ];
+	
+	hitArea = CGRectMake(0, 0, 70, 75);
+	moveArea = CGRectMake(0,0,70,10);
+	
+	drawBoundingBoxes = YES;
+	
 }
 
 
@@ -116,7 +129,7 @@
 	[animations setValue:[CCRepeatForever actionWithAction:
 						  [CCSequence actions:
 						   [CCRotateTo actionWithDuration:0.2f angle:7.0f],
-						   [CCRotateTo actionWithDuration:0.2f angle:-7.0f],
+						   [CCRotateTo actionWithDuration:0.2f angle:-14.0f],
 						   nil]
 						  ]
 				  forKey:@"selfWalk"];
@@ -124,7 +137,7 @@
 	[animations setValue:[CCRepeatForever actionWithAction:
 						  [CCSequence actions:
 						   [CCRotateTo actionWithDuration:0.3f angle:-65.0f],
-						   [CCRotateTo actionWithDuration:0.35f angle:20.0f],
+						   [CCRotateTo actionWithDuration:0.35f angle:25.0f],
 						   nil
 						   ]
 						  ]
@@ -133,7 +146,7 @@
 	[animations setValue:[CCRepeatForever actionWithAction:
 						  [CCSequence actions:
 						   [CCRotateTo actionWithDuration:0.3f angle:20.0f],
-						   [CCRotateTo actionWithDuration:0.35f angle:-35.0f],
+						   [CCRotateTo actionWithDuration:0.35f angle:-55.0f],
 						   nil
 						   ]
 						  ]
@@ -142,19 +155,19 @@
 	[animations setValue:[CCRepeatForever actionWithAction:
 						  [CCSequence actions:
 						   [CCSpawn actions:
-							[CCRotateTo actionWithDuration:0.2f angle:10.0f],
+							[CCRotateTo actionWithDuration:0.2f angle:20.0f],
 							[CCSequence actions:
-							 [CCMoveTo actionWithDuration:0.1f position:ccp(27.0f,9.0f)],
-							 [CCMoveTo actionWithDuration:0.1f position:ccp(27.0f,11.0f)],
+							 [CCMoveBy actionWithDuration:0.1f position:ccp(0.0f,-3.0f)],
+							 [CCMoveBy actionWithDuration:0.1f position:ccp(0.0f,3.0f)],
 							 nil
 							 ],
 							nil
 							],
 						   [CCSpawn actions:
-							[CCRotateTo actionWithDuration:0.2f angle:-10.0f],
+							[CCRotateTo actionWithDuration:0.2f angle:-20.0f],
 							[CCSequence actions:
-							 [CCMoveTo actionWithDuration:0.1f position:ccp(27.0f,14.0f)],
-							 [CCMoveTo actionWithDuration:0.1f position:ccp(27.0f,11.0f)],
+							 [CCMoveBy actionWithDuration:0.1f position:ccp(0.0f,4.0f)],
+							 [CCMoveBy actionWithDuration:0.1f position:ccp(0.0f,-4.0f)],
 							 nil
 							 ],
 							nil
@@ -167,19 +180,19 @@
 	[animations setValue:[CCRepeatForever actionWithAction:
 						  [CCSequence actions:
 						   [CCSpawn actions:
-							[CCRotateTo actionWithDuration:0.2f angle:-10.0f],
+							[CCRotateTo actionWithDuration:0.2f angle:-20.0f],
 							[CCSequence actions:
-							 [CCMoveTo actionWithDuration:0.1f position:ccp(46.0f,14.0f)],
-							 [CCMoveTo actionWithDuration:0.1f position:ccp(46.0f,17.0f)],
+							 [CCMoveBy actionWithDuration:0.1f position:ccp(0.0f,-4.0f)],
+							 [CCMoveBy actionWithDuration:0.1f position:ccp(0.0f,4.0f)],
 							 nil
 							 ],
 							nil
 							],
 						   [CCSpawn actions:
-							[CCRotateTo actionWithDuration:0.2f angle:10.0f],
+							[CCRotateTo actionWithDuration:0.2f angle:20.0f],
 							[CCSequence actions:
-							 [CCMoveTo actionWithDuration:0.1f position:ccp(46.0f,10.0f)],
-							 [CCMoveTo actionWithDuration:0.1f position:ccp(46.0f,14.0f)],
+							 [CCMoveBy actionWithDuration:0.1f position:ccp(0.0f,-4.0f)],
+							 [CCMoveBy actionWithDuration:0.1f position:ccp(0.0f,4.0f)],
 							 nil
 							 ],
 							nil
@@ -192,7 +205,7 @@
 	[animations setValue:[CCRepeatForever actionWithAction:
 						  [CCSequence actions:
 						   [CCEaseInOut actionWithAction: [CCScaleTo actionWithDuration:0.5f scale:1.02f] rate:2],
-						   [CCEaseInOut actionWithAction:[CCScaleTo actionWithDuration:0.5f scale:1.0f] rate:2],
+						   [CCEaseInOut actionWithAction: [CCScaleTo actionWithDuration:0.5f scale:1.0f] rate:2],
 						   nil
 						   ]
 						  ]
@@ -200,8 +213,8 @@
 	
 	[animations setValue:[CCRepeatForever actionWithAction:
 						  [CCSequence actions:
-						   [CCMoveTo actionWithDuration:0.5f position:ccp(50.0f,46.0f)],
-						   [CCMoveTo actionWithDuration:0.5f position:ccp(50.0f,43.0f)],
+						   [CCMoveBy actionWithDuration:0.5f position:ccp(0.0f,4.0f)],
+						   [CCMoveBy actionWithDuration:0.5f position:ccp(0.0f,-4.0f)],
 						   nil
 						   ]
 						  ]
@@ -209,8 +222,8 @@
 	
 	[animations setValue:[CCRepeatForever actionWithAction:
 						  [CCSequence actions:
-						   [CCMoveTo actionWithDuration:0.5f position:ccp(18.0f,46.0f)],
-						   [CCMoveTo actionWithDuration:0.5f position:ccp(18.0f,43.0f)],
+						   [CCMoveBy actionWithDuration:0.5f position:ccp(0.0f,4.0f)],
+						   [CCMoveBy actionWithDuration:0.5f position:ccp(0.0f,-4.0f)],
 						   nil
 						   ]
 						  ]
@@ -219,7 +232,7 @@
 	[animations setValue:[CCSequence actions:
 						  [CCSpawn actions:
 						   [CCMoveBy actionWithDuration:0.05f position:ccp(25.0f,0.0f)],
-						   [CCRotateTo actionWithDuration:0.05f	angle:-120.0f],
+						   [CCRotateBy actionWithDuration:0.05f	angle:-40.0f],
 						   nil
 						   ],
 						  
@@ -227,7 +240,7 @@
 						  
 						  [CCSpawn actions:
 						   [CCMoveBy actionWithDuration:0.2f position:ccp(-25.0f,0.0f)],
-						   [CCRotateTo actionWithDuration:0.2f angle:-80],
+						   [CCRotateBy actionWithDuration:0.2f angle:40.0f],
 						   nil
 						   ],
 						  
@@ -236,8 +249,8 @@
 						  ] forKey:@"leftWingPunch1"];
 	
 	[animations setValue:[CCSequence actions:
-						  [CCRotateTo actionWithDuration:0.05f angle:20],
-						  [CCRotateTo actionWithDuration:0.2f angle:0],
+						  [CCRotateBy actionWithDuration:0.05f angle:20],
+						  [CCRotateBy actionWithDuration:0.2f angle:-20],
 						  nil
 						  ] forKey:@"bodyPunch1"];
 	
@@ -259,7 +272,7 @@
 	[animations setValue:[CCSequence actions:
 						  [CCSpawn actions:
 						   [CCMoveBy actionWithDuration:0.05f position:ccp(25.0f,0.0f)],
-						   [CCRotateTo actionWithDuration:0.05f	angle:-120.0f],
+						   [CCRotateBy actionWithDuration:0.05f	angle:-40.0f],
 						   nil
 						   ],
 						  
@@ -267,7 +280,7 @@
 						  
 						  [CCSpawn actions:
 						   [CCMoveBy actionWithDuration:0.2f position:ccp(-25.0f,0.0f)],
-						   [CCRotateTo actionWithDuration:0.2f angle:-80],
+						   [CCRotateBy actionWithDuration:0.2f angle:40.0f],
 						   nil
 						   ],
 						  
@@ -276,8 +289,8 @@
 						  ] forKey:@"rightWingPunch2"];
 	
 	[animations setValue:[CCSequence actions:
-						  [CCRotateTo actionWithDuration:0.05f angle:20],
-						  [CCRotateTo actionWithDuration:0.2f angle:0],
+						  [CCRotateBy actionWithDuration:0.05f angle:20],
+						  [CCRotateBy actionWithDuration:0.2f angle:-20],
 						  nil
 						  ] forKey:@"bodyPunch2"];
 	
@@ -291,16 +304,16 @@
 	
 	[animations setValue:[CCSequence actions:
 						  [CCSpawn actions:
-						   [CCMoveBy actionWithDuration:0.12f position:ccp(25.0f,0.0f)],
-						   [CCRotateTo actionWithDuration:0.12f	angle:-160.0f],
+						   [CCMoveBy actionWithDuration:0.2f position:ccp(25.0f,0.0f)],
+						   [CCRotateBy actionWithDuration:0.2f	angle:-190.0f],
 						   nil
 						   ],
 						  
 						  
 						  
 						  [CCSpawn actions:
-						   [CCMoveBy actionWithDuration:0.3f position:ccp(-25.0f,0.0f)],
-						   [CCRotateTo actionWithDuration:0.3f angle:0],
+						   [CCMoveBy actionWithDuration:0.45f position:ccp(-25.0f,0.0f)],
+						   [CCRotateBy actionWithDuration:0.45f angle:190.0],
 						   nil
 						   ],
 						  
@@ -309,24 +322,49 @@
 						  ] forKey:@"leftWingPunch3"];
 	
 	[animations setValue:[CCSequence actions:
-						  [CCRotateTo actionWithDuration:0.12f angle:20],
-						  [CCRotateTo actionWithDuration:0.3f angle:0],
+						  [CCRotateBy actionWithDuration:0.2f angle:20],
+						  [CCRotateBy actionWithDuration:0.45f angle:-20],
 						  nil
 						  ] forKey:@"bodyPunch3"];
 	
 	[animations setValue:[CCSequence actions:
-						  [CCRotateTo actionWithDuration:0.12f angle:70.0f],
-						  [CCRotateTo actionWithDuration:0.3f angle:0],
+						  [CCRotateBy actionWithDuration:0.2f angle:70.0f],
+						  [CCRotateBy actionWithDuration:0.45f angle:-70],
 						  nil
 						  ] forKey:@"leftLegPunch3"];
 	
 	[animations setValue:[CCSequence actions:
-						  [CCDelayTime actionWithDuration:0.12f],
+						  [CCDelayTime actionWithDuration:0.2f],
 						  [CCCallFunc actionWithTarget:self selector:@selector(punch3Complete)],
-						  [CCDelayTime actionWithDuration:0.3f],
+						  [CCDelayTime actionWithDuration:0.45f],
 						  [CCCallFunc actionWithTarget:self selector:@selector(idle)],
 						  nil
 						  ] forKey:@"selfPunch3"];
+	
+	[animations setValue:[CCSequence actions:
+						  [CCRotateBy actionWithDuration:0.12f angle:-10],
+						  [CCCallFunc actionWithTarget:self selector:@selector(kick1Complete)],
+						  [CCRotateBy actionWithDuration:0.3f angle:10],
+						  [CCCallFunc actionWithTarget:self selector:@selector(idle)],
+						  
+						  nil
+						  ]
+				  forKey:@"selfKick1"];
+	
+	[animations setValue:[CCSequence actions:
+						  [CCSpawn actions:
+						   [CCRotateBy actionWithDuration:0.12f angle:-80],
+						   [CCMoveBy actionWithDuration:0.12f position:ccp(45.0f,20.0f)],
+						   nil
+						  ],
+						  [CCSpawn actions:
+						   [CCRotateBy actionWithDuration:0.3f angle:80],
+						   [CCMoveBy actionWithDuration:0.3f position:ccp(-45.0f,-20.0f)],
+						   nil
+						   ],
+						  nil
+						  ]
+				  forKey:@"leftLegKick1"];
 }
 
 -(void)walk
@@ -384,12 +422,12 @@
 	leftLeg.rotation = 0.0f;
 	leftLeg.scaleX = leftLeg.scaleY = 1;
 	
-	rightWing.position = ccp(50.0f,46.0f);
-	rightWing.rotation = 0.0f;
+	rightWing.position = ccp(54.0f,46.0f);
+	rightWing.rotation = -30.0f;
 	rightWing.scaleX = rightWing.scaleY = 1;
 	
-	leftWing.position = ccp(18.0f,46.0f);
-	leftWing.rotation = 0.0f;
+	leftWing.position = ccp(25.0f,46.0f);
+	leftWing.rotation = 30.0f;
 	leftWing.scaleX = leftWing.scaleY = 1;
 	
 	body.position = ccp(31.0f,9.0f);
@@ -449,6 +487,23 @@
 -(void)punch1Complete
 {
 	
+	CGRect punchHit = CGRectMake(self.hitArea.origin.x, 
+								 self.hitArea.origin.y, 
+								 self.hitArea.size.width + 50, 
+								 self.hitArea.size.height);
+	CGRect punchDepth = CGRectMake(self.moveArea.origin.x,
+								   self.moveArea.origin.y - 10,
+								   self.moveArea.size.width + 50,
+								   self.moveArea.size.height + 20);
+	
+	
+	BEUAction *punchToSend = [[BEUHitAction alloc] initWithSender:self 
+														 selector:@selector(receiveHit:)duration:1 
+														  hitArea: [self convertRectToGlobal: punchHit] 
+														 hitDepth: [self convertRectToGlobal: punchDepth] 
+															power: 20];
+	[[BEUActionsController sharedController] addAction:punchToSend];
+	
 	[currentMove completeMove];
 	canMove = YES;
 	currentMove = nil;
@@ -483,6 +538,23 @@
 
 -(void)punch2Complete
 {
+	CGRect punchHit = CGRectMake(self.hitArea.origin.x, 
+								 self.hitArea.origin.y, 
+								 self.hitArea.size.width + 50, 
+								 self.hitArea.size.height);
+	CGRect punchDepth = CGRectMake(self.moveArea.origin.x,
+								   self.moveArea.origin.y - 10,
+								   self.moveArea.size.width + 50,
+								   self.moveArea.size.height + 20);
+	
+	
+	BEUAction *punchToSend = [[BEUHitAction alloc] initWithSender:self 
+														 selector:@selector(receiveHit:)duration:1 
+														  hitArea: [self convertRectToGlobal: punchHit] 
+														 hitDepth: [self convertRectToGlobal: punchDepth] 
+															power: 20];
+	[[BEUActionsController sharedController] addAction:punchToSend];
+	
 	[currentMove completeMove];
 	canMove = YES;
 	currentMove = nil;
@@ -496,7 +568,7 @@
 	[self stopAllAnimations];
 	[self setOrigPositions];
 	
-	
+	[leftWing setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Penguin-LeftWingFist.png"]]; 
 	[leftWing runAction:
 	 [animations valueForKey:@"leftWingPunch3"]
 	 ];
@@ -518,9 +590,83 @@
 
 -(void)punch3Complete
 {
+	CGRect punchHit = CGRectMake(self.hitArea.origin.x, 
+								 self.hitArea.origin.y, 
+								 self.hitArea.size.width + 50, 
+								 self.hitArea.size.height);
+	CGRect punchDepth = CGRectMake(self.moveArea.origin.x,
+								   self.moveArea.origin.y - 10,
+								   self.moveArea.size.width + 50,
+								   self.moveArea.size.height + 20);
+	
+	
+	BEUAction *punchToSend = [[BEUHitAction alloc] initWithSender:self 
+														 selector:@selector(receiveHit:)duration:1 
+														  hitArea: [self convertRectToGlobal: punchHit] 
+														 hitDepth: [self convertRectToGlobal: punchDepth] 
+															power: 20];
+	[[BEUActionsController sharedController] addAction:punchToSend];
+	
+	[leftWing setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Penguin-LeftWing.png"]]; 
 	[currentMove completeMove];
 	canMove = YES;
 	currentMove = nil;
+}
+
+-(void)kick1:(BEUMove *)move
+{
+	currentAnimation = @"kick1";
+	currentMove = move;
+	//canMove = NO;
+	[self stopAllAnimations];
+	[self setOrigPositions];
+	
+	[leftLeg runAction:
+	 [animations valueForKey:@"leftLegKick1"]
+	 ];
+	
+	[self runAction:
+	 [animations valueForKey:@"selfKick1"]
+	 ];
+	
+	
+	moveY = 120.0f;
+}
+
+-(void)kick1Complete
+{
+	CGRect punchHit = CGRectMake(self.hitArea.origin.x, 
+								 self.hitArea.origin.y, 
+								 self.hitArea.size.width + 50, 
+								 self.hitArea.size.height);
+	CGRect punchDepth = CGRectMake(self.moveArea.origin.x,
+								   self.moveArea.origin.y - 10,
+								   self.moveArea.size.width + 50,
+								   self.moveArea.size.height + 20);
+	
+	
+	BEUAction *punchToSend = [[BEUHitAction alloc] initWithSender:self 
+														 selector:@selector(receiveHit:)duration:1 
+														  hitArea: [self convertRectToGlobal: punchHit] 
+														 hitDepth: [self convertRectToGlobal: punchDepth] 
+															power: 20];
+	[[BEUActionsController sharedController] addAction:punchToSend];
+	
+	
+	
+	[currentMove completeMove];
+	canMove = YES;
+	currentMove = nil;
+}
+
+-(void)kick2:(BEUMove *)move
+{
+	
+}
+
+-(void)kick2Complete
+{
+	
 }
 
 @end

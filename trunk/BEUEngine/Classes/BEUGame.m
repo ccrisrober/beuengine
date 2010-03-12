@@ -10,7 +10,8 @@
 #import "BEUActionsController.h"
 #import "BEUTestCharacter.h"
 #import "PenguinCharacter.h"
-
+#import "EskimoCharacter.h"
+#import "IceTile.h"
 #import "BEUSpawner.h"
 
 @implementation BEUGame
@@ -27,8 +28,8 @@
 		for(int i=0; i<3; i++){
 		
 			NSMutableArray *tiles = [[NSMutableArray alloc] initWithObjects:
-								 [[BEUEnvironmentTile alloc] initWithFile:@"TestTile.png"],
-								 [[BEUEnvironmentTile alloc] initWithFile:@"TestTile.png"],
+								 [[IceTile alloc] initTile],
+								 [[IceTile alloc] initTile],
 								 nil];
 			BEUArea *area = [[BEUArea alloc] initWithTiles:tiles];
 							
@@ -39,27 +40,27 @@
 		 
 		
 		BEUCharacter *character = [[PenguinCharacter alloc] init];
-		character.x = 20;
-		character.z = 50;
+		character.x = 50;
+		character.z = 100;
 		character.enemy = NO;
 		[[BEUObjectController sharedController] setPlayerCharacter: character];
 		
 		
-		/*for(int i=0; i<1; i++){
-			BEUCharacter *otherChar = [[BEUTestCharacter alloc] init];
+		for(int i=0; i<1; i++){
+			BEUCharacter *otherChar = [[EskimoCharacter alloc] init];
 			otherChar.enemy = YES;
 			otherChar.x = 200 + arc4random()%350;
-			otherChar.z = arc4random()%100;
+			otherChar.z = 100 + arc4random()%100;
 			[[BEUObjectController sharedController] addCharacter:otherChar];
 			
-		}*/
+		}
 		
-		BEUSpawner *spawner = [[BEUSpawner alloc] initWithSpawnArea:CGRectMake(300, 0, 50, 100) 
+		/*BEUSpawner *spawner = [[BEUSpawner alloc] initWithSpawnArea:CGRectMake(300, 0, 50, 100) 
 															  types:[NSMutableSet setWithObjects:[BEUTestCharacter class],nil]
 													  numberToSpawn:12];
 		spawner.maximumSpawnableAtOnce = 1;
 		[spawner start];
-		[[BEUObjectController sharedController] addSpawner:spawner];
+		[[BEUObjectController sharedController] addSpawner:spawner];*/
 		
 		
 		//ADD INPUT LAYER TO STAGE, ADD LAST
