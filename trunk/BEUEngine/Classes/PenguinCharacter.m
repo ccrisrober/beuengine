@@ -100,10 +100,11 @@
 	  ]
 	 ];
 	
-	hitArea = CGRectMake(0, 0, 70, 75);
-	moveArea = CGRectMake(0,0,70,10);
+	hitArea = CGRectMake(-35, 0, 70, 75);
+	moveArea = CGRectMake(-20,0,40,10);
 	
-	drawBoundingBoxes = YES;
+	drawBoundingBoxes = NO;
+	isWall = NO;
 	
 }
 
@@ -369,6 +370,7 @@
 						  nil
 						  ]
 				  forKey:@"rightLegKick1"];
+	
 }
 
 -(void)walk
@@ -493,13 +495,13 @@
 -(void)punch1Complete
 {
 	
-	CGRect punchHit = CGRectMake(self.hitArea.origin.x, 
+	CGRect punchHit = CGRectMake(self.hitArea.origin.x + 30, 
 								 self.hitArea.origin.y, 
-								 self.hitArea.size.width + 50, 
+								 self.hitArea.size.width, 
 								 self.hitArea.size.height);
-	CGRect punchDepth = CGRectMake(self.moveArea.origin.x,
+	CGRect punchDepth = CGRectMake(self.moveArea.origin.x + 30,
 								   self.moveArea.origin.y - 10,
-								   self.moveArea.size.width + 50,
+								   self.moveArea.size.width,
 								   self.moveArea.size.height + 20);
 	
 	
@@ -507,7 +509,10 @@
 														 selector:@selector(receiveHit:)duration:1 
 														  hitArea: [self convertRectToGlobal: punchHit] 
 														 hitDepth: [self convertRectToGlobal: punchDepth] 
-															power: 20];
+															power: 20 
+														   xForce: 120.0f 
+														   yForce: 0.0f
+														   zForce: 0.0f];
 	[[BEUActionsController sharedController] addAction:punchToSend];
 	
 	[currentMove completeMove];
@@ -546,13 +551,13 @@
 
 -(void)punch2Complete
 {
-	CGRect punchHit = CGRectMake(self.hitArea.origin.x, 
+	CGRect punchHit = CGRectMake(self.hitArea.origin.x+ 30, 
 								 self.hitArea.origin.y, 
-								 self.hitArea.size.width + 50, 
+								 self.hitArea.size.width, 
 								 self.hitArea.size.height);
-	CGRect punchDepth = CGRectMake(self.moveArea.origin.x,
+	CGRect punchDepth = CGRectMake(self.moveArea.origin.x + 30,
 								   self.moveArea.origin.y - 10,
-								   self.moveArea.size.width + 50,
+								   self.moveArea.size.width,
 								   self.moveArea.size.height + 20);
 	
 	
@@ -560,7 +565,10 @@
 														 selector:@selector(receiveHit:)duration:1 
 														  hitArea: [self convertRectToGlobal: punchHit] 
 														 hitDepth: [self convertRectToGlobal: punchDepth] 
-															power: 20];
+															power: 20 
+														   xForce: 130.0f 
+														   yForce: 0.0f
+														   zForce: 0.0f];
 	[[BEUActionsController sharedController] addAction:punchToSend];
 	
 	[currentMove completeMove];
@@ -604,21 +612,24 @@
 
 -(void)punch3Complete
 {
-	CGRect punchHit = CGRectMake(self.hitArea.origin.x, 
+	CGRect punchHit = CGRectMake(self.hitArea.origin.x + 30, 
 								 self.hitArea.origin.y, 
-								 self.hitArea.size.width + 50, 
+								 self.hitArea.size.width, 
 								 self.hitArea.size.height);
-	CGRect punchDepth = CGRectMake(self.moveArea.origin.x,
-								   self.moveArea.origin.y - 10,
-								   self.moveArea.size.width + 50,
-								   self.moveArea.size.height + 20);
+	CGRect punchDepth = CGRectMake(self.moveArea.origin.x + 30,
+								   self.moveArea.origin.y - 30,
+								   self.moveArea.size.width,
+								   self.moveArea.size.height + 60);
 	
 	
 	BEUAction *punchToSend = [[BEUHitAction alloc] initWithSender:self 
 														 selector:@selector(receiveHit:)duration:1 
 														  hitArea: [self convertRectToGlobal: punchHit] 
 														 hitDepth: [self convertRectToGlobal: punchDepth] 
-															power: 20];
+															power: 20 
+														   xForce: 120.0f 
+														   yForce: 400.0f
+														   zForce: 0.0f];
 	[[BEUActionsController sharedController] addAction:punchToSend];
 	
 	[leftWing setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Penguin-LeftWing.png"]]; 
@@ -661,7 +672,10 @@
 														 selector:@selector(receiveHit:)duration:1 
 														  hitArea: [self convertRectToGlobal: punchHit] 
 														 hitDepth: [self convertRectToGlobal: punchDepth] 
-															power: 20];
+															power: 20 
+														   xForce: 100.0f 
+														   yForce: 0.0f
+														   zForce: 0.0f];
 	[[BEUActionsController sharedController] addAction:punchToSend];
 	
 	

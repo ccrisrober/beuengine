@@ -11,20 +11,26 @@
 
 @implementation BEUHitAction
 
-@synthesize power, hitArea, hitDepth;
+@synthesize power, hitArea, hitDepth,xForce,yForce,zForce;
 
 -(id)initWithSender:(id)sender_ 
 		   selector:(SEL)selector_ 
 		   duration:(int)duration_ 
 			hitArea:(CGRect) hit_ 
 		   hitDepth:(CGRect) depth_
-			  power:(float)power_
+			  power:(float)power_ 
+			 xForce:(float)xForce_ 
+			 yForce:(float)yForce_ 
+			 zForce:(float)zForce_
 {
 	
 	[self initWithSender:sender_ selector:selector_ duration:duration_];
 	self.power = power_;
 	self.hitArea = hit_;
 	self.hitDepth = depth_;
+	self.xForce = xForce_;
+	self.yForce = yForce_;
+	self.zForce = zForce_;
 	return self;
 }
 

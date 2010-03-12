@@ -8,6 +8,7 @@
 
 #import "BEUCharacter.h"
 #import "BEUSprite.h"
+#import "BEUHitAction.h"
 #import "cocos2d.h"
 #import "BEUCharacterAIMoveBehavior.h"
 
@@ -32,5 +33,7 @@
 -(void)stopAllAnimations;
 -(void)walk;
 -(void)idle;
+-(void)receiveHit:(BEUAction *)action;
+-(void)hit;
 
 @end

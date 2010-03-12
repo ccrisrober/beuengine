@@ -19,11 +19,20 @@
 	CGRect hitDepth;
 	//Power value of hit
 	float power;
+	//amount of x force to send
+	float xForce;
+	//amount of y force to send
+	float yForce;
+	//amount of z force to send
+	float zForce;
 }
 
 @property(nonatomic) CGRect hitArea;
 @property(nonatomic) CGRect hitDepth;
 @property(nonatomic) float power;
+@property(nonatomic) float xForce;
+@property(nonatomic) float yForce;
+@property(nonatomic) float zForce;
 
 
 -(id)initWithSender:(id)sender_ 
@@ -31,6 +40,9 @@
 		   duration:(int)duration_ 
 			hitArea:(CGRect) hit_ 
 		   hitDepth:(CGRect) depth_
-			  power:(float)power_;
+			  power:(float)power_ 
+			 xForce:(float)xForce_ 
+			 yForce:(float)yForce_ 
+			 zForce:(float)zForce_;
 
 @end
