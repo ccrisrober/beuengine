@@ -13,7 +13,7 @@
 @synthesize moveX, moveY, moveZ, 
 x, y, z, hitArea, moveArea,
 movementSpeed,isWall,drawBoundingBoxes,
-affectedByGravity;
+affectedByGravity,friction;
 
 -(id)init
 {
@@ -26,6 +26,8 @@ affectedByGravity;
 	moveX = 0;
 	moveY = 0;
 	moveZ = 0;
+	
+	friction = 5.0f;
 	
 	hitArea = CGRectMake(0, 0, 1, 1);
 	moveArea = CGRectMake(0, 0, 1, 1);

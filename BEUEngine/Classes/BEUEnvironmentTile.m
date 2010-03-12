@@ -37,9 +37,9 @@
 {
 	[super draw];
 	
-	for(NSValue *wall in origWalls){
+	/*for(NSValue *wall in origWalls){
 		[self drawRect:[wall CGRectValue]];
-	}
+	}*/
 }
 
 

@@ -58,6 +58,8 @@
 	//the player)
 	BEUObject *orientToObject;
 	
+	BEUInputMovementEvent *inputEvent;
+
 }
 
 //Some standard character states to use
@@ -75,7 +77,6 @@ extern NSString *const BEUCharacterStateAttacking;
 @property(nonatomic,retain) NSMutableArray *updateSelectors;
 @property(nonatomic,copy) NSString *state;
 @property(nonatomic,assign) BEUObject *orientToObject;
-
 //Basic move function with angle and percent which control the percent of moveSpeed that the character moves
 -(void)moveCharacterWithAngle:(float)angle percent:(float)percent;
 

@@ -20,9 +20,9 @@
 		[self.texture setAliasTexParameters];
 		
 		origWalls = [[NSMutableArray alloc] initWithObjects:
-					 [NSValue valueWithCGRect:CGRectMake(0,0,480,72)],
+					 [NSValue valueWithCGRect:CGRectMake(0,0,478,72)],
 					 //[NSValue valueWithCGRect:CGRectMake(-2,0,1,320)],
-					 [NSValue valueWithCGRect:CGRectMake(0,202,480,272)],
+					 [NSValue valueWithCGRect:CGRectMake(0,202,478,272)],
 					 //[NSValue valueWithCGRect:CGRectMake(480,0,1,320)],
 					 nil];	
 		[self createTileWallsWithOffset: ccp(0,0)];
@@ -30,7 +30,6 @@
 		self.anchorPoint = ccp(0.0f, 0.0f);
 		
 	}
-	NSLog(@"MADE TILE: %@",self);
 	return self;
 	
 }

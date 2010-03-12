@@ -31,6 +31,8 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 		movesController = [[BEUMovesController alloc] init];
 		updateSelectors = [NSMutableArray array];
 		state = BEUCharacterStateIdle;
+		
+		
 	}
 	
 	return self;
@@ -44,22 +46,7 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 		double moveSpeed = movementSpeed*percent;
 		moveX = cos(angle)*moveSpeed;
 		moveZ = sin(angle)*moveSpeed;
-		if(!orientToObject)
-		{
-			if(moveX > 0)
-			{
-				[self setFacingRight:YES];
-			} else if(moveX < 0)
-			{
-				[self setFacingRight:NO];
-			}
-		} else {
-			if(orientToObject.x < self.x){
-				[self setFacingRight:NO];
-			} else {
-				[self setFacingRight:YES];
-			}
-		}
+		
 		
 	}
 	
@@ -71,8 +58,8 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 	//Check if input event is a movement event, if not send event to the movesController
 	if(event.type == BEUInputMovement)
 	{
-		
-		BEUInputMovementEvent *moveEvent = (BEUInputMovementEvent *)event;
+		inputEvent = event;
+		/*BEUInputMovementEvent *moveEvent = (BEUInputMovementEvent *)event;
 		
 		[self moveCharacterWithAngle: moveEvent.movementTheta percent:moveEvent.movementPercent];
 		
@@ -80,7 +67,7 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 		//BEUInputLayer can continue to modify the theta and percent values of it
 		if(event.completed){
 			//[event release];
-		}
+		}*/
 	} else {
 		
 		//Send input to the movesController
@@ -106,6 +93,30 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 
 -(void)step:(ccTime)delta
 {
+	if(inputEvent)
+	{
+		if(!inputEvent.completed) [self moveCharacterWithAngle: inputEvent.movementTheta percent:inputEvent.movementPercent];		
+	}
+	
+	if(canMove)
+	{
+		if(!orientToObject)
+		{
+			if(moveX > 0)
+			{
+				[self setFacingRight:YES];
+			} else if(moveX < 0)
+			{
+				[self setFacingRight:NO];
+			}
+		} else {
+			if(orientToObject.x < self.x){
+				[self setFacingRight:NO];
+			} else {
+				[self setFacingRight:YES];
+			}
+		}
+	}
 	
 	if(ai)[self.ai update:delta];
 	

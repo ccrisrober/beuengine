@@ -186,7 +186,27 @@ static BEUObjectController *_sharedController = nil;
 				if(obj.affectedByGravity) obj.moveY -= gravity;
 			}
 			
-		
+			if(obj.moveX < 0)
+			{
+				obj.moveX += obj.friction;
+				if(obj.moveX > 0) obj.moveX = 0;
+			} else if(obj.moveX > 0) 
+			{
+				obj.moveX -= obj.friction;
+				if(obj.moveX < 0) obj.moveX = 0;
+			}
+			
+			if(obj.moveZ < 0)
+			{
+				obj.moveZ += obj.friction;
+				if(obj.moveZ > 0) obj.moveZ = 0;
+			} else if(obj.moveZ > 0) 
+			{
+				obj.moveZ -= obj.friction;
+				if(obj.moveZ < 0) obj.moveZ = 0;
+			}
+			
+			
 		}
 		
 		//Set objects x and y positions with x,y and z properties
