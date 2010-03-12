@@ -42,6 +42,8 @@
 	//Used in convertRectToGlobal
 	BOOL facingRight;
 	
+	float friction;
+	
 }
 
 @property(nonatomic) float moveX;
@@ -51,6 +53,8 @@
 @property(nonatomic) float x;
 @property(nonatomic) float y;
 @property(nonatomic) float z;
+
+@property(nonatomic) float friction;
 
 @property(nonatomic) CGRect moveArea;
 @property(nonatomic) CGRect	hitArea;

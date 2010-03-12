@@ -40,7 +40,8 @@
 		joystickStick.scaleX = joystickStick.scaleY = 50/joystickStick.contentSize.width;
 		[joystick addChild:joystickBase];
 		[joystick addChild:joystickStick];
-		joystick.opacity = 0x55;
+		joystickBase.opacity = 0x55;
+		joystickStick.opacity = 0x55;
 		joystick.visible = NO;
 		
 		[self addChild:joystick];
@@ -122,7 +123,7 @@
 	{
 		[self.movementEvent complete];
 		[self dispatchEvent:self.movementEvent];
-		
+		[movementEvent release];
 		joystick.visible = NO;
 		
 		self.movementTouch = nil;

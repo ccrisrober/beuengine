@@ -26,6 +26,9 @@
 -(void)buildPenguin
 {
 	
+	movementSpeed = 200.0f;
+	friction = 12.0f;
+	
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Penguin.plist"];
 	
 	penguin = [[BEUSprite alloc] init];
@@ -105,22 +108,6 @@
 }
 
 
--(void)moveCharacterWithAngle:(float)angle percent:(float)percent
-{
-	[super moveCharacterWithAngle:angle percent:percent];
-	
-	if(canMove)
-	{
-		if(fabs(moveX)>0)
-		{
-			[self walk];
-		} else {
-			[self idle];
-		}
-	}
-	
-}
-
 -(void)createAnimations
 {
 	animations = [[NSMutableDictionary alloc] init];
@@ -128,16 +115,24 @@
 	
 	[animations setValue:[CCRepeatForever actionWithAction:
 						  [CCSequence actions:
-						   [CCRotateTo actionWithDuration:0.2f angle:7.0f],
-						   [CCRotateTo actionWithDuration:0.2f angle:-14.0f],
+						   [CCRotateTo actionWithDuration:0.3f angle:15.0f],
+						   [CCRotateTo actionWithDuration:0.35f angle:-0.0f],
 						   nil]
 						  ]
-				  forKey:@"selfWalk"];
+				  forKey:@"bodyWalk"];
 	
 	[animations setValue:[CCRepeatForever actionWithAction:
 						  [CCSequence actions:
-						   [CCRotateTo actionWithDuration:0.3f angle:-65.0f],
-						   [CCRotateTo actionWithDuration:0.35f angle:25.0f],
+						   [CCSpawn actions:
+							[CCRotateTo actionWithDuration:0.3f angle:-65.0f],
+							[CCMoveBy actionWithDuration:0.3f position: ccp(6.0f,0.0f)],
+							nil
+							],
+						   [CCSpawn actions:
+							[CCRotateTo actionWithDuration:0.35f angle:25.0f],
+							[CCMoveBy actionWithDuration:0.35f position: ccp(-6.0f, 0.0f)],
+							nil
+							],
 						   nil
 						   ]
 						  ]
@@ -145,8 +140,16 @@
 	
 	[animations setValue:[CCRepeatForever actionWithAction:
 						  [CCSequence actions:
-						   [CCRotateTo actionWithDuration:0.3f angle:20.0f],
-						   [CCRotateTo actionWithDuration:0.35f angle:-55.0f],
+						   [CCSpawn actions:
+							[CCRotateTo actionWithDuration:0.3f angle:20.0f],
+							[CCMoveBy actionWithDuration:0.3f position: ccp(5.0f,0.0f)],
+							nil
+							],
+						   [CCSpawn actions:
+							
+							[CCRotateTo actionWithDuration:0.35f angle:-55.0f],
+							[CCMoveBy actionWithDuration:0.3f position: ccp(-5.0f,0.0f)],
+							nil],
 						   nil
 						   ]
 						  ]
@@ -332,6 +335,11 @@
 						  [CCRotateBy actionWithDuration:0.45f angle:-70],
 						  nil
 						  ] forKey:@"leftLegPunch3"];
+	[animations setValue:[CCSequence actions:
+						  [CCRotateBy actionWithDuration:0.2f angle:70.0f],
+						  [CCRotateBy actionWithDuration:0.45f angle:-70],
+						  nil
+						  ] forKey:@"rightLegPunch3"];
 	
 	[animations setValue:[CCSequence actions:
 						  [CCDelayTime actionWithDuration:0.2f],
@@ -341,30 +349,26 @@
 						  nil
 						  ] forKey:@"selfPunch3"];
 	
-	[animations setValue:[CCSequence actions:
-						  [CCRotateBy actionWithDuration:0.12f angle:-10],
-						  [CCCallFunc actionWithTarget:self selector:@selector(kick1Complete)],
-						  [CCRotateBy actionWithDuration:0.3f angle:10],
-						  [CCCallFunc actionWithTarget:self selector:@selector(idle)],
-						  
-						  nil
-						  ]
-				  forKey:@"selfKick1"];
+	
 	
 	[animations setValue:[CCSequence actions:
 						  [CCSpawn actions:
 						   [CCRotateBy actionWithDuration:0.12f angle:-80],
-						   [CCMoveBy actionWithDuration:0.12f position:ccp(45.0f,20.0f)],
+						   [CCMoveBy actionWithDuration:0.12f position:ccp(25.0f,20.0f)],
 						   nil
 						  ],
+						  [CCCallFunc actionWithTarget:self selector:@selector(kick1Complete)],
+						  
 						  [CCSpawn actions:
 						   [CCRotateBy actionWithDuration:0.3f angle:80],
-						   [CCMoveBy actionWithDuration:0.3f position:ccp(-45.0f,-20.0f)],
+						   [CCMoveBy actionWithDuration:0.3f position:ccp(-25.0f,-20.0f)],
 						   nil
 						   ],
+						  [CCCallFunc actionWithTarget:self selector:@selector(idle)],
+						  
 						  nil
 						  ]
-				  forKey:@"leftLegKick1"];
+				  forKey:@"rightLegKick1"];
 }
 
 -(void)walk
@@ -376,8 +380,8 @@
 		[self stopAllAnimations];
 		[self setOrigPositions];
 		
-		[self runAction:
-		 [animations valueForKey:@"selfWalk"]
+		[body runAction:
+		 [animations valueForKey:@"bodyWalk"]
 		 ];
 		
 		[leftWing runAction:
@@ -482,6 +486,8 @@
 	 [animations valueForKey:@"selfPunch1"]
 	 ];
 	
+	moveX = self.scaleX*100.0f;
+	
 }
 
 -(void)punch1Complete
@@ -505,7 +511,7 @@
 	[[BEUActionsController sharedController] addAction:punchToSend];
 	
 	[currentMove completeMove];
-	canMove = YES;
+	//canMove = YES;
 	currentMove = nil;
 }
 
@@ -534,6 +540,8 @@
 	[self runAction:
 	 [animations valueForKey:@"selfPunch2"]
 	 ];
+	
+	moveX = self.scaleX*120.0f;
 }
 
 -(void)punch2Complete
@@ -556,7 +564,7 @@
 	[[BEUActionsController sharedController] addAction:punchToSend];
 	
 	[currentMove completeMove];
-	canMove = YES;
+	//canMove = YES;
 	currentMove = nil;
 }
 
@@ -564,7 +572,8 @@
 {
 	currentAnimation = @"punch3";
 	currentMove = move;
-	//canMove = NO;
+	canMove = NO;
+	
 	[self stopAllAnimations];
 	[self setOrigPositions];
 	
@@ -581,10 +590,15 @@
 	 [animations valueForKey:@"leftLegPunch3"]
 	 ];
 	
+	[rightLeg runAction:
+	 [animations valueForKey:@"rightLegPunch3"]
+	 ];
+	
 	[self runAction:
 	 [animations valueForKey:@"selfPunch3"]
 	 ];
 	
+	moveX = self.scaleX*120.0f;
 	moveY = 220.0f;
 }
 
@@ -609,7 +623,7 @@
 	
 	[leftWing setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Penguin-LeftWing.png"]]; 
 	[currentMove completeMove];
-	canMove = YES;
+	//canMove = YES;
 	currentMove = nil;
 }
 
@@ -617,17 +631,15 @@
 {
 	currentAnimation = @"kick1";
 	currentMove = move;
-	//canMove = NO;
+	canMove = NO;
+	
 	[self stopAllAnimations];
 	[self setOrigPositions];
 	
-	[leftLeg runAction:
-	 [animations valueForKey:@"leftLegKick1"]
+	[rightLeg runAction:
+	 [animations valueForKey:@"rightLegKick1"]
 	 ];
 	
-	[self runAction:
-	 [animations valueForKey:@"selfKick1"]
-	 ];
 	
 	
 	moveY = 120.0f;
@@ -655,7 +667,7 @@
 	
 	
 	[currentMove completeMove];
-	canMove = YES;
+	canMove = NO;
 	currentMove = nil;
 }
 
@@ -667,6 +679,22 @@
 -(void)kick2Complete
 {
 	
+}
+
+
+-(void)step:(ccTime)delta
+{
+	[super step:delta];
+	
+	if(canMove)
+	{
+		if(inputEvent.movementPercent > 0)
+		{
+			[self walk];
+		} else {
+			[self idle];
+		}
+	}
 }
 
 @end

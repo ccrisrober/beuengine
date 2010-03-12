@@ -40,7 +40,7 @@
 {
 	float offset = 0.0f;
 	[tiles addObject:tile];
-	
+	NSLog(@"ADD TILE: %1.2f, TO: %1.2f",tile.contentSize.width,self.contentSize.width);
 	tile.position = ccp(self.contentSize.width - offset, 0.0f);
 	[self addChild:tile];
 	

@@ -210,10 +210,7 @@
 		833569511141AF7F00B676A5 /* BEUCharacterAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 833569501141AF7F00B676A5 /* BEUCharacterAction.m */; };
 		833569551141B5B000B676A5 /* BEUCharacterMoveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 833569541141B5B000B676A5 /* BEUCharacterMoveAction.m */; };
 		833A68DC1149AD5D00541113 /* EskimoCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 833A68DB1149AD5D00541113 /* EskimoCharacter.m */; };
-		833A68DF1149B39A00541113 /* Eskimo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 833A68DD1149B39A00541113 /* Eskimo.plist */; };
-		833A68E01149B39A00541113 /* Eskimo.png in Resources */ = {isa = PBXBuildFile; fileRef = 833A68DE1149B39A00541113 /* Eskimo.png */; };
 		833A690C1149CAB100541113 /* IceTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 833A690B1149CAB100541113 /* IceTile.m */; };
-		833A696B1149CFFD00541113 /* IceTile1.png in Resources */ = {isa = PBXBuildFile; fileRef = 833A696A1149CFFD00541113 /* IceTile1.png */; };
 		8348EFC61146038D00764BCA /* BEUCharacterAIAttackBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 8348EFC51146038D00764BCA /* BEUCharacterAIAttackBehavior.m */; };
 		8373F10A1148A840003592F7 /* PenguinCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8373F1091148A840003592F7 /* PenguinCharacter.m */; };
 		8373F13C1148B337003592F7 /* BEUSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8373F13B1148B337003592F7 /* BEUSprite.m */; };
@@ -230,6 +227,9 @@
 		83A2A05011476B3600B0224B /* BEUSpawner.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A2A04F11476B3600B0224B /* BEUSpawner.m */; };
 		83BEA34B1144959F00AAAD2A /* BEUCharacterAIBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BEA3481144959F00AAAD2A /* BEUCharacterAIBehavior.m */; };
 		83BEA34C1144959F00AAAD2A /* BEUCharacterAIMoveBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BEA34A1144959F00AAAD2A /* BEUCharacterAIMoveBehavior.m */; };
+		83C26449114A03EB00E05392 /* Eskimo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83C26447114A03EB00E05392 /* Eskimo.plist */; };
+		83C2644A114A03EB00E05392 /* Eskimo.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C26448114A03EB00E05392 /* Eskimo.png */; };
+		83C2644D114A03FF00E05392 /* IceTile1.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C2644C114A03FF00E05392 /* IceTile1.png */; };
 		83C6A68A1140641D006D7FEB /* BEUCharacterAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C6A6891140641D006D7FEB /* BEUCharacterAI.m */; };
 		83C915A41136FA6000734692 /* BEUAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C915A31136FA6000734692 /* BEUAction.m */; };
 		83C915A71136FA9600734692 /* BEUActionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C915A61136FA9600734692 /* BEUActionsController.m */; };
@@ -472,11 +472,8 @@
 		833569541141B5B000B676A5 /* BEUCharacterMoveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterMoveAction.m; sourceTree = "<group>"; };
 		833A68DA1149AD5D00541113 /* EskimoCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EskimoCharacter.h; sourceTree = "<group>"; };
 		833A68DB1149AD5D00541113 /* EskimoCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EskimoCharacter.m; sourceTree = "<group>"; };
-		833A68DD1149B39A00541113 /* Eskimo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Eskimo.plist; sourceTree = "<group>"; };
-		833A68DE1149B39A00541113 /* Eskimo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Eskimo.png; sourceTree = "<group>"; };
 		833A690A1149CAB100541113 /* IceTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IceTile.h; sourceTree = "<group>"; };
 		833A690B1149CAB100541113 /* IceTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IceTile.m; sourceTree = "<group>"; };
-		833A696A1149CFFD00541113 /* IceTile1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IceTile1.png; sourceTree = "<group>"; };
 		8348EFC41146038D00764BCA /* BEUCharacterAIAttackBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterAIAttackBehavior.h; sourceTree = "<group>"; };
 		8348EFC51146038D00764BCA /* BEUCharacterAIAttackBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAIAttackBehavior.m; sourceTree = "<group>"; };
 		8373F1081148A840003592F7 /* PenguinCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PenguinCharacter.h; sourceTree = "<group>"; };
@@ -507,6 +504,9 @@
 		83BEA3481144959F00AAAD2A /* BEUCharacterAIBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAIBehavior.m; sourceTree = "<group>"; };
 		83BEA3491144959F00AAAD2A /* BEUCharacterAIMoveBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterAIMoveBehavior.h; sourceTree = "<group>"; };
 		83BEA34A1144959F00AAAD2A /* BEUCharacterAIMoveBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAIMoveBehavior.m; sourceTree = "<group>"; };
+		83C26447114A03EB00E05392 /* Eskimo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Eskimo.plist; path = "Game Art/Eskimo/Eskimo.plist"; sourceTree = SOURCE_ROOT; };
+		83C26448114A03EB00E05392 /* Eskimo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Eskimo.png; path = "Game Art/Eskimo/Eskimo.png"; sourceTree = SOURCE_ROOT; };
+		83C2644C114A03FF00E05392 /* IceTile1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IceTile1.png; path = "Game Art/Environment/IceTile1.png"; sourceTree = SOURCE_ROOT; };
 		83C6A6881140641D006D7FEB /* BEUCharacterAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterAI.h; sourceTree = "<group>"; };
 		83C6A6891140641D006D7FEB /* BEUCharacterAI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAI.m; sourceTree = "<group>"; };
 		83C915A21136FA6000734692 /* BEUAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUAction.h; sourceTree = "<group>"; };
@@ -940,14 +940,14 @@
 				8314142311471E2B00643E64 /* joystickBase.png */,
 				50F414EC1069373D002A0D5E /* Default.png */,
 				8377DBEC114976A100EADA8A /* Penguin.plist */,
+				83C2644C114A03FF00E05392 /* IceTile1.png */,
 				8377DBED114976A100EADA8A /* Penguin.png */,
 				832312E7113F06C900EE2AC0 /* SkeletalCharacter.plist */,
+				83C26447114A03EB00E05392 /* Eskimo.plist */,
+				83C26448114A03EB00E05392 /* Eskimo.png */,
 				832312EC113F06D700EE2AC0 /* TestCharacter.plist */,
 				832312F0113F06DD00EE2AC0 /* TestTile.png */,
 				832312ED113F06D700EE2AC0 /* TestCharacter.png */,
-				833A68DD1149B39A00541113 /* Eskimo.plist */,
-				833A68DE1149B39A00541113 /* Eskimo.png */,
-				833A696A1149CFFD00541113 /* IceTile1.png */,
 				832312E8113F06C900EE2AC0 /* SkeletalCharacter.png */,
 				50F414ED1069373D002A0D5E /* fps_images.png */,
 				50F414EE1069373D002A0D5E /* Icon.png */,
@@ -1176,9 +1176,9 @@
 				8314142411471E2B00643E64 /* joystickBase.png in Resources */,
 				8377DBEE114976A100EADA8A /* Penguin.plist in Resources */,
 				8377DBEF114976A100EADA8A /* Penguin.png in Resources */,
-				833A68DF1149B39A00541113 /* Eskimo.plist in Resources */,
-				833A68E01149B39A00541113 /* Eskimo.png in Resources */,
-				833A696B1149CFFD00541113 /* IceTile1.png in Resources */,
+				83C26449114A03EB00E05392 /* Eskimo.plist in Resources */,
+				83C2644A114A03EB00E05392 /* Eskimo.png in Resources */,
+				83C2644D114A03FF00E05392 /* IceTile1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
