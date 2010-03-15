@@ -16,35 +16,20 @@
 {
 	if( (self=[super init] )) {
 		
+		inputs = [[NSMutableArray alloc] init];
 		receivers = [[NSMutableArray alloc] init];
-		
-		maximumMovementDist = 40;
-		
+				
 		maximumTapDist = 10;
 		
 		self.isTouchEnabled = YES;
 		CGSize winSize = [[CCDirector sharedDirector] winSize];
 		
-		movementArea = CGRectMake(0, 0, winSize.width*.5, winSize.height);
 		gestureArea = CGRectMake(winSize.width*.5,0,winSize.width*.5,winSize.height);
 		
 		
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
 		
-		joystick = [[CCSprite alloc] init];
 		
-		joystickBase = [[CCSprite alloc] initWithFile:@"joystickBase.png"];
-		joystickBase.scaleX = joystickBase.scaleY = 100/joystickBase.contentSize.width;
-		joystickStick = [[CCSprite alloc] initWithFile:@"joystickStick.png"];
-		joystickStick.position = ccp(joystickBase.contentSize.width/2,joystickBase.contentSize.height/2);
-		joystickStick.scaleX = joystickStick.scaleY = 50/joystickStick.contentSize.width;
-		[joystick addChild:joystickBase];
-		[joystick addChild:joystickStick];
-		joystickBase.opacity = 0x55;
-		joystickStick.opacity = 0x55;
-		joystick.visible = NO;
-		
-		[self addChild:joystick];
 		
 	}
 	
@@ -60,21 +45,15 @@
 	
 	CGPoint location = [touch locationInView:[touch view]];
 	location = [[CCDirector sharedDirector] convertToGL:location];
-	if (CGRectContainsPoint(self.movementArea, location) && !self.movementTouch)
+	
+	for ( BEUInputObject *input in inputs ) 
 	{
-		self.movementTouch = touch;
-		
-		self.movementEvent = [[BEUInputMovementEvent alloc] initWithStartPosition:location 
-														 maximumMovementDist:maximumMovementDist];
-		[self dispatchEvent:movementEvent];
-		
-		
-		joystick.position = ccp(location.x,location.y);
-		joystick.visible = YES;
-		joystickStick.position = ccp(0,0);
-		return YES;
+		if([input touchBegan:touch withEvent:event]) return YES;
 	}
 	
+	return NO;
+	
+	/*
 	if(CGRectContainsPoint(self.gestureArea, location) && !self.gestureTouch)
 	{
 		self.gestureTouch = touch;
@@ -82,8 +61,10 @@
 		return YES;
 	}
 	
-	return NO;	
+	return NO;	*/
 }
+
+
 
 -(void)ccTouchMoved:(UITouch *)touch 
 		  withEvent:(UIEvent *)event 
@@ -92,23 +73,15 @@
 	location = [[CCDirector sharedDirector] convertToGL:location];
 	
 	
-	if(touch == self.movementTouch && self.movementEvent)
+	for ( BEUInputObject *input in inputs ) 
 	{
-		[self.movementEvent addPosition:location];
-		[self dispatchEvent:self.movementEvent];
-		
-		
-		joystickStick.position = ccp(
-									 cos(movementEvent.movementTheta)*maximumMovementDist*movementEvent.movementPercent, 
-									 sin(movementEvent.movementTheta)*maximumMovementDist*movementEvent.movementPercent
-									 );
-		
+		if(input.ownedTouch == touch)
+		{
+			[input touchMoved:touch withEvent:event];
+		}
 	}
 	
-	if(touch == self.gestureTouch)
-	{
-		
-	}
+	
 }
 
 
@@ -119,16 +92,16 @@
 	CGPoint location = [touch locationInView:[touch view]];
 	location = [[CCDirector sharedDirector] convertToGL:location];
 	
-	if(touch == self.movementTouch)
+	
+	for ( BEUInputObject *input in inputs )
 	{
-		[self.movementEvent complete];
-		[self dispatchEvent:self.movementEvent];
-		[movementEvent release];
-		joystick.visible = NO;
-		
-		self.movementTouch = nil;
+		if(input.ownedTouch == touch)
+		{
+			[input touchEnded:touch withEvent:event];
+		}
 	}
 	
+	/*
 	if(touch == self.gestureTouch)
 	{
 		
@@ -166,7 +139,7 @@
 		
 		self.gestureStart = nil;
 		self.gestureTouch = nil;
-	}
+	 }*/
 }
 
 -(void)addReceiver:(id <BEUInputReceiverProtocol>)receiver
@@ -188,6 +161,30 @@
 	} else {
 		NSLog(@"BEUInputLayer: Cannot remove receiver, not added");
 	}
+}
+
+-(void)addInput:(BEUInputObject *)input
+{
+	if([inputs containsObject:input]){
+		NSLog(@"BEUInputLayer: Cannot add input, already added");
+		return;
+	}
+	input.inputLayer = self;
+	[inputs addObject:input];
+	
+	[self addChild:input];
+}
+
+-(void)removeInput:(BEUInputObject *)input
+{
+	if([inputs containsObject:input]){
+		[inputs removeObject:input];
+		
+	} else {
+		NSLog(@"BEUInputLayer: Cannot add input, already added");
+		return;
+	}
+	
 }
 
 -(void)dispatchEvent:(BEUInputEvent *)event

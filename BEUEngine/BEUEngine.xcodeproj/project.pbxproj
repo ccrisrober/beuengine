@@ -212,6 +212,9 @@
 		833A68DC1149AD5D00541113 /* EskimoCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 833A68DB1149AD5D00541113 /* EskimoCharacter.m */; };
 		833A690C1149CAB100541113 /* IceTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 833A690B1149CAB100541113 /* IceTile.m */; };
 		8348EFC61146038D00764BCA /* BEUCharacterAIAttackBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 8348EFC51146038D00764BCA /* BEUCharacterAIAttackBehavior.m */; };
+		834ACDD6114C72B700AC299A /* BEUInputJoystick.m in Sources */ = {isa = PBXBuildFile; fileRef = 834ACDD5114C72B700AC299A /* BEUInputJoystick.m */; };
+		834ACDD9114C734600AC299A /* BEUInputObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 834ACDD8114C734600AC299A /* BEUInputObject.m */; };
+		834AD025114DFC6300AC299A /* BEUInputGestureArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 834AD024114DFC6300AC299A /* BEUInputGestureArea.m */; };
 		8373F10A1148A840003592F7 /* PenguinCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8373F1091148A840003592F7 /* PenguinCharacter.m */; };
 		8373F13C1148B337003592F7 /* BEUSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8373F13B1148B337003592F7 /* BEUSprite.m */; };
 		8377DBEE114976A100EADA8A /* Penguin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8377DBEC114976A100EADA8A /* Penguin.plist */; };
@@ -476,6 +479,12 @@
 		833A690B1149CAB100541113 /* IceTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IceTile.m; sourceTree = "<group>"; };
 		8348EFC41146038D00764BCA /* BEUCharacterAIAttackBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterAIAttackBehavior.h; sourceTree = "<group>"; };
 		8348EFC51146038D00764BCA /* BEUCharacterAIAttackBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAIAttackBehavior.m; sourceTree = "<group>"; };
+		834ACDD4114C72B700AC299A /* BEUInputJoystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUInputJoystick.h; sourceTree = "<group>"; };
+		834ACDD5114C72B700AC299A /* BEUInputJoystick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUInputJoystick.m; sourceTree = "<group>"; };
+		834ACDD7114C734600AC299A /* BEUInputObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUInputObject.h; sourceTree = "<group>"; };
+		834ACDD8114C734600AC299A /* BEUInputObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUInputObject.m; sourceTree = "<group>"; };
+		834AD023114DFC6300AC299A /* BEUInputGestureArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUInputGestureArea.h; sourceTree = "<group>"; };
+		834AD024114DFC6300AC299A /* BEUInputGestureArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUInputGestureArea.m; sourceTree = "<group>"; };
 		8373F1081148A840003592F7 /* PenguinCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PenguinCharacter.h; sourceTree = "<group>"; };
 		8373F1091148A840003592F7 /* PenguinCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PenguinCharacter.m; sourceTree = "<group>"; };
 		8373F13A1148B337003592F7 /* BEUSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUSprite.h; sourceTree = "<group>"; };
@@ -628,6 +637,7 @@
 		2D500B1D0D5A766B00DBA0E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				834ACDCC114C726100AC299A /* input */,
 				8373F1071148A82A003592F7 /* kungfuninjapenguin */,
 				833569521141B58A00B676A5 /* character */,
 				8335694D114195A700B676A5 /* ai */,
@@ -645,11 +655,7 @@
 				83E91363112D015C00C10195 /* BEUEngine.m */,
 				83E9149B112E610200C10195 /* BEUObject.h */,
 				83E9149C112E610200C10195 /* BEUObject.m */,
-				83E914D1112E646A00C10195 /* BEUInputLayer.h */,
-				83E914D2112E646A00C10195 /* BEUInputLayer.m */,
 				83E9175A11305C5200C10195 /* BEUMath.h */,
-				837E348711360E5100F6466D /* BEUInputEvent.h */,
-				837E348811360E5100F6466D /* BEUInputEvent.m */,
 				83E9175B11305C5200C10195 /* BEUMath.m */,
 				8333452511320FFC00E3F079 /* BEUArea.h */,
 				8333452611320FFC00E3F079 /* BEUArea.m */,
@@ -660,8 +666,6 @@
 				8398855911403EE500E3E0DE /* BEUTriggerController.h */,
 				8398855A11403EE500E3E0DE /* BEUTriggerController.m */,
 				83C916421137130D00734692 /* BEUInputReceiverProtocol.h */,
-				837E350A11361B7A00F6466D /* BEUInputMovementEvent.h */,
-				837E350B11361B7A00F6466D /* BEUInputMovementEvent.m */,
 				83C915A21136FA6000734692 /* BEUAction.h */,
 				83C915A31136FA6000734692 /* BEUAction.m */,
 				83C915A51136FA9600734692 /* BEUActionsController.h */,
@@ -988,6 +992,25 @@
 			name = character;
 			sourceTree = "<group>";
 		};
+		834ACDCC114C726100AC299A /* input */ = {
+			isa = PBXGroup;
+			children = (
+				83E914D1112E646A00C10195 /* BEUInputLayer.h */,
+				83E914D2112E646A00C10195 /* BEUInputLayer.m */,
+				837E348711360E5100F6466D /* BEUInputEvent.h */,
+				837E348811360E5100F6466D /* BEUInputEvent.m */,
+				837E350A11361B7A00F6466D /* BEUInputMovementEvent.h */,
+				837E350B11361B7A00F6466D /* BEUInputMovementEvent.m */,
+				834ACDD4114C72B700AC299A /* BEUInputJoystick.h */,
+				834ACDD5114C72B700AC299A /* BEUInputJoystick.m */,
+				834ACDD7114C734600AC299A /* BEUInputObject.h */,
+				834ACDD8114C734600AC299A /* BEUInputObject.m */,
+				834AD023114DFC6300AC299A /* BEUInputGestureArea.h */,
+				834AD024114DFC6300AC299A /* BEUInputGestureArea.m */,
+			);
+			name = input;
+			sourceTree = "<group>";
+		};
 		8373F1071148A82A003592F7 /* kungfuninjapenguin */ = {
 			isa = PBXGroup;
 			children = (
@@ -1226,6 +1249,9 @@
 				8373F13C1148B337003592F7 /* BEUSprite.m in Sources */,
 				833A68DC1149AD5D00541113 /* EskimoCharacter.m in Sources */,
 				833A690C1149CAB100541113 /* IceTile.m in Sources */,
+				834ACDD6114C72B700AC299A /* BEUInputJoystick.m in Sources */,
+				834ACDD9114C734600AC299A /* BEUInputObject.m in Sources */,
+				834AD025114DFC6300AC299A /* BEUInputGestureArea.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

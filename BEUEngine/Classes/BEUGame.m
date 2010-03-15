@@ -13,7 +13,8 @@
 #import "EskimoCharacter.h"
 #import "IceTile.h"
 #import "BEUSpawner.h"
-
+#import "BEUInputJoystick.h"
+#import "BEUInputGestureArea.h"
 @implementation BEUGame
 
 @synthesize environment, inputLayer;
@@ -64,7 +65,16 @@
 		
 		
 		//ADD INPUT LAYER TO STAGE, ADD LAST
+		BEUInputJoystick *joystick = [[BEUInputJoystick alloc] initWithRadius:50 minZone:0 maxZone:30];
+		joystick.position = ccp(100,65);
+		joystick.tag = 0;
+		
+		
+		BEUInputGestureArea *gestureArea = [[BEUInputGestureArea alloc] initWithArea:CGRectMake(240,0,240,320)];
+		
 		inputLayer = [[BEUInputLayer alloc] init];
+		[inputLayer addInput:joystick];
+		[inputLayer addInput:gestureArea];
 		[self addChild:inputLayer];
 		
 		//[inputLayer assignPlayer:character];

@@ -23,7 +23,7 @@ static BEUObjectController *_sharedController = nil;
 		spawners = [[NSMutableArray alloc] init];
 		
 		
-		gravity = 10.0f;
+		gravity = 400.0f;
 	}
 	
 	return self;
@@ -183,28 +183,28 @@ static BEUObjectController *_sharedController = nil;
 				obj.y = 0;
 				obj.moveY = 0;
 			} else {
-				if(obj.affectedByGravity) obj.moveY -= gravity;
+				if(obj.affectedByGravity) obj.moveY -= gravity*delta;
 			}
 			
 			if(obj.y == 0)
 			{
 				if(obj.moveX < 0)
 				{
-					obj.moveX += obj.friction;
+					obj.moveX += obj.friction*delta;
 					if(obj.moveX > 0) obj.moveX = 0;
 				} else if(obj.moveX > 0) 
 				{
-					obj.moveX -= obj.friction;
+					obj.moveX -= obj.friction*delta;
 					if(obj.moveX < 0) obj.moveX = 0;
 				}
 				
 				if(obj.moveZ < 0)
 				{
-					obj.moveZ += obj.friction;
+					obj.moveZ += obj.friction*delta;
 					if(obj.moveZ > 0) obj.moveZ = 0;
 				} else if(obj.moveZ > 0) 
 				{
-					obj.moveZ -= obj.friction;
+					obj.moveZ -= obj.friction*delta;
 					if(obj.moveZ < 0) obj.moveZ = 0;
 				}
 			}

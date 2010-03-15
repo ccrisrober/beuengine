@@ -11,10 +11,20 @@
 #import "BEUCharacter.h"
 #import "BEUMath.h"
 #import "BEUInputEvent.h"
+#import "BEUInputObject.h"
 #import "BEUInputReceiverProtocol.h"
 #import "BEUInputMovementEvent.h"
 
+@class BEUInputObject;
+
 @interface BEUInputLayer : CCLayer {
+	
+	
+	//Array of input objects that will receive inputs
+	NSMutableArray *inputs;
+	
+	
+	
 	CGRect movementArea;
 	CGRect gestureArea;
 	UITouch *movementTouch;
@@ -34,9 +44,6 @@
 	BEUInputEvent *gestureEvent;
 	BEUInputMovementEvent *movementEvent;
 	
-	CCSprite *joystick;
-	CCSprite *joystickBase;
-	CCSprite *joystickStick;
 	
 }
 
@@ -50,6 +57,8 @@
 @property(nonatomic) CGRect movementArea;
 @property(nonatomic) CGRect gestureArea;
 
+-(void)addInput:(BEUInputObject *)input;
+-(void)removeInput:(BEUInputObject *)input;
 -(void)addReceiver:(id <BEUInputReceiverProtocol>)receiver;
 -(void)removeReceiver:(id <BEUInputReceiverProtocol>)receiver;
 -(void)dispatchEvent:(BEUInputEvent *)event;

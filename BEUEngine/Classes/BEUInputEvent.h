@@ -6,12 +6,15 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 #import "cocos2d.h"
+//#import "BEUInputObject.h"
 
+@class BEUInputObject;
 
 @interface BEUInputEvent : NSObject {
 	NSString *type;
-	int startTime;
-	int endTime;
+	
+	BEUInputObject *sender;
+	
 	BOOL completed;
 }
 
@@ -26,13 +29,13 @@ extern NSString *const BEUInputSwipeDown;
 extern NSString *const BEUInputSwipeForward;
 extern NSString *const BEUInputSwipeBack;
 
-@property(nonatomic,assign) NSString *type;
+@property(nonatomic,retain) NSString *type;
+@property(nonatomic,assign) BEUInputObject *sender;
 
-@property(nonatomic) int startTime;
-@property(nonatomic) int endTime;
 @property(nonatomic) BOOL completed;
 
--(id)initWithType:(NSString *)type_;
+-(id)initWithType:(NSString *)type_ sender:(BEUInputObject *)object;
++(id)eventWithType:(NSString *)type_ sender:(BEUInputObject *)object;
 -(void)complete;
 -(BEUInputEvent *)clone;
 @end

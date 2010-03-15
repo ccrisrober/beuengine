@@ -31,9 +31,5 @@
 -(void)setOrigPositions;
 -(void)setUpAI;
 -(void)stopAllAnimations;
--(void)walk;
--(void)idle;
--(void)receiveHit:(BEUAction *)action;
--(void)hit;
 
 @end

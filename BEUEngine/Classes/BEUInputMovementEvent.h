@@ -7,29 +7,24 @@
 //
 
 #import "BEUInputEvent.h"
-#import "BEUMath.h"
 
-@class BEUMath;
 @class BEUInputEvent;
 
 @interface BEUInputMovementEvent : BEUInputEvent {
-	CGPoint movementDelta;
-	float movementPercent;
-	float movementTheta;
-	float maximumMovementDist;
+	float angle;
+	float percent;
 	
-	//Array of positions during the movement event
-	NSMutableArray *positions;
 }
 
-extern NSString *const BEUInputMovement;
+extern NSString *const BEUInputJoystickMove;
 
-@property(nonatomic) float movementPercent;
-@property(nonatomic) float movementTheta;
-@property(nonatomic) float maximumMovementDist;
 
--(id)initWithStartPosition:(CGPoint)position maximumMovementDist:(float)dist;
+-(id)initWithAngle:(float)angle_ percent:(float)percent_ sender:(id)sender_;
 
--(void)addPosition:(CGPoint)position;
++(id)eventWithAngle:(float)angle_ percent:(float)percent_ sender:(id)sender_;
+
+@property(nonatomic) float angle;
+@property(nonatomic) float percent;
+
 
 @end
