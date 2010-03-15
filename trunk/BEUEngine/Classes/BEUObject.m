@@ -27,7 +27,7 @@ affectedByGravity,friction;
 	moveY = 0;
 	moveZ = 0;
 	
-	friction = 5.0f;
+	friction = 500.0f;
 	
 	hitArea = CGRectMake(0, 0, 1, 1);
 	moveArea = CGRectMake(0, 0, 1, 1);
@@ -50,20 +50,36 @@ affectedByGravity,friction;
 	
 }
 
--(void)draw
+
+-(float)applyForceX:(float)force
 {
-	[super draw];
-/*	if(drawBoundingBoxes)
-	{
-		
-		
-		
-		[[[BEUEnvironment sharedEnvironment] debugLayer] drawRect:[self convertRectToGlobal:moveArea] color: ccc4(0, 255, 0, 125) lineWidth:2.0f];
-		[[[BEUEnvironment sharedEnvironment] debugLayer] drawRect:[self convertRectToGlobal:hitArea] color: ccc4(0, 0, 255, 125) lineWidth:2.0f];
-		
-		
-	}*/
+	moveX += force;
+	if(force < 0 && moveX < force) moveX = force;
+	else if(force > 0 && moveX > force) moveX = force;
+	//moveX = force;
+	return moveX;
 }
+
+-(float)applyForceY:(float)force
+{
+	moveY += force;
+	if(force < 0 && moveY < force) moveY = force;
+	else if(force > 0 && moveY > force) moveY = force;
+	//moveY = force;
+	
+	return moveY;
+}
+
+-(float)applyForceZ:(float)force
+{
+	moveZ += force;
+	if(force < 0 && moveZ < force) moveZ = force;
+	else if(force > 0 && moveZ > force) moveZ = force;
+	//moveZ = force;
+	
+	return moveZ;
+}
+
 
 -(CGRect)convertRectToLocal:(CGRect)rect
 {
@@ -81,6 +97,8 @@ affectedByGravity,friction;
 	return CGRectMake(x + locRect.origin.x, z + y + locRect.origin.y, locRect.size.width, locRect.size.height);
 
 }
+
+
 	
 -(void) drawRect:(CGRect)rect
 {
@@ -108,13 +126,15 @@ affectedByGravity,friction;
 }
 
 -(CGRect) globalHitArea
-{
+{	
 	return [self convertRectToGlobal:hitArea];
 }
 
 -(CGRect) globalMoveArea
 {
-	return [self convertRectToGlobal:moveArea];
+	CGRect locRect = [self convertRectToLocal:moveArea];
+	
+	return CGRectMake(locRect.origin.x + x, locRect.origin.y + z, locRect.size.width, locRect.size.height);
 }
 
 @end

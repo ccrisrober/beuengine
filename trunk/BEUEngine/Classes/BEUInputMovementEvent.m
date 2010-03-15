@@ -11,52 +11,26 @@
 
 @implementation BEUInputMovementEvent
 
-@synthesize maximumMovementDist, movementPercent, movementTheta;
+@synthesize angle, percent;
 
-NSString *const BEUInputMovement = @"BEUInputMovement";
+NSString *const BEUInputJoystickMove = @"BEUInputJoystick";
 
--(id)initWithStartPosition:(CGPoint)position maximumMovementDist:(float)dist
+-(id)initWithAngle:(float)angle_ percent:(float)percent_ sender:(id)sender_
 {
-	if( (self = [super initWithType:BEUInputMovement]) )
+	if( (self = [super initWithType:BEUInputJoystickMove sender:sender_]) )
 	{
-		positions = [[NSMutableArray alloc] init];
-		
-		NSValue *pos = [NSValue valueWithCGPoint:position];
-		[positions addObject:pos];
-		
-		movementDelta = CGPointZero;
-		movementPercent = 0.0f;
-		movementTheta = 0.0f;
-		maximumMovementDist = dist;
+		angle = angle_;
+		percent = percent_;
 		
 	}
 	
 	return self;
 }
 
--(void)addPosition:(CGPoint)position
++(id)eventWithAngle:(float)angle_ percent:(float)percent_ sender:(id)sender_
 {
-	CGPoint start = [[positions objectAtIndex:0] CGPointValue];
-	movementPercent = hypot(position.x-start.x, position.y-start.y)/maximumMovementDist;
-	if(movementPercent > 1) movementPercent = 1;			
-	movementTheta = [BEUMath angleFromPoint:start toPoint:position];
-	
-	
+	return [[[self alloc] initWithAngle:angle_ percent:percent_ sender:sender_] autorelease];
 }
 
--(void)complete
-{
-	movementPercent = 0;
-	movementTheta = 0;
-	movementDelta = CGPointZero;
-	
-	[super complete];
-}
-
--(void)dealloc
-{
-	[positions release];
-	[super dealloc];
-}
 
 @end

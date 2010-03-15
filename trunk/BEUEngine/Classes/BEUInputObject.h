@@ -1,0 +1,34 @@
+//
+//  BEUInputObject.h
+//  BEUEngine
+//
+//  Created by Chris Mele on 3/13/10.
+//  Copyright 2010 Invulse. All rights reserved.
+//
+
+#import "BEUInputLayer.h"
+#import "cocos2d.h"
+
+@class BEUInputLayer;
+
+@interface BEUInputObject : CCSprite {
+	UITouch *ownedTouch;
+	BEUInputLayer *inputLayer;
+	
+	//The tag property is used to easily distinguish which input is which, assign tag for specific buttons or joysticks, 
+	//so characters can easily know what to do with events from inputs
+	
+}
+
+@property(nonatomic, assign) BEUInputLayer *inputLayer;
+@property(nonatomic, assign) UITouch *ownedTouch;
+
+-(BOOL)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
+
+-(void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event;
+
+-(void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event;
+
+-(CGPoint)getLocalTouchPoint:(UITouch *)touch;
+
+@end

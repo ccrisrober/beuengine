@@ -59,6 +59,10 @@
 	BEUObject *orientToObject;
 	
 	BEUInputMovementEvent *inputEvent;
+	
+	//angle and percent to continuosly apply to movex and movez
+	float movingAngle;
+	float movingPercent;
 
 }
 
@@ -80,8 +84,21 @@ extern NSString *const BEUCharacterStateAttacking;
 //Basic move function with angle and percent which control the percent of moveSpeed that the character moves
 -(void)moveCharacterWithAngle:(float)angle percent:(float)percent;
 
+//Basic receiver of hit actions, which will take the forces and apply them to the character
+//Also makes sure that the character can receive the hit and returns BOOL value on checking
+-(BOOL)receiveHit:(BEUAction *)action;
 
+//empty hit function to override for each character, function actually called if hit is
+//not blocked by the character
+-(void)hit:(BEUAction *)action;
 
+//Standard walk function called when move message is received
+-(void)walk;
+
+//Standard walk function when move message is received and moveX and Z are 0
+-(void)idle;
+
+//Killing of character
 -(void)kill;
 
 

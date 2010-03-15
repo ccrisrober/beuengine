@@ -11,7 +11,7 @@
 
 @implementation BEUInputEvent
 
-@synthesize type, completed, startTime, endTime;
+@synthesize type, completed, sender;
 
 NSString *const BEUInputTap = @"BEUInputTap";
 NSString *const BEUInputSwipeLeft = @"BEUInputSwipeLeft";
@@ -23,15 +23,20 @@ NSString *const BEUInputSwipeForward = @"BEUInputSwipeForward";
 NSString *const BEUInputSwipeBack = @"BEUInputSwipeBack";
 
 
--(id)initWithType:(NSString *)type_
+-(id)initWithType:(NSString *)type_ sender:(BEUInputObject *)object
 {
 	if( (self = [super init]) ) {
 		self.type = type_;
-		
+		self.sender = object;
 		completed = NO;
 	}
 	
 	return self;
+}
+
++(id)eventWithType:(NSString *)type_ sender:(BEUInputObject *)object
+{
+	return [[[self alloc] initWithType:type_ sender:object] autorelease];
 }
 
 -(void)complete
@@ -41,10 +46,8 @@ NSString *const BEUInputSwipeBack = @"BEUInputSwipeBack";
 
 -(BEUInputEvent *)clone
 {
-	BEUInputEvent *clonedEvent = [[BEUInputEvent alloc] initWithType:type];
+	BEUInputEvent *clonedEvent = [[BEUInputEvent alloc] initWithType:type sender:sender];
 	clonedEvent.completed = completed;
-	clonedEvent.startTime = startTime;
-	clonedEvent.endTime = endTime;
 	
 	return clonedEvent;
 }
@@ -52,6 +55,9 @@ NSString *const BEUInputSwipeBack = @"BEUInputSwipeBack";
 -(void)dealloc
 {
 	[type release];
+	
+	sender = nil;
+	
 	[super dealloc];
 }
 

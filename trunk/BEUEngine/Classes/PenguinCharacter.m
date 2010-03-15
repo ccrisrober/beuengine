@@ -27,7 +27,7 @@
 {
 	
 	movementSpeed = 200.0f;
-	friction = 12.0f;
+	friction = 500.0f;
 	
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Penguin.plist"];
 	
@@ -101,10 +101,10 @@
 	 ];
 	
 	hitArea = CGRectMake(-35, 0, 70, 75);
-	moveArea = CGRectMake(-20,0,40,10);
+	moveArea = CGRectMake(-10,0,20,5);
 	
-	drawBoundingBoxes = NO;
-	isWall = NO;
+	drawBoundingBoxes = YES;
+	isWall = YES;
 	
 }
 
@@ -510,7 +510,7 @@
 														  hitArea: [self convertRectToGlobal: punchHit] 
 														 hitDepth: [self convertRectToGlobal: punchDepth] 
 															power: 20 
-														   xForce: 120.0f 
+														   xForce: (self.scaleX * 120.0f) 
 														   yForce: 0.0f
 														   zForce: 0.0f];
 	[[BEUActionsController sharedController] addAction:punchToSend];
@@ -566,7 +566,7 @@
 														  hitArea: [self convertRectToGlobal: punchHit] 
 														 hitDepth: [self convertRectToGlobal: punchDepth] 
 															power: 20 
-														   xForce: 130.0f 
+														   xForce: (self.scaleX * 120.0f)
 														   yForce: 0.0f
 														   zForce: 0.0f];
 	[[BEUActionsController sharedController] addAction:punchToSend];
@@ -627,8 +627,8 @@
 														  hitArea: [self convertRectToGlobal: punchHit] 
 														 hitDepth: [self convertRectToGlobal: punchDepth] 
 															power: 20 
-														   xForce: 120.0f 
-														   yForce: 400.0f
+														   xForce: (self.scaleX * 120.0f)
+														   yForce: 170.0f
 														   zForce: 0.0f];
 	[[BEUActionsController sharedController] addAction:punchToSend];
 	
@@ -700,15 +700,7 @@
 {
 	[super step:delta];
 	
-	if(canMove)
-	{
-		if(inputEvent.movementPercent > 0)
-		{
-			[self walk];
-		} else {
-			[self idle];
-		}
-	}
+
 }
 
 @end

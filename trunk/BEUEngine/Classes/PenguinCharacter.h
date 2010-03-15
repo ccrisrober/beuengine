@@ -32,8 +32,6 @@
 
 -(void)buildPenguin;
 -(void)createAnimations;
--(void)walk;
--(void)idle;
 -(void)stopAllAnimations;
 -(void)setOrigPositions;
 

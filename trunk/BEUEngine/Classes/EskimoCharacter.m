@@ -60,11 +60,11 @@
 	
 	[self setOrigPositions];
 	
-	moveArea = CGRectMake(-18,0,36,15);
+	moveArea = CGRectMake(-9,0,18,10);
 	hitArea = CGRectMake(-32,0,65,130);
 	
-	drawBoundingBoxes = NO;
-	isWall = NO;
+	drawBoundingBoxes = YES;
+	isWall = YES;
 	
 }
 
@@ -218,7 +218,7 @@
 	canMove = YES;
 }
 
--(void)hit
+-(void)hit:(BEUAction *)action;
 {
 	canMove = NO;
 	
@@ -233,52 +233,70 @@
 			
 			[animations setObject:
 						   [CCSequence actions:
-							[CCRotateTo actionWithDuration:0.2f angle:-20.0f],
-							[CCRotateTo actionWithDuration:0.3f angle:0.0f],
+							[CCRotateTo actionWithDuration:0.35f angle:0.0f],
 							[CCCallFunc actionWithTarget:self selector:@selector(idle)],
 							nil
 							]
 							
 						   forKey:@"hitAnimationEskimo"];
+			[animations setObject:
+			 [CCSequence actions:
+			  [CCRotateTo actionWithDuration:0.35f angle:0.0f],
+			  nil
+			  ]
+			 
+						   forKey:@"hitAnimationEskimoHead"];
+			[animations setObject:
+			 [CCSequence actions:
+			  [CCRotateTo actionWithDuration:0.35f angle:0.0f],
+			  nil
+			  ]
+			 
+						   forKey:@"hitAnimationEskimoRightArm"];
+			[animations setObject:
+			 [CCSequence actions:
+			  [CCRotateTo actionWithDuration:0.35f angle:0.0f],
+			  nil
+			  ]
+			 
+						   forKey:@"hitAnimationEskimoLeftArm"];
+			
+			[animations setObject:
+			 [CCSequence actions:
+			  [CCRotateTo actionWithDuration:0.35f angle:0.0f],
+			  nil
+			  ]
+			 
+						   forKey:@"hitAnimationEskimoRightLeg"];
+			
+			[animations setObject:
+			 [CCSequence actions:
+			  [CCRotateTo actionWithDuration:0.35f angle:0.0f],
+			  nil
+			  ]
+			 
+						   forKey:@"hitAnimationEskimoLeftLeg"];
 		}
 		
-		[head runAction:[animations valueForKey:@"hitAnimationEskimo"]];
+		eskimo.rotation = -20.0f;
 		
+		head.rotation = 25.0f;
+		
+		leftArm.rotation = -50.0f;
+		rightArm.rotation = 15.0f;
+		
+		leftLeg.rotation = -40.0f;
+		rightLeg.rotation = -20.0f;
+		
+		[eskimo runAction:[animations valueForKey:@"hitAnimationEskimo"]];
+		[head runAction:[animations valueForKey:@"hitAnimationEskimoHead"]];
+		[rightArm runAction:[animations valueForKey:@"hitAnimationEskimoRightArm"]];
+		[leftArm runAction:[animations valueForKey:@"hitAnimationEskimoLeftArm"]];
+		[rightLeg runAction:[animations valueForKey:@"hitAnimationEskimoRightLeg"]];
+		[leftLeg runAction:[animations valueForKey:@"hitAnimationEskimoLeftLeg"]];
 	}
 }
 
--(BOOL)receiveHit:(BEUAction *)action
-{
-	
-	BEUCharacter *sender = (BEUCharacter *)action.sender;
-	BEUHitAction *hit = ((BEUHitAction *)action);
-	if(sender != self && sender.enemy != self.enemy)
-	{
-		if(state == BEUCharacterStateBlocking) return YES;
-		
-		life -= hit.power;	
-		canMove = 0;
-		if(sender.x < self.x)
-		{
-			moveX = hit.xForce;
-			
-		} else {
-			moveX = -hit.xForce;
-		}
-		
-		moveY = hit.yForce;
-		moveZ = hit.zForce;
-		
-		NSLog(@"RECIEVED HIT: %1.2f, %1.2f, %1.2f",hit.xForce,hit.yForce,hit.zForce);
-		
-		//if(life <= 0) [self death];
-		
-		return YES;
-		
-	} else {
-		return NO;
-	}
-}
 
 -(void)dealloc
 {

@@ -11,6 +11,7 @@
 @class BEUActionsController;
 
 @interface BEUAction : NSObject {
+	
 	//reference to object that sent the action
 	id sender;
 	

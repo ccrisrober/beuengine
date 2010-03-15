@@ -63,14 +63,38 @@
 @property(nonatomic) BOOL isWall;
 @property(nonatomic) BOOL affectedByGravity;
 
+
+//step the object
 -(void)step:(ccTime)delta;
 
+//apply xForce to object, correct way of moving an object
+-(float)applyForceX:(float)force;
+
+//apply xForce to object, correct way of moving an object
+-(float)applyForceY:(float)force;
+
+//apply xForce to object, correct way of moving an object
+-(float)applyForceZ:(float)force;
+
+
+//Get the hitArea Rect of an object in global coordinates
 -(CGRect)globalHitArea;
+
+//Get the moveArea rect of an object in global coordinates
 -(CGRect)globalMoveArea;
+
+//Make sure a rect is oriented the right way by passing into this
 -(CGRect)convertRectToLocal:(CGRect)rect;
+
+//Convert a local rect to global coordinates
 -(CGRect)convertRectToGlobal:(CGRect)rect;
+
+//Set the direction the object is facing, default is right
 -(void)setFacingRight:(BOOL)right;
+
+//Is Object facing right
 -(BOOL)facingRight;
+
 
 -(void)drawRect:(CGRect)rect;
 

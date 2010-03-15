@@ -44,30 +44,64 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 	if(canMove)
 	{
 		double moveSpeed = movementSpeed*percent;
-		moveX = cos(angle)*moveSpeed;
-		moveZ = sin(angle)*moveSpeed;
-		
+		[self applyForceX: cos(angle)*moveSpeed];
+		[self applyForceZ: sin(angle)*moveSpeed];
 		
 	}
 	
 	
 }
 
+-(BOOL)receiveHit:(BEUAction *)action
+{
+	
+	BEUCharacter *sender = (BEUCharacter *)action.sender;
+	BEUHitAction *hit = ((BEUHitAction *)action);
+	if(sender != self && sender.enemy != self.enemy)
+	{
+		[self applyForceX:hit.xForce];
+		[self applyForceZ:hit.zForce];
+		
+		//If character is blocking, return 
+		if(state != BEUCharacterStateBlocking)
+		{
+			[self hit:action];
+			[self applyForceY:hit.yForce];
+			life -= hit.power;	
+		}
+		
+		return YES;
+		
+	} else {
+		return NO;
+	}
+}
+
+-(void)hit:(BEUAction *)action
+{
+	//Override me and place hit animations and character specific actions here
+}
+
+-(void)walk
+{
+	//Override me with walk animation here
+}
+
+-(void)idle
+{
+	//Override me with idle animation here
+}
+
 -(void)receiveInput:(BEUInputEvent *)event
 {
 	//Check if input event is a movement event, if not send event to the movesController
-	if(event.type == BEUInputMovement)
+	
+	if(event.type == BEUInputJoystickMove)
 	{
-		inputEvent = event;
-		/*BEUInputMovementEvent *moveEvent = (BEUInputMovementEvent *)event;
-		
-		[self moveCharacterWithAngle: moveEvent.movementTheta percent:moveEvent.movementPercent];
-		
-		//Release the event when its completed, do not release until then so 
-		//BEUInputLayer can continue to modify the theta and percent values of it
-		if(event.completed){
-			//[event release];
-		}*/
+		BEUInputMovementEvent *moveEvent = (BEUInputMovementEvent *)event;
+		movingAngle	= moveEvent.angle;
+		movingPercent = moveEvent.percent;
+		//[self moveCharacterWithAngle:moveEvent.angle percent:moveEvent.percent];		
 	} else {
 		
 		//Send input to the movesController
@@ -93,13 +127,20 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 
 -(void)step:(ccTime)delta
 {
-	if(inputEvent)
-	{
-		if(!inputEvent.completed) [self moveCharacterWithAngle: inputEvent.movementTheta percent:inputEvent.movementPercent];		
-	}
+	
 	
 	if(canMove)
 	{
+		
+		[self moveCharacterWithAngle:movingAngle percent:movingPercent];
+		
+		if(fabsf(movingPercent) > 0)
+		{
+			[self walk];
+		} else {
+			[self idle];
+		}
+		
 		if(!orientToObject)
 		{
 			if(moveX > 0)
