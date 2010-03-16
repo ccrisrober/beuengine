@@ -11,7 +11,7 @@
 
 @implementation BEUAction
 
-@synthesize sender, selector, receivableClasses, duration, sendsLeft;
+@synthesize sender, selector, receivableClasses, duration, sendsLeft, completeTarget, completeSelector;
 
 -(id)init
 {
@@ -73,6 +73,17 @@
 	
 	//When subclassing BEUAction you can specify custom checks from here then return based on those
 	return YES;
+}
+
+-(void)complete
+{
+	if(completeTarget)
+	{
+		if([completeTarget respondsToSelector:completeSelector])
+		{
+			[completeTarget performSelector:completeSelector];
+		}
+	}
 }
 
 

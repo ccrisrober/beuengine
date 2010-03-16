@@ -16,6 +16,7 @@
 #import "BEUInputJoystick.h"
 #import "BEUInputGestureArea.h"
 #import "BEUInputButton.h"
+#import "NinjaStarFish.h"
 
 @implementation BEUGame
 
@@ -42,8 +43,7 @@
 		BEUArea *firstArea = [[[BEUEnvironment sharedEnvironment] areas] objectAtIndex:0];
 		[firstArea lock];
 		
-		 
-		
+				
 		BEUCharacter *character = [[PenguinCharacter alloc] init];
 		character.x = 50;
 		character.z = 100;

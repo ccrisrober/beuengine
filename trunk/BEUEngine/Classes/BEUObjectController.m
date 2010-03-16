@@ -62,9 +62,11 @@ static BEUObjectController *_sharedController = nil;
 
 -(void)removeObject:(BEUObject *)object
 {	
-	[objects removeObject:object];
+	
 	[[BEUEnvironment sharedEnvironment] removeObject:object];
 	[[BEUActionsController sharedController] removeReceiver:object];
+	[objects removeObject:object];
+	
 }
 
 -(void)addCharacter:(BEUCharacter *)character
@@ -127,12 +129,13 @@ static BEUObjectController *_sharedController = nil;
 -(void)moveObjects:(ccTime)delta
 {
 	
-	//NSLog(@"MOVE OBJECTS:%@",objects);
+	
 	
 	for ( BEUObject *obj in objects )
 	{
 		if(obj.moveX != 0 || obj.moveY != 0 || obj.moveZ != 0 || obj.y > 0)
 		{
+			
 			CGRect movedRect = [obj globalMoveArea];
 			
 			BOOL intersectsX = NO;
@@ -151,10 +154,15 @@ static BEUObjectController *_sharedController = nil;
 			//If there is no intersection in tile walls check each object that has isWall as YES
 			if(!intersectsX)
 			{
-				for(BEUObject *object in objects)
+				if(obj.isWall)
 				{
-					if( (object != obj) && (object.isWall) ) 
-						if( (intersectsX = CGRectIntersectsRect([object globalMoveArea], movedRect)) ) break;
+					
+					for(BEUObject *object in objects)
+					{
+						if( (object != obj) && (object.isWall) ) 
+							if( (intersectsX = CGRectIntersectsRect([object globalMoveArea], movedRect)) ) break;
+					}
+					
 				}
 			}
 			
@@ -173,10 +181,13 @@ static BEUObjectController *_sharedController = nil;
 			
 			//If there is no intersection in tile walls ehck each object that has isWall as YES
 			if(!intersectsZ){
-				for(BEUObject *object in objects)
+				if(obj.isWall)
 				{
-					if( (object != obj) && (object.isWall) && obj.isWall) 
-						if( (intersectsZ = CGRectIntersectsRect([object globalMoveArea], movedRect)) ) break;
+					for(BEUObject *object in objects)
+					{
+						if( (object != obj) && (object.isWall)) 
+							if( (intersectsZ = CGRectIntersectsRect([object globalMoveArea], movedRect)) ) break;
+					}
 				}
 			}
 					

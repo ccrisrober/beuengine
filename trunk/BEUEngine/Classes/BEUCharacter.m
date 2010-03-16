@@ -45,7 +45,7 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 	{
 		double moveSpeed = movementSpeed*percent;
 		[self applyForceX: cos(angle)*moveSpeed];
-		[self applyForceZ: sin(angle)*moveSpeed];
+		[self applyForceZ: sin(angle)*moveSpeed*.5];
 		
 	}
 	

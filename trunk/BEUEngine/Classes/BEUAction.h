@@ -27,6 +27,13 @@
 	
 	//amount of times the action can be sent, this overrides duration if sendsLeft reaches 0 before duration is up, set to -1 to make infinite
 	int sendsLeft;
+	
+	
+	//complete target
+	id completeTarget;
+	
+	//complete selector
+	SEL completeSelector;
 }
 
 @property(nonatomic, retain) id sender;
@@ -34,6 +41,9 @@
 @property(nonatomic, retain) NSMutableArray *receivableClasses;
 @property(nonatomic) int duration;
 @property(nonatomic) int sendsLeft;
+
+@property(nonatomic, assign) id completeTarget;
+@property(nonatomic) SEL completeSelector;
 
 //Initialize the action with a sender, selector to perform and duration that the action will be persistant for
 -(id)initWithSender:(id)sender_ selector:(SEL)selector_ duration:(int)duration_;
@@ -48,5 +58,7 @@
 //Tests like hit tests and checks if the object is ready to receive should be performed here, not in the object itself
 
 -(BOOL)canReceiveAction:(id)receiver;
+
+-(void)complete;
 
 @end
