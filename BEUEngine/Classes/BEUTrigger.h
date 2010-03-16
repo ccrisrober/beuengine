@@ -16,6 +16,7 @@ extern NSString *const BEUTriggerKilled;
 extern NSString *const BEUTriggerAllEnemiesKilled;
 extern NSString *const BEUTriggerEnteredArea;
 extern NSString *const BEUTriggerExitedArea;
+extern NSString *const BEUTriggerRemoveObject;
 
 @property(nonatomic,retain) NSString *type;
 @property(nonatomic,retain) id sender;

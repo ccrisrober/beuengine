@@ -11,9 +11,11 @@
 #import "BEUMovesController.h"
 #import "BEUSprite.h"
 #import "cocos2d.h"
+#import "NinjaStarFish.h"
 
 @class BEUCharacter;
 @class BEUSprite;
+@class NinjaStarFish;
 
 @interface PenguinCharacter : BEUCharacter {
 	
@@ -46,6 +48,10 @@
 -(void)kick1Complete;
 -(void)kick2:(BEUMove *)move;
 -(void)kick2Complete;
+
+-(void)throwNinjaStar:(BEUMove *)move;
+-(void)throwStar;
+-(void)throwComplete;
 
 -(void)jump;
 

@@ -82,6 +82,7 @@ static BEUActionsController *sharedController_ = nil;
 		
 		//If sendsLeft is 0 then remove the action from the list
 		if(action.sendsLeft == 0){
+			[action complete];
 			[self removeAction:action];
 			continue;
 		}
@@ -90,6 +91,7 @@ static BEUActionsController *sharedController_ = nil;
 		if(action.duration > 0){
 			action.duration--;
 			if(action.duration == 0){
+				[action complete];
 				[self removeAction:action];
 				continue;
 			}

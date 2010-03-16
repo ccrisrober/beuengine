@@ -93,10 +93,10 @@
 	 ];
 	
 	[movesController addMove:
-	 [BEUMove moveWithName:@"kick1"
+	 [BEUMove moveWithName:@"throwStar"
 				 character:self
 				  sequence:[[NSArray alloc] initWithObjects:BEUInputSwipeForward, nil]
-				  selector:@selector(kick1:)
+				  selector:@selector(throwNinjaStar:)
 	  ]
 	 ];
 	
@@ -371,6 +371,28 @@
 						  ]
 				  forKey:@"rightLegKick1"];
 	
+	[animations setValue:[CCSequence actions: 
+						  [CCRotateTo actionWithDuration:0.2f angle:-20.0f],
+						  [CCRotateTo actionWithDuration:0.1f angle:0.0f],
+						  nil
+						  ]
+				  forKey:@"leftWingThrow"];
+	
+	[animations setValue:[CCSequence actions:
+						  [CCRotateTo actionWithDuration:0.2f angle:20.0f],
+						  [CCRotateTo actionWithDuration:0.1f angle:0.0f],
+						  nil
+						  ] 
+				  forKey:@"bodyThrow"];
+	
+	[animations setValue:[CCSequence actions:
+						 [CCDelayTime actionWithDuration:0.15f],
+						 [CCCallFunc actionWithTarget:self selector:@selector(throwStar)],
+						 [CCDelayTime actionWithDuration:0.15f],
+						 [CCCallFunc actionWithTarget:self selector:@selector(throwComplete)],
+						 nil
+						 ] 
+				 forKey:@"selfThrow"];
 }
 
 -(void)walk
@@ -693,6 +715,47 @@
 -(void)kick2Complete
 {
 	
+}
+
+
+-(void)throwNinjaStar:(BEUMove *)move
+{
+	canMove = NO;
+	currentMove = move;
+	currentAnimation = @"throwingNinjaStar";
+	
+	[self stopAllAnimations];
+	[self setOrigPositions];
+	
+	
+	leftWing.rotation = -190.0f;
+	
+	[leftWing runAction:[animations valueForKey:@"leftWingThrow"]];
+	[body runAction:[animations valueForKey:@"bodyThrow"]];
+	[self runAction:[animations valueForKey:@"selfThrow"]];
+	
+		
+	
+}
+	   
+-(void)throwStar
+{
+	NinjaStarFish *ninjaStar = [[[NinjaStarFish alloc] initWithPower:50 weight:50 fromCharacter:self] autorelease];
+	ninjaStar.x = x + moveArea.size.width;
+	ninjaStar.z = z;
+	ninjaStar.y = 70;
+	[ninjaStar moveWithAngle:0 magnitude:self.scaleX*400.0f];
+	
+	[[BEUObjectController sharedController] addObject:ninjaStar];
+	
+}
+
+-(void)throwComplete
+{
+	canMove = YES;
+	[currentMove completeMove];
+	[self stopAllAnimations];
+	[self setOrigPositions];
 }
 
 -(void)jump
