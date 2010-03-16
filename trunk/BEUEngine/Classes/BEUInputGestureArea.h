@@ -10,6 +10,7 @@
 #import "BEUInputEvent.h"
 
 @class BEUInputObject;
+@class BEUInputEvent;
 
 @interface BEUInputGestureArea : BEUInputObject {
 	

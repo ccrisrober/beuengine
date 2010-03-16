@@ -83,6 +83,7 @@ static BEUTriggerController *_sharedController;
 			 selector:(SEL)selector_ 
 		   fromSender:(id)sender_
 {
+	NSMutableArray *listenersToDiscard = [NSMutableArray array];
 	for ( BEUTriggerListener *listener in listeners )
 	{
 		if(listener.type == type_ 
@@ -90,10 +91,12 @@ static BEUTriggerController *_sharedController;
 		   && listener.selector == selector_
 		   && listener.fromSender == sender_)
 		{
-			[listeners removeObject:listener];
+			[listenersToDiscard	addObject:listener];
 		}
 		
 	}
+	
+	[listenersToDiscard removeObjectsInArray:listenersToDiscard];
 }
 
 -(void)removeAllListenersFor:(id)listener_

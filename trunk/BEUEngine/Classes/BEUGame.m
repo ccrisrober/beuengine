@@ -15,6 +15,8 @@
 #import "BEUSpawner.h"
 #import "BEUInputJoystick.h"
 #import "BEUInputGestureArea.h"
+#import "BEUInputButton.h"
+
 @implementation BEUGame
 
 @synthesize environment, inputLayer;
@@ -37,6 +39,8 @@
 			[[BEUEnvironment sharedEnvironment] addArea:area];
 		}
 		
+		BEUArea *firstArea = [[[BEUEnvironment sharedEnvironment] areas] objectAtIndex:0];
+		[firstArea lock];
 		
 		 
 		
@@ -47,14 +51,14 @@
 		[[BEUObjectController sharedController] setPlayerCharacter: character];
 		
 		
-		for(int i=0; i<1; i++){
+		//for(int i=0; i<1; i++){
 			BEUCharacter *otherChar = [[EskimoCharacter alloc] init];
 			otherChar.enemy = YES;
 			otherChar.x = 200 + arc4random()%350;
 			otherChar.z = 100 + arc4random()%100;
 			[[BEUObjectController sharedController] addCharacter:otherChar];
-			
-		}
+		[[BEUTriggerController sharedController] addListener:firstArea type:BEUTriggerAllEnemiesKilled selector:@selector(unlock)];
+		//}
 		
 		/*BEUSpawner *spawner = [[BEUSpawner alloc] initWithSpawnArea:CGRectMake(300, 0, 50, 100) 
 															  types:[NSMutableSet setWithObjects:[BEUTestCharacter class],nil]
@@ -66,15 +70,27 @@
 		
 		//ADD INPUT LAYER TO STAGE, ADD LAST
 		BEUInputJoystick *joystick = [[BEUInputJoystick alloc] initWithRadius:50 minZone:0 maxZone:30];
-		joystick.position = ccp(100,65);
+		joystick.position = ccp(100,85);
 		joystick.tag = 0;
 		
 		
-		BEUInputGestureArea *gestureArea = [[BEUInputGestureArea alloc] initWithArea:CGRectMake(240,0,240,320)];
+		BEUInputGestureArea *gestureArea = [[BEUInputGestureArea alloc] initWithArea:CGRectMake(240,120,240,200)];
+		gestureArea.tag = 1;
+		
+		BEUInputButton *button = [[BEUInputButton alloc] 
+								  initWithUpSprite: [CCSprite spriteWithFile:@"TestButton-Up.png"] 
+										downSprite:[CCSprite spriteWithFile:@"TestButton-Down.png"]
+								  ];
+		button.position = ccp(400,100);
+		button.tag = 2;
+		button.scale = 1.6;
+		
 		
 		inputLayer = [[BEUInputLayer alloc] init];
 		[inputLayer addInput:joystick];
 		[inputLayer addInput:gestureArea];
+		[inputLayer addInput:button];
+		
 		[self addChild:inputLayer];
 		
 		//[inputLayer assignPlayer:character];

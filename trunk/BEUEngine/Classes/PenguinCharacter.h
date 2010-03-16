@@ -47,5 +47,7 @@
 -(void)kick2:(BEUMove *)move;
 -(void)kick2Complete;
 
+-(void)jump;
+
 
 @end

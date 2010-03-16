@@ -29,6 +29,11 @@ extern NSString *const BEUInputSwipeDown;
 extern NSString *const BEUInputSwipeForward;
 extern NSString *const BEUInputSwipeBack;
 
+//Button Input Events
+extern NSString *const BEUInputButtonDown;
+extern NSString *const BEUInputButtonUp;
+
+
 @property(nonatomic,retain) NSString *type;
 @property(nonatomic,assign) BEUInputObject *sender;
 

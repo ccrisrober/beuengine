@@ -11,14 +11,20 @@
 
 @implementation BEUArea
 
-@synthesize tiles;
+@synthesize tiles, transition;
+
+
+NSString *const BEUAreaTransitionSnap = @"area_transition_snap";
+NSString *const BEUAreaTransitionContinue = @"area_transition_continue";
+
 
 -(id)init
 {
 	if( (self=[super init]) ) {
 		
 		self.anchorPoint = ccp(0.0f,0.0f);
-		
+		transition = BEUAreaTransitionContinue;
+		locked = NO;
 		tiles = [[NSMutableArray alloc] init];
 	}
 	
@@ -36,11 +42,30 @@
 	return self;
 }
 
+-(id)initWithTiles:(NSMutableArray *)tiles_ transition:(NSString *)transtion_
+{
+	[self initWithTiles:tiles_];
+	
+	transition = transtion_;
+	
+	return self;
+}
+
+-(void)lock
+{
+	locked = YES;
+}
+
+-(void)unlock
+{
+	locked = NO;
+}
+
 -(void)addTile:(BEUEnvironmentTile *)tile
 {
 	float offset = 0.0f;
 	[tiles addObject:tile];
-	NSLog(@"ADD TILE: %1.2f, TO: %1.2f",tile.contentSize.width,self.contentSize.width);
+	//NSLog(@"ADD TILE: %1.2f, TO: %1.2f",tile.contentSize.width,self.contentSize.width);
 	tile.position = ccp(self.contentSize.width - offset, 0.0f);
 	[self addChild:tile];
 	
@@ -53,6 +78,9 @@
 		CGPoint offset = ccp(self.position.x, self.position.y);
 		[tile createTileWallsWithOffset:offset];
 	}
+	
+	leftEdgeWall = CGRectMake(self.position.x - 1, 0, 1, [[CCDirector sharedDirector] winSize].height);
+	rightEdgeWall = CGRectMake(self.position.x + self.contentSize.width, 0, 1, [[CCDirector sharedDirector] winSize].height);
 }
 
 -(BOOL)doesRectCollideWithTilesWalls:(CGRect)objRect
@@ -64,6 +92,11 @@
 			}
 		}
 	}
+	if(locked)
+	{
+		if(CGRectIntersectsRect(objRect, leftEdgeWall)) return YES;
+		if(CGRectIntersectsRect(objRect, rightEdgeWall)) return YES;
+	}
 	
 	return NO;
 }
@@ -73,47 +106,6 @@
 	[tiles release];	
 	[super dealloc];
 }
-
-typedef struct {
-	float x1, y1, x2, y2;
-} BBox;
-
-- (void)updateContentSize {
-	BBox outline = {0, 0, 0, 0};
-	
-	for (CCNode* child in self.children) {
-		CGPoint position = child.position;
-		CGSize size = child.contentSize;
-		
-		BBox bbox;
-		bbox.x1 = position.x;
-		bbox.y1 = position.y;
-		bbox.x2 = position.x + size.width;
-		bbox.y2 = position.y + size.height;
-		
-		if (bbox.x1 < outline.x1) { outline.x1 = bbox.x1; }
-		if (bbox.y1 < outline.y1) { outline.y1 = bbox.y1; }
-		if (bbox.x2 > outline.x2) { outline.x2 = bbox.x2; }
-		if (bbox.y2 > outline.y2) { outline.y2 = bbox.y2; }
-	}
-	
-	CGSize newContentSize;
-	newContentSize.width = outline.x2 - outline.x1;
-	newContentSize.height = outline.y2 - outline.y1;
-	self.contentSize = newContentSize;
-}
-
--(id) addChild: (CCNode*) child z:(int)z tag:(int) aTag {
-	id result = [super addChild:child z:z tag:aTag];
-	[self updateContentSize];
-	return result;
-}
-
--(void) removeChild: (CCNode*)child cleanup:(BOOL)cleanup {
-	[super removeChild:child cleanup:cleanup];
-	[self updateContentSize];
-}
-
 
 
 

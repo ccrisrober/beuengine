@@ -8,10 +8,12 @@
 
 #import "BEUInputLayer.h"
 #import "cocos2d.h"
+#import "BEUSprite.h"
 
+@class BEUSprite;
 @class BEUInputLayer;
 
-@interface BEUInputObject : CCSprite {
+@interface BEUInputObject : BEUSprite {
 	UITouch *ownedTouch;
 	BEUInputLayer *inputLayer;
 	

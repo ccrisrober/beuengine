@@ -68,6 +68,8 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 			[self hit:action];
 			[self applyForceY:hit.yForce];
 			life -= hit.power;	
+			
+			if(life <= 0) [self death:action];
 		}
 		
 		return YES;
@@ -96,7 +98,7 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 {
 	//Check if input event is a movement event, if not send event to the movesController
 	
-	if(event.type == BEUInputJoystickMove)
+	if(event.type == BEUInputJoystickMove && event.sender.tag == 0)
 	{
 		BEUInputMovementEvent *moveEvent = (BEUInputMovementEvent *)event;
 		movingAngle	= moveEvent.angle;
@@ -116,6 +118,11 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 		
 		[movesController sendInput:event];
 	}
+}
+
+-(void)death:(BEUAction *)action
+{
+	[self kill];
 }
 
 -(void)kill
