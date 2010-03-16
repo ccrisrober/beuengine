@@ -60,16 +60,16 @@
 		{
 			if(vDist >= 0)
 			{
-				[self dispatchEvent:[[BEUInputEvent alloc] initWithType:BEUInputSwipeUp]];
+				[inputLayer dispatchEvent:[[BEUInputEvent alloc] initWithType:BEUInputSwipeUp sender:self]];
 			} else {
-				[self dispatchEvent:[[BEUInputEvent alloc] initWithType:BEUInputSwipeDown]];
+				[inputLayer dispatchEvent:[[BEUInputEvent alloc] initWithType:BEUInputSwipeDown sender:self]];
 			}
 		} else {
 			if(hDist >= 0)
 			{
-				[self dispatchEvent:[[BEUInputEvent alloc] initWithType:BEUInputSwipeRight]];
+				[inputLayer dispatchEvent:[[BEUInputEvent alloc] initWithType:BEUInputSwipeRight sender:self]];
 			} else {
-				[self dispatchEvent:[[BEUInputEvent alloc] initWithType:BEUInputSwipeLeft]];
+				[inputLayer dispatchEvent:[[BEUInputEvent alloc] initWithType:BEUInputSwipeLeft sender:self]];
 			}
 		}
 		

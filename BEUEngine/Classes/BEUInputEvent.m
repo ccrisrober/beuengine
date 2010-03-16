@@ -22,6 +22,8 @@ NSString *const BEUInputSwipeDown = @"BEUInputSwipeDown";
 NSString *const BEUInputSwipeForward = @"BEUInputSwipeForward";
 NSString *const BEUInputSwipeBack = @"BEUInputSwipeBack";
 
+NSString *const BEUInputButtonDown = @"BEUInputButtonDown";
+NSString *const BEUInputButtonUp = @"BEUInputButtonUp";
 
 -(id)initWithType:(NSString *)type_ sender:(BEUInputObject *)object
 {

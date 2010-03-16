@@ -11,7 +11,7 @@
 
 @implementation BEUEnvironment
 @synthesize areas, centerPoint, currentArea;
-@synthesize objectsLayer, backgroundLayer, foregroundLayer, areasLayer,debugLayer;
+@synthesize objectsLayer, backgroundLayer, foregroundLayer, areasLayer,debugLayer,environmentMoveVelocity;
 
 static BEUEnvironment *_sharedEnvironment = nil;
 
@@ -20,8 +20,11 @@ static BEUEnvironment *_sharedEnvironment = nil;
 		
 		areas = [[NSMutableArray alloc] init];
 		
-		centerPoint = ccp([[CCDirector sharedDirector] winSize].width/2, [[CCDirector sharedDirector] winSize].height/2);
-	
+		centerPoint = ccp([[CCDirector sharedDirector] winSize].width*.5, [[CCDirector sharedDirector] winSize].height/2);
+		leftCenterPoint = ccp([[CCDirector sharedDirector] winSize].width*.33, [[CCDirector sharedDirector] winSize].height/2);
+		rightCenterPoint = ccp([[CCDirector sharedDirector] winSize].width*.66, [[CCDirector sharedDirector] winSize].height/2);
+		
+		
 		backgroundLayer = [[CCLayer alloc] init];
 		[self addChild:backgroundLayer];
 		
@@ -35,6 +38,8 @@ static BEUEnvironment *_sharedEnvironment = nil;
 		[self addChild:foregroundLayer];
 		debugLayer = [[DebugLayer alloc] init];
 		[self addChild:debugLayer];
+		
+		environmentMoveVelocity = 200.0f;
 	}
 	
 	return self;
@@ -89,20 +94,17 @@ static BEUEnvironment *_sharedEnvironment = nil;
 }
 
 
--(void)moveEnvironment
+-(void)moveEnvironment:(ccTime)delta;
 {
 	
 	BEUCharacter *character = [[BEUObjectController sharedController] playerCharacter];
 	if(character){
-		CGRect charRect = CGRectMake(character.x + character.moveArea.origin.x, 
-									 character.z + character.moveArea.origin.y,
-									 character.moveArea.size.width, 
-									 character.moveArea.size.height);
+		
 		
 		for(BEUArea *area in areas)
 		{
 			CGRect areaRect = CGRectMake(area.position.x, area.position.y, area.contentSize.width, area.contentSize.height);
-			if(CGRectContainsRect(areaRect, charRect))
+			if(CGRectContainsRect(areaRect, [character globalMoveArea]))
 			{
 				currentArea = area;
 				break;
@@ -111,30 +113,61 @@ static BEUEnvironment *_sharedEnvironment = nil;
 	}
 	
 	
+	float newX;
+	float newY;
 	
-	float newX = -character.position.x + centerPoint.x + character.moveArea.size.width*.5;
-	float newY = -character.position.y + centerPoint.y + character.moveArea.size.height*.5;
+	//target point the environment should move to
+	CGPoint targetPoint = (character.facingRight) ? leftCenterPoint : rightCenterPoint;
+	
+	float toX = -character.position.x + targetPoint.x + character.moveArea.size.width*.5;
+	float toY = -character.position.y + targetPoint.y + character.moveArea.size.height*.5;
+	
+	BOOL movingRight = YES;
+	BOOL movingUp = YES;
+	
+	
+	//calculate newx and y values with velocity
+	if(self.position.x < toX)
+	{
+		newX = self.position.x + environmentMoveVelocity*delta;
+	} else {
+		newX = self.position.x - environmentMoveVelocity*delta;
+		movingRight = NO;
+	}
+	
+	if(self.position.y < toY)
+	{
+		newY = self.position.y + environmentMoveVelocity*delta;
+	} else {
+		newY = self.position.y - environmentMoveVelocity*delta;
+		movingUp = NO;
+	}
+	
+	//Check if the new x and y calculated are past their target	
+	if((newX > toX && movingRight) || (newX < toX && !movingRight)) newX = toX;
+	if((newY > toY && movingUp) || (newY < toY && !movingUp)) newY = toY;
+	
+	//Now check if the new x and y are past the current area that should be shown, if they are constrain the newx and y to it
+	if(newX > -currentArea.position.x) newX= -currentArea.position.x;
+	if(newY > -currentArea.position.y) newY = -currentArea.position.y;	
+	
+	if(newX < -(currentArea.position.x + currentArea.contentSize.width - [[CCDirector sharedDirector] winSize].width))
+	{
+		newX = -(currentArea.position.x + currentArea.contentSize.width - [[CCDirector sharedDirector] winSize].width); 
+	}
+	
+	if(newY < -(currentArea.position.y + currentArea.contentSize.height - [[CCDirector sharedDirector] winSize].height))
+	{
+		newY = -(currentArea.position.y + currentArea.contentSize.height - [[CCDirector sharedDirector] winSize].height);
+	}
 	
 	self.position = ccp(newX, newY);
-
-	if(self.position.x > -currentArea.position.x) self.position = ccp(-currentArea.position.x,self.position.y);
-	if(self.position.y > -currentArea.position.y) self.position = ccp(self.position.x,-currentArea.position.y);	
-	
-	if(self.position.x < -(currentArea.position.x + currentArea.contentSize.width - [[CCDirector sharedDirector] winSize].width))
-	{
-		self.position = ccp(-(currentArea.position.x + currentArea.contentSize.width - [[CCDirector sharedDirector] winSize].width), self.position.y); 
-	}
-	
-	if(self.position.y < -(currentArea.position.y + currentArea.contentSize.height - [[CCDirector sharedDirector] winSize].height))
-	{
-		self.position = ccp(self.position.x, -(currentArea.position.y + currentArea.contentSize.height - [[CCDirector sharedDirector] winSize].height));
-	}
 }
 
 -(void)step:(ccTime)delta
 {
 	[self manageDepths];
-	[self moveEnvironment];
+	[self moveEnvironment:delta];
 	
 	
 	

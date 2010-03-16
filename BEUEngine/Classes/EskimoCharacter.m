@@ -23,6 +23,11 @@
 	return self;
 }
 
+-(void)step:(ccTime)delta
+{
+	
+}
+
 -(void)setUpEskimo
 {
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"Eskimo.plist"];

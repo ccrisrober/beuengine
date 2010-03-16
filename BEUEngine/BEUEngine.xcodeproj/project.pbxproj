@@ -228,6 +228,9 @@
 		8398855B11403EE500E3E0DE /* BEUTrigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 8398855811403EE500E3E0DE /* BEUTrigger.m */; };
 		8398855C11403EE500E3E0DE /* BEUTriggerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8398855A11403EE500E3E0DE /* BEUTriggerController.m */; };
 		83A2A05011476B3600B0224B /* BEUSpawner.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A2A04F11476B3600B0224B /* BEUSpawner.m */; };
+		83A785F5114EE9E40009AE0C /* TestButton-Down.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A785F3114EE9E40009AE0C /* TestButton-Down.png */; };
+		83A785F6114EE9E40009AE0C /* TestButton-Up.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A785F4114EE9E40009AE0C /* TestButton-Up.png */; };
+		83A785F9114EEA360009AE0C /* BEUInputButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A785F8114EEA360009AE0C /* BEUInputButton.m */; };
 		83BEA34B1144959F00AAAD2A /* BEUCharacterAIBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BEA3481144959F00AAAD2A /* BEUCharacterAIBehavior.m */; };
 		83BEA34C1144959F00AAAD2A /* BEUCharacterAIMoveBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BEA34A1144959F00AAAD2A /* BEUCharacterAIMoveBehavior.m */; };
 		83C26449114A03EB00E05392 /* Eskimo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83C26447114A03EB00E05392 /* Eskimo.plist */; };
@@ -509,6 +512,10 @@
 		8398855A11403EE500E3E0DE /* BEUTriggerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUTriggerController.m; sourceTree = "<group>"; };
 		83A2A04E11476B3600B0224B /* BEUSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUSpawner.h; sourceTree = "<group>"; };
 		83A2A04F11476B3600B0224B /* BEUSpawner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUSpawner.m; sourceTree = "<group>"; };
+		83A785F3114EE9E40009AE0C /* TestButton-Down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TestButton-Down.png"; path = "Game Art/TestButton-Down.png"; sourceTree = SOURCE_ROOT; };
+		83A785F4114EE9E40009AE0C /* TestButton-Up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TestButton-Up.png"; path = "Game Art/TestButton-Up.png"; sourceTree = SOURCE_ROOT; };
+		83A785F7114EEA360009AE0C /* BEUInputButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUInputButton.h; sourceTree = "<group>"; };
+		83A785F8114EEA360009AE0C /* BEUInputButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUInputButton.m; sourceTree = "<group>"; };
 		83BEA3471144959F00AAAD2A /* BEUCharacterAIBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterAIBehavior.h; sourceTree = "<group>"; };
 		83BEA3481144959F00AAAD2A /* BEUCharacterAIBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUCharacterAIBehavior.m; sourceTree = "<group>"; };
 		83BEA3491144959F00AAAD2A /* BEUCharacterAIMoveBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUCharacterAIMoveBehavior.h; sourceTree = "<group>"; };
@@ -940,6 +947,8 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				83A785F3114EE9E40009AE0C /* TestButton-Down.png */,
+				83A785F4114EE9E40009AE0C /* TestButton-Up.png */,
 				831413FA11471BE200643E64 /* joystickStick.png */,
 				8314142311471E2B00643E64 /* joystickBase.png */,
 				50F414EC1069373D002A0D5E /* Default.png */,
@@ -1007,6 +1016,8 @@
 				834ACDD8114C734600AC299A /* BEUInputObject.m */,
 				834AD023114DFC6300AC299A /* BEUInputGestureArea.h */,
 				834AD024114DFC6300AC299A /* BEUInputGestureArea.m */,
+				83A785F7114EEA360009AE0C /* BEUInputButton.h */,
+				83A785F8114EEA360009AE0C /* BEUInputButton.m */,
 			);
 			name = input;
 			sourceTree = "<group>";
@@ -1202,6 +1213,8 @@
 				83C26449114A03EB00E05392 /* Eskimo.plist in Resources */,
 				83C2644A114A03EB00E05392 /* Eskimo.png in Resources */,
 				83C2644D114A03FF00E05392 /* IceTile1.png in Resources */,
+				83A785F5114EE9E40009AE0C /* TestButton-Down.png in Resources */,
+				83A785F6114EE9E40009AE0C /* TestButton-Up.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1252,6 +1265,7 @@
 				834ACDD6114C72B700AC299A /* BEUInputJoystick.m in Sources */,
 				834ACDD9114C734600AC299A /* BEUInputObject.m in Sources */,
 				834AD025114DFC6300AC299A /* BEUInputGestureArea.m in Sources */,
+				83A785F9114EEA360009AE0C /* BEUInputButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

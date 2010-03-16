@@ -23,7 +23,7 @@ static BEUObjectController *_sharedController = nil;
 		spawners = [[NSMutableArray alloc] init];
 		
 		
-		gravity = 400.0f;
+		gravity = 600.0f;
 	}
 	
 	return self;
@@ -81,12 +81,15 @@ static BEUObjectController *_sharedController = nil;
 
 -(void)removeCharacter:(BEUCharacter *)character
 {
+	
+	
+	[self removeObject:character];
 	[characters removeObject:character];
+	
 	[[BEUTriggerController sharedController] removeListener:self 
 													   type:BEUTriggerKilled
 												   selector:@selector(characterKilled:) 
 												 fromSender:character];
-	[self removeObject:character];
 }
 	
 
@@ -94,8 +97,15 @@ static BEUObjectController *_sharedController = nil;
 {
 	[self removeCharacter: ((BEUCharacter *)trigger.sender)];
 	//If all characters (aside from the player) added to object controller are killed fire trigger BEUTriggerAllEnemiesKilled
-	if([characters count] == 1)
+	int enemyCount = 0;
+	for(BEUCharacter *character in characters)
 	{
+		if(character.enemy) enemyCount++;
+	}
+	NSLog(@"ENEMY COUNT: %d",enemyCount);
+	if(enemyCount == 0)
+	{
+		NSLog(@"ALL ENEMIES KILLED");
 		[[BEUTriggerController sharedController] 
 		 sendTrigger:[BEUTrigger triggerWithType: BEUTriggerAllEnemiesKilled sender:self]
 		 ];
@@ -165,7 +175,7 @@ static BEUObjectController *_sharedController = nil;
 			if(!intersectsZ){
 				for(BEUObject *object in objects)
 				{
-					if( (object != obj) && (object.isWall) ) 
+					if( (object != obj) && (object.isWall) && obj.isWall) 
 						if( (intersectsZ = CGRectIntersectsRect([object globalMoveArea], movedRect)) ) break;
 				}
 			}
@@ -178,6 +188,7 @@ static BEUObjectController *_sharedController = nil;
 			//Move objects y value the moveY amount, no collision checking on the y axis
 			
 			obj.y += obj.moveY*delta;
+			
 			if(obj.y <= 0)
 			{
 				obj.y = 0;

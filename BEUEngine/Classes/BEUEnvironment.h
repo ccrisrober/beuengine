@@ -21,6 +21,8 @@
 @interface BEUEnvironment : CCLayer {
 	NSMutableArray *areas;
 	CGPoint centerPoint;
+	CGPoint leftCenterPoint;
+	CGPoint rightCenterPoint;
 	BEUArea *currentArea;
 	
 	CCLayer *objectsLayer;
@@ -28,6 +30,7 @@
 	CCLayer *foregroundLayer;
 	CCLayer *areasLayer;
 	
+	float environmentMoveVelocity;
 	
 	DebugLayer *debugLayer;
 }
@@ -35,6 +38,7 @@
 @property(nonatomic,retain) NSMutableArray *areas;
 @property(nonatomic) CGPoint centerPoint;
 @property(nonatomic, retain) BEUArea *currentArea;
+@property(nonatomic) float environmentMoveVelocity;
 
 @property(nonatomic,retain) CCLayer *objectsLayer;
 @property(nonatomic,retain) CCLayer *backgroundLayer;

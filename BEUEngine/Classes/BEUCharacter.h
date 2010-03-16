@@ -98,6 +98,9 @@ extern NSString *const BEUCharacterStateAttacking;
 //Standard walk function when move message is received and moveX and Z are 0
 -(void)idle;
 
+//Standard death animation, passes action that caused death to it
+-(void)death:(BEUAction *)action;
+
 //Killing of character
 -(void)kill;
 

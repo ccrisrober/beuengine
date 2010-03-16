@@ -695,6 +695,25 @@
 	
 }
 
+-(void)jump
+{
+	if(y == 0)
+	{
+		[self applyForceY: 200.0f];
+	}
+}
+
+-(void)receiveInput:(BEUInputEvent *)event
+{
+	if(event.type == BEUInputButtonDown && event.sender.tag == 2)
+	{
+		[self jump];
+	} else {
+		[super receiveInput:event];
+	}
+}
+
+
 
 -(void)step:(ccTime)delta
 {
