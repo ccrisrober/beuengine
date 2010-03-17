@@ -19,13 +19,16 @@
 	
 	sprite = [[CCSprite alloc] initWithFile:@"NinjaStarFish.png"];
 	sprite.anchorPoint = ccp(0.5f,0.5f);
-	
+	sprite.position = ccp(0.0f, sprite.contentSize.height/2);
 	self.anchorPoint = ccp(0.0f,0.0f);
 	
-	moveArea = CGRectMake(-sprite.contentSize.width/2,-sprite.contentSize.height/2,sprite.contentSize.width,sprite.contentSize.height);
-	hitArea = CGRectMake(moveArea.origin.x, moveArea.origin.y, moveArea.size.width, moveArea.size.height);
+	moveArea = CGRectMake(-sprite.contentSize.width/2,0,sprite.contentSize.width,sprite.contentSize.height);
+	hitArea = CGRectMake(moveArea.origin.x, moveArea.origin.y - 20, moveArea.size.width, moveArea.size.height + 40);
+	
+	drawBoundingBoxes = YES;
 	
 	[self addChild:sprite];
+	
 	
 	return self;
 }
@@ -34,7 +37,7 @@
 {
 	[super moveWithAngle:angle magnitude:mag_];
 	
-	[self runAction: [CCRepeatForever actionWithAction:
+	[sprite runAction: [CCRepeatForever actionWithAction:
 					  [CCRotateBy actionWithDuration:0.3f angle:360.0f]
 					  ]
 	 ];
@@ -45,12 +48,15 @@
 {
 	
 	[super step:delta];
+	
 }
 
 -(void)dealloc
 {
 	[self stopAllActions];
+	[sprite stopAllActions];
 	
+	[sprite release];
 	[super dealloc];
 }
 

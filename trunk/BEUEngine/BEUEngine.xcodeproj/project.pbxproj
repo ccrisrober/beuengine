@@ -220,6 +220,9 @@
 		8355F0A211500442006EBA18 /* Penguin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8355F0A011500442006EBA18 /* Penguin.plist */; };
 		8355F0A311500442006EBA18 /* Penguin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8355F0A111500442006EBA18 /* Penguin.png */; };
 		8355F0A511500459006EBA18 /* NinjaStarFish.png in Resources */ = {isa = PBXBuildFile; fileRef = 8355F0A411500459006EBA18 /* NinjaStarFish.png */; };
+		835ACEB81150918D00EC50CD /* SwordFish.png in Resources */ = {isa = PBXBuildFile; fileRef = 835ACEB71150918D00EC50CD /* SwordFish.png */; };
+		835ACEBC1150921C00EC50CD /* BEUWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 835ACEBB1150921C00EC50CD /* BEUWeapon.m */; };
+		835ACEBF1150933800EC50CD /* SwordFish.m in Sources */ = {isa = PBXBuildFile; fileRef = 835ACEBE1150933800EC50CD /* SwordFish.m */; };
 		8373F10A1148A840003592F7 /* PenguinCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8373F1091148A840003592F7 /* PenguinCharacter.m */; };
 		8373F13C1148B337003592F7 /* BEUSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 8373F13B1148B337003592F7 /* BEUSprite.m */; };
 		837E348911360E5100F6466D /* BEUInputEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 837E348811360E5100F6466D /* BEUInputEvent.m */; };
@@ -498,6 +501,11 @@
 		8355F0A011500442006EBA18 /* Penguin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Penguin.plist; path = "Game Art/Penguin/Penguin.plist"; sourceTree = SOURCE_ROOT; };
 		8355F0A111500442006EBA18 /* Penguin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Penguin.png; path = "Game Art/Penguin/Penguin.png"; sourceTree = SOURCE_ROOT; };
 		8355F0A411500459006EBA18 /* NinjaStarFish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NinjaStarFish.png; path = "Game Art/Penguin/Pieces/NinjaStarFish.png"; sourceTree = SOURCE_ROOT; };
+		835ACEB71150918D00EC50CD /* SwordFish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SwordFish.png; path = "Game Art/Penguin/Pieces/SwordFish.png"; sourceTree = SOURCE_ROOT; };
+		835ACEBA1150921C00EC50CD /* BEUWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUWeapon.h; sourceTree = "<group>"; };
+		835ACEBB1150921C00EC50CD /* BEUWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEUWeapon.m; sourceTree = "<group>"; };
+		835ACEBD1150933800EC50CD /* SwordFish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwordFish.h; sourceTree = "<group>"; };
+		835ACEBE1150933800EC50CD /* SwordFish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwordFish.m; sourceTree = "<group>"; };
 		8373F1081148A840003592F7 /* PenguinCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PenguinCharacter.h; sourceTree = "<group>"; };
 		8373F1091148A840003592F7 /* PenguinCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PenguinCharacter.m; sourceTree = "<group>"; };
 		8373F13A1148B337003592F7 /* BEUSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEUSprite.h; sourceTree = "<group>"; };
@@ -956,6 +964,7 @@
 				50F414EC1069373D002A0D5E /* Default.png */,
 				83C2644C114A03FF00E05392 /* IceTile1.png */,
 				8355F0A411500459006EBA18 /* NinjaStarFish.png */,
+				835ACEB71150918D00EC50CD /* SwordFish.png */,
 				832312E7113F06C900EE2AC0 /* SkeletalCharacter.plist */,
 				83C26447114A03EB00E05392 /* Eskimo.plist */,
 				83C26448114A03EB00E05392 /* Eskimo.png */,
@@ -1037,6 +1046,8 @@
 				83E9149C112E610200C10195 /* BEUObject.m */,
 				8355F09A114FFEF5006EBA18 /* BEUProjectile.h */,
 				8355F09B114FFEF5006EBA18 /* BEUProjectile.m */,
+				835ACEBA1150921C00EC50CD /* BEUWeapon.h */,
+				835ACEBB1150921C00EC50CD /* BEUWeapon.m */,
 			);
 			name = objects;
 			sourceTree = "<group>";
@@ -1052,6 +1063,8 @@
 				833A690B1149CAB100541113 /* IceTile.m */,
 				8355F09D115003F1006EBA18 /* NinjaStarFish.h */,
 				8355F09E115003F1006EBA18 /* NinjaStarFish.m */,
+				835ACEBD1150933800EC50CD /* SwordFish.h */,
+				835ACEBE1150933800EC50CD /* SwordFish.m */,
 			);
 			name = kungfuninjapenguin;
 			sourceTree = "<group>";
@@ -1237,6 +1250,7 @@
 				8355F0A211500442006EBA18 /* Penguin.plist in Resources */,
 				8355F0A311500442006EBA18 /* Penguin.png in Resources */,
 				8355F0A511500459006EBA18 /* NinjaStarFish.png in Resources */,
+				835ACEB81150918D00EC50CD /* SwordFish.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1290,6 +1304,8 @@
 				83A785F9114EEA360009AE0C /* BEUInputButton.m in Sources */,
 				8355F09C114FFEF5006EBA18 /* BEUProjectile.m in Sources */,
 				8355F09F115003F1006EBA18 /* NinjaStarFish.m in Sources */,
+				835ACEBC1150921C00EC50CD /* BEUWeapon.m in Sources */,
+				835ACEBF1150933800EC50CD /* SwordFish.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

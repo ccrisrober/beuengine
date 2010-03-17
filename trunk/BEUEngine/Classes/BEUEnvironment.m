@@ -243,8 +243,8 @@ typedef struct {
 	{
 		if(obj.drawBoundingBoxes)
 		{
-			[self drawRect:[obj convertRectToGlobal:obj.moveArea] color: ccc4(0, 255, 0, 125) lineWidth:2.0f];
-			[self drawRect:[obj convertRectToGlobal:obj.hitArea] color: ccc4(0, 0, 255, 125) lineWidth:2.0f];	
+			[self drawRect:[obj globalMoveArea] color: ccc4(0, 255, 0, 125) lineWidth:2.0f];
+			[self drawRect:[obj globalHitArea] color: ccc4(0, 0, 255, 125) lineWidth:2.0f];	
 		}
 
 	}

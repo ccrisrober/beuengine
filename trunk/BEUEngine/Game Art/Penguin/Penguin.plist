@@ -33,7 +33,7 @@
 		<key>Penguin-LeftLeg.png</key>
 		<dict>
 			<key>x</key>
-			<integer>131</integer>
+			<integer>151</integer>
 			<key>y</key>
 			<integer>1</integer>
 			<key>width</key>
@@ -52,7 +52,7 @@
 		<key>Penguin-LeftWing.png</key>
 		<dict>
 			<key>x</key>
-			<integer>113</integer>
+			<integer>115</integer>
 			<key>y</key>
 			<integer>1</integer>
 			<key>width</key>
@@ -90,7 +90,7 @@
 		<key>Penguin-RightLeg.png</key>
 		<dict>
 			<key>x</key>
-			<integer>156</integer>
+			<integer>176</integer>
 			<key>y</key>
 			<integer>1</integer>
 			<key>width</key>
@@ -109,7 +109,7 @@
 		<key>Penguin-RightWing.png</key>
 		<dict>
 			<key>x</key>
-			<integer>95</integer>
+			<integer>133</integer>
 			<key>y</key>
 			<integer>1</integer>
 			<key>width</key>
@@ -124,6 +124,25 @@
 			<integer>17</integer>
 			<key>originalHeight</key>
 			<integer>39</integer>
+		</dict>
+		<key>Penguin-LeftWing2.png</key>
+		<dict>
+			<key>x</key>
+			<integer>95</integer>
+			<key>y</key>
+			<integer>1</integer>
+			<key>width</key>
+			<integer>19</integer>
+			<key>height</key>
+			<integer>42</integer>
+			<key>offsetX</key>
+			<real>0</real>
+			<key>offsetY</key>
+			<real>0</real>
+			<key>originalWidth</key>
+			<integer>19</integer>
+			<key>originalHeight</key>
+			<integer>42</integer>
 		</dict>
 	</dict>
 </dict>
