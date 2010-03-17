@@ -12,10 +12,13 @@
 #import "BEUSprite.h"
 #import "cocos2d.h"
 #import "NinjaStarFish.h"
+#import "SwordFish.h"
 
 @class BEUCharacter;
 @class BEUSprite;
 @class NinjaStarFish;
+@class SwordFish;
+
 
 @interface PenguinCharacter : BEUCharacter {
 	
@@ -30,6 +33,7 @@
 	
 	NSMutableDictionary *animations;
 	
+	BOOL holdingWeapon;
 }
 
 -(void)buildPenguin;

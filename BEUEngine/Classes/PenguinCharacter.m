@@ -66,6 +66,13 @@
 	[penguin addChild:body z:3 tag:3];
 	[penguin addChild:leftWing z:4 tag:4];
 	
+	
+	SwordFish *sword = [[SwordFish alloc] init];
+	sword.rotation = 90;
+	[leftWing addChild:sword];
+	
+	holdingWeapon = YES;
+	
 	[self addChild:penguin];
 	
 	[movesController addMove:
@@ -740,10 +747,10 @@
 	   
 -(void)throwStar
 {
-	NinjaStarFish *ninjaStar = [[[NinjaStarFish alloc] initWithPower:50 weight:50 fromCharacter:self] autorelease];
-	ninjaStar.x = x + moveArea.size.width;
+	NinjaStarFish *ninjaStar = [[[NinjaStarFish alloc] initWithPower:10 weight:50 fromCharacter:self] autorelease];
+	ninjaStar.x = x + self.scaleX*(moveArea.size.width + 20);
 	ninjaStar.z = z;
-	ninjaStar.y = 70;
+	ninjaStar.y = 55;
 	[ninjaStar moveWithAngle:0 magnitude:self.scaleX*400.0f];
 	
 	[[BEUObjectController sharedController] addObject:ninjaStar];

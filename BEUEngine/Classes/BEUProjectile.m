@@ -79,7 +79,7 @@
 	if(hitAction)
 	{
 		hitAction.hitArea = [self globalHitArea];
-		hitAction.hitDepth = [self globalHitArea];
+		hitAction.hitDepth = [self globalMoveArea];
 	}
 	 
 	 if(fabsf(startX - x) > maxXDistance)
