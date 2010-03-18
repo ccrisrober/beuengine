@@ -121,7 +121,7 @@
 	[super run];
 	
 	currentAction = [BEUCharacterMoveTo actionWithPoint:
-					 ccp( ai.targetCharacter.x - 150 + (arc4random()%300) , (arc4random()%100) )
+					 [[BEUEnvironment sharedEnvironment] getRandomPositionInCurrentArea]
 					 ];
 	
 	currentAction.onCompleteSelector = @selector(complete);

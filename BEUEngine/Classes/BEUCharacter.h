@@ -83,6 +83,9 @@ extern NSString *const BEUCharacterStateAttacking;
 @property(nonatomic,retain) NSMutableArray *updateSelectors;
 @property(nonatomic,copy) NSString *state;
 @property(nonatomic,assign) BEUObject *orientToObject;
+
+@property(nonatomic,assign) float movingAngle;
+@property(nonatomic,assign) float movingPercent;
 //Basic move function with angle and percent which control the percent of moveSpeed that the character moves
 -(void)moveCharacterWithAngle:(float)angle percent:(float)percent;
 

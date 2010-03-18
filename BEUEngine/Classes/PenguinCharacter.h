@@ -58,12 +58,18 @@
 -(void)throwComplete;
 
 -(BOOL)swingWeapon1:(BEUMove *)move;
+-(void)swingWeapon1Send;
 -(void)swingWeapon1Complete;
 
 -(BOOL)swingWeapon2:(BEUMove *)move;
+-(void)swingWeapon2Send;
 -(void)swingWeapon2Complete;
 
--(void)jump;
+-(BOOL)swingWeapon3:(BEUMove *)move;
+-(void)swingWeapon3Send;
+-(void)swingWeapon3Complete;
 
+-(void)jump;
+-(void)block;
 
 @end

@@ -101,6 +101,24 @@ NSString *const BEUAreaTransitionContinue = @"area_transition_continue";
 	return NO;
 }
 
+-(BOOL)doesPointCollideWithTilesWalls:(CGPoint)point
+{
+	for(BEUEnvironmentTile *tile in self.tiles){
+		for(NSValue *wall in tile.walls){
+			if(CGRectContainsPoint([wall CGRectValue], point)){
+				return YES;
+			}
+		}
+	}
+	if(locked)
+	{
+		if(CGRectContainsPoint(leftEdgeWall, point)) return YES;
+		if(CGRectContainsPoint(rightEdgeWall, point)) return YES;
+	}
+	
+	return NO;
+}
+
 -(void)dealloc
 {
 	[tiles release];	

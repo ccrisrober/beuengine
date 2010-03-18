@@ -51,7 +51,7 @@
 -(void)removeObject:(BEUObject *)obj;
 -(void)manageDepths;
 -(void)moveEnvironment;
-
+-(CGPoint)getRandomPositionInCurrentArea;
 +(BEUEnvironment *)sharedEnvironment;
 
 -(void)step:(ccTime)delta;

@@ -34,6 +34,8 @@ affectedByGravity,friction;
 	
 	movementSpeed = 1.0f;
 	
+	directionMultiplier = 1;
+	
 	isWall = YES;
 	affectedByGravity = YES;
 	drawBoundingBoxes = NO;
@@ -58,6 +60,12 @@ affectedByGravity,friction;
 	else if(force > 0 && moveX > force) moveX = force;
 	//moveX = force;
 	return moveX;
+}
+
+-(float)applyAdjForceX:(float)force
+{
+	if(facingRight) return [self applyForceX:force];
+	else return [self applyForceX:-force];
 }
 
 -(float)applyForceY:(float)force
@@ -120,8 +128,10 @@ affectedByGravity,friction;
 	if(facingRight)
 	{
 		self.scaleX = 1;
+		directionMultiplier = 1;
 	} else {
 		self.scaleX = -1;
+		directionMultiplier = -1;
 	}
 }
 
