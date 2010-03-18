@@ -33,7 +33,6 @@
 	
 	NSMutableDictionary *animations;
 	
-	BOOL holdingWeapon;
 }
 
 -(void)buildPenguin;
@@ -41,21 +40,27 @@
 -(void)stopAllAnimations;
 -(void)setOrigPositions;
 
--(void)punch1:(BEUMove *)move;
+-(BOOL)punch1:(BEUMove *)move;
 -(void)punch1Complete;
--(void)punch2:(BEUMove *)move;
+-(BOOL)punch2:(BEUMove *)move;
 -(void)punch2Complete;
--(void)punch3:(BEUMove *)move;
+-(BOOL)punch3:(BEUMove *)move;
 -(void)punch3Complete;
 
--(void)kick1:(BEUMove *)move;
+-(BOOL)kick1:(BEUMove *)move;
 -(void)kick1Complete;
--(void)kick2:(BEUMove *)move;
+-(BOOL)kick2:(BEUMove *)move;
 -(void)kick2Complete;
 
--(void)throwNinjaStar:(BEUMove *)move;
+-(BOOL)throwNinjaStar:(BEUMove *)move;
 -(void)throwStar;
 -(void)throwComplete;
+
+-(BOOL)swingWeapon1:(BEUMove *)move;
+-(void)swingWeapon1Complete;
+
+-(BOOL)swingWeapon2:(BEUMove *)move;
+-(void)swingWeapon2Complete;
 
 -(void)jump;
 

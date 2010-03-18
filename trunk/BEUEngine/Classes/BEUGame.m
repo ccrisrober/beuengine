@@ -17,6 +17,7 @@
 #import "BEUInputGestureArea.h"
 #import "BEUInputButton.h"
 #import "NinjaStarFish.h"
+#import "SwordFish.h"
 
 @implementation BEUGame
 
@@ -50,6 +51,11 @@
 		character.enemy = NO;
 		[[BEUObjectController sharedController] setPlayerCharacter: character];
 		
+		
+		SwordFish *sword = [[SwordFish alloc] init];
+		sword.x = 150;
+		sword.z = 100;
+		[[BEUObjectController sharedController] addItem:sword];
 		
 		//for(int i=0; i<1; i++){
 			BEUCharacter *otherChar = [[EskimoCharacter alloc] init];

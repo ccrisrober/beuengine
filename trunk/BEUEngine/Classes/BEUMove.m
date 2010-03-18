@@ -63,16 +63,22 @@ range;
 	return self;
 }
 
+
 -(void)resetMove
 {
 	self.completed = NO;
 	self.inProgress = NO;
 }
 
--(void)startMove
+-(BOOL)startMove
 {
-	[character performSelector:self.moveSelector withObject: self];
-	self.inProgress = YES;
+	if([character performSelector:self.moveSelector withObject: self])
+	{
+		self.inProgress = YES;
+		return YES;
+	} else {
+		return NO;
+	}
 }
 
 -(void)cancelMove
@@ -100,7 +106,7 @@ range;
 }
 
 -(BOOL)trySequence:(NSArray *)sequence
-{
+{	
 	
 	if(sequence.count != inputSequence.count) return NO;
 		
@@ -108,9 +114,7 @@ range;
 	{
 		if([[sequence objectAtIndex: i] type] != [inputSequence objectAtIndex:i]) return NO;
 	}
-	[self startMove];
-	return YES;
-	
+	return [self startMove];	
 }
 
 -(void)dealloc

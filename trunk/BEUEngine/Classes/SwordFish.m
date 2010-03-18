@@ -16,8 +16,11 @@
 	if( (self = [super init]) )
 	{
 		sword = [CCSprite spriteWithFile:@"SwordFish.png"];
-		sword.anchorPoint = ccp(0.5f, 0.0f);
-		
+		sword.anchorPoint = ccp(0.0f, 0.0f);
+		sword.position = ccp(10,8);
+		sword.rotation = 90;
+		moveArea = CGRectMake(-10, -10, 90, 20);
+		drawBoundingBoxes = YES;
 		[self addChild:sword];
 	}
 	

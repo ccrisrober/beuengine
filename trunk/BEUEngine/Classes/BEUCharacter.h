@@ -64,6 +64,8 @@
 	float movingAngle;
 	float movingPercent;
 
+	
+	BEUObject *holdingItem;
 }
 
 //Some standard character states to use
@@ -103,6 +105,11 @@ extern NSString *const BEUCharacterStateAttacking;
 
 //Killing of character
 -(void)kill;
+
+//Pick up item function , item to pick up should be passed and tested if it can be picked up
+//then return Boolean value if it is picked up
+-(BOOL)pickUpItem:(BEUObject *)item;
+
 
 
 @end
