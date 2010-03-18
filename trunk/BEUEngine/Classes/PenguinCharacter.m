@@ -111,6 +111,14 @@
 	  ]
 	 ];
 	
+	[movesController addMove:
+	 [BEUMove moveWithName:@"swing2"
+				 character:self
+				  sequence:[[NSArray alloc] initWithObjects:BEUInputTap,BEUInputTap,nil]
+				  selector:@selector(swingWeapon2:)
+	  ]
+	 ];
+	
 	hitArea = CGRectMake(-35, 0, 70, 75);
 	moveArea = CGRectMake(-10,0,20,5);
 	
@@ -408,20 +416,80 @@
 	
 	[animations setValue:[CCSequence actions:
 						  [CCSpawn actions:
-						   [CCEaseOut actionWithAction:[CCRotateTo actionWithDuration:0.3f angle:-10.0f] rate:7],
-						   [CCMoveBy actionWithDuration:0.2f position:ccp(10.0, -5.0f)],
+						   [CCRotateTo actionWithDuration:0.15f angle:-20.0f],
+						   [CCMoveBy actionWithDuration:0.15f position:ccp(45.0, 0.0f)],
 						   nil
 						   ],
-						  nil
+						  [CCSpawn actions:
+						   [CCRotateTo actionWithDuration:0.25f angle:30.0f],
+						   [CCMoveBy actionWithDuration:0.25f position:ccp(-45.0f,0.0f)],
+						   nil
+						  ],
+						nil
 						  ]
 				  forKey:@"leftWingSwing1"];
 	
 	[animations setValue:[CCSequence actions:
+						  [CCRotateTo actionWithDuration:0.2f angle:40.0f],
+						  [CCRotateTo actionWithDuration:0.2f angle:0.0f],
+						  nil
+						  ] 
+				  forKey:@"bodySwing1"];
+	
+	[animations setValue:[CCSequence actions:
 						  [CCDelayTime actionWithDuration:0.3f],
+						  [CCCallFunc actionWithTarget:self selector:@selector(completeCurrentMove)],
+						  [CCDelayTime actionWithDuration:0.15f],
 						  [CCCallFunc actionWithTarget:self selector:@selector(swingWeapon1Complete)],
 						  nil
 						  ]
 				  forKey:@"selfSwing1"];
+	
+	[animations setValue:[CCSequence actions:
+						  [CCSpawn actions:
+						   [CCRotateTo actionWithDuration:0.2f angle: 50.0f],
+						   nil
+						   ],
+						  [CCSpawn actions:
+						   [CCRotateTo actionWithDuration:0.2f angle: 0.0f],
+						   nil
+						   ],
+						   nil
+						 ]
+				  forKey:@"leftLegSwing1"];
+	
+	[animations setValue:[CCSequence actions:
+						  [CCSpawn actions:
+						   [CCMoveBy actionWithDuration:0.2f position:ccp(10.0f,-5.0f)],
+						   [CCRotateTo actionWithDuration:0.2f angle: -50.0f],
+						   nil
+						   ],
+						  [CCSpawn actions:
+						   [CCMoveBy actionWithDuration:0.2f position:ccp(-10.0f,5.0f)],
+						   [CCRotateTo actionWithDuration:0.2f angle: 0.0f],
+						   nil
+						   ],
+						  nil
+						  ]
+				  forKey:@"rightLegSwing1"];
+	
+	[animations setValue:[CCSequence actions:
+						  [CCSpawn actions:
+						   [CCRotateTo actionWithDuration:0.15f angle:25.0f],
+						   [CCMoveBy actionWithDuration:0.15f position:ccp(10.0f, 15.0f)],
+						   nil
+						   ],
+						  [CCRotateTo actionWithDuration:0.2f angle:-5.0f],
+						  nil
+						  ] 
+				  forKey:@"leftWingSwing2"];
+	[animations setValue:[CCSequence actions:
+						  [CCDelayTime actionWithDuration:0.2f],
+						  [CCCallFunc actionWithTarget:self selector:@selector(completeCurrentMove)],
+						  [CCDelayTime actionWithDuration:0.15f],
+						  [CCCallFunc actionWithTarget:self selector:@selector(swingWeapon2Complete)],
+						  nil
+						  ] forKey:@"selfWingSwing2"];
 }
 
 -(void)walk
@@ -515,6 +583,11 @@
 		
 		
 	}
+}
+
+-(void)completeCurrentMove
+{
+	[currentMove completeMove];
 }
 
 -(BOOL)punch1: (BEUMove *)move
@@ -817,20 +890,21 @@
 	[self stopAllAnimations];
 	[self setOrigPositions];
 
-	leftWing.rotation = -190;
-	
+	leftWing.rotation = -130;
+	body.rotation = -10.0f;
+	[body runAction:[animations valueForKey:@"bodySwing1"]];
 	[self runAction:[animations valueForKey:@"selfSwing1"]];
 	[leftWing runAction:[animations valueForKey:@"leftWingSwing1"]];
-	
+	[leftLeg runAction:[animations valueForKey:@"leftLegSwing1"]];
+	[rightLeg runAction:[animations valueForKey:@"rightLegSwing1"]];
 	canMove = NO;
-	
+	[self applyForceX:self.scaleX*100.0f];
 	return YES;
 }
 
 -(void)swingWeapon1Complete
 {
 	canMove = YES;
-	[currentMove completeMove];
 	[self stopAllAnimations];
 	[self setOrigPositions];
 }
@@ -838,16 +912,27 @@
 -(BOOL)swingWeapon2:(BEUMove *)move
 {
 	if(!holdingItem) return NO;
-	
+	currentMove = move;
 	currentAnimation = @"swingWeapon2";
+	[self stopAllAnimations];
+	[self setOrigPositions];
 	
-	
+	leftWing.scaleY = -1;
+	leftWing.rotation = 120;
+	holdingItem.rotation = 30.0f;
+	[leftWing runAction:[animations valueForKey:@"leftWingSwing2"]];
+	[self runAction:[animations valueForKey:@"selfWingSwing2"]];
+	canMove = NO;
 	return YES;
 }
 
 -(void)swingWeapon2Complete
 {
-	
+	leftWing.scaleY = 1;
+	holdingItem.rotation = 0;
+	[self stopAllAnimations];
+	[self setOrigPositions];
+	canMove = YES;
 }
 
 
@@ -881,7 +966,7 @@
 		[leftWing addChild:item];
 		item.position = ccp(0,5);
 		//item.rotation = 90;
-		item.scaleY = -1;
+		//item.scaleY = -1;
 		holdingItem = item;
 		
 		return YES;
