@@ -39,6 +39,7 @@
 -(void)createAnimations;
 -(void)stopAllAnimations;
 -(void)setOrigPositions;
+-(void)completeCurrentMove;
 
 -(BOOL)punch1:(BEUMove *)move;
 -(void)punch1Complete;
