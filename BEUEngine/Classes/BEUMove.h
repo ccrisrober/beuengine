@@ -25,11 +25,13 @@
 	//Whether or not the move can be interupted by enemy attacks
 	BOOL interruptible;
 	
+	
+	
 	//Time from when move is complete to when the next move in a sequence can be done
 	float cooldownTime;
 	CCTimer *cooldownTimer;
 	
-	//Selector to fire when move is successfully started
+	//Selector to fire when move is attempted, the selector should return YES or NO depending on if it was successful
 	SEL moveSelector;
 	
 	//Selector to fire when move is completed, usually used in conjuction with move sequences
@@ -69,7 +71,7 @@
 
 
 -(void)resetMove;
--(void)startMove;
+-(BOOL)startMove;
 -(void)cancelMove;
 -(void)completeMove;
 

@@ -22,6 +22,7 @@
 @interface BEUObjectController : NSObject {
 	NSMutableArray *characters;
 	NSMutableArray *objects;
+	NSMutableArray *items;
 	NSMutableArray *spawners;
 	
 	
@@ -31,6 +32,7 @@
 }
 
 @property(nonatomic,retain) NSMutableArray *objects;
+@property(nonatomic,retain) NSMutableArray *items;
 @property(nonatomic,retain) NSMutableArray *characters;
 @property(nonatomic,retain) NSMutableArray *spawners;
 @property(nonatomic,assign) BEUCharacter *_playerCharacter;
@@ -39,17 +41,29 @@
 
 +(BEUObjectController *)sharedController;
 
+
+//Function to add and remove BEUObjects to the environment, all objects added
+//should be added/removed here
 -(void)addObject:(BEUObject *)object;
 -(void)removeObject:(BEUObject *)object;
+
+//Function to add/remove items that characters can pick up
+-(void)addItem:(BEUObject *)item;
+-(void)removeItem:(BEUObject *)item;
+
+//Function to add/remove characters
 -(void)addCharacter:(BEUCharacter *)character;
 -(void)removeCharacter:(BEUCharacter *)character;
+
 -(void)setPlayerCharacter:(BEUCharacter *)character;
 -(BEUCharacter *)playerCharacter;
 
+//Add/remove spawners
 -(void)addSpawner:(BEUSpawner *)spawner;
 -(void)removeSpawner:(BEUSpawner *)spawner;
 
 -(void)moveObjects:(ccTime)delta;
+-(void)checkItems:(ccTime)delta;
 -(void)updateSpawners:(ccTime)delta;
 -(void)step:(ccTime)delta;
 

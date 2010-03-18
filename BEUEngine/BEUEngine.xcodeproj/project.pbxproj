@@ -660,6 +660,7 @@
 		2D500B1D0D5A766B00DBA0E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				835F99C5115147B20084BCD4 /* actions */,
 				8355F099114FFEA5006EBA18 /* objects */,
 				834ACDCC114C726100AC299A /* input */,
 				8373F1071148A82A003592F7 /* kungfuninjapenguin */,
@@ -685,12 +686,6 @@
 				8398855911403EE500E3E0DE /* BEUTriggerController.h */,
 				8398855A11403EE500E3E0DE /* BEUTriggerController.m */,
 				83C916421137130D00734692 /* BEUInputReceiverProtocol.h */,
-				83C915A21136FA6000734692 /* BEUAction.h */,
-				83C915A31136FA6000734692 /* BEUAction.m */,
-				83C915A51136FA9600734692 /* BEUActionsController.h */,
-				83C915A61136FA9600734692 /* BEUActionsController.m */,
-				837E377B11399ADF00F6466D /* BEUHitAction.h */,
-				837E377C11399ADF00F6466D /* BEUHitAction.m */,
 				837E3832113A0A1400F6466D /* BEUMove.h */,
 				837E3833113A0A1400F6466D /* BEUMove.m */,
 				837E38D7113A345300F6466D /* BEUMovesController.h */,
@@ -1050,6 +1045,19 @@
 				835ACEBB1150921C00EC50CD /* BEUWeapon.m */,
 			);
 			name = objects;
+			sourceTree = "<group>";
+		};
+		835F99C5115147B20084BCD4 /* actions */ = {
+			isa = PBXGroup;
+			children = (
+				83C915A21136FA6000734692 /* BEUAction.h */,
+				83C915A31136FA6000734692 /* BEUAction.m */,
+				837E377B11399ADF00F6466D /* BEUHitAction.h */,
+				837E377C11399ADF00F6466D /* BEUHitAction.m */,
+				83C915A51136FA9600734692 /* BEUActionsController.h */,
+				83C915A61136FA9600734692 /* BEUActionsController.m */,
+			);
+			name = actions;
 			sourceTree = "<group>";
 		};
 		8373F1071148A82A003592F7 /* kungfuninjapenguin */ = {

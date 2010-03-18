@@ -67,11 +67,7 @@
 	[penguin addChild:leftWing z:4 tag:4];
 	
 	
-	SwordFish *sword = [[SwordFish alloc] init];
-	sword.rotation = 90;
-	[leftWing addChild:sword];
 	
-	holdingWeapon = YES;
 	
 	[self addChild:penguin];
 	
@@ -104,6 +100,14 @@
 				 character:self
 				  sequence:[[NSArray alloc] initWithObjects:BEUInputSwipeForward, nil]
 				  selector:@selector(throwNinjaStar:)
+	  ]
+	 ];
+	
+	[movesController addMove:
+	 [BEUMove moveWithName:@"swing1"
+				 character:self
+				  sequence:[[NSArray alloc] initWithObjects:BEUInputTap,nil]
+				  selector:@selector(swingWeapon1:)
 	  ]
 	 ];
 	
@@ -400,6 +404,24 @@
 						 nil
 						 ] 
 				 forKey:@"selfThrow"];
+	
+	
+	[animations setValue:[CCSequence actions:
+						  [CCSpawn actions:
+						   [CCEaseOut actionWithAction:[CCRotateTo actionWithDuration:0.3f angle:-10.0f] rate:7],
+						   [CCMoveBy actionWithDuration:0.2f position:ccp(10.0, -5.0f)],
+						   nil
+						   ],
+						  nil
+						  ]
+				  forKey:@"leftWingSwing1"];
+	
+	[animations setValue:[CCSequence actions:
+						  [CCDelayTime actionWithDuration:0.3f],
+						  [CCCallFunc actionWithTarget:self selector:@selector(swingWeapon1Complete)],
+						  nil
+						  ]
+				  forKey:@"selfSwing1"];
 }
 
 -(void)walk
@@ -495,8 +517,11 @@
 	}
 }
 
--(void)punch1: (BEUMove *)move
+-(BOOL)punch1: (BEUMove *)move
 {
+	
+	if(holdingItem) return NO;
+	
 	currentAnimation = @"punch1";
 	currentMove = move;
 	canMove = NO;
@@ -519,6 +544,8 @@
 	
 	moveX = self.scaleX*100.0f;
 	
+	
+	return YES;
 }
 
 -(void)punch1Complete
@@ -549,8 +576,10 @@
 	currentMove = nil;
 }
 
--(void)punch2: (BEUMove *)move
+-(BOOL)punch2: (BEUMove *)move
 {
+	if(holdingItem) return NO;
+	
 	currentAnimation = @"punch2";
 	currentMove = move;
 	canMove = NO;
@@ -576,6 +605,8 @@
 	 ];
 	
 	moveX = self.scaleX*120.0f;
+	
+	return YES;
 }
 
 -(void)punch2Complete
@@ -605,8 +636,10 @@
 	currentMove = nil;
 }
 
--(void)punch3: (BEUMove *)move
+-(BOOL)punch3: (BEUMove *)move
 {
+	if(holdingItem) return NO;
+	
 	currentAnimation = @"punch3";
 	currentMove = move;
 	canMove = NO;
@@ -637,6 +670,8 @@
 	
 	moveX = self.scaleX*120.0f;
 	moveY = 220.0f;
+	
+	return YES;
 }
 
 -(void)punch3Complete
@@ -667,8 +702,10 @@
 	currentMove = nil;
 }
 
--(void)kick1:(BEUMove *)move
+-(BOOL)kick1:(BEUMove *)move
 {
+	if(holdingItem) return NO;
+	
 	currentAnimation = @"kick1";
 	currentMove = move;
 	canMove = NO;
@@ -683,6 +720,8 @@
 	
 	
 	moveY = 120.0f;
+	
+	return YES;
 }
 
 -(void)kick1Complete
@@ -714,9 +753,11 @@
 	currentMove = nil;
 }
 
--(void)kick2:(BEUMove *)move
+-(BOOL)kick2:(BEUMove *)move
 {
+	if(holdingItem) return NO;
 	
+	return YES;
 }
 
 -(void)kick2Complete
@@ -725,8 +766,10 @@
 }
 
 
--(void)throwNinjaStar:(BEUMove *)move
+-(BOOL)throwNinjaStar:(BEUMove *)move
 {
+	if(holdingItem) return NO;
+	
 	canMove = NO;
 	currentMove = move;
 	currentAnimation = @"throwingNinjaStar";
@@ -742,7 +785,7 @@
 	[self runAction:[animations valueForKey:@"selfThrow"]];
 	
 		
-	
+	return YES;
 }
 	   
 -(void)throwStar
@@ -765,6 +808,52 @@
 	[self setOrigPositions];
 }
 
+-(BOOL)swingWeapon1:(BEUMove *)move
+{
+	if(!holdingItem) return NO;
+	
+	currentAnimation = @"swingWeapon1";
+	currentMove = move;
+	[self stopAllAnimations];
+	[self setOrigPositions];
+
+	leftWing.rotation = -190;
+	
+	[self runAction:[animations valueForKey:@"selfSwing1"]];
+	[leftWing runAction:[animations valueForKey:@"leftWingSwing1"]];
+	
+	canMove = NO;
+	
+	return YES;
+}
+
+-(void)swingWeapon1Complete
+{
+	canMove = YES;
+	[currentMove completeMove];
+	[self stopAllAnimations];
+	[self setOrigPositions];
+}
+
+-(BOOL)swingWeapon2:(BEUMove *)move
+{
+	if(!holdingItem) return NO;
+	
+	currentAnimation = @"swingWeapon2";
+	
+	
+	return YES;
+}
+
+-(void)swingWeapon2Complete
+{
+	
+}
+
+
+
+
+
 -(void)jump
 {
 	if(y == 0)
@@ -783,6 +872,24 @@
 	}
 }
 
+-(BOOL)pickUpItem:(BEUObject *)item
+{
+	if([item isKindOfClass:[BEUWeapon class]])
+	{
+		[[BEUObjectController sharedController] removeItem:item];
+		
+		[leftWing addChild:item];
+		item.position = ccp(0,5);
+		//item.rotation = 90;
+		item.scaleY = -1;
+		holdingItem = item;
+		
+		return YES;
+	}
+	
+	return NO;
+	
+}
 
 
 -(void)step:(ccTime)delta

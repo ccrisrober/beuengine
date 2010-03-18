@@ -11,7 +11,7 @@
 
 @implementation BEUObjectController
 
-@synthesize objects, characters, spawners, _playerCharacter, gravity;
+@synthesize objects, characters, spawners, items, _playerCharacter, gravity;
 
 static BEUObjectController *_sharedController = nil;
 
@@ -21,6 +21,7 @@ static BEUObjectController *_sharedController = nil;
 		objects = [[NSMutableArray alloc] init];
 		characters = [[NSMutableArray alloc] init];
 		spawners = [[NSMutableArray alloc] init];
+		items = [[NSMutableArray alloc] init];
 		
 		
 		gravity = 600.0f;
@@ -67,6 +68,18 @@ static BEUObjectController *_sharedController = nil;
 	[[BEUActionsController sharedController] removeReceiver:object];
 	[objects removeObject:object];
 	
+}
+
+-(void)addItem:(BEUObject *)item
+{
+	[items addObject:item];
+	[self addObject:item];
+}
+
+-(void)removeItem:(BEUObject *)item
+{
+	[items removeObject:item];
+	[self removeObject:item];
 }
 
 -(void)addCharacter:(BEUCharacter *)character
@@ -128,8 +141,6 @@ static BEUObjectController *_sharedController = nil;
 //MOVE ALL OBJECTS
 -(void)moveObjects:(ccTime)delta
 {
-	
-	
 	
 	for ( BEUObject *obj in objects )
 	{
@@ -239,6 +250,30 @@ static BEUObjectController *_sharedController = nil;
 	}
 }
 
+-(void)checkItems:(ccTime)delta
+{
+	BOOL pickedUp = NO;
+	
+	for ( BEUObject *item in items )
+	{
+		
+		
+		for ( BEUCharacter *character in characters )
+		{
+			
+			if(CGRectIntersectsRect([item globalMoveArea], [character globalMoveArea]))
+			{
+				if([character pickUpItem:item])
+				{
+					pickedUp = YES;
+					break;
+				}
+			}
+		}
+		
+		if(pickedUp) break;
+	}
+}
 
 -(void)updateSpawners:(ccTime)delta
 {
@@ -257,6 +292,7 @@ static BEUObjectController *_sharedController = nil;
 	
 	
 	[self moveObjects:delta];
+	[self checkItems:delta];
 	[self updateSpawners:delta];
 }
 

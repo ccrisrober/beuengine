@@ -11,4 +11,14 @@
 
 @implementation BEUWeapon
 
+-(id)init
+{
+	if( (self = [super init]) )
+	{
+		isWall = NO;
+	}
+	
+	return self;
+}
+
 @end

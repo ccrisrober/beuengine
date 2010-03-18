@@ -132,6 +132,11 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 	 ];
 }
 
+-(BOOL)pickUpItem:(BEUObject *)item
+{
+	
+}
+
 -(void)step:(ccTime)delta
 {
 	
