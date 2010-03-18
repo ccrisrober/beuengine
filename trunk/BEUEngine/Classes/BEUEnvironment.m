@@ -231,6 +231,19 @@ typedef struct {
 }
 
 
+-(CGPoint)getRandomPositionInCurrentArea
+{
+	//Loop till we find an acceptable position to move to in the current area
+	while(1)
+	{
+		CGPoint point = ccp(currentArea.position.x + currentArea.contentSize.width*[BEUMath random], 
+							currentArea.position.y + currentArea.contentSize.height*[BEUMath random]);
+		
+		if(![currentArea doesPointCollideWithTilesWalls:point]) return point;
+		
+	}
+}
+
 @end
 
 @implementation DebugLayer

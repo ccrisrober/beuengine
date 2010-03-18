@@ -25,7 +25,7 @@
 
 -(void)step:(ccTime)delta
 {
-	
+	[super step:delta];
 }
 
 -(void)setUpEskimo
@@ -54,12 +54,19 @@
 	head = [[CCSprite alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Eskimo-Head.png"]];
 	head.anchorPoint = ccp(0.5f,0.0f);
 	
+	spear = [[CCSprite alloc] initWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Eskimo-Spear.png"]];
+	spear.anchorPoint = ccp(0.5f, 0.3f);
+	spear.position = ccp(0.0f, 7.0f);
+	spear.rotation = 90;
+	[leftArm addChild:spear z:-1];
+	
 	[eskimo addChild:rightLeg z:0];
 	[eskimo addChild:leftLeg z:1];
 	[eskimo addChild:rightArm z:2];
 	[eskimo addChild:body z:3];
 	[eskimo addChild:head z:4];
 	[eskimo addChild:leftArm z:5];
+	
 	
 	[self addChild:eskimo];
 	
@@ -171,6 +178,8 @@
 	[moveBranch addBehavior:[BEUCharacterAIMoveToTarget behavior]];
 	[moveBranch addBehavior:[BEUCharacterAIMoveAwayFromTarget behavior]];
 	[ai addBehavior:moveBranch];
+	
+	NSLog(@"SET UP AI: %@",ai);
 	
 }
 

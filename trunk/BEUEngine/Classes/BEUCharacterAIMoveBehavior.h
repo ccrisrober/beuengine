@@ -11,6 +11,8 @@
 #import "BEUCharacterMoveAction.h"
 #import "BEUCharacterAI.h"
 
+#import "BEUEnvironment.h"
+
 @class BEUCharacterMoveTo;
 @class BEUCharacterMoveToObject;
 @class BEUCharacterAction;

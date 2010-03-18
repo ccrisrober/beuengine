@@ -10,7 +10,7 @@
 
 @implementation BEUCharacter
 
-@synthesize life,canMove,movesController,currentMove,enemy,ai,updateSelectors,state,orientToObject;
+@synthesize life,canMove,movesController,currentMove,enemy,ai,updateSelectors,state,orientToObject,movingAngle,movingPercent;
 
 NSString *const BEUCharacterStateIdle = @"idle";
 NSString *const BEUCharacterStateMoving = @"moving";
@@ -59,14 +59,14 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 	BEUHitAction *hit = ((BEUHitAction *)action);
 	if(sender != self && sender.enemy != self.enemy)
 	{
-		[self applyForceX:hit.xForce];
-		[self applyForceZ:hit.zForce];
+		moveX = hit.xForce;
+		moveZ = hit.zForce;
 		
 		//If character is blocking, return 
 		if(state != BEUCharacterStateBlocking)
 		{
 			[self hit:action];
-			[self applyForceY:hit.yForce];
+			moveY = hit.yForce;
 			life -= hit.power;	
 			
 			if(life <= 0) [self death:action];
@@ -134,7 +134,7 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 
 -(BOOL)pickUpItem:(BEUObject *)item
 {
-	
+	return NO;
 }
 
 -(void)step:(ccTime)delta
@@ -171,8 +171,9 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 		}
 	}
 	
-	if(ai)[self.ai update:delta];
-	
+	if(ai){
+		[self.ai update:delta];
+	}
 	[super step:delta];
 }
 

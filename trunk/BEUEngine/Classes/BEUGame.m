@@ -87,15 +87,24 @@
 								  initWithUpSprite: [CCSprite spriteWithFile:@"TestButton-Up.png"] 
 										downSprite:[CCSprite spriteWithFile:@"TestButton-Down.png"]
 								  ];
-		button.position = ccp(400,100);
+		button.position = ccp(430,100);
 		button.tag = 2;
 		button.scale = 1.6;
+		
+		BEUInputButton *button1 = [[BEUInputButton alloc] 
+								  initWithUpSprite: [CCSprite spriteWithFile:@"TestButton-Up.png"] 
+								  downSprite:[CCSprite spriteWithFile:@"TestButton-Down.png"]
+								  ];
+		button1.position = ccp(330,100);
+		button1.tag = 3;
+		button1.scale = 1.6;
 		
 		
 		inputLayer = [[BEUInputLayer alloc] init];
 		[inputLayer addInput:joystick];
 		[inputLayer addInput:gestureArea];
 		[inputLayer addInput:button];
+		[inputLayer addInput:button1];
 		
 		[self addChild:inputLayer];
 		

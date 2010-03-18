@@ -41,6 +41,9 @@
 	//Simple boolean value to tell if object is facing right
 	//Used in convertRectToGlobal
 	BOOL facingRight;
+	//either 1 or -1 which can be used to multiply numbers like x forces or x coords to make sure they are oriented
+	//correctly
+	int directionMultiplier;
 	
 	float friction;
 	
@@ -69,7 +72,7 @@
 
 //apply xForce to object, correct way of moving an object
 -(float)applyForceX:(float)force;
-
+-(float)applyAdjForceX:(float)force;
 //apply xForce to object, correct way of moving an object
 -(float)applyForceY:(float)force;
 

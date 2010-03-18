@@ -40,10 +40,11 @@
 	{
 		[self complete];
 	} else {
-		[character moveCharacterWithAngle:
-		 [BEUMath angleFromPoint:ccp(character.x,character.z)
-						 toPoint:ccp(point.x,point.y)] 
-								  percent: 1];		
+		
+		
+		character.movingAngle = [BEUMath angleFromPoint:ccp(character.x,character.z)
+												toPoint:ccp(point.x,point.y)];
+		character.movingPercent = 1;
 	}
 	
 }
@@ -84,14 +85,13 @@
 	BEUCharacter *character = (BEUCharacter *)target;
 	if( ccpDistance(ccp(character.x,character.z), ccp(object.x,object.z)) < distance )
 	{
-		character.moveX = 0;
-		character.moveZ = 0;
+		character.movingAngle = 0;
+		character.movingPercent = 0;
 		[self complete];
 	} else {
-		[character moveCharacterWithAngle:
-		 [BEUMath angleFromPoint:ccp(character.x,character.z)
-						 toPoint:ccp(object.x,object.z)] 
-								  percent: 1];		
+		character.movingAngle = [BEUMath angleFromPoint:ccp(character.x,character.z)
+												toPoint:ccp(object.x,object.z)];
+		character.movingPercent = 1;
 	}
 }
 
