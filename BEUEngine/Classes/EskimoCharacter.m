@@ -78,6 +78,14 @@
 	drawBoundingBoxes = YES;
 	isWall = YES;
 	
+	
+	[movesController addMove:[BEUMove moveWithName:@"attack"
+										 character:self
+										  sequence:[NSArray arrayWithObjects:BEUInputTap,nil]
+										  selector:@selector(attack:)
+							  ]
+	 ];
+	
 }
 
 
@@ -120,8 +128,8 @@
 	[animations setValue:
 	 [CCRepeatForever actionWithAction:
 	  [CCSequence actions:
-	   [CCRotateTo actionWithDuration:0.2f angle:-35],
-	   [CCRotateTo actionWithDuration:0.2f angle:30],
+	   [CCRotateTo actionWithDuration:0.4f angle:-35],
+	   [CCRotateTo actionWithDuration:0.4f angle:30],
 	   nil
 	   ]
 	  ]
@@ -131,8 +139,8 @@
 	[animations setValue:
 	 [CCRepeatForever actionWithAction:
 	  [CCSequence actions:
-	   [CCRotateTo actionWithDuration:0.2f angle:30],
-	   [CCRotateTo actionWithDuration:0.2f angle:-30],
+	   [CCRotateTo actionWithDuration:0.4f angle:30],
+	   [CCRotateTo actionWithDuration:0.4f angle:-30],
 	   nil
 	   ]
 	  ]
@@ -142,8 +150,8 @@
 	[animations setValue:
 				  [CCRepeatForever actionWithAction:
 				   [CCSequence actions:
-					[CCRotateTo actionWithDuration:0.2f angle:-35],
-					[CCRotateTo actionWithDuration:0.2f angle:20],
+					[CCRotateTo actionWithDuration:0.4f angle:-35],
+					[CCRotateTo actionWithDuration:0.4f angle:20],
 					nil
 					]
 				   ]
@@ -153,13 +161,49 @@
 	[animations setValue:
 	 [CCRepeatForever actionWithAction:
 	  [CCSequence actions:
-	   [CCRotateTo actionWithDuration:0.2f angle:20],
-	   [CCRotateTo actionWithDuration:0.2f angle:-45],
+	   [CCRotateTo actionWithDuration:0.4f angle:20],
+	   [CCRotateTo actionWithDuration:0.4f angle:-45],
 	   nil
 	   ]
 	  ]
 				  forKey:@"rightArmWalk"
 	 ];
+	
+	
+	[animations setValue:
+	 [CCSequence actions:
+	  [CCSpawn actions:
+	   [CCMoveBy actionWithDuration:0.35f position: ccp(-15.0f,0.0f)],
+	   [CCRotateTo actionWithDuration:0.35f angle:40.0f],
+	   nil
+	   ],
+	  [CCSpawn actions:
+	   [CCMoveBy actionWithDuration:0.15f position: ccp(25.0f,0.0f)],
+	   [CCRotateTo actionWithDuration:0.15f angle: -20.0f],
+	   nil
+	   ],
+	  [CCSpawn actions:
+	   [CCMoveBy actionWithDuration:0.2f position: ccp(-10.0f,0.0f)],
+	   [CCRotateTo actionWithDuration:0.2f angle: 0.0f],
+	   nil
+	   ],
+	  nil
+	  ]
+				  forKey:@"leftArmAttack"
+	 ];
+	
+	[animations setValue:
+	 [CCSequence actions:
+	  [CCDelayTime actionWithDuration:0.4f],
+	  [CCCallFunc actionWithTarget:self selector:@selector(attackSend)],
+	  [CCDelayTime actionWithDuration:0.3f],
+	  [CCCallFunc actionWithTarget:self selector:@selector(attackComplete)],
+	  nil
+	  ]
+				  forKey:@"selfAttack"
+	 ];
+	
+	
 	
 	/*[animations setValue:
 	 [CCSequence actions:
@@ -171,21 +215,58 @@
 	
 }
 
+-(BOOL)attack:(BEUMove *)move
+{
+	currentAnimation = @"attack";
+	currentMove = move;
+	
+	[self stopAllAnimations];
+	[self setOrigPositions];
+	[leftArm runAction:[animations valueForKey:@"leftArmAttack"]];
+	[self runAction:[animations valueForKey:@"selfAttack"]];
+	
+	canMove = NO;
+	
+	return YES;
+}
+
+-(void)attackSend
+{
+	
+}
+
+-(void)attackComplete
+{
+	[currentMove completeMove];
+	[self idle];
+	
+	canMove = YES;
+}
+
+
 -(void)setUpAI
 {
 	ai = [[BEUCharacterAI alloc] initWithParent:self];
-	BEUCharacterAIBehavior *moveBranch = [BEUCharacterAIMove behavior];
+	
+	/*BEUCharacterAIBehavior *moveBranch = [BEUCharacterAIMove behavior];
 	[moveBranch addBehavior:[BEUCharacterAIMoveToTarget behavior]];
 	[moveBranch addBehavior:[BEUCharacterAIMoveAwayFromTarget behavior]];
+	[moveBranch addBehavior:[BEUCharacterAIMoveAwayToTargetZ behavior]];
 	[ai addBehavior:moveBranch];
+	*/
+	BEUCharacterAIBehavior *idleBranch = [BEUCharacterAIIdleBehavior behaviorWithMinTime:0.3f maxTime:1.0f];
+	[ai addBehavior:idleBranch];
 	
-	NSLog(@"SET UP AI: %@",ai);
+	BEUCharacterAIBehavior *attackBranch = [BEUCharacterAIAttackBehavior behavior];
+	[attackBranch addBehavior:[BEUCharacterAIMoveToAndAttack behaviorWithMoves:[movesController moves]]];
+	[ai addBehavior:attackBranch];
 	
 }
 
 -(void)stopAllAnimations
 {
-	//[self stopAllActions];
+	[self stopAllActions];
+	
 	[leftLeg stopAllActions];
 	[rightLeg stopAllActions];
 	[leftArm stopAllActions];
@@ -229,6 +310,8 @@
 {
 	if(currentAnimation != @"idle")
 	currentAnimation = @"idle";
+	[self stopAllAnimations];
+	[self setOrigPositions];
 	canMove = YES;
 }
 

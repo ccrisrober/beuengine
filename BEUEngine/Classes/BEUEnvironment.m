@@ -244,6 +244,22 @@ typedef struct {
 	}
 }
 
+-(CGPoint)getValidRandomPointWithinRect:(CGRect)rect
+{
+	//Loop till a point is found within the rect that doesnt collide with tile walls
+	while(1)
+	{
+		CGPoint point = ccp(rect.origin.x + rect.size.width*[BEUMath random],
+							rect.origin.y + rect.size.height*[BEUMath random]);
+		//BOOL collides = NO;
+		if(point.x < 0 || point.x > currentArea.position.x + currentArea.contentSize.width) continue;
+		if([currentArea doesPointCollideWithTilesWalls:point]) continue;
+		
+		
+		return point;
+	}
+}
+
 @end
 
 @implementation DebugLayer

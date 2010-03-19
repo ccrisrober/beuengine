@@ -46,7 +46,7 @@
 
 -(float)value
 {
-	return lastValue = (1-ai.difficultyMultiplier)*[BEUMath random];
+	return lastValue = (ai.difficultyMultiplier)*[BEUMath random];
 }
 
 @end
@@ -121,7 +121,9 @@
 	[super run];
 	
 	currentAction = [BEUCharacterMoveTo actionWithPoint:
-					 [[BEUEnvironment sharedEnvironment] getRandomPositionInCurrentArea]
+					 [[BEUEnvironment sharedEnvironment] getValidRandomPointWithinRect:
+					  CGRectMake(ai.targetCharacter.x - 200,0,400,300)
+					  ]
 					 ];
 	
 	currentAction.onCompleteSelector = @selector(complete);
@@ -146,6 +148,50 @@
 	return 0;*/
 	
 	return lastValue = [BEUMath random] * ai.difficultyMultiplier;
+}
+
+@end
+
+
+
+@implementation BEUCharacterAIMoveAwayToTargetZ
+
+-(id)init
+{
+	if( (self = [super init]) )
+	{
+		name = @"moveAwayToTargetZ";
+	}
+	
+	return self;
+}
+
++(id)behavior
+{
+	return [[[BEUCharacterAIMoveAwayToTargetZ alloc] init] autorelease];
+}
+
+-(void)run
+{
+	currentAction = [BEUCharacterMoveTo actionWithPoint:
+					 [[BEUEnvironment sharedEnvironment] getValidRandomPointWithinRect:
+					  CGRectMake(ai.targetCharacter.x - 200,ai.targetCharacter.z - 20,400,40)
+					  ]
+					 ];
+	
+	currentAction.onCompleteSelector = @selector(complete);
+	currentAction.onCompleteTarget = self;
+	
+	[ai.parent runAction: currentAction];
+	
+	
+}
+
+-(float)value
+{
+
+	return lastValue = [BEUMath random]*ai.difficultyMultiplier;
+	
 }
 
 @end

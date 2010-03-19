@@ -46,3 +46,10 @@
 }
 
 @end
+
+@interface BEUCharacterAIMoveAwayToTargetZ : BEUCharacterAIMove
+{
+
+}
+
+@end
