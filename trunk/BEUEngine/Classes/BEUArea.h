@@ -52,5 +52,6 @@ extern NSString *const BEUAreaTransitionContinue;
 
 -(void)addTile:(BEUEnvironmentTile *)tile;
 -(BOOL)doesRectCollideWithTilesWalls:(CGRect)objRect;
+-(BOOL)doesPointCollideWithTilesWalls:(CGPoint)point;
 -(void)updateTileWalls;
 @end

@@ -52,6 +52,7 @@
 -(void)manageDepths;
 -(void)moveEnvironment;
 -(CGPoint)getRandomPositionInCurrentArea;
+-(CGPoint)getValidRandomPointWithinRect:(CGRect)rect;
 +(BEUEnvironment *)sharedEnvironment;
 
 -(void)step:(ccTime)delta;

@@ -8,9 +8,12 @@
 
 #import "BEUCharacter.h"
 #import "BEUSprite.h"
+#import "BEUCharacterAIIdleBehavior.h"
 #import "BEUHitAction.h"
 #import "cocos2d.h"
 #import "BEUCharacterAIMoveBehavior.h"
+
+#import "BEUCharacterAIAttackBehavior.h"
 
 @interface EskimoCharacter : BEUCharacter {
 	BEUSprite *eskimo;
@@ -31,5 +34,11 @@
 -(void)setOrigPositions;
 -(void)setUpAI;
 -(void)stopAllAnimations;
+
+-(BOOL)attack:(BEUMove *)move;
+-(void)attackSend;
+-(void)attackCcomplete;
+
+-(void)block;
 
 @end

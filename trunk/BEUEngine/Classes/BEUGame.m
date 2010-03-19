@@ -46,6 +46,7 @@
 		
 				
 		BEUCharacter *character = [[PenguinCharacter alloc] init];
+		character.ai = nil;
 		character.x = 50;
 		character.z = 100;
 		character.enemy = NO;
@@ -57,14 +58,14 @@
 		sword.z = 100;
 		[[BEUObjectController sharedController] addItem:sword];
 		
-		//for(int i=0; i<1; i++){
+		for(int i=0; i<2; i++){
 			BEUCharacter *otherChar = [[EskimoCharacter alloc] init];
 			otherChar.enemy = YES;
 			otherChar.x = 200 + arc4random()%350;
 			otherChar.z = 100 + arc4random()%100;
 			[[BEUObjectController sharedController] addCharacter:otherChar];
 		[[BEUTriggerController sharedController] addListener:firstArea type:BEUTriggerAllEnemiesKilled selector:@selector(unlock)];
-		//}
+		}
 		
 		/*BEUSpawner *spawner = [[BEUSpawner alloc] initWithSpawnArea:CGRectMake(300, 0, 50, 100) 
 															  types:[NSMutableSet setWithObjects:[BEUTestCharacter class],nil]

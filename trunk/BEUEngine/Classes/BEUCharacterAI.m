@@ -79,6 +79,7 @@ int tick = 0;
 						[currentBehavior run];
 					}
 				} else {
+					//NSLog(@"RUNNING NEXT BEHAVIOR: %@",nextBehavior);
 					currentBehavior = nextBehavior;
 					[currentBehavior run];
 				}
