@@ -101,6 +101,8 @@
 
 -(void)run
 {
+	[super run];
+	
 	BEUMove *moveToRun = [self getRandomMoveInRange];
 	[moveToRun startMove];
 	moveToRun.completeTarget = self;
@@ -121,6 +123,8 @@
 
 -(void)run
 {
+	[super run];
+	
 	attackMove = [self getRandomMove];
 	BEUCharacterMoveToObject *moveToAction = [BEUCharacterMoveToObject actionWithObject:ai.targetCharacter distance:attackMove.range*.75];
 	moveToAction.onCompleteTarget = self;
@@ -134,6 +138,7 @@
 	[attackMove startMove];
 	attackMove.completeTarget = self;
 	attackMove.completeSelector = @selector(complete);
+	
 }
 
 @end

@@ -12,7 +12,8 @@
 @implementation BEUMove
 
 @synthesize inputSequence, 
-character, 
+character,
+subMoves, 
 interruptible, 
 cooldownTime, 
 moveSelector, 
@@ -28,7 +29,7 @@ range;
 {
 	if( (self = [super init]) )
 	{
-		self.interruptible = NO;
+		self.interruptible = YES;
 		self.cooldownTime = .2;
 		self.completed = NO;
 		self.inProgress = NO;
@@ -63,6 +64,31 @@ range;
 	return self;
 }
 
++(id)moveWithName:(NSString *)name_ 
+		character:(BEUCharacter *)character_ 
+		 selector:(SEL)selector_ 
+		 subMoves:(NSMutableArray *)moves_
+{
+	return [[[self alloc] initWithName:name_ 
+							 character:character_ 
+							  selector:selector_ 
+							  subMoves:moves_
+			 ] autorelease];
+}
+
+-(id)initWithName:(NSString *)name_ 
+		character:(BEUCharacter *)character_ 
+		 selector:(SEL)selector_ 
+		 subMoves:(NSMutableArray *)moves_
+{
+	[self init];
+	
+	name = name_;
+	character = character_;
+	subMoves = moves_;
+	
+	return self;
+}
 
 -(void)resetMove
 {
@@ -85,7 +111,7 @@ range;
 {
 	if(interruptible)
 	{
-		
+		[self completeMove];
 	}
 }
 

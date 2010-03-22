@@ -76,6 +76,7 @@
 		distance = distance_;
 	}
 	
+	
 	return self;
 }
 

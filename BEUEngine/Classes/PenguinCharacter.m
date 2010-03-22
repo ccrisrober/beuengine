@@ -773,7 +773,7 @@
 														 selector:@selector(receiveHit:)duration:1 
 														  hitArea: [self convertRectToGlobal: punchHit] 
 														 hitDepth: [self convertRectToGlobal: punchDepth] 
-															power: 20 
+															power: 2 
 														   xForce: (directionMultiplier*120.0f) 
 														   yForce: 0.0f
 														   zForce: 0.0f];
@@ -833,7 +833,7 @@
 														 selector:@selector(receiveHit:)duration:1 
 														  hitArea: [self convertRectToGlobal: punchHit] 
 														 hitDepth: [self convertRectToGlobal: punchDepth] 
-															power: 20 
+															power: 2 
 														   xForce: directionMultiplier*120.0f
 														   yForce: 0.0f
 														   zForce: 0.0f];
@@ -898,7 +898,7 @@
 														 selector:@selector(receiveHit:)duration:1 
 														  hitArea: [self convertRectToGlobal: punchHit] 
 														 hitDepth: [self convertRectToGlobal: punchDepth] 
-															power: 5 
+															power: 2 
 														   xForce: directionMultiplier*120.0f
 														   yForce: 170.0f
 														   zForce: 0.0f];
@@ -948,7 +948,7 @@
 														 selector:@selector(receiveHit:)duration:1 
 														  hitArea: [self convertRectToGlobal: punchHit] 
 														 hitDepth: [self convertRectToGlobal: punchDepth] 
-															power: 5 
+															power: 2 
 														   xForce: directionMultiplier*100.0f 
 														   yForce: 0.0f
 														   zForce: 0.0f];
@@ -998,7 +998,7 @@
 	   
 -(void)throwStar
 {
-	NinjaStarFish *ninjaStar = [[[NinjaStarFish alloc] initWithPower:10 weight:50 fromCharacter:self] autorelease];
+	NinjaStarFish *ninjaStar = [[[NinjaStarFish alloc] initWithPower:2 weight:50 fromCharacter:self] autorelease];
 	ninjaStar.x = x + self.scaleX*(moveArea.size.width + 20);
 	ninjaStar.z = z;
 	ninjaStar.y = 55;
@@ -1046,7 +1046,7 @@
 								 duration:1
 								  hitArea:[self convertRectToGlobal:CGRectMake(0, 0, 100, 100)]
 								 hitDepth:[self convertRectToGlobal:CGRectMake(0,-50,100,moveArea.size.height + 100)]
-									power:5
+									power:2
 								   xForce:directionMultiplier*100.0f
 								   yForce:0.0f
 								   zForce:0.0f
@@ -1095,7 +1095,7 @@
 								 duration:1
 								  hitArea:[self convertRectToGlobal:CGRectMake(0, 0, 100, 100)]
 								 hitDepth:[self convertRectToGlobal:CGRectMake(0,-50,100,moveArea.size.height + 100)]
-									power:30
+									power:2
 								   xForce:directionMultiplier*100.0f
 								   yForce:200.0f
 								   zForce:0.0f
@@ -1147,7 +1147,7 @@
 								 duration:1
 								  hitArea:[self convertRectToGlobal:CGRectMake(0, 0, 100, 100)]
 								 hitDepth:[self convertRectToGlobal:CGRectMake(0,-50,100,moveArea.size.height + 100)]
-									power:30
+									power:2
 								   xForce:directionMultiplier*100.0f
 								   yForce:-200.0f
 								   zForce:0.0f

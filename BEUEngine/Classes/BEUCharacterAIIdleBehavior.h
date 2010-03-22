@@ -7,12 +7,14 @@
 //
 
 #import "BEUCharacterAIBehavior.h"
+#import "cocos2d.h"
 
 @class BEUCharacterAIBehavior;
 
 @interface BEUCharacterAIIdleBehavior : BEUCharacterAIBehavior {
 	float minTime;
 	float maxTime;
+	CCAction *idleAction;
 }
 
 @property(nonatomic,assign) float minTime;

@@ -60,6 +60,8 @@
 -(void)addBehavior:(BEUCharacterAIBehavior *)behavior_;
 -(void)removeBehavior:(BEUCharacterAIBehavior *)behavior_;
 
+-(void)cancelCurrentBehavior;
+
 -(BEUCharacterAIBehavior *)getHighestValueBehavior;
 -(BEUCharacterAIBehavior *)getHighestValueBehaviorFromBehavior:(BEUCharacterAIBehavior *)behavior_;
 -(BEUCharacter *)findClosestEnemy;

@@ -119,12 +119,16 @@ waitTime, waiting, canReceiveInput;
 
 -(void)noInputReceived:(ccTime)delta
 {
-	waiting = NO;
-	canReceiveInput = YES;
-	[[CCScheduler sharedScheduler] unscheduleTimer:waitTimer];
-	
-	inputSequence = nil;
-	currentMove = nil;
+	if(waiting)
+	{
+		NSLog(@"NO INPUT RECEIVED");
+		waiting = NO;
+		canReceiveInput = YES;
+		[[CCScheduler sharedScheduler] unscheduleTimer:waitTimer];
+		waitTimer = nil;
+		inputSequence = nil;
+		currentMove = nil;
+	}
 }
 
 -(void)startCooldown
@@ -138,8 +142,9 @@ waitTime, waiting, canReceiveInput;
 
 -(void)endCooldown:(ccTime)delta
 {
-	[[CCScheduler sharedScheduler] unscheduleTimer:cooldownTimer];
-	
+	NSLog(@"ENDING COOLDOWN");
+	if(cooldownTimer) [[CCScheduler sharedScheduler] unscheduleTimer:cooldownTimer];
+	cooldownTimer = nil;
 	coolingDown = NO;
 	canReceiveInput = YES;
 }
