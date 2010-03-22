@@ -24,7 +24,7 @@ int tick = 0;
 		updateEvery = 8;
 		rootBehavior = [[BEUCharacterAIBehavior alloc] initWithName:@"root"];
 		rootBehavior.ai = self;
-		difficultyMultiplier = .7;
+		difficultyMultiplier = .5;
 	}
 	
 	return self;
@@ -63,6 +63,7 @@ int tick = 0;
 		{
 			currentBehavior = [self getHighestValueBehavior];
 			if(currentBehavior){
+				NSLog(@"RUNNING FIRST BEHAVIOR: %@", currentBehavior);
 				[currentBehavior run];
 			}
 		} else {
@@ -73,13 +74,13 @@ int tick = 0;
 				{
 					if(nextBehavior.canInteruptOthers && (nextBehavior.value > currentBehavior.value))
 					{
-						//NSLog(@"INTERRUPTING CURRENT BEHAVIOR WITH BLOCK");
+						NSLog(@"INTERRUPTING CURRENT BEHAVIOR WITH: %@", nextBehavior);
 						[currentBehavior cancel];
 						currentBehavior = nextBehavior;
 						[currentBehavior run];
 					}
 				} else {
-					//NSLog(@"RUNNING NEXT BEHAVIOR: %@",nextBehavior);
+					NSLog(@"RUNNING NEXT BEHAVIOR: %@",nextBehavior);
 					currentBehavior = nextBehavior;
 					[currentBehavior run];
 				}
@@ -114,8 +115,11 @@ int tick = 0;
 			[behavior value];
 			highest = behavior;
 		} else if(highest.lastValue < behavior.value){
-			highest = behavior;
+			if(!currentBehavior) highest = behavior;
+			else if(currentBehavior != behavior) highest = behavior;
 		}
+		
+		//NSLog(@"BEHAVIOR: %@, VALUE: %1.2f",behavior,behavior.lastValue);
 	}
 	return [self getHighestValueBehaviorFromBehavior:highest];//highest;
 	
@@ -139,6 +143,14 @@ int tick = 0;
 	}
 	
 	return closest;
+}
+
+-(void)cancelCurrentBehavior
+{
+	if(currentBehavior)
+	{
+		[currentBehavior cancel];
+	}
 }
 
 -(void)addBehavior:(BEUCharacterAIBehavior *)behavior

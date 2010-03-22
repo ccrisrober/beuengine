@@ -173,6 +173,8 @@
 
 -(void)run
 {
+	[super run];
+	
 	currentAction = [BEUCharacterMoveTo actionWithPoint:
 					 [[BEUEnvironment sharedEnvironment] getValidRandomPointWithinRect:
 					  CGRectMake(ai.targetCharacter.x - 200,ai.targetCharacter.z - 20,400,40)

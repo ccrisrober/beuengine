@@ -43,8 +43,16 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 	//If the character can move, set moveX and moveZ
 	if(canMove)
 	{
-		double moveSpeed = movementSpeed*percent;
-		[self applyForceX: cos(angle)*moveSpeed];
+		float moveSpeed = movementSpeed*percent;
+		float newMoveX = cos(angle)*moveSpeed;
+		if(newMoveX > 0)
+		{
+			[self setFacingRight:YES];
+		} else if(newMoveX < 0)
+		{
+			[self setFacingRight:NO];
+		}
+		[self applyForceX: newMoveX];
 		[self applyForceZ: sin(angle)*moveSpeed*.5];
 		
 	}
@@ -57,14 +65,39 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 	
 	BEUCharacter *sender = (BEUCharacter *)action.sender;
 	BEUHitAction *hit = ((BEUHitAction *)action);
+	
+	//Make sure the sender is not self, and make sure its an enemy
 	if(sender != self && sender.enemy != self.enemy)
 	{
+		//Check if a move is currently being run
+		if(movesController.currentMove)
+		{
+			//If a move is being run and the move cannot be interrupted, exit the hit
+			if(!movesController.currentMove.interruptible)
+			{
+				//Hit was not received
+				return NO;
+			} else {
+				[movesController.currentMove cancelMove];
+			}
+		}
+		
+		
+		
+		//Apply x and z forces of the move to the character
 		moveX = hit.xForce;
 		moveZ = hit.zForce;
 		
 		//If character is blocking, return 
 		if(state != BEUCharacterStateBlocking)
 		{
+			
+			//If the character is AI Controlled, cancel the current behavior
+			if(ai)
+			{
+				[ai cancelCurrentBehavior];
+			}
+			
 			[self hit:action];
 			moveY = hit.yForce;
 			life -= hit.power;	
@@ -72,9 +105,11 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 			if(life <= 0) [self death:action];
 		}
 		
+		//Hit was successfully received
 		return YES;
 		
 	} else {
+		//Hit was not received
 		return NO;
 	}
 }
@@ -153,16 +188,8 @@ NSString *const BEUCharacterStateAttacking = @"attacking";
 			[self idle];
 		}
 		
-		if(!orientToObject)
+		if(orientToObject)
 		{
-			if(moveX > 0)
-			{
-				[self setFacingRight:YES];
-			} else if(moveX < 0)
-			{
-				[self setFacingRight:NO];
-			}
-		} else {
 			if(orientToObject.x < self.x){
 				[self setFacingRight:NO];
 			} else {

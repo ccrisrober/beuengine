@@ -223,7 +223,7 @@
 	[self stopAllAnimations];
 	[self setOrigPositions];
 	[leftArm runAction:[animations valueForKey:@"leftArmAttack"]];
-	[self runAction:[animations valueForKey:@"selfAttack"]];
+	[eskimo runAction:[animations valueForKey:@"selfAttack"]];
 	
 	canMove = NO;
 	
@@ -232,7 +232,19 @@
 
 -(void)attackSend
 {
-	
+	[currentMove completeMove];
+	[[BEUActionsController sharedController] addAction:
+	 [[BEUHitAction alloc] initWithSender:self
+								 selector:@selector(receiveHit:)
+								 duration:1
+								  hitArea:[self convertRectToGlobal:CGRectMake(0, 0, 100, 100)]
+								 hitDepth:[self convertRectToGlobal:CGRectMake(0,-50,100,moveArea.size.height + 100)]
+									power:5
+								   xForce:directionMultiplier*100.0f
+								   yForce:0.0f
+								   zForce:0.0f
+	  ]
+	 ];
 }
 
 -(void)attackComplete
@@ -248,12 +260,12 @@
 {
 	ai = [[BEUCharacterAI alloc] initWithParent:self];
 	
-	/*BEUCharacterAIBehavior *moveBranch = [BEUCharacterAIMove behavior];
+	BEUCharacterAIBehavior *moveBranch = [BEUCharacterAIMove behavior];
 	[moveBranch addBehavior:[BEUCharacterAIMoveToTarget behavior]];
 	[moveBranch addBehavior:[BEUCharacterAIMoveAwayFromTarget behavior]];
 	[moveBranch addBehavior:[BEUCharacterAIMoveAwayToTargetZ behavior]];
 	[ai addBehavior:moveBranch];
-	*/
+	
 	BEUCharacterAIBehavior *idleBranch = [BEUCharacterAIIdleBehavior behaviorWithMinTime:0.3f maxTime:1.0f];
 	[ai addBehavior:idleBranch];
 	
@@ -265,8 +277,8 @@
 
 -(void)stopAllAnimations
 {
-	[self stopAllActions];
-	
+	//[self stopAllActions];
+	[eskimo stopAllActions];
 	[leftLeg stopAllActions];
 	[rightLeg stopAllActions];
 	[leftArm stopAllActions];

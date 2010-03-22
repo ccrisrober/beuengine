@@ -19,13 +19,16 @@
 	
 	BEUCharacter *character;
 	
+	
+	//Array of moves which can be performed in sequence after this move, should be nil if no
+	//moves are after the current move
+	NSMutableArray *subMoves;
+	
 	//Array of string value inputs that must be completed to do move, must match all to do move
 	NSArray *inputSequence;
 	
 	//Whether or not the move can be interupted by enemy attacks
 	BOOL interruptible;
-	
-	
 	
 	//Time from when move is complete to when the next move in a sequence can be done
 	float cooldownTime;
@@ -49,6 +52,7 @@
 
 @property(nonatomic,copy) NSString *name;
 @property(nonatomic,retain) BEUCharacter *character;
+@property(nonatomic,retain) NSMutableArray *subMoves;
 @property(nonatomic,retain) NSArray *inputSequence;
 @property(nonatomic) BOOL interruptible;
 @property(nonatomic) float cooldownTime;
@@ -69,6 +73,16 @@
 		 sequence:(NSArray *)sequence_
 		 selector:(SEL)selector_;
 
+
++(id)moveWithName:(NSString *)name_ 
+		character:(BEUCharacter *)character_
+		 selector:(SEL)selector_ 
+		 subMoves:(NSMutableArray *)moves_;
+
+-(id)initWithName:(NSString *)name_ 
+		character:(BEUCharacter *)character_ 
+		 selector:(SEL)selector_ 
+		 subMoves:(NSMutableArray *)moves_;
 
 -(void)resetMove;
 -(BOOL)startMove;

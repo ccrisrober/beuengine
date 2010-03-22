@@ -37,13 +37,27 @@
 {
 	[super run];
 	float randTime = minTime + (maxTime - minTime)*[BEUMath random];
-	[ai.parent runAction:
-	 [CCSequence actions: 
-	  [CCDelayTime actionWithDuration:randTime],
-	  [CCCallFunc actionWithTarget:self selector:@selector(complete)],
-	  nil 
-	  ]
-	 ];
+	idleAction = [CCSequence actions:
+				  [CCDelayTime actionWithDuration:randTime],
+				  [CCCallFunc actionWithTarget:self selector:@selector(complete)],
+				  nil
+				  ];
+	[ai.parent runAction:idleAction];
+	
+}
+
+-(void)cancel
+{
+	[super cancel];
+	[ai.parent stopAction:idleAction];
+	idleAction = nil;
+	
+}
+
+-(void)complete
+{
+	[super complete];
+	idleAction = nil;
 }
 
 @end

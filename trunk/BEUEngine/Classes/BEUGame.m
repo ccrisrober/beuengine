@@ -25,7 +25,7 @@
 
 -(id)init {
 	if( (self=[super init] )) {
-		
+		srand(time(NULL));
 		//ADD ENVIRONMENT TO THE STAGE
 		//environment.position = CGPointMake(environment.contentSize.width/2,environment.contentSize.height/2);
 		[self addChild:[BEUEnvironment sharedEnvironment]];
@@ -58,7 +58,7 @@
 		sword.z = 100;
 		[[BEUObjectController sharedController] addItem:sword];
 		
-		for(int i=0; i<2; i++){
+		for(int i=0; i<1; i++){
 			BEUCharacter *otherChar = [[EskimoCharacter alloc] init];
 			otherChar.enemy = YES;
 			otherChar.x = 200 + arc4random()%350;
